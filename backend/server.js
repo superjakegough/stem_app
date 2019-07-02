@@ -3,7 +3,7 @@ const express = require('express');
 var cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-//const Data = require('./data');
+const Data = require('./data');
 
 const API_PORT = 3001;
 const app = express();
@@ -11,7 +11,7 @@ app.use(cors());
 const router = express.Router();
 
 // this is our MongoDB database
-const dbRoute = 'mongodb://localhost/my_database';
+const dbRoute = 'mongodb://localhost/stem_database';
 
 // connects our back end code with the database
 mongoose.connect(dbRoute, { useNewUrlParser: true });

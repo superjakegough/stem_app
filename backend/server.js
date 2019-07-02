@@ -11,7 +11,7 @@ app.use(cors());
 const router = express.Router();
 
 // this is our MongoDB database
-const dbRoute = 'mongodb://localhost/stem_database';
+const dbRoute = 'mongodb+srv://superjake:nuONgT7N6on4h1Wg@cluster0-mdwa9.mongodb.net/test?retryWrites=true&w=majority';
 
 // connects our back end code with the database
 mongoose.connect(dbRoute, { useNewUrlParser: true });

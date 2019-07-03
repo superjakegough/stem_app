@@ -1,68 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# vue-template-light
 
-## Available Scripts
+[![Netlify Status](https://api.netlify.com/api/v1/badges/11b7cfb7-0d6c-4f21-bd0e-fe5ad4283bac/deploy-status)](https://app.netlify.com/sites/snakey-vue-light/deploys)
 
-In the project directory, you can run:
+Stylish, sleek modern website UI using Vue.js with Vuetify with unique layouts for large and small screen devices. The template is designed to utilise SPA router components for website navigation rather than anchor links as a means to prevent overly "long" pages.
 
-### `npm start`
+[Live preview.](https://snakey-vue-light.netlify.com)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+What things you need to install beforehand:
 
-### `npm test`
+```
+Node.js, Vue CLI, TypeScript and an IDE like VSCode
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installing
 
-### `npm run build`
+First download/clone the project:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+git clone https://github.com/SnakeyHips/vue-template-light.git
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Then install the node modules:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm install
+```
 
-### `npm run eject`
+### Development
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Run the following command to compile the template onto your localhost with hot-reloading:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```
+npm run serve
+```
 
 ### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Run the following command to minify and compile the website for production. Files will be generated within the 'dist' folder for deployment:
 
-### `npm run build` fails to minify
+```
+npm run build
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Built With
+
+* [Node.js](https://nodejs.org/en/) - JS runtime to build the web app
+* [Vue.js](https://vuejs.org/) - JS framework to build frontend
+* [TypeScript](https://www.typescriptlang.org/) - strict syntactical superset of JS
+* [Vuetify](https://vuetifyjs.com/en/) - to make frontend all pretty, Material Design and awesome
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/SnakeyHips/vue-template-light/blob/master/LICENSE) file for details.
+
+## Acknowledgments
+
+* Original design reverse engineered and improved upon from [this awesome design.](https://material-portfolio-dark.vuetifyjs.com/)
+* Free stock images [from Pexels.](https://www.pexels.com/)

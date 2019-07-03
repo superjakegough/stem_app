@@ -2,10 +2,12 @@ import axios from 'axios';
 import { DataItem } from '../models/data_item';
 
 const backendUrl: string = 'http://localhost:3001';
+const apiRoute: string = 'api/data';
+
 export let dataItems: DataItem[] = [];
 
 export const getDataFromDb = async () => {
-  await fetch(`${backendUrl}/api/getData`)
+  await fetch(`${backendUrl}/${apiRoute}/getAllData`)
     .then((data) => data.json())
     .then((res) => dataItems = res.data);
 };
@@ -17,7 +19,7 @@ export const putDataToDB = async (message: string) => {
     ++idToBeAdded;
   }
 
-  await axios.post(`${backendUrl}/api/putData`, {
+  await axios.post(`${backendUrl}/${apiRoute}/createData`, {
     id: idToBeAdded,
     message: message,
   });
@@ -31,7 +33,7 @@ export const deleteFromDB = async (idTodelete: number) => {
     }
   });
 
-  await axios.delete(`${backendUrl}/api/deleteData`, {
+  await axios.delete(`${backendUrl}/${apiRoute}/deleteData`, {
     data: {
       id: objIdToDelete,
     },
@@ -46,7 +48,7 @@ export const updateDB = async (idToUpdate: number, updateToApply: string) => {
     }
   });
 
-  await axios.post(`${backendUrl}/api/updateData`, {
+  await axios.post(`${backendUrl}/${apiRoute}/updateData`, {
     id: objIdToUpdate,
     update: { message: updateToApply },
   });

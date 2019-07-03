@@ -1,5 +1,5 @@
 import { Component, Vue } from 'vue-property-decorator';
-import { dataItems, getDataFromDb } from '../../services/http-data';
+import { dataItems, getDataFromDb } from '@/services/http-data';
 
 @Component
 export default class BlogComponent extends Vue {

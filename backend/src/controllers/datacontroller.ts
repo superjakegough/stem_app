@@ -1,9 +1,9 @@
-import express from 'express';
-import { DataItem } from '@/schemas/data_schema';
-import { IDataItem } from '@/interfaces/data_item';
+import express from "express";
+import { DataItem } from "@/schemas/data_schema";
+import { IDataItem } from "@/interfaces/data_item";
 
 export default class DataController {
-  public path: string = '/data';
+  public path: string = "/data";
   public router = express.Router();
 
   constructor() {
@@ -25,14 +25,14 @@ export default class DataController {
   };
 
   createData = (req: express.Request, res: express.Response) => {
-    let data = new DataItem();
+    const data = new DataItem();
 
     const { id, message } = req.body;
 
     if ((!id && id !== 0) || !message) {
       return res.json({
         success: false,
-        error: 'INVALID INPUTS',
+        error: "INVALID INPUTS",
       });
     }
     data.message = message;

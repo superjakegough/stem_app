@@ -1,5 +1,5 @@
-import { Schema, Model, model} from "mongoose";
-import { IDataItem } from '@/interfaces/data_item';
+import { Schema, Model, model } from "mongoose";
+import { IDataItem } from "@/interfaces/data_item";
 
 export const DataSchema: Schema = new Schema(
   {
@@ -10,4 +10,4 @@ export const DataSchema: Schema = new Schema(
 );
 
 export const DataItem: Model<IDataItem> = model<IDataItem>("Data", DataSchema);
-//module.exports = mongoose.model("Data", DataSchema);
+// module.exports = mongoose.model("Data", DataSchema);

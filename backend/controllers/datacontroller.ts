@@ -1,5 +1,6 @@
 import express from 'express';
-import * as Data from '../schemas/data';
+import { DataItem } from '../schemas/data_schema';
+import { IDataItem } from '../interfaces/data_item';
 
 export default class DataController {
   public path: string = '/data';
@@ -17,14 +18,14 @@ export default class DataController {
   }
 
   getAllData = (req: express.Request, res: express.Response) => {
-    Data.find((err: any, data: any) => {
+    DataItem.find((err: any, data: IDataItem) => {
       if (err) return res.json({ success: false, error: err });
       return res.json({ success: true, data: data });
     });
   };
 
   createData = (req: express.Request, res: express.Response) => {
-    let data = new Data();
+    let data = new DataItem();
 
     const { id, message } = req.body;
 
@@ -44,7 +45,7 @@ export default class DataController {
 
   updateData = (req: express.Request, res: express.Response) => {
     const { id, update } = req.body;
-    Data.findByIdAndUpdate(id, update, (err) => {
+    DataItem.findByIdAndUpdate(id, update, (err: any) => {
       if (err) return res.json({ success: false, error: err });
       return res.json({ success: true });
     });
@@ -52,7 +53,7 @@ export default class DataController {
 
   deleteData = (req: express.Request, res: express.Response) => {
     const { id } = req.body;
-    Data.findByIdAndRemove(id, (err) => {
+    DataItem.findByIdAndRemove(id, (err: any) => {
       if (err) return res.send(err);
       return res.json({ success: true });
     });

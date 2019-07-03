@@ -10,4 +10,3 @@ const DataSchema: Schema = new Schema(
 );
 
 export const DataItem: Model<IDataItem> = model<IDataItem>("Data", DataSchema);
-// module.exports = mongoose.model("Data", DataSchema);

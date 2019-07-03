@@ -3,5 +3,5 @@ export class MenuItem {
         public title: string,
         public icon: string,
         public path: string
-    ) { };
+    ) { }
 }

@@ -1,7 +1,7 @@
 import { Schema, Model, model } from "mongoose";
 import { IDataItem } from "../interfaces/data_item";
 
-export const DataSchema: Schema = new Schema(
+const DataSchema: Schema = new Schema(
   {
     id: Number,
     message: String

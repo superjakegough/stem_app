@@ -1,6 +1,6 @@
 import express from "express";
 import Controller from "../interfaces/controller";
-import { DataItem } from "../schemas/data_schema";
+import { DataItem } from "../models/data_item";
 import { IDataItem } from "../interfaces/data_item";
 
 export default class DataController implements Controller {

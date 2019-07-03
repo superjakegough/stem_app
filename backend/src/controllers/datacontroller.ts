@@ -1,6 +1,6 @@
 import express from 'express';
-import { DataItem } from '../schemas/data_schema';
-import { IDataItem } from '../interfaces/data_item';
+import { DataItem } from '@/schemas/data_schema';
+import { IDataItem } from '@/interfaces/data_item';
 
 export default class DataController {
   public path: string = '/data';

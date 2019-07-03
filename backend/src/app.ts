@@ -11,7 +11,7 @@ export default class App {
   public app: express.Application;
   public port: number;
 
-  constructor(controllers: Controller[], ) {
+  constructor(controllers: Controller[]) {
     this.app = express();
     this.port = 3001;
 

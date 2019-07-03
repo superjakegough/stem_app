@@ -6,50 +6,27 @@ const apiRoute: string = "data";
 
 export let dataItems: DataItem[] = [];
 
-export const getDataFromDb = async () => {
-  await fetch(`${backendUrl}/${apiRoute}/getAllData`)
-    .then((data) => data.json())
-    .then((res) => dataItems = res.data);
+export const getAllData = async () => {
+  const res = await axios.get(`${backendUrl}/${apiRoute}/getAll`);
+  dataItems = res.data.data;
 };
 
-export const putDataToDB = async (message: string) => {
-  const currentIds = dataItems.map((item) => item.id);
-  let idToBeAdded = 0;
-  while (currentIds.includes(idToBeAdded)) {
-    ++idToBeAdded;
-  }
-
-  await axios.post(`${backendUrl}/${apiRoute}/createData`, {
-    id: idToBeAdded,
+export const createData = async (message: string) => {
+  const res = await axios.post(`${backendUrl}/${apiRoute}/create`, {
     message: message,
   });
+  console.log(res.data);
 };
 
-export const deleteFromDB = async (idTodelete: number) => {
-  let objIdToDelete: number = 0;
-  dataItems.forEach((item) => {
-    if (item.id === idTodelete) {
-      objIdToDelete = item.id;
-    }
+export const updateData = async (id: string, message: string) => {
+  const res = await axios.put(`${backendUrl}/${apiRoute}/update/${id}`, {
+    message: message
   });
-
-  await axios.delete(`${backendUrl}/${apiRoute}/deleteData`, {
-    data: {
-      id: objIdToDelete,
-    },
-  });
+  console.log(res.data);
 };
 
-export const updateDB = async (idToUpdate: number, updateToApply: string) => {
-  let objIdToUpdate: number = 0;
-  dataItems.forEach((item) => {
-    if (item.id === idToUpdate) {
-      objIdToUpdate = item.id;
-    }
-  });
-
-  await axios.post(`${backendUrl}/${apiRoute}/updateData`, {
-    id: objIdToUpdate,
-    update: { message: updateToApply },
-  });
+export const deleteData = async (id: string) => {
+  const res = await axios.delete(`${backendUrl}/${apiRoute}/delete/${id}`);
+  console.log(res.data);
 };
+

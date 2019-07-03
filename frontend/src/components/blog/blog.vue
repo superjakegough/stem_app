@@ -65,6 +65,10 @@
          </v-tabs>
          <v-layout justify-center mb-5>
             <v-btn flat color="primary" to="/">Home</v-btn>
+            <v-btn flat color="primary" @click="getAllData()">Get</v-btn>
+            <v-btn flat color="primary" @click="createData()">Create</v-btn>
+            <v-btn flat color="primary" @click="updateData()">Update</v-btn>
+            <v-btn flat color="primary" @click="deleteData()">Delete</v-btn>
          </v-layout>
       </v-container>
    </v-layout>

@@ -1,5 +1,5 @@
 import { Component, Vue } from "vue-property-decorator";
-import { dataItems, getDataFromDb } from "@/services/http-data";
+import { dataItems, getAllData, createData, updateData, deleteData } from "@/services/http-data";
 
 @Component
 export default class BlogComponent extends Vue {
@@ -8,8 +8,20 @@ export default class BlogComponent extends Vue {
     values3: number[] = [8, 5, 2, 3, 3, 4, 2, 4, 6, 1, 8, 9, 7, 1, 3];
     gradient: string[] = ["#00c6ff", "#F0F", "#FF0"];
 
-    async created() {
-      await getDataFromDb();
+    async getAllData() {
+      await getAllData();
       console.log(dataItems);
+    }
+
+    async createData() {
+      await createData("something");
+    }
+
+    async updateData() {
+      await updateData(dataItems[0]._id, "updated");
+    }
+
+    async deleteData() {
+      await deleteData(dataItems[0]._id);
     }
 }

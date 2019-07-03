@@ -3,7 +3,6 @@ import { IDataItem } from "../interfaces/idata_item";
 
 const DataSchema: Schema = new Schema(
   {
-    id: Number,
     message: String
   },
   { timestamps: true }

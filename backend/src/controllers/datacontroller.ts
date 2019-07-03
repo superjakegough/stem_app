@@ -12,49 +12,38 @@ export default class DataController implements IController {
   }
 
   public initialiseRoutes() {
-    this.router.get(`${this.path}/getAllData`, this.getAllData);
-    this.router.post(`${this.path}/createData`, this.createData);
-    this.router.put(`${this.path}/updateData`, this.updateData);
-    this.router.delete(`${this.path}/deleteData`, this.deleteData);
+    this.router.get(`${this.path}/getAll`, this.getAll);
+    this.router.post(`${this.path}/create`, this.create);
+    this.router.put(`${this.path}/update/:id`, this.update);
+    this.router.delete(`${this.path}/delete/:id`, this.delete);
   }
 
-  getAllData = (req: express.Request, res: express.Response) => {
+  getAll = (req: express.Request, res: express.Response) => {
     DataItem.find((err: any, data: IDataItem) => {
       if (err) return res.json({ success: false, error: err });
       return res.json({ success: true, data: data });
     });
   };
 
-  createData = (req: express.Request, res: express.Response) => {
+  create = (req: express.Request, res: express.Response) => {
     const data = new DataItem();
-
-    const { id, message } = req.body;
-
-    if ((!id && id !== 0) || !message) {
-      return res.json({
-        success: false,
-        error: "INVALID INPUTS",
-      });
-    }
+    const { message } = req.body;
     data.message = message;
-    data.id = id;
     data.save((err: any) => {
       if (err) return res.json({ success: false, error: err });
       return res.json({ success: true });
     });
   };
 
-  updateData = (req: express.Request, res: express.Response) => {
-    const { id, update } = req.body;
-    DataItem.findByIdAndUpdate(id, update, (err: any) => {
+  update = (req: express.Request, res: express.Response) => {
+    DataItem.findByIdAndUpdate(req.params.id, req.body, (err: any) => {
       if (err) return res.json({ success: false, error: err });
       return res.json({ success: true });
     });
   };
 
-  deleteData = (req: express.Request, res: express.Response) => {
-    const { id } = req.body;
-    DataItem.findByIdAndRemove(id, (err: any) => {
+  delete = (req: express.Request, res: express.Response) => {
+    DataItem.findByIdAndRemove(req.params.id, (err: any) => {
       if (err) return res.send(err);
       return res.json({ success: true });
     });

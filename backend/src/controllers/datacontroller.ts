@@ -1,9 +1,9 @@
 import express from "express";
-import Controller from "../interfaces/controller";
+import IController from "../interfaces/icontroller";
 import { DataItem } from "../models/data_item";
-import { IDataItem } from "../interfaces/data_item";
+import { IDataItem } from "../interfaces/idata_item";
 
-export default class DataController implements Controller {
+export default class DataController implements IController {
   public path: string = "/data";
   public router: express.Router = express.Router();
 

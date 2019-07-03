@@ -5,13 +5,13 @@ import logger from "morgan";
 import cors from "cors";
 import compression from "compression";
 import helmet from "helmet";
-import Controller from "./interfaces/controller";
+import IController from "./interfaces/icontroller";
 
 export default class App {
   public app: express.Application;
   public port: number;
 
-  constructor(controllers: Controller[]) {
+  constructor(controllers: IController[]) {
     this.app = express();
     this.port = 3001;
 
@@ -37,8 +37,8 @@ export default class App {
     db.on("error", console.error.bind(console, "MongoDB connection error:"));
   }
 
-  private initialiseControllers(controllers: Controller[]) {
-    controllers.forEach((controller: Controller) => {
+  private initialiseControllers(controllers: IController[]) {
+    controllers.forEach((controller: IController) => {
       this.app.use("/", controller.router);
     });
   }

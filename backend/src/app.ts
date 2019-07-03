@@ -3,14 +3,15 @@ import express from "express";
 import bodyParser from "body-parser";
 import logger from "morgan";
 import cors from "cors";
+import Controller from "./interfaces/controller";
 
 export default class App {
   public app: express.Application;
   public port: number;
 
-  constructor(port: number, controllers: any, ) {
+  constructor(controllers: Controller[], ) {
     this.app = express();
-    this.port = port;
+    this.port = 3001;
 
     this.initialiseMiddlewares();
     this.initialiseMongo();
@@ -32,8 +33,8 @@ export default class App {
     db.on("error", console.error.bind(console, "MongoDB connection error:"));
   }
 
-  private initialiseControllers(controllers: any) {
-    controllers.forEach((controller: any) => {
+  private initialiseControllers(controllers: Controller[]) {
+    controllers.forEach((controller: Controller) => {
       this.app.use("/", controller.router);
     });
   }

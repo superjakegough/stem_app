@@ -1,20 +1,21 @@
 import express from "express";
+import Controller from "../interfaces/controller";
 import { DataItem } from "../schemas/data_schema";
 import { IDataItem } from "../interfaces/data_item";
 
-export default class DataController {
+export default class DataController implements Controller {
   public path: string = "/data";
-  public router = express.Router();
+  public router: express.Router = express.Router();
 
   constructor() {
     this.initialiseRoutes();
   }
 
   public initialiseRoutes() {
-    this.router.get(this.path, this.getAllData);
-    this.router.post(this.path, this.createData);
-    this.router.put(this.path, this.updateData);
-    this.router.delete(this.path, this.deleteData);
+    this.router.get(`${this.path}/getAllData`, this.getAllData);
+    this.router.post(`${this.path}/createData`, this.createData);
+    this.router.put(`${this.path}/updateData`, this.updateData);
+    this.router.delete(`${this.path}/deleteData`, this.deleteData);
   }
 
   getAllData = (req: express.Request, res: express.Response) => {

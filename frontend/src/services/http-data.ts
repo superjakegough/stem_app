@@ -1,8 +1,8 @@
-import axios from 'axios';
-import { DataItem } from '../models/data_item';
+import axios from "axios";
+import { DataItem } from "../models/data_item";
 
-const backendUrl: string = 'http://localhost:3001';
-const apiRoute: string = 'api/data';
+const backendUrl: string = "http://localhost:3001";
+const apiRoute: string = "data";
 
 export let dataItems: DataItem[] = [];
 
@@ -13,7 +13,7 @@ export const getDataFromDb = async () => {
 };
 
 export const putDataToDB = async (message: string) => {
-  let currentIds = dataItems.map((item) => item.id);
+  const currentIds = dataItems.map((item) => item.id);
   let idToBeAdded = 0;
   while (currentIds.includes(idToBeAdded)) {
     ++idToBeAdded;

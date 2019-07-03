@@ -1,5 +1,5 @@
 import { Schema, Model, model } from "mongoose";
-import { IDataItem } from "@/interfaces/data_item";
+import { IDataItem } from "../interfaces/data_item";
 
 export const DataSchema: Schema = new Schema(
   {

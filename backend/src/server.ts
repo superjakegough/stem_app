@@ -1,9 +1,9 @@
 import App from "./app";
-import DataController from "./controllers/datacontroller";
+import JobController from "./controllers/job_controller";
 
 const app = new App(
   [
-    new DataController()
+    new JobController()
   ]
 );
 

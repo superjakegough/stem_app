@@ -1,5 +1,6 @@
 import { Component, Vue } from "vue-property-decorator";
-import { dataItems, getAllData, createData, updateData, deleteData } from "@/services/http-data";
+import { Job } from "@/models/job";
+import { jobs, getAllData, createData, updateData, deleteData } from "@/services/job-service";
 
 @Component
 export default class BlogComponent extends Vue {
@@ -10,18 +11,31 @@ export default class BlogComponent extends Vue {
 
     async getAllData() {
       await getAllData();
-      console.log(dataItems);
+      console.log(jobs);
     }
 
     async createData() {
-      await createData("something");
+      const job: Job = {
+        _id: "",
+        title: "title",
+        salary: "salary",
+        benefits: "benefits",
+        jobType: "jobType",
+        location: "location",
+        reference: "reference",
+        description: "description",
+        createdAt: "createdAt",
+        updatedAt: "updatedAt"
+      };
+      await createData(job);
     }
 
     async updateData() {
-      await updateData(dataItems[0]._id, "updated");
+      jobs[0].description = "description updated";
+      await updateData(jobs[0]);
     }
 
     async deleteData() {
-      await deleteData(dataItems[0]._id);
+      await deleteData(jobs[0]._id);
     }
 }

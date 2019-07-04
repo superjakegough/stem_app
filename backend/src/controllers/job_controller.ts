@@ -1,10 +1,10 @@
 import express from "express";
 import IController from "../interfaces/icontroller";
-import { DataItem } from "../models/data_item";
-import { IDataItem } from "../interfaces/idata_item";
+import { Job } from "../models/job";
+import { IJob } from "../interfaces/ijob";
 
 export default class DataController implements IController {
-  public path: string = "/data";
+  public path: string = "/jobs";
   public router: express.Router = express.Router();
 
   constructor() {
@@ -19,31 +19,29 @@ export default class DataController implements IController {
   }
 
   getAll = (req: express.Request, res: express.Response) => {
-    DataItem.find((err: any, data: IDataItem) => {
+    Job.find((err: any, job: IJob) => {
       if (err) return res.json({ success: false, error: err });
-      return res.json({ success: true, data: data });
+      return res.json({ success: true, job: job });
     });
   };
 
   create = (req: express.Request, res: express.Response) => {
-    const data = new DataItem();
-    const { message } = req.body;
-    data.message = message;
-    data.save((err: any) => {
+    const job = new Job(req.body);
+    job.save((err: any) => {
       if (err) return res.json({ success: false, error: err });
       return res.json({ success: true });
     });
   };
 
   update = (req: express.Request, res: express.Response) => {
-    DataItem.findByIdAndUpdate(req.params.id, req.body, (err: any) => {
+    Job.findByIdAndUpdate(req.params.id, req.body, (err: any) => {
       if (err) return res.json({ success: false, error: err });
       return res.json({ success: true });
     });
   };
 
   delete = (req: express.Request, res: express.Response) => {
-    DataItem.findByIdAndRemove(req.params.id, (err: any) => {
+    Job.findByIdAndRemove(req.params.id, (err: any) => {
       if (err) return res.send(err);
       return res.json({ success: true });
     });

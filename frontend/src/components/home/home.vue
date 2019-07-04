@@ -6,9 +6,6 @@
                <span class="header-sub-text">
                   Stem Skills &amp; Recruitment Ltd
                </span>
-               <h1 class="header-text primary--text">
-                  Growing your business. Growing your career
-               </h1>
             </v-layout>
          </v-img>
       </v-flex>
@@ -35,7 +32,7 @@
             <v-flex md8 xs12 mb-4>
                <h2 class="content-title primary--text mb-4 mt-4">What We Do</h2>
                <v-expansion-panel v-model="clientPanel" expand popout>
-                  <v-expansion-panel-content v-bind:style="{'background-color': getBackground(clientPanel)}">
+                  <v-expansion-panel-content  v-bind:style="{'background-color': getBackground(clientPanel[0])}">
                      <template v-slot:header>
                         <div>Clients</div>
                      </template>
@@ -52,7 +49,7 @@
                   </v-expansion-panel-content>
                </v-expansion-panel>
                <v-expansion-panel v-model="candidatePanel" expand popout>
-                  <v-expansion-panel-content v-bind:style="{'background-color': getBackground(candidatePanel)}">
+                  <v-expansion-panel-content v-bind:style="{'background-color': getBackground(candidatePanel[0])}">
                      <template v-slot:header>
                         <div>Candidates</div>
                      </template>

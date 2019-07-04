@@ -4,10 +4,10 @@
          <v-img :src="require('@/assets/photo3.jpg')" class="header-image">
             <v-layout column text-xs-right justify-end fill-height class="header-padding">
                <span class="header-sub-text">
-                  Business Name
+                  Stem Skills &amp; Recruitment Ltd
                </span>
                <h1 class="header-text primary--text">
-                  Business One Liner
+                  Growing your business. Growing your career
                </h1>
             </v-layout>
          </v-img>
@@ -16,9 +16,8 @@
          <v-layout row wrap justify-space-between>
             <v-flex ref="whoBox" md8 xs12 mb-4>
                <h2 class="content-title primary--text mb-4">Who We Are</h2>
-               <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </p>
-               <p> Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? </p>
-               <p> Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
+               <p>We are Stem. We are not just here to get a fee - we are here to grow your business and grow your career.</p>
+               <p>We are more than just a specialist recruitment consultancy; we also aim to support the growth of the industries which we recruit for in mutual benefit.</p>
                <v-layout justify-center>
                   <v-btn flat color="primary" to="/biography">Biography</v-btn>
                </v-layout>
@@ -35,19 +34,40 @@
             </v-flex>
             <v-flex md8 xs12 mb-4>
                <h2 class="content-title primary--text mb-4 mt-4">What We Do</h2>
-               <v-expansion-panel v-model="panel" expand popout>
-                  <v-expansion-panel-content v-for="(item,i) in items" :key="i" v-bind:style="{'background-color': getBackground(i)}">
+               <v-expansion-panel v-model="clientPanel" expand popout>
+                  <v-expansion-panel-content v-bind:style="{'background-color': getBackground(clientPanel)}">
                      <template v-slot:header>
-                        <div>{{item.title}}</div>
+                        <div>Clients</div>
                      </template>
                      <v-card>
-                        <v-card-text>{{item.text}}</v-card-text>
+                        <v-card-text>
+                          Stem supports science, technology, engineering and manufacturing businesses in South Wales by providing permanent recruitment services. We provide experience and expertise in recruiting for a wide range of roles and are dedicated to finding the right candidates to help your business grow. Take a look at our client services page to find out more information, or if you have a vacancy and need help, then email vacancy@stemrecruit.co.uk.
+                        </v-card-text>
+                        <v-card-actions>
+                          <v-spacer></v-spacer>
+                          <v-btn flat color="primary" to="/services">Services</v-btn>
+                          <v-spacer></v-spacer>
+                        </v-card-actions>
                      </v-card>
                   </v-expansion-panel-content>
                </v-expansion-panel>
-               <v-layout justify-center>
-                  <v-btn flat color="primary" to="/services">Services</v-btn>
-               </v-layout>
+               <v-expansion-panel v-model="candidatePanel" expand popout>
+                  <v-expansion-panel-content v-bind:style="{'background-color': getBackground(candidatePanel)}">
+                     <template v-slot:header>
+                        <div>Candidates</div>
+                     </template>
+                     <v-card>
+                        <v-card-text>
+                          If you’re looking to take the next step in your career, then we can help. All of our services to candidates may be free, but we take the same time and care in finding YOU the right fit as we do for our clients. To see our current job opportunities with our clients, take a look at our find a job page, or alternatively you can register with us by sending your CV to jobs@stemrecruit.co.uk and we will be in contact as soon as we have any suitable job opportunities.
+                        </v-card-text>
+                        <v-card-actions>
+                          <v-spacer></v-spacer>
+                          <v-btn flat color="primary" to="/jobs">Jobs</v-btn>
+                          <v-spacer></v-spacer>
+                        </v-card-actions>
+                     </v-card>
+                  </v-expansion-panel-content>
+               </v-expansion-panel>
             </v-flex>
             <v-flex md3 xs12 text-xs-center>
                <v-avatar size="200" class="mb-4">

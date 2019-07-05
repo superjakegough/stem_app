@@ -23,10 +23,8 @@
                   Whether you are a business looking to recruit, or a candidate looking to take the next step in your career, then we are here to listen to your needs and expectations, offer market advice and knowledge, and work with you to find you the right match.
                </p>
             </v-flex>
-            <v-flex xs3 ml-3 v-if="$vuetify.breakpoint.mdAndUp" mt-4 mb-4>
-               <v-layout fill-height>
-                  <v-img :src="require('@/assets/photo2.jpg')" class="content-image" max-height="400"></v-img>
-               </v-layout>
+            <v-flex xs3 ml-3 v-if="$vuetify.breakpoint.mdAndUp" >
+                  <v-img :src="require('@/assets/stem_green.png')" class="content-image" max-height="280" contain></v-img>
             </v-flex>
             <v-flex xs3 ml-3 v-if="$vuetify.breakpoint.mdAndUp" mt-4 mb-4>
                <v-layout fill-height>
@@ -81,10 +79,12 @@
                <h2 class="primary--text title text-uppercase mb-3">Jack Taylor</h2>
                <h3 class="primary--text subtitle text-uppercase mb-3">Founder &amp; Recruitment Advisor</h3>
             </v-flex>
-            <v-flex md4 xs12 align-center fill-height>
-               <p>
-                  I am a personable and technical recruiter with a simple and transparent approach that has both client and candidate satisfaction at its core. I offer extensive market knowledge of the science, technology, engineering and manufacturing industries in South Wales, along with a large network of candidates and clients. I have recruited for a variety of companies; from start-ups and SMEs, right through to blue-chip organisations and global brands.
-               </p>
+            <v-flex md4 xs12>
+               <v-layout align-center fill-height>
+                  <p>
+                     I am a personable and technical recruiter with a simple and transparent approach that has both client and candidate satisfaction at its core. I offer extensive market knowledge of the science, technology, engineering and manufacturing industries in South Wales, along with a large network of candidates and clients. I have recruited for a variety of companies; from start-ups and SMEs, right through to blue-chip organisations and global brands.
+                  </p>
+               </v-layout>
             </v-flex>
             <v-flex md4 xs12 mb-5>
                <v-layout align-center justify-center fill-height>

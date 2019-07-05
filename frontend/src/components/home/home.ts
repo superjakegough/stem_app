@@ -7,7 +7,7 @@ export default class HomeComponent extends Vue {
         whatBox: HTMLBodyElement
     };
     clientPanel: boolean[] = [true];
-    candidatePanel: boolean[] = [false];
+    candidatePanel: boolean[] = [true];
 
     name: string = "";
     email: string = "";

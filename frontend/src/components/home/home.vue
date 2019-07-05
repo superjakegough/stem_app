@@ -77,7 +77,7 @@
                   <v-img :src="require('@/assets/jack.jpg')"></v-img>
                </v-avatar>
                <h2 class="primary--text title text-uppercase mb-3">Jack Taylor</h2>
-               <h3 class="primary--text subtitle text-uppercase mb-3">Founder &amp; Recruitment Advisor</h3>
+               <h3 class="primary--text subtheading text-uppercase mb-3">Founder &amp; Recruitment Advisor</h3>
             </v-flex>
             <v-flex md4 xs12>
                <v-layout align-center fill-height>

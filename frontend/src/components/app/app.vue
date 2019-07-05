@@ -3,7 +3,7 @@
       <div v-if="$vuetify.breakpoint.mdAndDown">
          <v-toolbar flat fixed scroll-off-screen class="white">
             <v-layout justify-center>
-               <span class="primary--text title">Business Name</span>
+               <span class="primary--text title">Stem Skills &amp; Recruitment Ltd</span>
             </v-layout>
             <v-menu offset-y>
                <template v-slot:activator="{ on }">
@@ -39,7 +39,7 @@
       </div>
       <v-toolbar flat fixed scroll-off-screen v-else class="white">
          <v-layout align-center justify-space-between>
-            <v-toolbar-title class="primary--text">Business Name</v-toolbar-title>
+            <v-toolbar-title class="primary--text">Stem Skills &amp; Recruitment Ltd</v-toolbar-title>
             <v-toolbar-items>
                <v-btn flat color="primary" v-for="item in menuItems" :key="item.title" :to="item.path">{{item.title}}</v-btn>
             </v-toolbar-items>

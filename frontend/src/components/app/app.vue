@@ -40,16 +40,14 @@
       </div>
       <v-toolbar flat fixed scroll-off-screen v-else class="white">
          <v-layout align-center justify-space-between>
-            <v-toolbar-title class="primary--text">
-               <v-layout>
-                  <img :src="require('@/assets/stem_green.png')" class="content-image toolbar-icon" height="32" >
-                  <span>Stem Skills &amp; Recruitment Ltd</span>
-               </v-layout>
-            </v-toolbar-title>
-            <v-toolbar-items>
+            <v-layout align-center fill-height>
+               <img :src="require('@/assets/stem_green.png')" class="content-image toolbar-icon" height="28" >
+               <span class="primary--text title">Stem Skills &amp; Recruitment Ltd</span>
+            </v-layout>
+            <v-layout>
                <v-btn flat color="primary" v-for="item in menuItems" :key="item.title" :to="item.path">{{item.title}}</v-btn>
-            </v-toolbar-items>
-            <div>
+            </v-layout>
+            <v-layout justify-end>
                <v-btn flat icon>
                   <v-img :src="require('@/assets/facebook.svg')" contain height="24"></v-img>
                </v-btn>
@@ -59,7 +57,7 @@
                <v-btn flat icon>
                   <v-img :src="require('@/assets/linkedin.svg')" contain height="24"></v-img>
                </v-btn>
-            </div>
+            </v-layout>
          </v-layout>
       </v-toolbar>
       <v-content>

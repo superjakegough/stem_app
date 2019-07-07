@@ -1,7 +1,12 @@
 import { Component, Vue } from "vue-property-decorator";
 import { MenuItem } from "@/models/menu_item";
+import AppBar from "@/components/appbar/appbar";
 
-@Component
+@Component({
+  components: {
+    AppBar
+  }
+})
 export default class AppComponent extends Vue {
   bottomNav: string = "home";
 

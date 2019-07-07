@@ -2,17 +2,17 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class HomeComponent extends Vue {
-    clientPanel: boolean[] = [true];
-    candidatePanel: boolean[] = [true];
+  clientPanel: boolean[] = [true];
+  candidatePanel: boolean[] = [true];
 
-    name: string = "";
-    email: string = "";
-    subject: string = "";
-    message: string = "";
+  name: string = "";
+  email: string = "";
+  subject: string = "";
+  message: string = "";
 
-    getBackground(panel: boolean) {
-        if (!panel) {
-            return "transparent";
-        }
+  getBackground(panel: boolean) {
+    if (!panel) {
+      return "transparent";
     }
+  }
 }

@@ -30,7 +30,8 @@ export default class App {
   }
 
   private initialiseMongo() {
-    const dbRoute = "mongodb+srv://superjake:nuONgT7N6on4h1Wg@cluster0-mdwa9.mongodb.net/test?retryWrites=true&w=majority";
+    const dbRoute =
+      "mongodb+srv://superjake:nuONgT7N6on4h1Wg@cluster0-mdwa9.mongodb.net/test?retryWrites=true&w=majority";
     mongoose.connect(dbRoute, { useNewUrlParser: true });
     const db = mongoose.connection;
     db.once("open", () => console.log("connected to the database"));

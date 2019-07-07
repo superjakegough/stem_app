@@ -9,7 +9,7 @@ const JobSchema: Schema = new Schema(
     jobType: String,
     location: String,
     reference: String,
-    description: String,
+    description: String
   },
   { timestamps: true }
 );

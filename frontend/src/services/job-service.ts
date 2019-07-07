@@ -41,4 +41,3 @@ export const deleteData = async (id: string) => {
   const res = await axios.delete(`${backendUrl}/${apiRoute}/delete/${id}`);
   console.log(res.data);
 };
-

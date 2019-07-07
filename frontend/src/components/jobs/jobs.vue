@@ -4,69 +4,36 @@
          <v-img :src="require('@/assets/background2.jpg')" class="header-image">
             <v-layout column text-xs-right justify-end fill-height class="header-padding">
                <h1 class="header-text primary--text">
-                  Biography
+                  Jobs
                </h1>
             </v-layout>
          </v-img>
       </v-flex>
       <v-container fluid class="content-container">
-         <v-layout row wrap justify-space-between>
-            <v-flex xs12>
-               <h2 class="content-title primary--text mb-4">Who Am I</h2>
+         <v-layout row wrap justify-center>
+            <v-flex md8 sm10 xs12 mb-4>
+               <h2 class="content-title primary--text mb-4">Current Opportunities</h2>
+               <p>
+                 Interested in any of the below opportunities? To apply, please send your CV to <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> with the job reference number, and we will respond within 2 working days.
+               </p>
             </v-flex>
-            <v-flex md3 xs12 mb-4>
-               <v-img :src="require('@/assets/photo6.jpg')" class="content-image"></v-img>
-            </v-flex>
-            <v-flex md8 xs12 mb-4>
-               <p>&nbsp; &nbsp; &nbsp; &nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-               <p>&nbsp; &nbsp; &nbsp; &nbsp; Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? </p>
-               <p>&nbsp; &nbsp; &nbsp; &nbsp; Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
-               <p>&nbsp; &nbsp; &nbsp; &nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-               <p>&nbsp; &nbsp; &nbsp; &nbsp; Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? </p>
-               <p>&nbsp; &nbsp; &nbsp; &nbsp; Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
-               <p>&nbsp; &nbsp; &nbsp; &nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-               <v-layout justify-center>
-                  <v-btn flat color="primary" to="/blog">Blog</v-btn>
-               </v-layout>
-            </v-flex>
-            <v-flex xs12 mb-4>
-               <h2 class="content-title primary--text mb-4">My Journey</h2>
-               <v-timeline :dense="useDense()">
-                  <v-timeline-item v-for="(event, i) in events" :key="`event-${i}`" color="primary" large>
-                     <template v-slot:opposite>
-                        <span>
-                        {{event.date}}
-                        </span>
-                     </template>
-                     <v-card class="elevation-2">
-                        <v-card-title class="headline primary--text">
-                           {{event.title}}
-                        </v-card-title>
-                        <v-card-text>
-                           {{event.text}}
-                        </v-card-text>
-                     </v-card>
-                  </v-timeline-item>
-               </v-timeline>
-            </v-flex>
-            <v-flex xs12>
-               <h2 class="content-title primary--text mb-4">My Skills</h2>
-            </v-flex>
-            <v-flex md5 xs12 mb-4>
-               <p>&nbsp; &nbsp; &nbsp; &nbsp; Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
-               <p>&nbsp; &nbsp; &nbsp; &nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </v-flex>
-            <v-flex md5 xs12 mb-4>
-               <div v-for="(skill, i) in skills" :key="i" class="mb-4">
-                  <v-layout row justify-space-around align-center v-if="$vuetify.breakpoint.mdAndUp">
-                     <span class="headline primary--text">{{skill.title}}</span>
-                     <v-rating v-model="skill.rating" full-icon="fiber_manual_record" empty-icon="fiber_manual_record" background-color="#424242" readonly></v-rating>
-                  </v-layout>
-                  <v-layout column align-center v-else>
-                     <span class="headline primary--text mb-4">{{skill.title}}</span>
-                     <v-rating v-model="skill.rating" full-icon="fiber_manual_record" empty-icon="fiber_manual_record" background-color="#424242" readonly></v-rating>
-                  </v-layout>
-               </div>
+            <v-flex md8 sm10 xs12 mb-4>
+              <v-card :key="index" v-for="(job, index) in jobs" class="mb-4">
+                <v-card-text>
+                  <h3 class="title primary--text mb-4">Title</h3>
+                  <p class="mb-4">{{job.title}}</p>
+                  <h3 class="title primary--text mb-4">Salary - Benefits</h3>
+                  <p class="mb-4">{{job.salary}} - {{job.benefits}}</p>
+                  <h3 class="title primary--text mb-4">Type</h3>
+                  <p class="mb-4">{{job.jobType}}</p>
+                  <h3 class="title primary--text mb-4">Location</h3>
+                  <p class="mb-4">{{job.location}}</p>
+                  <h3 class="title primary--text mb-4">Reference</h3>
+                  <p class="mb-4">{{job.reference}}</p>
+                  <h3 class="title primary--text mb-4">Description</h3>
+                  <p>{{job.description}}</p>
+                </v-card-text>
+              </v-card>
             </v-flex>
          </v-layout>
          <v-layout justify-center mb-5>

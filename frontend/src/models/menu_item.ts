@@ -1,4 +1,4 @@
-export class MenuItem {
+export default class MenuItem {
     constructor(
         public title: string,
         public icon: string,

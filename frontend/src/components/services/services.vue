@@ -8,15 +8,15 @@
       </v-img>
     </v-flex>
     <v-container fluid class="content-container">
-      <v-layout column>
-        <v-flex xs12 class="mb-4">
+      <v-layout row wrap justify-center>
+        <v-flex md8 sm10 xs12 mb-4>
           <h2 class="content-title primary--text mb-4">Client Services</h2>
           <p>
             Stem is a specialist permanent recruitment consultancy providing sustainable recruitment solutions for the science, technology, engineering and manufacturing industries in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.
           </p>
           <h2 class="content-title primary--text mt-4 mb-4">Industries &amp; Roles</h2>
           <v-layout row wrap>
-          <v-flex sm6 xs12 class="mb-4">
+          <v-flex md4 sm5 xs12 mb-4>
             <p>
               We have expertise and experience in recruiting for the following industries:
             </p>
@@ -68,7 +68,7 @@
               </li>
             </ul>
           </v-flex>
-          <v-flex sm6 xs12 class="mb-4">
+          <v-flex md4 sm5 xs12 class="mb-4">
             <p>
               And recruit for permanent vacancies in the following areas:
             </p>
@@ -111,7 +111,7 @@
             We provide a thorough 5-stage recruitment and vetting process which ensures that we not only find the right fit for our clients, but also the right fit for the candidate, ensuring all parties are satisfied.
           </p>
         </v-flex>
-        <v-flex xs12 style="height: 660px" class="mb-4">
+        <v-flex md8 sm10 xs12 mb-4 style="height: 660px">
           <v-stepper v-model="stepper" vertical>
             <v-stepper-step :complete="stepper > 1" step="1">Vacancy registration</v-stepper-step>
             <v-stepper-content step="1">

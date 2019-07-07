@@ -1,5 +1,5 @@
 import { Component, Vue } from "vue-property-decorator";
-import { MenuItem } from "@/models/menu_item";
+import MenuItem from "@/models/menu_item";
 import AppBar from "@/components/appbar/appbar";
 
 @Component({

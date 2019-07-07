@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Job } from "../models/job";
+import Job from "../models/job";
 
 const backendUrl: string = "http://localhost:3001";
 const apiRoute: string = "jobs";

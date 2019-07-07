@@ -10,8 +10,8 @@
          </v-img>
       </v-flex>
       <v-container fluid class="content-container">
-         <v-layout row wrap justify-space-between>
-            <v-flex ref="whoBox" md8 xs12 mb-4>
+         <v-layout row wrap justify-center>
+            <v-flex md8 sm10 xs12 mb-4>
                <h2 class="content-title primary--text mb-4">Who We Are</h2>
                <p>
                   We are Stem. We are not just here to get a fee – we are here to <strong>grow your business</strong> and <strong>grow your career</strong>. We are more than just a specialist recruitment consultancy; we also aim to support the growth of the industries for which we recruit, in mutual benefit.
@@ -23,15 +23,15 @@
                   Whether you are a business looking to recruit, or a candidate looking to take the next step in your career, then we are here to listen to your needs and expectations, offer market advice and knowledge, and work with you to find you the right match.
                </p>
             </v-flex>
-            <v-flex xs3 ml-3 v-if="$vuetify.breakpoint.mdAndUp" >
+            <v-flex xs2 ml-3 v-if="$vuetify.breakpoint.mdAndUp" >
                   <v-img :src="require('@/assets/stem_green.png')" class="content-image" max-height="280" contain></v-img>
             </v-flex>
-            <v-flex xs3 ml-3 v-if="$vuetify.breakpoint.mdAndUp" mt-4 mb-4>
+            <v-flex xs2 mr-3 v-if="$vuetify.breakpoint.mdAndUp" mt-4 mb-4>
                <v-layout fill-height>
                   <v-img :src="require('@/assets/photo7.jpg')" class="content-image" max-height="400"></v-img>
                </v-layout>
             </v-flex>
-            <v-flex md8 xs12 mb-4>
+            <v-flex md8 sm10 xs12 mb-4>
                <h2 class="content-title primary--text mb-4 mt-4">What We Do</h2>
                <v-expansion-panel v-model="clientPanel" expand popout>
                   <v-expansion-panel-content  v-bind:style="{'background-color': getBackground(clientPanel[0])}">
@@ -72,7 +72,7 @@
             <v-flex xs12 ma-4>
                <v-divider></v-divider>
             </v-flex>
-            <v-flex md4 xs12 text-xs-center>
+            <v-flex md4 xs12 mt-4 text-xs-center>
                <v-avatar size="200" class="mb-4">
                   <v-img :src="require('@/assets/jack.jpg')"></v-img>
                </v-avatar>

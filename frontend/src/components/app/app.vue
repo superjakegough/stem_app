@@ -22,9 +22,9 @@
       <AppBar :menuItems="menuItems" />
     </v-toolbar>
     <v-content>
-      <v-slide-x-transition mode="out-in">
+      <v-fade-transition mode="out-in">
         <router-view></router-view>
-      </v-slide-x-transition>
+      </v-fade-transition>
     </v-content>
   </v-app>
 </template>

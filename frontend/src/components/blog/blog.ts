@@ -1,47 +1,99 @@
 import { Component, Vue } from "vue-property-decorator";
 import Job from "@/models/job";
-import {
-  jobs,
-  getAllData,
-  createData,
-  updateData,
-  deleteData
-} from "@/services/job-service";
 
 @Component
 export default class BlogComponent extends Vue {
-  values1: number[] = [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0];
-  values2: number[] = [0, 3, 4, 6, 2, 5, 10, 1, 3, 5, 7, 0, 0, 7, 4];
-  values3: number[] = [8, 5, 2, 3, 3, 4, 2, 4, 6, 1, 8, 9, 7, 1, 3];
-  gradient: string[] = ["#00c6ff", "#F0F", "#FF0"];
-
-  async getAllData() {
-    await getAllData();
-    console.log(jobs);
-  }
-
-  async createData() {
-    const job: Job = {
-      _id: "",
-      title: "title",
-      salary: "salary",
-      benefits: "benefits",
-      jobType: "jobType",
-      location: "location",
-      reference: "reference",
-      description: "description",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    await createData(job);
-  }
-
-  async updateData() {
-    jobs[0].description = "description updated";
-    await updateData(jobs[0]);
-  }
-
-  async deleteData() {
-    await deleteData(jobs[0]._id);
-  }
+  jobs: Job[] = [
+    {
+      _id: "string",
+      title: "Title 1",
+      salary: "£32,000",
+      benefits: "Pension",
+      jobType: "Engineering",
+      location: "Cardiff",
+      reference: "B9892382",
+      description:
+        "Opportunity for a project engineer to join a specialist engineering consultancy to work in a home-based capacity dealing with their customer base across South Wales. You will work on a wide spectrum of projects with a varied customer base supporting the more senior members of the team in the delivery of projects.        The project engineer will also be involved in the delivery of the projects that have been identified including sourcing equipment and liaising with 3rd parties. As the role involves home working there is flexibility to manage your diary as you need to in order to deliver on the customer requirements.",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    },
+    {
+      _id: "string",
+      title: "Title 2",
+      salary: "£32,000",
+      benefits: "Pension",
+      jobType: "Engineering",
+      location: "Cardiff",
+      reference: "B9892382",
+      description:
+        "Opportunity for a project engineer to join a specialist engineering consultancy to work in a home-based capacity dealing with their customer base across South Wales. You will work on a wide spectrum of projects with a varied customer base supporting the more senior members of the team in the delivery of projects.        The project engineer will also be involved in the delivery of the projects that have been identified including sourcing equipment and liaising with 3rd parties. As the role involves home working there is flexibility to manage your diary as you need to in order to deliver on the customer requirements.",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    },
+    {
+      _id: "string",
+      title: "Title 3",
+      salary: "£32,000",
+      benefits: "Pension",
+      jobType: "Engineering",
+      location: "Cardiff",
+      reference: "B9892382",
+      description:
+        "Opportunity for a project engineer to join a specialist engineering consultancy to work in a home-based capacity dealing with their customer base across South Wales. You will work on a wide spectrum of projects with a varied customer base supporting the more senior members of the team in the delivery of projects.        The project engineer will also be involved in the delivery of the projects that have been identified including sourcing equipment and liaising with 3rd parties. As the role involves home working there is flexibility to manage your diary as you need to in order to deliver on the customer requirements.",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    },
+    {
+      _id: "string",
+      title: "Title 4",
+      salary: "£32,000",
+      benefits: "Pension",
+      jobType: "Engineering",
+      location: "Cardiff",
+      reference: "B9892382",
+      description:
+        "Opportunity for a project engineer to join a specialist engineering consultancy to work in a home-based capacity dealing with their customer base across South Wales. You will work on a wide spectrum of projects with a varied customer base supporting the more senior members of the team in the delivery of projects.        The project engineer will also be involved in the delivery of the projects that have been identified including sourcing equipment and liaising with 3rd parties. As the role involves home working there is flexibility to manage your diary as you need to in order to deliver on the customer requirements.",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    },
+    {
+      _id: "string",
+      title: "Title 6",
+      salary: "£32,000",
+      benefits: "Pension",
+      jobType: "Engineering",
+      location: "Cardiff",
+      reference: "B9892382",
+      description:
+        "Opportunity for a project engineer to join a specialist engineering consultancy to work in a home-based capacity dealing with their customer base across South Wales. You will work on a wide spectrum of projects with a varied customer base supporting the more senior members of the team in the delivery of projects.        The project engineer will also be involved in the delivery of the projects that have been identified including sourcing equipment and liaising with 3rd parties. As the role involves home working there is flexibility to manage your diary as you need to in order to deliver on the customer requirements.",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    },
+    {
+      _id: "string",
+      title: "Title 7",
+      salary: "£32,000",
+      benefits: "Pension",
+      jobType: "Engineering",
+      location: "Cardiff",
+      reference: "B9892382",
+      description:
+        "Opportunity for a project engineer to join a specialist engineering consultancy to work in a home-based capacity dealing with their customer base across South Wales. You will work on a wide spectrum of projects with a varied customer base supporting the more senior members of the team in the delivery of projects.        The project engineer will also be involved in the delivery of the projects that have been identified including sourcing equipment and liaising with 3rd parties. As the role involves home working there is flexibility to manage your diary as you need to in order to deliver on the customer requirements.",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    },
+    {
+      _id: "string",
+      title: "Title 8",
+      salary: "£32,000",
+      benefits: "Pension",
+      jobType: "Engineering",
+      location: "Cardiff",
+      reference: "B9892382",
+      description:
+        "Opportunity for a project engineer to join a specialist engineering consultancy to work in a home-based capacity dealing with their customer base across South Wales. You will work on a wide spectrum of projects with a varied customer base supporting the more senior members of the team in the delivery of projects.        The project engineer will also be involved in the delivery of the projects that have been identified including sourcing equipment and liaising with 3rd parties. As the role involves home working there is flexibility to manage your diary as you need to in order to deliver on the customer requirements.",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    }
+  ];
 }

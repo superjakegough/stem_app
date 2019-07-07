@@ -8,89 +8,231 @@
       </v-img>
     </v-flex>
     <v-container fluid class="content-container">
-      <v-layout row wrap justify-space-between>
-        <v-flex xs12>
-          <h2 class="content-title primary--text mb-4">Our Services</h2>
+      <v-layout column>
+        <v-flex xs12 class="mb-4">
+          <h2 class="content-title primary--text mb-4">Client Services</h2>
+          <p>
+            Stem is a specialist permanent recruitment consultancy providing sustainable recruitment solutions for the science, technology, engineering and manufacturing industries in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.
+          </p>
+          <h2 class="content-title primary--text mt-4 mb-4">Industries &amp; Roles</h2>
+          <v-layout row wrap>
+          <v-flex sm6 xs12 class="mb-4">
+            <p>
+              We have expertise and experience in recruiting for the following industries:
+            </p>
+            <ul class="mb-3">
+              <li>
+                Automotive
+              </li>
+              <li>
+                Aerospace
+              </li>
+              <li>
+                Pharmaceutical
+              </li>
+              <li>
+                Life Science
+              </li>
+              <li>
+                Medical Device
+              </li>
+              <li>
+                Electronic
+              </li>
+              <li>
+                Semiconductor
+              </li>
+              <li>
+                FMCG
+              </li>
+              <li>
+                Food Manufacturing
+              </li>
+              <li>
+                Oil &amp; Gas
+              </li>
+              <li>
+                Chemicals Manufacturing
+              </li>
+              <li>
+                Materials Manufacturing
+              </li>
+              <li>
+                Heavy Industry
+              </li>
+              <li>
+                Digital
+              </li>
+              <li>
+                Technology
+              </li>
+            </ul>
+          </v-flex>
+          <v-flex sm6 xs12 class="mb-4">
+            <p>
+              And recruit for permanent vacancies in the following areas:
+            </p>
+            <ul class="mb-3">
+              <li>
+                Engineering
+              </li>
+              <li>
+                Supply Chain
+              </li>
+              <li>
+                Scientific
+              </li>
+              <li>
+                Quality/Compliance
+              </li>
+              <li>
+                H&amp;S
+              </li>
+              <li>
+                Customer Service
+              </li>
+              <li>
+                Sales
+              </li>
+              <li>
+                Management/Executive
+              </li>
+              <li>
+                Administration
+              </li>
+              <li>
+                Graduates
+              </li>
+            </ul>
+          </v-flex>
+          </v-layout>
+          <h2 class="content-title primary--text mb-4">Our Recruitment Process</h2>
+          <p>
+            We provide a thorough 5-stage recruitment and vetting process which ensures that we not only find the right fit for our clients, but also the right fit for the candidate, ensuring all parties are satisfied.
+          </p>
         </v-flex>
-        <v-flex md5 xs12 v-for="(service, i) in services" :key="i" pb-4>
-          <v-card>
-            <v-img :src="require('@/assets/' + service.image)" height="400"></v-img>
-            <v-card-title class="headline primary--text">{{service.title}}</v-card-title>
-            <v-card-text>{{service.text}}</v-card-text>
-            <v-card-actions>
-              <v-layout justify-space-between pa-3>
-                <span class="primary--text subheading font-weight-medium">{{service.length}}</span>
-                <span class="primary--text subheading font-weight-medium">{{service.price}}</span>
-              </v-layout>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 mt-4>
-          <h2 class="content-title primary--text mb-4">Purchase</h2>
-        </v-flex>
-        <v-flex md5 xs12 mb-4>
-          <h2
-            class="primary--text title font-weight-light text-uppercase mb-3"
-          >Select a service to book</h2>
-          <v-form ref="form" lazy-validation>
-            <v-select v-model="service" :items="services" item-text="title" label="Service" box required></v-select>
-            <v-text-field v-model="name" label="Name" box required></v-text-field>
-            <v-text-field v-model="email" label="Email" box required></v-text-field>
-            <v-dialog ref="datepicker" v-model="datemodal" :return-value.sync="date" persistent lazy full-width width="290px">
-              <template v-slot:activator="{ on }">
-                <v-text-field v-model="date" label="Date" append-icon="event" readonly v-on="on" box required></v-text-field>
-              </template>
-              <v-date-picker v-model="date" scrollable>
-                <v-spacer></v-spacer>
-                <v-btn flat color="primary" @click="datemodal = false">Cancel</v-btn>
-                <v-btn flat color="primary" @click="$refs.datepicker.save(date)">OK</v-btn>
-              </v-date-picker>
-            </v-dialog>
-            <v-dialog ref="timepicker" v-model="timemodal" :return-value.sync="time" persistent lazy full-width width="290px">
-              <template v-slot:activator="{ on }">
-                <v-text-field v-model="time" label="Time" append-icon="access_time" readonly v-on="on" box required></v-text-field>
-              </template>
-              <v-time-picker v-if="timemodal" v-model="time" full-width>
-                <v-spacer></v-spacer>
-                <v-btn flat color="primary" @click="timemodal = false">Cancel</v-btn>
-                <v-btn flat color="primary" @click="$refs.timepicker.save(time)">OK</v-btn>
-              </v-time-picker>
-            </v-dialog>
-            <v-text-field v-model="message" label="Message" height="200px" box required></v-text-field>
-            <v-layout justify-center>
-              <v-btn raised color="primary" class="ma-0" v-on:click="send()">Book</v-btn>
-            </v-layout>
-          </v-form>
-        </v-flex>
-        <v-flex lg5 xs12>
-          <h2 class="primary--text title font-weight-light text-uppercase mb-3">Calender</h2>
-            <v-calendar color="primary" :value="nowString" style="height: 620px;">
-            <template v-slot:day="{ date }">
-               <v-card v-for="(event, i) in eventsMap[date]" :key="i" color="primary">
-                 <v-card-title>
-                    {{event.title}}
-                </v-card-title>
-               </v-card>
-            </template>
-            </v-calendar>
-           <v-layout justify-space-between pt-4>
-              <v-btn @click="prev()" color="primary">
-                <v-icon dark left>
-                  keyboard_arrow_left
-                </v-icon>
-                Prev
-              </v-btn>
-              <v-btn @click="next()" color="primary">
-                Next
-                <v-icon dark right>
-                  keyboard_arrow_right
-                </v-icon>
-              </v-btn>
-            </v-layout>
+        <v-flex xs12 style="height: 660px" class="mb-4">
+          <v-stepper v-model="stepper" vertical>
+            <v-stepper-step :complete="stepper > 1" step="1">Vacancy registration</v-stepper-step>
+            <v-stepper-content step="1">
+              <p>
+                Via a telephone or face-to-face meeting, we listen to your recruitment needs and:
+              </p>
+              <ul class="mb-3">
+                <li>
+                  Discuss the job description and understand the job responsibilities.
+                </li>
+                <li>
+                  Understand the skills and qualifications that you are looking for, identifying essential and desirable requirements.
+                </li>
+                <li>
+                  Understand the training, progression and other opportunities the vacancy might hold.
+                </li>
+                <li>
+                  Understand your business culture and establish behavioral competencies that will be needed to fit in with the role and company culture.
+                </li>
+                <li>
+                  We can provide expert advice as to what skills are available, as well as advice on industry trends.
+                </li>
+                <li>
+                  Once we have established what you are looking for, we tailor our recruitment process to meet your requirements, and begin a candidate sourcing and selection process.
+                </li>
+              </ul>
+              <v-btn color="primary" @click="next()">Next</v-btn>
+              <v-btn @click="prev()" flat>Prev</v-btn>
+            </v-stepper-content>
+
+            <v-stepper-step :complete="stepper > 2" step="2">Candidate sourcing</v-stepper-step>
+            <v-stepper-content step="2">
+              <p>
+                We search through our large network of candidates to find you the right candidate. We use a variety of sourcing tools including:
+              </p>
+              <ul class="mb-3">
+                <li>
+                  Internal database of science, technology, engineering and manufacturing professionals in South Wales.
+                </li>
+                <li>
+                  UK job boards – including advertising and access to millions of CVs UK-wide.
+                </li>
+                <li>
+                  Social media – LinkedIn, Twitter and Facebook.
+                </li>
+                <li>
+                  Stem Website – advertising on Stem’s website job page.
+                </li>
+                <li>
+                  Networking and events – we network at industry events meeting with both active and passive candidates.
+                </li>
+                <li>
+                  Education links – for graduate roles, we have strong links with South Wales’ universities.
+                </li>
+              </ul>
+              <v-btn color="primary" @click="next()">Next</v-btn>
+              <v-btn @click="prev()" flat>Prev</v-btn>
+            </v-stepper-content>
+
+            <v-stepper-step :complete="stepper > 3" step="3">Candidate interviews</v-stepper-step>
+            <v-stepper-content step="3">
+              <p>
+                Candidates selected from sourcing will be screened further via a telephone or face-to-face interview by Stem and will be evaluated on the following:
+              </p>
+              <ul class="mb-3">
+                <li>
+                  Current salary, benefits package and expectations vs. what your opportunity offers.
+                </li>
+                <li>
+                  Location/commute to your business and hours of work.
+                </li>
+                <li>
+                  Relevant skills, qualifications and behavioral competencies.
+                </li>
+                <li>
+                  Career plans and aspirations.
+                </li>
+                <li>
+                  Availability.
+                </li>
+              </ul>
+              <v-btn color="primary" @click="next()">Next</v-btn>
+              <v-btn @click="prev()" flat>Prev</v-btn>
+            </v-stepper-content>
+
+            <v-stepper-step :complete="stepper > 4" step="4">Job application email</v-stepper-step>
+            <v-stepper-content step="4">
+              <p>
+                Following the first stage Stem interview, candidates will be sent a job application email including:
+              </p>
+              <ul class="mb-3">
+                <li>
+                  The job description.
+                </li>
+                <li>
+                  Job advert.
+                </li>
+                <li>
+                  Your company website.
+                </li>
+                <li>
+                  An application form with questions or technical test can also be sent. The job application email tests the candidate’s interest and commitment.
+                </li>
+              </ul>
+              <v-btn color="primary" @click="next()">Next</v-btn>
+              <v-btn @click="prev()" flat>Prev</v-btn>
+            </v-stepper-content>
+
+            <v-stepper-step step="5">Final interview &amp; candidate submission</v-stepper-step>
+            <v-stepper-content step="5">
+              <p>
+                Once the candidate has reviewed the job application email, Stem will conduct a final interview with the candidate to further gauge their interest and suitability for the role before presenting you their details. Once we have sent you their CV, we will continue to provide support during the process from when you first interview the candidate, through to the job offer and the candidate’s first day, providing feedback and advice to you and the candidate throughout.
+              </p>
+              <v-btn color="primary" @click="next()">Reset</v-btn>
+              <v-btn @click="prev()" flat>Prev</v-btn>
+            </v-stepper-content>
+          </v-stepper>
         </v-flex>
       </v-layout>
       <v-layout justify-center>
-        <v-btn flat color="primary" to="/">Home</v-btn>
+        <v-btn flat color="primary" to="/" class="mb-5">Home</v-btn>
       </v-layout>
     </v-container>
   </v-layout>

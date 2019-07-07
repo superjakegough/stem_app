@@ -75,4 +75,4 @@
       </v-container>
    </v-layout>
 </template>
-<script src="./biography.ts"></script>
+<script src="./jobs.ts"></script>

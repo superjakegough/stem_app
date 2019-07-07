@@ -1,7 +1,7 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component
-export default class BiographyComponent extends Vue {
+export default class JobsComponent extends Vue {
     events: object[] = [
         {
             date: "01/02/2016",

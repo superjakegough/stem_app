@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "@/components/home/home.vue";
 import Services from "@/components/services/services.vue";
-import Biography from "@/components/biography/biography.vue";
+import Jobs from "@/components/jobs/jobs.vue";
 import Blog from "@/components/blog/blog.vue";
 
 Vue.use(Router);
@@ -22,9 +22,9 @@ export default new Router({
       component: Services
     },
     {
-      path: "/biography",
-      name: "biography",
-      component: Biography
+      path: "/jobs",
+      name: "jobs",
+      component: Jobs
     },
     {
       path: "/blog",

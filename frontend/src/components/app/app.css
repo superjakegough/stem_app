@@ -2,6 +2,18 @@
     margin-right: 1.125rem;
 }
 
+.theme--light.v-toolbar {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.theme--light.v-bottom-nav {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.theme--light.v-bottom-nav .v-btn:not(.v-btn--active){
+  color: #B9F6CA !important;
+}
+
 .content-container {
     padding: 3.5rem;
 }
@@ -40,7 +52,7 @@
     color: white;
     font-size: 3.5rem;
     font-weight: 400;
-    line-height: 1.35 ;
+    line-height: 3.5rem;
     letter-spacing: -0.02em;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;

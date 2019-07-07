@@ -1,17 +1,17 @@
 <template>
    <v-app>
       <div v-if="$vuetify.breakpoint.mdAndDown">
-         <v-toolbar flat fixed scroll-off-screen class="white">
+         <v-toolbar flat fixed scroll-off-screen>
             <AppBar :menuItems="menuItems" />
          </v-toolbar>
          <v-bottom-nav class="elevation-0" :active.sync="bottomNav" :value="true" fixed>
-            <v-btn  v-for="item in menuItems" :key="item.title" color="teal" flat :value="item.title" :to="item.path">
+            <v-btn  v-for="item in menuItems" :key="item.title" color="primary" flat :value="item.title" :to="item.path">
                <span>{{item.title}}</span>
                <v-icon>{{item.icon}}</v-icon>
             </v-btn>
          </v-bottom-nav>
       </div>
-      <v-toolbar flat fixed scroll-off-screen v-else class="white">
+      <v-toolbar flat fixed scroll-off-screen v-else>
          <AppBar :menuItems="menuItems" />
       </v-toolbar>
       <v-content>

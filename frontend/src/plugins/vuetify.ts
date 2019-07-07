@@ -7,6 +7,6 @@ Vue.use(Vuetify, {
   iconfont: "md",
   theme: {
     primary: colors.green,
-    accent: colors.green.lighten1
+    accent: colors.green.accent1
   }
 });

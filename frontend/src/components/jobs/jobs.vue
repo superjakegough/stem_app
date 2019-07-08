@@ -17,7 +17,7 @@
           </p>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
-          <v-card :key="index" v-for="(job, index) in jobs" elevation=0 color="accent" class="mb-4">
+          <v-card :key="index" v-for="(job, index) in jobs" flat color="accent" class="mb-4">
             <v-card-text>
               <h3 class="title primary--text mb-4">Title</h3>
               <p class="mb-4">{{job.title}}</p>

@@ -33,6 +33,11 @@
               <p>{{job.description}}</p>
             </v-card-text>
           </v-card>
+          <v-card v-if="jobs.length < 1" class="mb-4">
+            <v-card-text class="text-xs-center">
+              <p>There are currently no job opportunities available :(</p>
+            </v-card-text>
+          </v-card>
         </v-flex>
       </v-layout>
       <v-layout justify-center mb-5>

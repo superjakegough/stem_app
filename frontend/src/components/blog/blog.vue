@@ -10,14 +10,13 @@
     <v-container fluid class="content-container">
       <v-layout row wrap justify-center>
         <v-flex md8 sm10 xs12 mb-4>
-          <h2 class="content-title primary--text mb-4">Current Opportunities</h2>
+          <h2 class="content-title primary--text mb-4">News &amp; Advice Blog</h2>
           <p>
-            Interested in any of the below opportunities? To apply, please send your CV to
-            <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> with the job reference number, and we will respond within 2 working days.
+            Keep up to date with the latest industry news, as well as regular articles offering recruitment and careers advice.
           </p>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
-          <v-card :key="index" v-for="(job, index) in jobs" class="mb-4">
+          <v-card :key="index" v-for="(blog, index) in blog" class="mb-4">
             <v-card-text>
               <h3 class="title primary--text mb-4">Title</h3>
               <p class="mb-4">{{job.title}}</p>
@@ -31,6 +30,11 @@
               <p class="mb-4">{{job.reference}}</p>
               <h3 class="title primary--text mb-4">Description</h3>
               <p>{{job.description}}</p>
+            </v-card-text>
+          </v-card>
+          <v-card v-if="blogs.length < 1" class="mb-4">
+            <v-card-text class="text-xs-center">
+              <p>There are currently no blogs available :(</p>
             </v-card-text>
           </v-card>
         </v-flex>

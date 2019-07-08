@@ -3,7 +3,7 @@ import { Component, Vue } from "vue-property-decorator";
 @Component
 export default class HomeComponent extends Vue {
   clientPanel: boolean[] = [true];
-  candidatePanel: boolean[] = [true];
+  candidatePanel: boolean[] = [false];
 
   name: string = "";
   email: string = "";

@@ -85,14 +85,14 @@
           >Founder &amp; Recruitment Advisor</h3>
         </v-flex>
         <v-flex md4 sm10 xs12>
-          <v-layout align-center fill-height>
-            <p>I am a personable and technical recruiter with a simple and transparent approach that has both client and candidate satisfaction at its core. I offer extensive market knowledge of the science, technology, engineering and manufacturing industries in South Wales, along with a large network of candidates and clients. I have recruited for a variety of companies; from start-ups and SMEs, right through to blue-chip organisations and global brands.</p>
-          </v-layout>
-          <v-layout justify-center mb-5>
+          <v-layout column align-center justify-center fill-height>
+            <p>
+              I am a personable and technical recruiter with a simple and transparent approach that has both client and candidate satisfaction at its core. I offer extensive market knowledge of the science, technology, engineering and manufacturing industries in South Wales, along with a large network of candidates and clients. I have recruited for a variety of companies; from start-ups and SMEs, right through to blue-chip organisations and global brands.
+            </p>
             <v-btn flat color="primary" to="/blog">Blog</v-btn>
           </v-layout>
         </v-flex>
-        <v-flex md4 sm10 xs12 mb-5>
+        <v-flex md4 sm10 xs12>
           <v-layout align-center justify-center fill-height>
             <v-list style="background: transparent;">
               <v-list-tile avatar three-line>

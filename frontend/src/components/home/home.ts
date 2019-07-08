@@ -11,7 +11,9 @@ export default class HomeComponent extends Vue {
   message: string = "";
 
   getBackground(panel: boolean) {
-    if (!panel) {
+    if (panel) {
+      return "#B9F6CA";
+    } else {
       return "transparent";
     }
   }

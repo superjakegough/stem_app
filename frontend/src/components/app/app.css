@@ -10,6 +10,10 @@
   color: #b9f6ca !important;
 }
 
+.v-expansion-panel__container--active {
+  box-shadow: none !important;
+}
+
 .content-container {
   padding: 56px;
 }

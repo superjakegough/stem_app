@@ -16,7 +16,7 @@
           </p>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
-          <v-card :key="index" v-for="(blog, index) in blog" flat color="accent" class="mb-4">
+          <!-- <v-card :key="index" v-for="(blog, index) in blog" flat color="accent" class="mb-4">
             <v-card-text>
               <h3 class="title primary--text mb-4">Title</h3>
               <p class="mb-4">{{job.title}}</p>
@@ -31,8 +31,8 @@
               <h3 class="title primary--text mb-4">Description</h3>
               <p>{{job.description}}</p>
             </v-card-text>
-          </v-card>
-          <v-card v-if="blogs.length < 1" class="mb-4">
+          </v-card> -->
+          <v-card v-if="blogs.length < 1" flat color="accent" class="mb-4">
             <v-card-text class="text-xs-center">
               <p>There are currently no blogs available :(</p>
             </v-card-text>

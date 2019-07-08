@@ -52,7 +52,7 @@
 }
 
 .services-stepper {
-  height: 660px;
+  height: 760px;
 }
 
 @media (max-width: 960px) {
@@ -88,7 +88,7 @@
   }
 
   .services-stepper {
-    height: 760px;
+    height: 860px;
   }
 }
 
@@ -99,5 +99,15 @@
 
   .services-stepper {
     height: 1140px;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-logo {
+    max-height: 120px;
+  }
+
+  .services-stepper {
+    height: 1360px;
   }
 }

@@ -17,7 +17,7 @@
           </p>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
-          <v-card :key="index" v-for="(job, index) in jobs" flat color="accent" class="mb-4">
+          <v-card :key="index" v-for="(job, index) in jobsPaged" flat color="accent" class="mb-4">
             <v-card-text>
               <h3 class="title primary--text mb-4">Title</h3>
               <p class="mb-4">{{job.title}}</p>
@@ -39,6 +39,9 @@
             </v-card-text>
           </v-card>
         </v-flex>
+      </v-layout>
+      <v-layout justify-center mb-4>
+        <v-pagination v-model="page" :length="jobsPages" circle @input="onPageChange" ></v-pagination>
       </v-layout>
       <v-layout justify-center mb-5>
         <v-btn flat color="primary" to="/">Home</v-btn>

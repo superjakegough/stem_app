@@ -20,11 +20,10 @@
 
 .content-title {
   font-size: 45px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 45px;
   letter-spacing: normal;
   font-family: "Roboto", sans-serif;
-  font-weight: bold;
 }
 
 .header-image {
@@ -37,7 +36,7 @@
 
 .header-text {
   font-size: 56px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 56px;
   letter-spacing: -0.32px;
   font-family: "Roboto", sans-serif;
@@ -55,11 +54,10 @@
 
   .content-title {
     font-size: 34px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 40px;
     letter-spacing: normal;
     font-family: "Roboto", sans-serif;
-    font-weight: bold;
     text-align: center;
   }
 
@@ -69,7 +67,7 @@
 
   .header-text {
     font-size: 34px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 2.5rem;
     letter-spacing: normal;
     font-family: "Roboto", sans-serif;

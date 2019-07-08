@@ -44,6 +44,10 @@
   text-transform: uppercase;
 }
 
+.home-logo {
+  max-height: 220px;
+}
+
 @media (max-width: 960px) {
   .content-container {
     padding: 32px;
@@ -71,5 +75,15 @@
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     margin-bottom: 40px;
+  }
+
+  .home-logo {
+    max-height: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-logo {
+    max-height: 120px;
   }
 }

@@ -9,8 +9,17 @@
     </v-flex>
     <v-container fluid class="content-container">
       <v-layout row wrap justify-center>
-        <v-flex md6 sm10 xs12 mb-4>
-          <h2 class="content-title primary--text mb-4">Who We Are</h2>
+        <v-flex md8 sm10 xs12 mb-4>
+          <h2 class="content-title primary--text">Who We Are</h2>
+        </v-flex>
+        <v-flex sm10 xs12 mb-4 v-if="$vuetify.breakpoint.smAndDown">
+          <v-img
+            :src="require('@/assets/stem_green.png')"
+            class="content-image home-logo"
+            contain
+          ></v-img>
+        </v-flex>
+        <v-flex md6 sm10 xs12>
           <p>
             We are Stem. We are not just here to get a fee – we are here to
             <strong>grow your business</strong> and
@@ -19,15 +28,14 @@
           <p>Based in South Wales, we provide expertise and experience in recruitment for the science, technology, engineering and manufacturing industries across the region. Our approach to recruitment is simple and transparent, with a focus on not just short-term solutions to find you the right candidate, but also on investing into long-term solutions for your recruitment needs.</p>
           <p>Whether you are a business looking to recruit, or a candidate looking to take the next step in your career, then we are here to listen to your needs and expectations, offer market advice and knowledge, and work with you to find you the right match.</p>
         </v-flex>
-        <v-flex xs2 ml-3 v-if="$vuetify.breakpoint.mdAndUp">
+        <v-flex md2 ml-3 v-if="$vuetify.breakpoint.mdAndUp">
           <v-img
             :src="require('@/assets/stem_green.png')"
-            class="content-image"
-            max-height="280"
+            class="content-image home-logo"
             contain
           ></v-img>
         </v-flex>
-        <v-flex md8 sm10 xs12 mb-4>
+        <v-flex md8 sm10 xs12 mt-4 mb-4>
           <h2 class="content-title primary--text mb-4 mt-4">What We Do</h2>
           <v-expansion-panel v-model="clientPanel" expand popout>
             <v-expansion-panel-content

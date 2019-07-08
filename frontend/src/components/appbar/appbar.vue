@@ -7,7 +7,7 @@
           class="content-image toolbar-icon"
           height="28"
         />
-        <span class="primary--text title">Stem</span>
+        <span class="primary--text title ml-2">Stem</span>
       </v-layout>
     </v-flex>
     <v-flex xs4>

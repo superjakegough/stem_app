@@ -178,16 +178,29 @@ export default class JobsComponent extends Vue {
     }
   ];
 
+  filteredJobs: Job[] = [];
   page: number = 1;
   jobsPerPage: number = 3;
-  jobsPages: number = Math.ceil(this.jobs.length / this.jobsPerPage);
+  jobsPages: number = 0;
   jobsPaged: Job[] = [];
-
-  onPageChange() {
-    this.jobsPaged = this.jobs.slice((this.page - 1) * this.jobsPerPage, (this.page) * this.jobsPerPage);
-  }
+  searchTerm: string = "";
 
   mounted() {
+    this.onSearch();
+  }
+
+  onPageChange() {
+    this.jobsPages = Math.ceil(this.filteredJobs.length / this.jobsPerPage);
+    this.jobsPaged = this.filteredJobs.slice((this.page - 1) * this.jobsPerPage, (this.page) * this.jobsPerPage);
+  }
+
+  onSearch() {
+    this.page = 1;
+    if (this.searchTerm === "") {
+      this.filteredJobs = this.jobs;
+    } else {
+      this.filteredJobs = this.jobs.filter(job => job.title.includes(this.searchTerm));
+    }
     this.onPageChange();
   }
 }

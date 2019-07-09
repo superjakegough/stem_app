@@ -3,7 +3,7 @@
     <v-flex xs12>
       <v-img :src="require('@/assets/background2.jpg')" class="header-image">
         <v-layout column text-xs-right justify-end fill-height class="header-padding">
-          <h1 class="header-text primary--text">Jobs</h1>
+          <h1 class="header-text">Jobs</h1>
         </v-layout>
       </v-img>
     </v-flex>
@@ -17,7 +17,7 @@
           </p>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
-          <v-text-field label="Search" prepend-inner-icon="search" color="primary" background-color="accent" box></v-text-field>
+          <v-text-field v-model="searchTerm" @change="onSearch" label="Search" prepend-inner-icon="search" color="primary" background-color="accent" box></v-text-field>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
           <v-card :key="index" v-for="(job, index) in jobsPaged" flat color="accent" class="mb-4">

@@ -39,6 +39,7 @@
 }
 
 .header-text {
+  color: #FCFCFC;
   font-size: 56px;
   font-weight: 500;
   line-height: 56px;
@@ -80,7 +81,7 @@
     letter-spacing: normal;
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 56px;
   }
 
   .home-logo {

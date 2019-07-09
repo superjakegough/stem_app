@@ -17,6 +17,9 @@
           </p>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
+          <v-text-field label="Search" prepend-inner-icon="search" color="primary" background-color="accent" box></v-text-field>
+        </v-flex>
+        <v-flex md8 sm10 xs12 mb-4>
           <v-card :key="index" v-for="(job, index) in jobsPaged" flat color="accent" class="mb-4">
             <v-card-text>
               <h3 class="title primary--text mb-4">Title</h3>

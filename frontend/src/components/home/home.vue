@@ -44,7 +44,7 @@
               <template v-slot:header>
                 <div class="body-2">Clients</div>
               </template>
-              <v-card color="accent">
+              <v-card>
                 <v-card-text>
                   Stem supports science, technology, engineering and manufacturing businesses in South Wales by providing permanent recruitment services. We provide experience and expertise in recruiting for a wide range of roles and are dedicated to finding the right candidates to help your business grow. Take a look at our client services page to find out more information, or if you have a vacancy and need help, then email
                   <a
@@ -66,7 +66,7 @@
               <template v-slot:header>
                 <div class="body-2">Candidates</div>
               </template>
-              <v-card color="accent">
+              <v-card>
                 <v-card-text>
                   If you’re looking to take the next step in your career, then we can help. All of our services to candidates may be free, but we take the same time and care in finding YOU the right fit as we do for our clients. To see our current job opportunities with our clients, take a look at our find a job page, or alternatively you can register with us by sending your CV to
                   <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> and we will be in contact as soon as we have any suitable job opportunities.

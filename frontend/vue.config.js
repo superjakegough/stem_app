@@ -1,3 +1,8 @@
+const CompressionPlugin = require("compression-webpack-plugin");
+
 module.exports = {
-  productionSourceMap: false
+  productionSourceMap: false,
+  configureWebpack: {
+      plugins: [new CompressionPlugin()]
+  }
 };

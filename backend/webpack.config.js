@@ -1,6 +1,7 @@
 const path = require("path");
 const { NODE_ENV = "production" } = process.env;
 const nodeExternals = require("webpack-node-externals");
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
   entry: "./src/server.ts",
@@ -21,5 +22,6 @@ module.exports = {
       }
     ]
   },
+  plugins: [new CompressionPlugin()],
   externals: [nodeExternals()]
 };

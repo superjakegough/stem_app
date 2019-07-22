@@ -25,7 +25,7 @@
             <strong>grow your business</strong> and
             <strong>grow your career</strong>. We are more than just a specialist recruitment consultancy; we also aim to support the growth of the industries for which we recruit, in mutual benefit.
           </p>
-          <p>Based in South Wales, we provide expertise and experience in recruitment for the science, technology, engineering and manufacturing industries across the region. Our approach to recruitment is simple and transparent, with a focus on not just short-term solutions to find you the right candidate, but also on investing into long-term solutions for your recruitment needs.</p>
+          <p>Based in Wales, we provide expertise and experience in recruitment for the science, technology, engineering and manufacturing industries across the region. Our approach to recruitment is simple and transparent, with a focus on not just short-term solutions to find you the right candidate, but also on investing into long-term solutions for your recruitment needs.</p>
           <p>Whether you are a business looking to recruit, or a candidate looking to take the next step in your career, then we are here to listen to your needs and expectations, offer market advice and knowledge, and work with you to find you the right match.</p>
         </v-flex>
         <v-flex md2 ml-3 v-if="$vuetify.breakpoint.mdAndUp">
@@ -46,7 +46,7 @@
               </template>
               <v-card>
                 <v-card-text>
-                  Stem supports science, technology, engineering and manufacturing businesses in South Wales by providing permanent recruitment services. We provide experience and expertise in recruiting for a wide range of roles and are dedicated to finding the right candidates to help your business grow. Take a look at our client services page to find out more information, or if you have a vacancy and need help, then email
+                  Stem supports science, technology, engineering and manufacturing businesses in Wales by providing permanent recruitment services. We provide experience and expertise in recruiting for a wide range of roles and are dedicated to finding the right candidates to help your business grow. Take a look at our client services page to find out more information, or if you have a vacancy and need help, then email
                   <a
                     href="mailto:vacancy@stemrecruit.co.uk"
                   >vacancy@stemrecruit.co.uk.</a>
@@ -95,7 +95,7 @@
         <v-flex md4 sm10 xs12>
           <v-layout column align-center justify-center fill-height>
             <p>
-              I am a personable and technical recruiter with a simple and transparent approach that has both client and candidate satisfaction at its core. I offer extensive market knowledge of the science, technology, engineering and manufacturing industries in South Wales, along with a large network of candidates and clients. I have recruited for a variety of companies; from start-ups and SMEs, right through to blue-chip organisations and global brands.
+              I am a personable and technical recruiter with a simple and transparent approach that has both client and candidate satisfaction at its core. I offer extensive market knowledge of the science, technology, engineering and manufacturing industries in Wales, along with a large network of candidates and clients. I have recruited for a variety of companies; from start-ups and SMEs, right through to blue-chip organisations and global brands.
             </p>
             <v-btn flat color="primary" to="/blog">Blog</v-btn>
           </v-layout>

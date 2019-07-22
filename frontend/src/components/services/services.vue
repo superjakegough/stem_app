@@ -11,7 +11,7 @@
       <v-layout row wrap justify-center>
         <v-flex md8 sm10 xs12 mb-4>
           <h2 class="content-title primary--text mb-4">Client Services</h2>
-          <p>Stem is a specialist permanent recruitment consultancy providing sustainable recruitment solutions for the science, technology, engineering and manufacturing industries in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.</p>
+          <p>Stem is a specialist permanent recruitment consultancy providing sustainable recruitment solutions for the science, technology, engineering and manufacturing industries in Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.</p>
           <h2 class="content-title primary--text mt-4 mb-4">Industries &amp; Roles</h2>
           <v-layout row wrap>
             <v-flex md4 sm5 xs12 mb-4>
@@ -74,12 +74,12 @@
             <v-stepper-content step="2">
               <p>We search through our large network of candidates to find you the right candidate. We use a variety of sourcing tools including:</p>
               <ul class="mb-3">
-                <li>Internal database of science, technology, engineering and manufacturing professionals in South Wales.</li>
+                <li>Internal database of science, technology, engineering and manufacturing professionals in Wales.</li>
                 <li>UK job boards – including advertising and access to millions of CVs UK-wide.</li>
                 <li>Social media – LinkedIn, Twitter and Facebook.</li>
                 <li>Stem Website – advertising on Stem’s website job page.</li>
                 <li>Networking and events – we network at industry events meeting with both active and passive candidates.</li>
-                <li>Education links – for graduate roles, we have strong links with South Wales’ universities.</li>
+                <li>Education links – for graduate roles, we have strong links with Wales’ universities.</li>
               </ul>
               <v-btn color="primary" @click="next()">Next</v-btn>
               <v-btn @click="prev()" flat>Prev</v-btn>

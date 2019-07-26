@@ -16,6 +16,12 @@
           </p>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
+          <!-- <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
+              <button :class="{ 'is-active': isActive.bold() }" @click="commands.bold">
+                Bold
+              </button>
+          </editor-menu-bar>
+          <editor-content :editor="editor" /> -->
           <!-- <v-card :key="index" v-for="(blog, index) in blog" flat class="mb-4">
             <v-card-text>
               <h3 class="title primary--text mb-4">Title</h3>

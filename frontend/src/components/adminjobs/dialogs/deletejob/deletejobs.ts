@@ -1,4 +1,5 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
+import Job from "@/models/job";
 import { deleteJob } from "@/services/job-service";
 
 @Component
@@ -6,10 +7,11 @@ export default class DeleteJobDialogComponent extends Vue {
   @Prop() show: boolean = false;
   @Prop() error: boolean = false;
   @Prop() errorMessage: string = "";
-  @Prop() jobId: string = "";
+  @Prop() job!: Job;
 
-  delete() {
-    deleteJob(this.jobId);
+  async deletee() {
+    const res = await deleteJob(this.job._id);
+    console.log(res);
   }
 
   cancel() {

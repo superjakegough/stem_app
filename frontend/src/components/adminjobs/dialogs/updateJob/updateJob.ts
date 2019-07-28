@@ -1,31 +1,22 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 import Job from "@/models/job";
-import { createJob } from "@/services/job-service";
+import { updateJob } from "@/services/job-service";
 
 @Component
-export default class CreateJobDialogComponent extends Vue {
+export default class UpdateJobDialogComponent extends Vue {
   @Prop() show: boolean = false;
   @Prop() error: boolean = false;
   @Prop() errorMessage: string = "";
+  @Prop() job!: Job;
   $refs!: { form: HTMLFormElement };
   date: string = new Date().toISOString();
   failed: boolean = false;
-  job: Job = {
-    _id: "",
-    title: "",
-    salary: "",
-    benefits: "",
-    jobType: "",
-    location: "",
-    reference: "",
-    description: "",
-    createdAt: this.date,
-    updatedAt: this.date
-  };
 
-  create() {
+  async update() {
     if (this.$refs.form.validate()) {
-      createJob(this.job);
+      this.job.updatedAt = this.date;
+      const res = await updateJob(this.job);
+      console.log(res);
     }
   }
 

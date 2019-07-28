@@ -51,6 +51,12 @@ export default class EditorComponent extends Vue {
     `,
   });
 
+  iconColor(bool: boolean) {
+    if (!bool) {
+      return "grey";
+    }
+  }
+
   beforeDestroy() {
     this.editor.destroy();
   }

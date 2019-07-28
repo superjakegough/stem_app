@@ -26,6 +26,7 @@ import {
   }
 })
 export default class BlogComponent extends Vue {
+  editor: Editor = new Editor({content: "<p>This is just a boring paragraph</p>"});
   blogs: any[] = [];
   editor: any = new Editor({
     extensions: [

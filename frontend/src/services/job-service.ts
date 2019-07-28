@@ -4,14 +4,12 @@ import Job from "../models/job";
 const backendUrl: string = "http://localhost:3001";
 const apiRoute: string = "jobs";
 
-export let jobs: Job[] = [];
-
-export const getAllData = async () => {
+export const getAllJobs = async () => {
   const res = await axios.get(`${backendUrl}/${apiRoute}/getAll`);
-  jobs = res.data.job;
+  return res.data.job;
 };
 
-export const createData = async (job: Job) => {
+export const createJob = async (job: Job) => {
   const res = await axios.post(`${backendUrl}/${apiRoute}/create`, {
     title: job.title,
     salary: job.salary,
@@ -21,10 +19,10 @@ export const createData = async (job: Job) => {
     reference: job.reference,
     description: job.description
   });
-  console.log(res.data);
+  return res.data;
 };
 
-export const updateData = async (job: Job) => {
+export const updateJob = async (job: Job) => {
   const res = await axios.put(`${backendUrl}/${apiRoute}/update/${job._id}`, {
     title: job.title,
     salary: job.salary,
@@ -34,10 +32,10 @@ export const updateData = async (job: Job) => {
     reference: job.reference,
     description: job.description
   });
-  console.log(res.data);
+  return res.data;
 };
 
-export const deleteData = async (id: string) => {
+export const deleteJob = async (id: string) => {
   const res = await axios.delete(`${backendUrl}/${apiRoute}/delete/${id}`);
-  console.log(res.data);
+  return res.data;
 };

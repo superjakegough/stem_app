@@ -16,13 +16,18 @@
 				<v-data-table :headers="headers" :items="jobs" :search="search" :loading="loading" item-key="id" expand>
 					<v-progress-linear slot="progress" color="primary" indeterminate />
 					<template slot="items" slot-scope="props">
-						<tr @click="props.expanded = !props.expanded">
-							<td>{{ props.item.id }}</td>
-							<td>{{ props.item.name }}</td>
-							<td>{{ props.item.role }}</td>
-							<td>{{ props.item.contractHours }}</td>
-							<td>{{ props.item.workPattern }}</td>
-							<td><font v-bind:style="{ color: statusColour(props.item.status) }">{{ props.item.status }}</font></td>
+						<tr>
+							<td>{{ props.item.title }}</td>
+							<td>{{ props.item.salary }}</td>
+							<td>{{ props.item.benefits }}</td>
+							<td>{{ props.item.jobType }}</td>
+							<td>{{ props.item.location }}</td>
+							<td>{{ props.item.reference }}</td>
+              <td>{{ props.item.description }}</td>
+              <td>
+                <v-icon small class="mr-2" @click="editItem(props.item)">edit</v-icon>
+                <v-icon small @click="deleteItem(props.item)">delete</v-icon>
+              </td>
 						</tr>
 					</template>
 					<template slot="expand" slot-scope="props">
@@ -37,24 +42,11 @@
 				</v-data-table>
 			</v-card>
 		</v-flex>
-		<v-dialog v-model="dialog" max-width="290">
-			<v-card>
-				<v-card-title class="headline">
-					Delete employee?
-				</v-card-title>
-				<v-card-text>Are you sure you want to delete this employee?</v-card-text>
-				<v-card-actions>
-					<v-spacer></v-spacer>
-					<v-btn color="primary" flat @click.native="dialog = false">Cancel</v-btn>
-					<v-btn color="primary" flat v-on:click.native="deleteEmployee">Accept</v-btn>
-				</v-card-actions>
-			</v-card>
-		</v-dialog>
 		<v-snackbar v-model="failed" color="error">Failed to delete employee!<v-btn dark flat @click="failed = false">Close</v-btn></v-snackbar>
 	</v-layout>
 	<v-layout v-else column>
 		<v-toolbar flat color="transparent">
-				<v-toolbar-title>Employees</v-toolbar-title>
+				<v-toolbar-title>Jobs</v-toolbar-title>
 				<v-spacer></v-spacer>
 				<v-btn flat color="accent" v-on:click.native="createEmployee">Create</v-btn>
 		</v-toolbar>
@@ -67,18 +59,15 @@
 			<v-flex slot="item" slot-scope="props" class="mb-4" xs12>
 				<v-card>
 					<v-card-title>
-						<span class="subheading font-weight-bold">{{ props.item.id }} - {{ props.item.name }}</span>
+						<span class="subheading font-weight-bold">{{ props.item.title }}</span>
 						<v-spacer />
 						<v-menu left>
 							<v-btn slot="activator" icon class="ma-0">
 								<v-icon>more_vert</v-icon>
 							</v-btn>
 							<v-list>
-								<v-list-tile v-on:click.native="editEmployee(props.item.id)">
+								<v-list-tile v-on:click.native="editEmployee(props.item)">
 									<v-list-tile-title>Edit</v-list-tile-title>
-								</v-list-tile>
-								<v-list-tile v-on:click.native="viewEmployee(props.item.id)">
-									<v-list-tile-title>View</v-list-tile-title>
 								</v-list-tile>
 								<v-list-tile v-on:click.native="openDelete(props.item.id)">
 									<v-list-tile-title>Delete</v-list-tile-title>
@@ -89,20 +78,28 @@
 					<v-divider class="ma-0" />
 					<v-list dense>
 						<v-list-tile>
-							<v-list-tile-content>Role:</v-list-tile-content>
-							<v-list-tile-content class="align-end">{{ props.item.role }}</v-list-tile-content>
+							<v-list-tile-content>Salary:</v-list-tile-content>
+							<v-list-tile-content class="align-end">{{ props.item.salary }}</v-list-tile-content>
 						</v-list-tile>
 						<v-list-tile>
-							<v-list-tile-content>Contract Hours:</v-list-tile-content>
-							<v-list-tile-content class="align-end">{{ props.item.contractHours }}</v-list-tile-content>
+							<v-list-tile-content>Benefits:</v-list-tile-content>
+							<v-list-tile-content class="align-end">{{ props.item.benefits }}</v-list-tile-content>
 						</v-list-tile>
 						<v-list-tile>
-							<v-list-tile-content>Work Pattern:</v-list-tile-content>
-							<v-list-tile-content class="align-end">{{ props.item.workPattern }}</v-list-tile-content>
+							<v-list-tile-content>Type:</v-list-tile-content>
+							<v-list-tile-content class="align-end">{{ props.item.jobType }}</v-list-tile-content>
 						</v-list-tile>
-						<v-list-tile>
-							<v-list-tile-content>Status:</v-list-tile-content>
-							<v-list-tile-content class="align-end"><font v-bind:style="{ color: statusColour(props.item.status) }">{{ props.item.status }}</font></v-list-tile-content>
+            <v-list-tile>
+							<v-list-tile-content>Location:</v-list-tile-content>
+							<v-list-tile-content class="align-end">{{ props.item.location }}</v-list-tile-content>
+						</v-list-tile>
+            <v-list-tile>
+							<v-list-tile-content>Reference:</v-list-tile-content>
+							<v-list-tile-content class="align-end">{{ props.item.reference }}</v-list-tile-content>
+						</v-list-tile>
+            <v-list-tile>
+							<v-list-tile-content>Description:</v-list-tile-content>
+							<v-list-tile-content class="align-end">{{ props.item.description }}</v-list-tile-content>
 						</v-list-tile>
 					</v-list>
 				</v-card>

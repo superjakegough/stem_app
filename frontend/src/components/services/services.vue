@@ -66,8 +66,7 @@
                 <li>We can provide expert advice as to what skills are available, as well as advice on industry trends.</li>
                 <li>Once we have established what you are looking for, we tailor our recruitment process to meet your requirements, and begin a candidate sourcing and selection process.</li>
               </ul>
-              <v-btn color="primary" @click="next()">Next</v-btn>
-              <v-btn @click="prev()" flat>Prev</v-btn>
+              <v-btn color="primary" @click="next()" flat>Next</v-btn>
             </v-stepper-content>
 
             <v-stepper-step :complete="stepper > 2" step="2">Candidate sourcing</v-stepper-step>
@@ -81,7 +80,7 @@
                 <li>Networking and events – we network at industry events meeting with both active and passive candidates.</li>
                 <li>Education links – for graduate roles, we have strong links with Wales’ universities.</li>
               </ul>
-              <v-btn color="primary" @click="next()">Next</v-btn>
+              <v-btn color="primary" @click="next()" flat>Next</v-btn>
               <v-btn @click="prev()" flat>Prev</v-btn>
             </v-stepper-content>
 
@@ -95,7 +94,7 @@
                 <li>Career plans and aspirations.</li>
                 <li>Availability.</li>
               </ul>
-              <v-btn color="primary" @click="next()">Next</v-btn>
+              <v-btn color="primary" @click="next()" flat>Next</v-btn>
               <v-btn @click="prev()" flat>Prev</v-btn>
             </v-stepper-content>
 
@@ -108,14 +107,14 @@
                 <li>Your company website.</li>
                 <li>An application form with questions or technical test can also be sent. The job application email tests the candidate’s interest and commitment.</li>
               </ul>
-              <v-btn color="primary" @click="next()">Next</v-btn>
+              <v-btn color="primary" @click="next()" flat>Next</v-btn>
               <v-btn @click="prev()" flat>Prev</v-btn>
             </v-stepper-content>
 
             <v-stepper-step step="5">Final interview &amp; candidate submission</v-stepper-step>
             <v-stepper-content step="5">
               <p>Once the candidate has reviewed the job application email, Stem will conduct a final interview with the candidate to further gauge their interest and suitability for the role before presenting you their details. Once we have sent you their CV, we will continue to provide support during the process from when you first interview the candidate, through to the job offer and the candidate’s first day, providing feedback and advice to you and the candidate throughout.</p>
-              <v-btn color="primary" @click="next()">Reset</v-btn>
+              <v-btn color="primary" @click="next()" flat>Restart</v-btn>
               <v-btn @click="prev()" flat>Prev</v-btn>
             </v-stepper-content>
           </v-stepper>

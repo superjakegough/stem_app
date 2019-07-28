@@ -23,13 +23,13 @@
     </v-flex>
     <v-flex xs4>
       <v-layout justify-end>
-        <v-btn flat icon>
+        <!-- <v-btn flat icon>
           <v-img :src="require('@/assets/facebook.svg')" contain height="24"></v-img>
         </v-btn>
         <v-btn flat icon>
           <v-img :src="require('@/assets/instagram.svg')" contain height="24"></v-img>
-        </v-btn>
-        <v-btn flat icon>
+        </v-btn> -->
+        <v-btn flat icon @click="openUrl(linkedIn)">
           <v-img :src="require('@/assets/linkedin.svg')" contain height="24"></v-img>
         </v-btn>
       </v-layout>

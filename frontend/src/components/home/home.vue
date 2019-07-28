@@ -109,7 +109,7 @@
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                   <v-list-tile-title class="primary--text">Location</v-list-tile-title>
-                  <v-list-tile-sub-title>Cardiff, UK</v-list-tile-sub-title>
+                  <v-list-tile-sub-title>Caerphilly, Wales</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
               <v-list-tile avatar three-line>
@@ -118,7 +118,7 @@
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                   <v-list-tile-title class="primary--text">Email</v-list-tile-title>
-                  <v-list-tile-sub-title>email@address.com</v-list-tile-sub-title>
+                  <v-list-tile-sub-title>jobs@stemrecruit.co.uk</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
               <v-list-tile avatar three-line>
@@ -127,7 +127,7 @@
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                   <v-list-tile-title class="primary--text">Telephone</v-list-tile-title>
-                  <v-list-tile-sub-title>07000123456</v-list-tile-sub-title>
+                  <v-list-tile-sub-title>029 2120 2879</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
             </v-list>

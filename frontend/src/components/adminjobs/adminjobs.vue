@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-layout row wrap justify-center v-if="$vuetify.breakpoint.smAndUp">
+  <v-layout row fill-height align-center>
+    <v-layout justify-center v-if="$vuetify.breakpoint.smAndUp">
       <v-flex xs10>
         <v-card>
           <v-toolbar flat class="tabletoolbar">
@@ -11,12 +11,12 @@
               <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details />
             </v-flex>
             <v-flex xs4 class="text-xs-right">
-              <v-btn flat color="accent" @click="create = true">Create</v-btn>
+              <v-btn flat color="primary" @click="dialogs.createShow = true">Create</v-btn>
             </v-flex>
           </v-toolbar>
-          <v-data-table :headers="headers" :items="jobs" :search="search" :loading="loading" item-key="id" expand>
+          <v-data-table :headers="headers" :items="jobs" :search="search" :loading="loading" item-key="id" :items-per-page="5">
             <v-progress-linear slot="progress" color="primary" indeterminate />
-            <template slot="items" slot-scope="props">
+            <template v-slot:items="props">
               <tr>
                 <td>{{ props.item.title }}</td>
                 <td>{{ props.item.salary }}</td>
@@ -24,31 +24,21 @@
                 <td>{{ props.item.jobType }}</td>
                 <td>{{ props.item.location }}</td>
                 <td>{{ props.item.reference }}</td>
-                <td>{{ props.item.description }}</td>
-                <td>
-                  <v-icon small class="mr-2" @click="update = true">edit</v-icon>
-                  <v-icon small @click="deletee = true">delete</v-icon>
+                <td class="justify-center layout px-0">
+                  <v-icon small class="mr-2" @click="dialogs.updateShow = true">edit</v-icon>
+                  <v-icon small @click="dialogs.deleteShow = true">delete</v-icon>
                 </td>
               </tr>
-            </template>
-            <template slot="expand" slot-scope="props">
-              <v-card flat="flat">
-                <v-layout justify-center>
-                  <v-btn color="accent" flat v-on:click.native="editEmployee(props.item.id)">Edit</v-btn>
-                  <v-btn color="accent" flat v-on:click.native="viewEmployee(props.item.id)">View</v-btn>
-                  <v-btn color="accent" flat v-on:click.native="openDelete(props.item.id)">Delete</v-btn>
-                </v-layout>
-              </v-card>
             </template>
           </v-data-table>
         </v-card>
       </v-flex>
     </v-layout>
-    <v-layout v-else column>
+    <v-layout v-else column justify-center>
       <v-toolbar flat color="transparent">
           <v-toolbar-title>Jobs</v-toolbar-title>
           <v-spacer></v-spacer>
-          <v-btn flat color="accent" v-on:click.native="createEmployee">Create</v-btn>
+          <v-btn flat color="primary" @click="dialogs.createShow = true">Create</v-btn>
       </v-toolbar>
       <v-menu lazy transition="scale-transition" full-width>
         <v-text-field slot="activator" v-model="dateFormatted" label="Date" append-icon="event" readonly box />
@@ -66,10 +56,10 @@
                   <v-icon>more_vert</v-icon>
                 </v-btn>
                 <v-list>
-                  <v-list-tile v-on:click.native="editEmployee(props.item)">
+                  <v-list-tile @click="dialogs.updateShow = true">
                     <v-list-tile-title>Edit</v-list-tile-title>
                   </v-list-tile>
-                  <v-list-tile v-on:click.native="openDelete(props.item.id)">
+                  <v-list-tile @click="dialogs.deleteShow = true">
                     <v-list-tile-title>Delete</v-list-tile-title>
                   </v-list-tile>
                 </v-list>
@@ -97,20 +87,16 @@
                 <v-list-tile-content>Reference:</v-list-tile-content>
                 <v-list-tile-content class="align-end">{{ props.item.reference }}</v-list-tile-content>
               </v-list-tile>
-              <v-list-tile>
-                <v-list-tile-content>Description:</v-list-tile-content>
-                <v-list-tile-content class="align-end">{{ props.item.description }}</v-list-tile-content>
-              </v-list-tile>
             </v-list>
           </v-card>
         </v-flex>
       </v-data-iterator>
     </v-layout>
-    <CreateJobDialog />
-    <UpdateJobDialog />
-    <DeleteJobDialog :show="deletee" :error="error" :errorMessage="errorMessage" :jobId="job._id"/>
+    <CreateJobDialog :show="dialogs" :error="error" :errorMessage="errorMessage"/>
+    <UpdateJobDialog :show="dialogs" :error="error" :errorMessage="errorMessage" :job="selectedJob"/>
+    <DeleteJobDialog :show="dialogs" :error="error" :errorMessage="errorMessage" :job="selectedJob"/>
     <v-snackbar v-model="error" color="error">{{ errorMessage }}<v-btn dark flat @click="error = false">Close</v-btn></v-snackbar>
-  </div>
+  </v-layout>
 </template>
 
 <script src="./adminjobs.ts"></script>

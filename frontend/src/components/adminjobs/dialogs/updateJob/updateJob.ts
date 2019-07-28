@@ -4,7 +4,7 @@ import { updateJob } from "@/services/job-service";
 
 @Component
 export default class UpdateJobDialogComponent extends Vue {
-  @Prop() show: boolean = false;
+  @Prop() dialogs!: any;
   @Prop() error: boolean = false;
   @Prop() errorMessage: string = "";
   @Prop() job!: Job;
@@ -25,6 +25,6 @@ export default class UpdateJobDialogComponent extends Vue {
   }
 
   cancel() {
-    this.show = false;
+    this.dialogs.updateShow = false;
   }
 }

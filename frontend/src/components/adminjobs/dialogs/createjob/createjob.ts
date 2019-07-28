@@ -4,7 +4,7 @@ import { createJob } from "@/services/job-service";
 
 @Component
 export default class CreateJobDialogComponent extends Vue {
-  @Prop() show: boolean = false;
+  @Prop() dialogs!: any;
   @Prop() error: boolean = false;
   @Prop() errorMessage: string = "";
   $refs!: { form: HTMLFormElement };
@@ -34,6 +34,6 @@ export default class CreateJobDialogComponent extends Vue {
   }
 
   cancel() {
-    this.show = false;
+    this.dialogs.createShow = false;
   }
 }

@@ -4,6 +4,8 @@ import Home from "@/components/home/home.vue";
 import Services from "@/components/services/services.vue";
 import Jobs from "@/components/jobs/jobs.vue";
 import Blog from "@/components/blog/blog.vue";
+import AdminJobs from "@/components/adminjobs/adminjobs";
+import AdminBlogs from "@/components/adminblogs/adminblogs";
 
 Vue.use(Router);
 
@@ -30,6 +32,16 @@ export default new Router({
       path: "/blog",
       name: "blog",
       component: Blog
+    },
+    {
+      path: "/adminjobs",
+      name: "adminjobs",
+      component: AdminJobs
+    },
+    {
+      path: "/adminblogs",
+      name: "adminblogs",
+      component: AdminBlogs
     }
   ],
   scrollBehavior(to, from, savedPosition) {

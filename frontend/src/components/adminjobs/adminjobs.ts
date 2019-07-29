@@ -1,20 +1,13 @@
 import { Component, Vue } from "vue-property-decorator";
 import Job from "@/models/job";
-import { getAllJobs } from "@/services/job-service";
-import CreateJobDialog from "./dialogs/createjob/createjob";
-import UpdateJobDialog from "./dialogs/updatejob/updatejob";
-import DeleteJobDialog from "./dialogs/deletejob/deletejobs";
+import { getAllJobs, createJob, updateJob, deleteJob } from "@/services/job-service";
 
-@Component({
-  components: {
-    CreateJobDialog,
-    UpdateJobDialog,
-    DeleteJobDialog
-  }
-})
+@Component
 export default class AdminJobsComponent extends Vue {
+  $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement };
+  date: string = new Date().toISOString();
   jobs: Job[] = [];
-  selectedJob: Job = {
+  job: Job = {
     _id: "",
     title: "",
     salary: "",
@@ -28,11 +21,9 @@ export default class AdminJobsComponent extends Vue {
   };
   loading: boolean = false;
   search: string = "";
-  dialogs: any = {
-    createShow: false,
-    updateShow: false,
-    deleteShow: false
-  };
+  createDialog: boolean = false;
+  updateDialog: boolean = false;
+  deleteDialog: boolean = false;
   error: boolean = false;
   errorMessage: string = "";
   headers: any[] = [
@@ -44,6 +35,9 @@ export default class AdminJobsComponent extends Vue {
     { text: "Reference", value: "reference" },
     { text: "Actions", value: "action", sortable: false }
   ];
+  rules: object = {
+    required: (value: string) => !!value || "Required"
+  };
 
   async mounted() {
     this.loading = true;
@@ -53,14 +47,53 @@ export default class AdminJobsComponent extends Vue {
     this.loading = false;
   }
 
-  updateJob(selected: Job) {
-    this.selectedJob = selected;
-    this.dialogs.updateShow = true;
+  createShow() {
+    this.job = {
+      _id: "",
+      title: "",
+      salary: "",
+      benefits: "",
+      jobType: "",
+      location: "",
+      reference: "",
+      description: "",
+      createdAt: "",
+      updatedAt: ""
+    };
+    this.createDialog = true;
   }
 
-  deleteJob(selected: Job) {
-    this.selectedJob = selected;
-    this.dialogs.deleteShow = true;
+  create() {
+    if (this.$refs.createForm.validate()) {
+      createJob(this.job);
+    }
   }
 
+  updateShow(selected: Job) {
+    this.job = selected;
+    this.updateDialog = true;
+  }
+
+  update() {
+    if (this.$refs.updateForm.validate()) {
+      updateJob(this.job);
+    }
+  }
+
+  deleteShow(selected: Job) {
+    this.job = selected;
+    this.deleteDialog = true;
+  }
+
+  deletee() {
+    deleteJob(this.job._id);
+  }
+
+  createReset() {
+    this.$refs.createForm.reset();
+  }
+
+  updateReset() {
+    this.$refs.updateForm.reset();
+  }
 }

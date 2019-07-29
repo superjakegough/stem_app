@@ -11,7 +11,7 @@
               <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details />
             </v-flex>
             <v-flex xs4 class="text-xs-right">
-              <v-btn flat color="primary" @click="dialogs.createShow = true">Create</v-btn>
+              <v-btn flat color="primary" @click="createShow">Create</v-btn>
             </v-flex>
           </v-toolbar>
           <v-data-table :headers="headers" :items="jobs" :search="search" :loading="loading" item-key="id" :items-per-page="5">
@@ -25,8 +25,8 @@
                 <td>{{ props.item.location }}</td>
                 <td>{{ props.item.reference }}</td>
                 <td class="justify-center layout px-0">
-                  <v-icon small class="mr-2" @click="dialogs.updateShow = true">edit</v-icon>
-                  <v-icon small @click="dialogs.deleteShow = true">delete</v-icon>
+                  <v-icon small class="mr-2" @click="updateShow(props.item)">edit</v-icon>
+                  <v-icon small @click="deleteShow(props.item)">delete</v-icon>
                 </td>
               </tr>
             </template>
@@ -38,7 +38,7 @@
       <v-toolbar flat color="transparent">
           <v-toolbar-title>Jobs</v-toolbar-title>
           <v-spacer></v-spacer>
-          <v-btn flat color="primary" @click="dialogs.createShow = true">Create</v-btn>
+          <v-btn flat color="primary" @click="createShow">Create</v-btn>
       </v-toolbar>
       <v-menu lazy transition="scale-transition" full-width>
         <v-text-field slot="activator" v-model="dateFormatted" label="Date" append-icon="event" readonly box />
@@ -56,10 +56,10 @@
                   <v-icon>more_vert</v-icon>
                 </v-btn>
                 <v-list>
-                  <v-list-tile @click="dialogs.updateShow = true">
+                  <v-list-tile @click="updateShow(props.item)">
                     <v-list-tile-title>Edit</v-list-tile-title>
                   </v-list-tile>
-                  <v-list-tile @click="dialogs.deleteShow = true">
+                  <v-list-tile @click="deleteShow(props.item)">
                     <v-list-tile-title>Delete</v-list-tile-title>
                   </v-list-tile>
                 </v-list>
@@ -92,9 +92,67 @@
         </v-flex>
       </v-data-iterator>
     </v-layout>
-    <CreateJobDialog :show="dialogs" :error="error" :errorMessage="errorMessage"/>
-    <UpdateJobDialog :show="dialogs" :error="error" :errorMessage="errorMessage" :job="selectedJob"/>
-    <DeleteJobDialog :show="dialogs" :error="error" :errorMessage="errorMessage" :job="selectedJob"/>
+    <v-dialog v-model="createDialog" max-width="600">
+      <v-card>
+        <v-card-title class="headline">
+          Create Job
+        </v-card-title>
+        <v-flex px-4>
+          <v-form ref="createForm" lazy-validation>
+            <v-text-field v-model="job.title" label="Title" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+            <v-text-field v-model="job.salary" label="Salary" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+            <v-text-field v-model="job.benefits" label="Benefits" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+            <v-text-field v-model="job.jobType" label="Type" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+            <v-text-field v-model="job.location" label="Location" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+            <v-text-field v-model="job.reference" label="Reference" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+            <v-textarea v-model="job.description" label="description" maxlength="5000" no-resize solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+          </v-form>
+        </v-flex>
+        <v-card-actions>
+          <v-layout justify-center>
+            <v-btn color="primary" flat @click="createDialog = false">Cancel</v-btn>
+            <v-btn color="primary" flat @click="createReset">Clear</v-btn>
+            <v-btn color="primary" flat @click="create">Submit</v-btn>
+          </v-layout>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog v-model="updateDialog" max-width="300">
+      <v-card>
+        <v-card-title class="headline">
+          Edit Job
+        </v-card-title>
+      <v-card-text>
+      <v-layout justify-center>
+        <v-form ref="updateForm" lazy-validation>
+          <v-text-field v-model="job.title" label="Title" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
+          <v-text-field v-model="job.salary" label="Salary" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
+          <v-text-field v-model="job.benefits" label="Benefits" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
+          <v-text-field v-model="job.jobType" label="Type" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
+          <v-text-field v-model="job.location" label="Location" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
+          <v-text-field v-model="job.reference" label="Reference" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
+          <v-textarea height="200" v-model="job.description" label="description" maxlength="5000" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+        </v-form>
+      </v-layout>
+      </v-card-text>
+      <v-card-actions>
+        <v-btn color="primary" flat @click="update">Submit</v-btn>
+        <v-btn color="primary" flat @click="updateReset">Clear</v-btn>
+        <v-btn color="primary" flat @click="updateDialog = false">Cancel</v-btn>
+      </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog v-model="deleteDialog" max-width="300">
+      <v-card>
+      <v-card-text>
+        Are you sure you wish to delete this job?
+      </v-card-text>
+      <v-card-actions>
+        <v-btn color="primary" flat @click="deletee">Accept</v-btn>
+        <v-btn color="primary" flat @click="deleteDialog = false">Cancel</v-btn>
+      </v-card-actions>
+      </v-card>
+    </v-dialog>
     <v-snackbar v-model="error" color="error">{{ errorMessage }}<v-btn dark flat @click="error = false">Close</v-btn></v-snackbar>
   </v-layout>
 </template>

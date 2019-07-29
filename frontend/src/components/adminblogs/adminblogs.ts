@@ -24,17 +24,24 @@ export default class AdminBlogsComponent extends Vue {
   errorMessage: string = "";
   headers: any[] = [
     { text: "Title", value: "title" },
-    { text: "Description", value: "description" },
+    { text: "Salary", value: "salary" },
+    { text: "Benefits", value: "benefits" },
+    { text: "Type", value: "blogType" },
+    { text: "Location", value: "location" },
+    { text: "Reference", value: "reference" },
     { text: "Actions", value: "action", sortable: false }
   ];
   rules: object = {
     required: (value: string) => !!value || "Required"
   };
 
-  async mounted() {
+  mounted() {
+    this.getBlogs();
+  }
+
+  async getBlogs() {
     this.loading = true;
     const res = await getAllBlogs();
-    console.log(res);
     this.blogs = res;
     this.loading = false;
   }
@@ -51,20 +58,36 @@ export default class AdminBlogsComponent extends Vue {
     this.createDialog = true;
   }
 
-  create() {
+  async create() {
     if (this.$refs.createForm.validate()) {
-      createBlog(this.blog);
+      const res = await createBlog(this.blog);
+      if (!res.success) {
+        this.errorMessage = "Failed to create blog!";
+        this.error = true;
+      } else {
+        this.blogs.push(this.blog);
+      }
+      this.createDialog = false;
     }
   }
 
   updateShow(selected: Blog) {
-    this.blog = selected;
+    this.blog = JSON.parse(JSON.stringify(selected));
     this.updateDialog = true;
   }
 
-  update() {
+  async update() {
     if (this.$refs.updateForm.validate()) {
-      updateBlog(this.blog);
+      const res = await updateBlog(this.blog);
+      if (!res.success) {
+        this.errorMessage = "Failed to update blog!";
+        this.error = true;
+      } else {
+        let tempBlog = this.blogs.find(i => i._id === this.blog._id);
+        tempBlog = this.blog;
+      }
+      this.updateDialog = false;
+      this.getBlogs();
     }
   }
 
@@ -73,8 +96,15 @@ export default class AdminBlogsComponent extends Vue {
     this.deleteDialog = true;
   }
 
-  deletee() {
-    deleteBlog(this.blog._id);
+  async deletee() {
+    const res = await deleteBlog(this.blog._id);
+    if (!res.success) {
+      this.errorMessage = "Failed to delete blog!";
+      this.error = true;
+    } else {
+      this.blogs = this.blogs.filter(i => i._id !== this.blog._id);
+    }
+    this.deleteDialog = false;
   }
 
   createReset() {

@@ -12,32 +12,32 @@
         <v-flex md8 sm10 xs12 mb-4>
           <h2 class="content-title primary--text mb-4">News &amp; Advice Blog</h2>
           <p>
-            Keep up to date with the latest industry news, as well as regular articles offering recruitment and careers advice.
+            Keep up to date with the latest industry news, as well as regular activites offering recruitment and careers advice.
           </p>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
-          <!-- <v-card :key="index" v-for="(blog, index) in blog" flat class="mb-4">
+          <v-text-field v-model="searchTerm" @change="onSearch" label="Search" prepend-inner-icon="search" color="primary" solo flat></v-text-field>
+        </v-flex>
+        <v-flex md8 sm10 xs12 mb-4>
+          <v-card :key="index" v-for="(blog, index) in blogsPaged" flat class="mb-4">
             <v-card-text>
               <h3 class="title primary--text mb-4">Title</h3>
-              <p class="mb-4">{{job.title}}</p>
-              <h3 class="title primary--text mb-4">Salary - Benefits</h3>
-              <p class="mb-4">{{job.salary}} - {{job.benefits}}</p>
-              <h3 class="title primary--text mb-4">Type</h3>
-              <p class="mb-4">{{job.jobType}}</p>
-              <h3 class="title primary--text mb-4">Location</h3>
-              <p class="mb-4">{{job.location}}</p>
-              <h3 class="title primary--text mb-4">Reference</h3>
-              <p class="mb-4">{{job.reference}}</p>
+              <p class="mb-4">{{blog.title}}</p>
               <h3 class="title primary--text mb-4">Description</h3>
-              <p>{{job.description}}</p>
+              <p class="mb-4">{{blog.description}}</p>
+              <h3 class="title primary--text mb-4">Content</h3>
+              <p>{{blog.content}}</p>
             </v-card-text>
-          </v-card> -->
+          </v-card>
           <v-card v-if="blogs.length < 1" flat class="mb-4">
             <v-card-text class="text-xs-center">
-              <p>There are currently no blogs available :(</p>
+              <p>There are currently no blogs at this time :(</p>
             </v-card-text>
           </v-card>
         </v-flex>
+      </v-layout>
+      <v-layout justify-center mb-4>
+        <v-pagination v-model="page" :length="blogsPages" circle @input="onPageChange" ></v-pagination>
       </v-layout>
       <v-layout justify-center mb-5>
         <v-btn flat color="primary" to="/">Home</v-btn>
@@ -45,4 +45,4 @@
     </v-container>
   </v-layout>
 </template>
-<script src="./blog.ts"></script>
+<script src="./blogs.ts"></script>

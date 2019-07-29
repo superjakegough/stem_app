@@ -14,4 +14,4 @@ const JobSchema: Schema = new Schema(
   { timestamps: true }
 );
 
-export const Job: Model<IJob> = model<IJob>("Data", JobSchema);
+export const Job: Model<IJob> = model<IJob>("JobData", JobSchema);

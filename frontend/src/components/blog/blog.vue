@@ -45,4 +45,4 @@
     </v-container>
   </v-layout>
 </template>
-<script src="./blogs.ts"></script>
+<script src="./blog.ts"></script>

@@ -24,11 +24,7 @@ export default class AdminBlogsComponent extends Vue {
   errorMessage: string = "";
   headers: any[] = [
     { text: "Title", value: "title" },
-    { text: "Salary", value: "salary" },
-    { text: "Benefits", value: "benefits" },
-    { text: "Type", value: "blogType" },
-    { text: "Location", value: "location" },
-    { text: "Reference", value: "reference" },
+    { text: "Description", value: "salary" },
     { text: "Actions", value: "action", sortable: false }
   ];
   rules: object = {

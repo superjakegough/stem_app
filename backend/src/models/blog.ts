@@ -10,4 +10,4 @@ const BlogSchema: Schema = new Schema(
   { timestamps: true }
 );
 
-export const Blog: Model<IBlog> = model<IBlog>("Data", BlogSchema);
+export const Blog: Model<IBlog> = model<IBlog>("BlogData", BlogSchema);

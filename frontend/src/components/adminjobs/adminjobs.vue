@@ -24,7 +24,7 @@
                 <td>{{ props.item.jobType }}</td>
                 <td>{{ props.item.location }}</td>
                 <td>{{ props.item.reference }}</td>
-                <td class="justify-center layout px-0">
+                <td>
                   <v-icon small class="mr-2" @click="updateShow(props.item)">edit</v-icon>
                   <v-icon small @click="deleteShow(props.item)">delete</v-icon>
                 </td>
@@ -120,7 +120,7 @@
     <v-dialog v-model="updateDialog" max-width="300">
       <v-card>
         <v-card-title class="headline">
-          Edit Job
+          Update Job
         </v-card-title>
       <v-card-text>
       <v-layout justify-center>
@@ -131,14 +131,16 @@
           <v-text-field v-model="job.jobType" label="Type" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
           <v-text-field v-model="job.location" label="Location" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
           <v-text-field v-model="job.reference" label="Reference" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
-          <v-textarea height="200" v-model="job.description" label="Description" maxlength="5000" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+          <v-textarea v-model="job.description" label="Description" maxlength="5000" no-resize solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
         </v-form>
       </v-layout>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="primary" flat @click="update">Submit</v-btn>
-        <v-btn color="primary" flat @click="updateReset">Clear</v-btn>
-        <v-btn color="primary" flat @click="updateDialog = false">Cancel</v-btn>
+        <v-layout justify-center>
+          <v-btn color="primary" flat @click="updateDialog = false">Cancel</v-btn>
+          <v-btn color="primary" flat @click="updateReset">Clear</v-btn>
+          <v-btn color="primary" flat @click="update">Submit</v-btn>
+        </v-layout>
       </v-card-actions>
       </v-card>
     </v-dialog>
@@ -148,8 +150,10 @@
         Are you sure you wish to delete this job?
       </v-card-text>
       <v-card-actions>
-        <v-btn color="primary" flat @click="deletee">Accept</v-btn>
-        <v-btn color="primary" flat @click="deleteDialog = false">Cancel</v-btn>
+        <v-layout justify-center>
+          <v-btn color="primary" flat @click="deleteDialog = false">Cancel</v-btn>
+          <v-btn color="primary" flat @click="deletee">Accept</v-btn>
+        </v-layout>
       </v-card-actions>
       </v-card>
     </v-dialog>

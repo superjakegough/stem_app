@@ -39,10 +39,13 @@ export default class AdminJobsComponent extends Vue {
     required: (value: string) => !!value || "Required"
   };
 
-  async mounted() {
+  mounted() {
+    this.getJobs();
+  }
+
+  async getJobs() {
     this.loading = true;
     const res = await getAllJobs();
-    console.log(res);
     this.jobs = res;
     this.loading = false;
   }
@@ -63,20 +66,36 @@ export default class AdminJobsComponent extends Vue {
     this.createDialog = true;
   }
 
-  create() {
+  async create() {
     if (this.$refs.createForm.validate()) {
-      createJob(this.job);
+      const res = await createJob(this.job);
+      if (!res.success) {
+        this.errorMessage = "Failed to create job!";
+        this.error = true;
+      } else {
+        this.jobs.push(this.job);
+      }
+      this.createDialog = false;
     }
   }
 
   updateShow(selected: Job) {
-    this.job = selected;
+    this.job = JSON.parse(JSON.stringify(selected));
     this.updateDialog = true;
   }
 
-  update() {
+  async update() {
     if (this.$refs.updateForm.validate()) {
-      updateJob(this.job);
+      const res = await updateJob(this.job);
+      if (!res.success) {
+        this.errorMessage = "Failed to update job!";
+        this.error = true;
+      } else {
+        let tempJob = this.jobs.find(i => i._id === this.job._id);
+        tempJob = this.job;
+      }
+      this.updateDialog = false;
+      this.getJobs();
     }
   }
 
@@ -85,8 +104,15 @@ export default class AdminJobsComponent extends Vue {
     this.deleteDialog = true;
   }
 
-  deletee() {
-    deleteJob(this.job._id);
+  async deletee() {
+    const res = await deleteJob(this.job._id);
+    if (!res.success) {
+      this.errorMessage = "Failed to delete job!";
+      this.error = true;
+    } else {
+      this.jobs = this.jobs.filter(i => i._id !== this.job._id);
+    }
+    this.deleteDialog = false;
   }
 
   createReset() {

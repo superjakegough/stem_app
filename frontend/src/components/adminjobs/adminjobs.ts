@@ -1,6 +1,6 @@
 import { Component, Vue } from "vue-property-decorator";
 import Job from "@/models/job";
-import { getAllJobs, createJob, updateJob, deleteJob } from "@/services/job-service";
+import { getAllJobs, createJob, updateJob, deleteJob } from "@/services/job_service";
 
 @Component
 export default class AdminJobsComponent extends Vue {

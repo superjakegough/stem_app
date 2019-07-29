@@ -84,12 +84,8 @@
         <v-flex px-4>
           <v-form ref="createForm" lazy-validation>
             <v-text-field v-model="blog.title" label="Title" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
-            <v-text-field v-model="blog.salary" label="Salary" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
-            <v-text-field v-model="blog.benefits" label="Benefits" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
-            <v-text-field v-model="blog.blogType" label="Type" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
-            <v-text-field v-model="blog.location" label="Location" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
-            <v-text-field v-model="blog.reference" label="Reference" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
-            <v-textarea v-model="blog.description" label="description" maxlength="5000" no-resize solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+            <v-text-field v-model="blog.salary" label="Description" maxlength="100" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+            <v-textarea v-model="blog.description" label="Content" maxlength="500" no-resize solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
           </v-form>
         </v-flex>
         <v-card-actions>
@@ -109,13 +105,9 @@
       <v-card-text>
       <v-layout justify-center>
         <v-form ref="updateForm" lazy-validation>
-          <v-text-field v-model="blog.title" label="Title" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
-          <v-text-field v-model="blog.salary" label="Salary" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
-          <v-text-field v-model="blog.benefits" label="Benefits" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
-          <v-text-field v-model="blog.blogType" label="Type" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
-          <v-text-field v-model="blog.location" label="Location" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
-          <v-text-field v-model="blog.reference" label="Reference" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
-          <v-textarea height="200" v-model="blog.description" label="description" maxlength="5000" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+          <v-text-field v-model="blog.title" label="Title" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+          <v-text-field v-model="blog.salary" label="Description" maxlength="100" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+          <v-textarea v-model="blog.description" label="Content" maxlength="500" no-resize solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
         </v-form>
       </v-layout>
       </v-card-text>

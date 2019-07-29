@@ -105,7 +105,7 @@
             <v-text-field v-model="job.jobType" label="Type" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
             <v-text-field v-model="job.location" label="Location" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
             <v-text-field v-model="job.reference" label="Reference" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
-            <v-textarea v-model="job.description" label="description" maxlength="5000" no-resize solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+            <v-textarea v-model="job.description" label="Description" maxlength="5000" no-resize solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
           </v-form>
         </v-flex>
         <v-card-actions>
@@ -131,7 +131,7 @@
           <v-text-field v-model="job.jobType" label="Type" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
           <v-text-field v-model="job.location" label="Location" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
           <v-text-field v-model="job.reference" label="Reference" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
-          <v-textarea height="200" v-model="job.description" label="description" maxlength="5000" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+          <v-textarea height="200" v-model="job.description" label="Description" maxlength="5000" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
         </v-form>
       </v-layout>
       </v-card-text>

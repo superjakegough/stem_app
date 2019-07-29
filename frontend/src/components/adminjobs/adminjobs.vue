@@ -34,18 +34,14 @@
         </v-card>
       </v-flex>
     </v-layout>
-    <v-layout v-else column justify-center>
-      <v-toolbar flat color="transparent">
+    <v-layout v-else column justify-center pa-4>
+      <v-toolbar flat color="transparent" class="mt-3">
           <v-toolbar-title>Jobs</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-btn flat color="primary" @click="createShow">Create</v-btn>
       </v-toolbar>
-      <v-menu lazy transition="scale-transition" full-width>
-        <v-text-field slot="activator" v-model="dateFormatted" label="Date" append-icon="event" readonly box />
-        <v-date-picker v-model="selecteddate.date" v-on:change="loadEmployees" first-day-of-week="1" full-width />
-      </v-menu>
-      <v-text-field class="mb-4" v-model="search" append-icon="search" label="Search" single-line hide-details box />
-      <v-data-iterator :items="employees" :search="search" :loading="loading" row wrap>
+      <v-text-field class="mb-2" v-model="search" append-icon="search" label="Search" maxlength="50" solo flat background-color="grey lighten-2"/>
+      <v-data-iterator :items="jobs" :search="search" :loading="loading" row wrap>
         <v-flex slot="item" slot-scope="props" class="mb-4" xs12>
           <v-card>
             <v-card-title>
@@ -117,13 +113,13 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-dialog v-model="updateDialog" max-width="300">
+    <v-dialog v-model="updateDialog" max-width="600">
       <v-card>
         <v-card-title class="headline">
           Update Job
         </v-card-title>
       <v-card-text>
-      <v-layout justify-center>
+      <v-flex px-4>
         <v-form ref="updateForm" lazy-validation>
           <v-text-field v-model="job.title" label="Title" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
           <v-text-field v-model="job.salary" label="Salary" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
@@ -133,7 +129,7 @@
           <v-text-field v-model="job.reference" label="Reference" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
           <v-textarea v-model="job.description" label="Description" maxlength="5000" no-resize solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
         </v-form>
-      </v-layout>
+      </v-flex>
       </v-card-text>
       <v-card-actions>
         <v-layout justify-center>

@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import logger from "morgan";
 import cors from "cors";
 import helmet from "helmet";
+import history from "connect-history-api-fallback";
 import IController from "./interfaces/icontroller";
 
 export default class App {
@@ -25,6 +26,7 @@ export default class App {
     this.app.use(bodyParser.json());
     this.app.use(logger("dev"));
     this.app.use(helmet());
+    this.app.use(history());
   }
 
   private initialiseMongo() {

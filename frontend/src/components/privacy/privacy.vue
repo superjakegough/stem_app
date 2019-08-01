@@ -106,6 +106,9 @@
               Criminal conviction
             </li>
           </ul>
+          <v-layout justify-center mt-2 mb-4>
+            <v-btn flat color="primary" to="/">Home</v-btn>
+          </v-layout>
         </v-flex>
       </v-layout>
     </v-container>

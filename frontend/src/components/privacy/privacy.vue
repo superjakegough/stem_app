@@ -3,15 +3,15 @@
     <v-container fluid class="content-container">
       <v-layout row wrap justify-center>
         <v-flex sm10 xs12 mt-4>
-          <h2 class="content-title primary--text mb-4">Privacy Notice</h2>
+          <h2 class="content-title primary--text text-xs-center mb-4">Privacy Notice</h2>
           <p>
             Stem Skills &amp; Recruitment Ltd (Company number 11987221) (“we”, “us” or “our) is a recruitment business which provides work-finding services to its clients and work-seekers. Stem Skills &amp; Recruitment Ltd must process personal data (including sensitive personal data) so that it can provide these services – in doing so, we act as a data controller. 
           </p>
           <p>
             You may give your personal details to Stem Skills &amp; Recruitment Ltd directly, such as on a job application or via our website, or we may collect them from another source such as a jobs board. We must have a legal basis for processing your personal data. For the purposes of providing you with work-finding services and/or information relating to roles relevant to you we will only use your personal data in accordance with this privacy statement. At all times we will comply with current data protection laws. 
           </p>
-          <h2 class="content-title primary--text mb-4">Collection and use of personal data</h2>
-          <p class="mt-2"><strong>Purpose of processing and legal basis</strong></p>
+          <p class="content-subtitle primary--text mt-2">Collection and use of personal data</p>
+          <p class="content-subtitle primary--text mt-2">Purpose of processing and legal basis</p>
           <p>
             Stem Skills &amp; Recruitment Ltd will collect your personal data (which may include sensitive personal data) and will process your personal data for the purposes of providing you with work-finding services. This includes for example, contacting you about job opportunities, assessing your suitability for those opportunities, updating our databases, putting you forward for job opportunities and developing and managing our services and relationship with you and our clients. 
           </p>
@@ -38,7 +38,7 @@
               To fulfil a contractual obligation that we have with you
             </li>
           </ul>
-          <p class="mt-2"><strong>Legitimate interest</strong></p>
+          <p class="content-subtitle primary--text mt-2">Legitimate interest</p>
           <p>
             This is where Stem Skills &amp; Recruitment Ltd has a legitimate reason to process your data provided it is reasonable and does not go against what you would reasonably expect from us.  Where we have relied on a legitimate interest to process your personal data our legitimate interests is/are as follows:
           </p>
@@ -56,11 +56,11 @@
               Giving you information about similar products or services that you have used from us recently;
             </li>
           </ul>
-          <p class="mt-2"><strong>Statutory/contractual requirement</strong></p>
+          <p class="content-subtitle primary--text mt-2">Statutory/contractual requirement</p>
           <p>
             Stem Skills &amp; Recruitment Ltd has certain legal and contractual requirements to collect personal data (e.g. to comply with the Conduct of Employment Agencies and Employment Businesses Regulations 2003, immigration and tax legislation, and in some circumstances safeguarding requirements.)  Our clients may also require this personal data, and/or we may need your data to enter into a contract with you. If you do not give us personal data we need to collect we may not be able to continue to provide work-finding services to you. 
           </p>
-          <p class="mt-2"><strong>Recipient/s of data</strong></p>
+          <p class="content-subtitle primary--text mt-2">Recipient/s of data</p>
           <p>
             Stem Skills &amp; Recruitment Ltd will process your personal data and/or sensitive personal data with the following recipients:
           </p>
@@ -72,10 +72,10 @@
               Former employers whom we may seek references from (if details are provided to us by the candidate)
             </li>
             <li>
-              Third parties who perform functions on our behalf and who also provide services to us, such as IT technicians who provide support on our business technology systems, software solutions providers and back office support. These third parties comply with similar undertakings of privacy and confidentiality as us. <strong>Please note:</strong> These third parties will only have access to your personal data if required by them to perform their functions and they are not permitted to use any personal data for any other purposes.
+              Third parties who perform functions on our behalf and who also provide services to us, such as IT technicians who provide support on our business technology systems, software solutions providers and back office support. These third parties comply with similar undertakings of privacy and confidentiality as us. Please note: These third parties will only have access to your personal data if required by them to perform their functions and they are not permitted to use any personal data for any other purposes.
             </li>
           </ul>
-          <p class="mt-2"><strong>Categories of data</strong></p>
+          <p class="content-subtitle primary--text mt-2">Categories of data</p>
           <p>
             Stem Skills &amp; Recruitment Ltd may collect the following personal data on you:
           </p>
@@ -106,7 +106,7 @@
               Criminal conviction
             </li>
           </ul>
-          <v-layout justify-center mt-2 mb-4>
+          <v-layout justify-center content-subtitle primary--text mt-2 mb-4>
             <v-btn flat color="primary" to="/">Home</v-btn>
           </v-layout>
         </v-flex>

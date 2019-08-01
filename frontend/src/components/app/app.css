@@ -31,7 +31,13 @@
   font-weight: 500;
   line-height: 45px;
   letter-spacing: normal;
-  font-family: "Roboto", sans-serif;
+}
+
+.content-subtitle {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: normal;
 }
 
 .header-image {

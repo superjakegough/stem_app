@@ -6,6 +6,7 @@ import Jobs from "@/components/jobs/jobs.vue";
 import Blog from "@/components/blog/blog.vue";
 import AdminJobs from "@/components/adminjobs/adminjobs";
 import AdminBlogs from "@/components/adminblogs/adminblogs";
+import Privacy from "@/components/privacy/privacy";
 
 Vue.use(Router);
 
@@ -42,6 +43,11 @@ export default new Router({
       path: "/adminblogs",
       name: "adminblogs",
       component: AdminBlogs
+    },
+    {
+      path: "/privacy",
+      name: "privacy",
+      component: Privacy
     }
   ],
   scrollBehavior(to, from, savedPosition) {

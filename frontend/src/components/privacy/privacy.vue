@@ -106,6 +106,59 @@
               Criminal conviction
             </li>
           </ul>
+          <p class="content-subtitle primary--text mt-2">Overseas Transfers</p>
+          <p>
+            Stem Skills &amp; Recruitment Ltd may transfer the information you provide to us to countries outside the European Economic Area (‘EEA’) for the purposes of providing you with work-finding services. We will take steps to ensure adequate protections are in place to ensure the security of your information. The EEA comprises the EU member states plus Norway, Iceland and Liechtenstein. 
+          </p>
+          <p class="content-subtitle primary--text mt-2">Data retention</p>
+          <p>
+            Stem Skills &amp; Recruitment Ltd will retain your personal data only for as long as is necessary for the purpose we collect it. Different laws may also require us to keep different data for different periods of time. For example, the Conduct of Employment Agencies and Employment Businesses Regulations 2003, require us to keep work-seeker records for at least one year from (a) the date of their creation or (b) after the date on which we last provide you with work-finding services.
+          </p>
+          <p>
+            Where we have obtained your consent to process your personal data, we will do so in line with our retention policy. Upon expiry of that period we will seek further consent from you. Where consent is not granted we will cease to process your personal data. 
+          </p>
+          <p class="content-subtitle primary--text mt-2">Your rights</p>
+          <p>
+            Please be aware that you have the following data protection rights:
+          </p>
+          <ul>
+            <li>
+              The right to be informed about the personal data we process on you;
+            </li>
+            <li>
+              The right of access to the personal data we process on you;
+            </li>
+            <li>
+              The right to rectification of your personal data;
+            </li>
+            <li>
+              The right to erasure of your personal data in certain circumstances;
+            </li>
+            <li>
+              The right to restrict processing of your personal data;
+            </li>
+            <li>
+              The right to data portability in certain circumstances;
+            </li>
+            <li>
+              The right to object to the processing of your personal data that was based on a public or legitimate interest;
+            </li>
+            <li>
+              The right not to be subjected to automated decision making and profiling; and
+            </li>
+            <li>
+              The right to withdraw consent at any time.
+            </li>
+          </ul>
+          <p>
+            Where you have consented to Stem Skills &amp; Recruitment Ltd processing your personal data you have the right to withdraw that consent at any time by contacting Jack Taylor (Director &amp; Data Protection Officer at the Company) on  <a href="mailto:jack.taylor@stemrecruit.co.uk">jack.taylor@stemrecruit.co.uk.</a> Please note that if you withdraw your consent to further processing that does not affect any processing done prior to the withdrawal of that consent, or which is done according to another legal basis.  
+          </p>
+          <p>
+            There may be circumstances where Stem Skills &amp; Recruitment Ltd will still need to process your data for legal or official reasons. Where this is the case, we will tell you and we will restrict the data to only what is necessary for those specific reasons. 
+          </p>
+          <p>
+            If you believe that any of your data that Stem Skills &amp; Recruitment Ltd processes is incorrect or incomplete, please contact us using the details above and we will take reasonable steps to check its accuracy and correct it where necessary.  
+          </p>
           <v-layout justify-center content-subtitle primary--text mt-2 mb-4>
             <v-btn flat color="primary" to="/">Home</v-btn>
           </v-layout>

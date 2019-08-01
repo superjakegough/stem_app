@@ -159,6 +159,41 @@
           <p>
             If you believe that any of your data that Stem Skills &amp; Recruitment Ltd processes is incorrect or incomplete, please contact us using the details above and we will take reasonable steps to check its accuracy and correct it where necessary.  
           </p>
+          <p><strong>
+            You can also contact us using the above details if you want us to restrict the type or amount of data we process for you, access your personal data or exercise any of the other rights listed above.  
+          </strong></p>
+          <p class="content-subtitle primary--text mt-2">Links to external websites</p>
+          <p>
+            Our website may contain links to other external websites. Please be aware that Stem Skills &amp; Recruitment Ltd is not responsible for the privacy practices of such other sites. When you leave our site we encourage you to read the privacy statements of each and every website that collects personally identifiable information. This privacy statement applies solely to information collected by our website.
+          </p>
+          <p class="content-subtitle primary--text mt-2">Sale of business</p>
+          <p>
+            If Stem Skills &amp; Recruitment Ltd business is sold or integrated with another business your details may be disclosed to our advisers and any prospective purchasers and their advisers and will be passed on to the new owners of the business.
+          </p>
+          <p class="content-subtitle primary--text mt-2">Data Security</p>
+          <p>
+            Stem Skills &amp; Recruitment Ltd takes every precaution to protect our users’ information. Only employees who need the information to perform a specific job are granted access to your information. 
+          </p>
+          <p>
+            Stem Skills &amp; Recruitment Ltd uses all reasonable efforts to safeguard your personal information. However, you should be aware that the use of email/ the Internet is not entirely secure and for this reason we cannot guarantee the security or integrity of any personal information which is transferred from you or to you via email/ the Internet.
+          </p>
+          <p>
+            If you share a device with others we recommend that you do not select the “remember my details” function when that option is offered. 
+          </p>
+          <p><strong>
+            If you have any questions about the security at our website, you can email Jack Taylor at <a href="mailto:jack.taylor@stemrecruit.co.uk">jack.taylor@stemrecruit.co.uk.</a>
+          </strong></p>
+          <p class="content-subtitle primary--text mt-2">Changes to this privacy statement</p>
+          <p>
+            We will update this privacy statement from time to time.  We will post any changes on the statement with revision dates.  If we make any material changes, we will notify you.
+          </p>
+          <p class="content-subtitle primary--text mt-2">Complaints or queries</p>
+          <p>
+            If you wish to complain about this privacy notice or any of the procedures set out in it please contact: Jack Taylor at <a href="mailto:jack.taylor@stemrecruit.co.uk">jack.taylor@stemrecruit.co.uk.</a>
+          </p>
+          <p>
+            You also have the right to raise concerns with Information Commissioner’s Office on 0303 123 1113 or at https://ico.org.uk/concerns/, or any other relevant supervisory authority should your personal data be processed outside of the UK, if you believe that your data protection rights have not been adhered to.
+          </p>
           <v-layout justify-center content-subtitle primary--text mt-2 mb-4>
             <v-btn flat color="primary" to="/">Home</v-btn>
           </v-layout>

@@ -19,6 +19,48 @@
         <p>
           If you have opted-in we may also send you marketing information and news via email/ text.  You can opt-out from receiving these at any time by emailing “unsubscribe” to <a href="mailto:jack.taylor@stemrecruit.co.uk">jack.taylor@stemrecruit.co.uk.</a> when you receive these communications from us.
         </p>
+        <p>
+          In some cases we may be required to use your data for the purpose of investigating, reporting and detecting crime and also to comply with laws that apply to us. We may also use your information during the course of internal audits to demonstrate our compliance with certain industry standards.
+        </p>
+        <p>
+          We must have a legal basis to process your personal data. The legal bases we rely upon to offer our work-finding services to you are:
+        </p>
+        <ul>
+          <li>
+            Your consent 
+          </li>
+          <li>
+            Where we have a legitimate interest
+          </li>
+          <li>
+            To comply with a legal obligation that we have
+          </li>
+          <li>
+            To fulfil a contractual obligation that we have with you
+          </li>
+        </ul>
+        <p><strong>Legitimate interest</strong></p>
+        <p>
+          This is where Stem Skills &amp; Recruitment Ltd has a legitimate reason to process your data provided it is reasonable and does not go against what you would reasonably expect from us.  Where we have relied on a legitimate interest to process your personal data our legitimate interests is/are as follows:
+        </p>
+        <ul>
+          <li>
+            Managing our database and keeping work-seeker records up to date;
+          </li>
+          <li>
+            Providing work-finding services to you and our clients;
+          </li>
+          <li>
+            Contacting you to seek your consent where we need it;
+          </li>
+          <li>
+            Giving you information about similar products or services that you have used from us recently;
+          </li>
+        </ul>
+        <p><strong>Statutory/contractual requirement</strong></p>
+        <p>
+          Stem Skills &amp; Recruitment Ltd has certain legal and contractual requirements to collect personal data (e.g. to comply with the Conduct of Employment Agencies and Employment Businesses Regulations 2003, immigration and tax legislation, and in some circumstances safeguarding requirements.)  Our clients may also require this personal data, and/or we may need your data to enter into a contract with you. If you do not give us personal data we need to collect we may not be able to continue to provide work-finding services to you. 
+        </p>
       </v-flex>
     </v-container>
   </v-layout>

@@ -118,7 +118,7 @@
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                   <v-list-tile-title class="primary--text">Email</v-list-tile-title>
-                  <v-list-tile-sub-title>jobs@stemrecruit.co.uk</v-list-tile-sub-title>
+                  <v-list-tile-sub-title>jack.taylor@stemrecruit.co.uk</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
               <v-list-tile avatar three-line>

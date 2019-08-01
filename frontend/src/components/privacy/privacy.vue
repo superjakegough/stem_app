@@ -61,6 +61,52 @@
         <p>
           Stem Skills &amp; Recruitment Ltd has certain legal and contractual requirements to collect personal data (e.g. to comply with the Conduct of Employment Agencies and Employment Businesses Regulations 2003, immigration and tax legislation, and in some circumstances safeguarding requirements.)  Our clients may also require this personal data, and/or we may need your data to enter into a contract with you. If you do not give us personal data we need to collect we may not be able to continue to provide work-finding services to you. 
         </p>
+        <p><strong>Recipient/s of data</strong></p>
+        <p>
+          Stem Skills &amp; Recruitment Ltd will process your personal data and/or sensitive personal data with the following recipients:
+        </p>
+        <ul>
+          <li>
+            Clients (whom we may introduce or supply you to, only when your consent has been given)
+          </li>
+          <li>
+            Former employers whom we may seek references from (if details are provided to us by the candidate)
+          </li>
+          <li>
+            Third parties who perform functions on our behalf and who also provide services to us, such as IT technicians who provide support on our business technology systems, software solutions providers and back office support. These third parties comply with similar undertakings of privacy and confidentiality as us. <strong>Please note:</strong> These third parties will only have access to your personal data if required by them to perform their functions and they are not permitted to use any personal data for any other purposes.
+          </li>
+        </ul>
+        <p><strong>Categories of data</strong></p>
+        <p>
+          Stem Skills &amp; Recruitment Ltd may collect the following personal data on you:
+        </p>
+        <p><i>Personal data:</i></p>
+        <ul>
+          <li>
+            Full name
+          </li>
+          <li>
+            Date of birth
+          </li>
+          <li>
+            Contact details (including postal address, mobile no., email address)
+          </li>
+          <li>
+            National insurance no.
+          </li>
+          <li>
+            Identification documents (e.g. passport, driving licence, utility bill)
+          </li>
+        </ul>
+        <p><i>We might also collect the following sensitive personal data if required for a security check or by our clients when providing you with work-finding services: </i></p>
+        <ul>
+          <li>
+            Health information including whether you have a disability
+          </li>
+          <li>
+            Criminal conviction
+          </li>
+        </ul>
       </v-flex>
     </v-container>
   </v-layout>

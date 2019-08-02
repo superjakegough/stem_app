@@ -27,6 +27,9 @@
           </p>
           <p>Based in Wales, we provide expertise and experience in recruitment for the science, technology, engineering and manufacturing industries across the region. Our approach to recruitment is simple and transparent, with a focus on not just short-term solutions to find you the right candidate, but also on investing into long-term solutions for your recruitment needs.</p>
           <p>Whether you are a business looking to recruit, or a candidate looking to take the next step in your career, then we are here to listen to your needs and expectations, offer market advice and knowledge, and work with you to find you the right match.</p>
+          <v-layout justify-center>
+            <v-btn flat color="primary" to="/privacy">Privacy Notice</v-btn>
+          </v-layout>
         </v-flex>
         <v-flex md2 ml-3 v-if="$vuetify.breakpoint.mdAndUp">
           <v-img
@@ -118,7 +121,7 @@
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                   <v-list-tile-title class="primary--text">Email</v-list-tile-title>
-                  <v-list-tile-sub-title>jobs@stemrecruit.co.uk</v-list-tile-sub-title>
+                  <v-list-tile-sub-title>jack.taylor@stemrecruit.co.uk</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
               <v-list-tile avatar three-line>

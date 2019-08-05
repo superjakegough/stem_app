@@ -11,7 +11,7 @@
               <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details />
             </v-flex>
             <v-flex xs4 class="text-xs-right">
-              <v-btn flat color="primary" @click="createShow">Create</v-btn>
+              <v-btn depressed color="primary" @click="createShow">Create</v-btn>
             </v-flex>
           </v-toolbar>
           <v-data-table :headers="headers" :items="jobs" :search="search" :loading="loading" item-key="id" :items-per-page="5">
@@ -38,7 +38,7 @@
       <v-toolbar flat color="transparent" class="mt-3">
           <v-toolbar-title>Jobs</v-toolbar-title>
           <v-spacer></v-spacer>
-          <v-btn flat color="primary" @click="createShow">Create</v-btn>
+          <v-btn depressed color="primary" @click="createShow">Create</v-btn>
       </v-toolbar>
       <v-text-field class="mb-2" v-model="search" append-icon="search" label="Search" maxlength="50" solo flat background-color="grey lighten-2"/>
       <v-data-iterator :items="jobs" :search="search" :loading="loading" row wrap>

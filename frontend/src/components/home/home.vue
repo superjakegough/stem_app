@@ -28,7 +28,7 @@
           <p>Based in Wales, we provide expertise and experience in recruitment for the science, technology, engineering and manufacturing industries across the region. Our approach to recruitment is simple and transparent, with a focus on not just short-term solutions to find you the right candidate, but also on investing into long-term solutions for your recruitment needs.</p>
           <p>Whether you are a business looking to recruit, or a candidate looking to take the next step in your career, then we are here to listen to your needs and expectations, offer market advice and knowledge, and work with you to find you the right match.</p>
           <v-layout justify-center>
-            <v-btn flat color="primary" to="/privacy">Privacy Notice</v-btn>
+            <v-btn depressed color="primary" to="/privacy">Privacy Notice</v-btn>
           </v-layout>
         </v-flex>
         <v-flex md2 ml-3 v-if="$vuetify.breakpoint.mdAndUp">
@@ -56,7 +56,7 @@
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn flat color="primary" to="/services">Services</v-btn>
+                  <v-btn depressed color="primary" to="/services">Services</v-btn>
                   <v-spacer></v-spacer>
                 </v-card-actions>
               </v-card>
@@ -76,7 +76,7 @@
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn color="accent" to="/jobs">Jobs</v-btn>
+                  <v-btn depressed color="primary" to="/jobs">Jobs</v-btn>
                   <v-spacer></v-spacer>
                 </v-card-actions>
               </v-card>
@@ -100,7 +100,7 @@
             <p>
               I am a personable and technical recruiter with a simple and transparent approach that has both client and candidate satisfaction at its core. I offer extensive market knowledge of the science, technology, engineering and manufacturing industries in Wales, along with a large network of candidates and clients. I have recruited for a variety of companies; from start-ups and SMEs, right through to blue-chip organisations and global brands.
             </p>
-            <v-btn flat color="primary" to="/blog">Blog</v-btn>
+            <v-btn depressed color="primary" to="/blog">Blog</v-btn>
           </v-layout>
         </v-flex>
         <v-flex md4 sm10 xs12>

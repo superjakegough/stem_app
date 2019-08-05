@@ -195,7 +195,7 @@
             You also have the right to raise concerns with Information Commissioner’s Office on 0303 123 1113 or at https://ico.org.uk/concerns/, or any other relevant supervisory authority should your personal data be processed outside of the UK, if you believe that your data protection rights have not been adhered to.
           </p>
           <v-layout justify-center content-subtitle primary--text mt-2 mb-4>
-            <v-btn flat color="primary" to="/">Home</v-btn>
+            <v-btn depressed color="primary" to="/">Home</v-btn>
           </v-layout>
         </v-flex>
       </v-layout>

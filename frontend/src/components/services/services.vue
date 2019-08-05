@@ -54,7 +54,7 @@
           <p>We provide a thorough 5-stage recruitment and vetting process which ensures that we not only find the right fit for our clients, but also the right fit for the candidate, ensuring all parties are satisfied.</p>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4 class="services-stepper">
-          <v-stepper v-model="stepper" vertical>
+          <v-stepper v-model="stepper" vertical background-color="accent">
             <v-stepper-step :complete="stepper > 1" step="1">Vacancy registration</v-stepper-step>
             <v-stepper-content step="1">
               <p>Via a telephone or face-to-face meeting, we listen to your recruitment needs and:</p>

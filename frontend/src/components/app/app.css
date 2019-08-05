@@ -10,10 +10,6 @@
   color: #DEDEDD !important;
 }
 
-.theme--light.v-stepper {
-  background: #DEDEDD;
-}
-
 .v-expansion-panel__container--active {
   box-shadow: none !important;
 }

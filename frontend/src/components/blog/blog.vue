@@ -3,7 +3,7 @@
     <v-flex xs12>
       <v-img :src="require('@/assets/background4.jpg')" class="header-image">
         <v-layout column text-xs-right justify-end fill-height class="header-padding">
-          <h1 class="header-text primary--text">Blog</h1>
+          <h1 class="header-text">Blog</h1>
         </v-layout>
       </v-img>
     </v-flex>
@@ -16,10 +16,10 @@
           </p>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
-          <v-text-field v-model="searchTerm" @change="onSearch" label="Search" prepend-inner-icon="search" color="primary" solo flat></v-text-field>
+          <v-text-field v-model="searchTerm" @change="onSearch" label="Search" prepend-inner-icon="search" background-color="accent" solo flat></v-text-field>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
-          <v-card :key="index" v-for="(blog, index) in blogsPaged" flat class="mb-4">
+          <v-card :key="index" v-for="(blog, index) in blogsPaged" flat color="accent" class="mb-4">
             <v-card-text>
               <h3 class="title primary--text mb-4">Title</h3>
               <p class="mb-4">{{blog.title}}</p>
@@ -29,7 +29,7 @@
               <p>{{blog.content}}</p>
             </v-card-text>
           </v-card>
-          <v-card v-if="blogs.length < 1" flat class="mb-4">
+          <v-card v-if="blogs.length < 1" flat color="accent" class="mb-4">
             <v-card-text class="text-xs-center">
               <p>There are currently no blogs at this time :(</p>
             </v-card-text>
@@ -40,7 +40,7 @@
         <v-pagination v-model="page" :length="blogsPages" circle @input="onPageChange" ></v-pagination>
       </v-layout>
       <v-layout justify-center mb-5>
-        <v-btn flat color="primary" to="/">Home</v-btn>
+        <v-btn depressed color="primary" to="/">Home</v-btn>
       </v-layout>
     </v-container>
   </v-layout>

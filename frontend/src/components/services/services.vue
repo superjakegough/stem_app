@@ -9,52 +9,12 @@
     </v-flex>
     <v-container fluid class="content-container">
       <v-layout row wrap justify-center>
-        <v-flex md8 sm10 xs12 mb-4>
+        <v-flex md8 sm10 xs12 mb-4>          
           <h2 class="content-title primary--text mb-4">Client Services</h2>
           <p>Stem is a specialist permanent recruitment consultancy providing sustainable recruitment solutions for the science, technology, engineering and manufacturing industries in Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.</p>
-          <h2 class="content-title primary--text mt-4 mb-4">Industries &amp; Roles</h2>
-          <v-layout row wrap>
-            <v-flex md4 sm5 xs12 mb-4>
-              <p>We have expertise and experience in recruiting for the following industries:</p>
-              <ul class="mb-3">
-                <li>Automotive</li>
-                <li>Aerospace</li>
-                <li>Pharmaceutical</li>
-                <li>Life Science</li>
-                <li>Medical Device</li>
-                <li>Electronic</li>
-                <li>Semiconductor</li>
-                <li>FMCG</li>
-                <li>Food Manufacturing</li>
-                <li>Oil &amp; Gas</li>
-                <li>Chemicals Manufacturing</li>
-                <li>Materials Manufacturing</li>
-                <li>Heavy Industry</li>
-                <li>Digital</li>
-                <li>Technology</li>
-              </ul>
-            </v-flex>
-            <v-flex md4 sm5 xs12 class="mb-4">
-              <p>And recruit for permanent vacancies in the following areas:</p>
-              <ul class="mb-3">
-                <li>Engineering</li>
-                <li>Supply Chain</li>
-                <li>Scientific</li>
-                <li>Quality/Compliance</li>
-                <li>H&amp;S</li>
-                <li>Customer Service</li>
-                <li>Sales</li>
-                <li>Management/Executive</li>
-                <li>Administration</li>
-                <li>Graduates</li>
-              </ul>
-            </v-flex>
-          </v-layout>
           <h2 class="content-title primary--text mb-4">Our Recruitment Process</h2>
           <p>We provide a thorough 5-stage recruitment and vetting process which ensures that we not only find the right fit for our clients, but also the right fit for the candidate, ensuring all parties are satisfied.</p>
-        </v-flex>
-        <v-flex md8 sm10 xs12 mb-4 class="services-stepper">
-          <v-stepper v-model="stepper" vertical background-color="accent">
+          <v-stepper v-model="stepper" vertical>
             <v-stepper-step :complete="stepper > 1" step="1">Vacancy registration</v-stepper-step>
             <v-stepper-content step="1">
               <p>Via a telephone or face-to-face meeting, we listen to your recruitment needs and:</p>
@@ -119,9 +79,32 @@
             </v-stepper-content>
           </v-stepper>
         </v-flex>
+        <v-flex md8 sm10 xs12 mb-4>
+          <h2 class="content-title primary--text mt-4 mb-4">Industries</h2>
+          <p>We have expertise and experience in recruiting for the following industries:</p>
+          <ul class="mb-3">
+            <li>Automotive</li>
+            <li>Aerospace</li>
+            <li>Pharmaceutical</li>
+            <li>Life Science</li>
+            <li>Medical Device</li>
+            <li>Electronic</li>
+            <li>Semiconductor</li>
+            <li>FMCG</li>
+            <li>Food Manufacturing</li>
+            <li>Oil &amp; Gas</li>
+            <li>Chemicals Manufacturing</li>
+            <li>Materials Manufacturing</li>
+            <li>Heavy Industry</li>
+            <li>Digital</li>
+            <li>Technology</li>
+          </ul>
+          <p>If you would like to find out more about how Stem can help grow your business, or if you have a vacancy and need help, then call us on 029 2120 2879, or email 
+          <a href="mailto:info@stemrecruit.co.uk">info@stemrecruit.co.uk.</a></p>
+        </v-flex>
       </v-layout>
       <v-layout justify-center>
-        <v-btn flat color="primary" to="/" class="mb-5">Home</v-btn>
+        <v-btn depressed color="primary" to="/" class="mb-5">Home</v-btn>
       </v-layout>
     </v-container>
   </v-layout>

@@ -51,8 +51,8 @@
                 <v-card-text>
                   Stem supports science, technology, engineering and manufacturing businesses in Wales by providing permanent recruitment services. We provide experience and expertise in recruiting for a wide range of roles and are dedicated to finding the right candidates to help your business grow. Take a look at our client services page to find out more information, or if you have a vacancy and need help, then email
                   <a
-                    href="mailto:vacancy@stemrecruit.co.uk"
-                  >vacancy@stemrecruit.co.uk.</a>
+                    href="mailto:info@stemrecruit.co.uk"
+                  >info@stemrecruit.co.uk.</a>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
@@ -93,7 +93,7 @@
           <h2 class="primary--text title text-uppercase mb-3">Jack Taylor</h2>
           <h3
             class="primary--text title text-uppercase mb-3"
-          >Founder &amp; Recruitment Advisor</h3>
+          >Founder &amp; Recruitment Consultant</h3>
         </v-flex>
         <v-flex md4 sm10 xs12>
           <v-layout column align-center justify-center fill-height>
@@ -104,7 +104,7 @@
           </v-layout>
         </v-flex>
         <v-flex md4 sm10 xs12>
-          <v-layout align-center justify-center fill-height>
+          <v-layout align-center justify-center fill-height mb-5>
             <v-list style="background: transparent;">
               <v-list-tile avatar three-line>
                 <v-list-tile-avatar>
@@ -112,7 +112,7 @@
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                   <v-list-tile-title class="primary--text">Location</v-list-tile-title>
-                  <v-list-tile-sub-title>Caerphilly, Wales</v-list-tile-sub-title>
+                  <v-list-tile-sub-title>Welsh ICE, Caerphilly, CF83 3GG</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
               <v-list-tile avatar three-line>

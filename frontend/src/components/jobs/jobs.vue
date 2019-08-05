@@ -10,7 +10,7 @@
     <v-container fluid class="content-container">
       <v-layout row wrap justify-center>
         <v-flex md8 sm10 xs12 mb-4>
-          <h2 class="content-title primary--text mb-4">Current Opportunities</h2>
+          <h2 class="content-title mb-4">Current Opportunities</h2>
           <p>
             Interested in any of the below opportunities? To apply, please send your CV to
             <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> with the job reference number, and we will respond within 2 working days.
@@ -22,17 +22,17 @@
         <v-flex md8 sm10 xs12 mb-4>
           <v-card :key="index" v-for="(job, index) in jobsPaged" flat color="accent" class="mb-4">
             <v-card-text>
-              <h3 class="title primary--text mb-4">Title</h3>
+              <h3 class="title mb-4">Title</h3>
               <p class="mb-4">{{job.title}}</p>
-              <h3 class="title primary--text mb-4">Salary - Benefits</h3>
+              <h3 class="title mb-4">Salary - Benefits</h3>
               <p class="mb-4">{{job.salary}} - {{job.benefits}}</p>
-              <h3 class="title primary--text mb-4">Type</h3>
+              <h3 class="title mb-4">Type</h3>
               <p class="mb-4">{{job.jobType}}</p>
-              <h3 class="title primary--text mb-4">Location</h3>
+              <h3 class="title mb-4">Location</h3>
               <p class="mb-4">{{job.location}}</p>
-              <h3 class="title primary--text mb-4">Reference</h3>
+              <h3 class="title mb-4">Reference</h3>
               <p class="mb-4">{{job.reference}}</p>
-              <h3 class="title primary--text mb-4">Description</h3>
+              <h3 class="title mb-4">Description</h3>
               <p>{{job.description}}</p>
             </v-card-text>
           </v-card>

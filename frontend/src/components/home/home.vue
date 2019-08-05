@@ -10,11 +10,11 @@
     <v-container fluid class="content-container">
       <v-layout row wrap justify-center>
         <v-flex md8 sm10 xs12 mb-4>
-          <h2 class="content-title primary--text">Who We Are</h2>
+          <h2 class="content-title">Who We Are</h2>
         </v-flex>
         <v-flex sm10 xs12 mb-4 v-if="$vuetify.breakpoint.smAndDown">
           <v-img
-            :src="require('@/assets/stem_black.png')"
+            :src="require('@/assets/stem_green.png')"
             class="content-image home-logo"
             contain
           ></v-img>
@@ -33,13 +33,13 @@
         </v-flex>
         <v-flex md2 ml-3 v-if="$vuetify.breakpoint.mdAndUp">
           <v-img
-            :src="require('@/assets/stem_black.png')"
+            :src="require('@/assets/stem_green.png')"
             class="content-image home-logo"
             contain
           ></v-img>
         </v-flex>
         <v-flex md8 sm10 xs12 mt-4 mb-4>
-          <h2 class="content-title primary--text mb-4 mt-4">What We Do</h2>
+          <h2 class="content-title mb-4 mt-4">What We Do</h2>
           <v-expansion-panel v-model="clientPanel" expand popout>
             <v-expansion-panel-content
               v-bind:style="{'background-color': getBackground(clientPanel[0])}"
@@ -90,9 +90,9 @@
           <v-avatar size="200" class="mb-4">
             <v-img :src="require('@/assets/jack.jpg')"></v-img>
           </v-avatar>
-          <h2 class="primary--text title text-uppercase mb-3">Jack Taylor</h2>
+          <h2 class="title text-uppercase mb-3">Jack Taylor</h2>
           <h3
-            class="primary--text title text-uppercase mb-3"
+            class="title text-uppercase mb-3"
           >Founder &amp; Recruitment Consultant</h3>
         </v-flex>
         <v-flex md4 sm10 xs12>
@@ -111,7 +111,7 @@
                   <v-icon large color="primary">location_on</v-icon>
                 </v-list-tile-avatar>
                 <v-list-tile-content>
-                  <v-list-tile-title class="primary--text">Location</v-list-tile-title>
+                  <v-list-tile-title>Location</v-list-tile-title>
                   <v-list-tile-sub-title>Welsh ICE, Caerphilly, CF83 3GG</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
@@ -120,7 +120,7 @@
                   <v-icon large color="primary">email</v-icon>
                 </v-list-tile-avatar>
                 <v-list-tile-content>
-                  <v-list-tile-title class="primary--text">Email</v-list-tile-title>
+                  <v-list-tile-title>Email</v-list-tile-title>
                   <v-list-tile-sub-title>jack.taylor@stemrecruit.co.uk</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
@@ -129,7 +129,7 @@
                   <v-icon large color="primary">phone</v-icon>
                 </v-list-tile-avatar>
                 <v-list-tile-content>
-                  <v-list-tile-title class="primary--text">Telephone</v-list-tile-title>
+                  <v-list-tile-title>Telephone</v-list-tile-title>
                   <v-list-tile-sub-title>029 2120 2879</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>

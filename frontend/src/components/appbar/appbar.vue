@@ -3,11 +3,11 @@
     <v-flex xs4>
       <v-layout align-center fill-height justify-start>
         <img
-          :src="require('@/assets/stem_black.png')"
+          :src="require('@/assets/stem_green.png')"
           class="content-image toolbar-icon"
           height="28"
         />
-        <span class="primary--text title ml-2">Stem</span>
+        <span class="title ml-2">Stem</span>
       </v-layout>
     </v-flex>
     <v-flex xs4>
@@ -39,7 +39,7 @@
     <v-flex xs4>
       <v-layout align-center fill-height justify-start>
         <img
-          :src="require('@/assets/stem_black.png')"
+          :src="require('@/assets/stem_green.png')"
           class="content-image toolbar-icon"
           height="28"
         />
@@ -47,7 +47,7 @@
     </v-flex>
     <v-flex xs4>
       <v-layout justify-center>
-        <span class="primary--text title">Stem</span>
+        <span class="title">Stem</span>
       </v-layout>
     </v-flex>
     <v-flex xs4>

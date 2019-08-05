@@ -10,9 +10,9 @@
     <v-container fluid class="content-container">
       <v-layout row wrap justify-center>
         <v-flex md8 sm10 xs12 mb-4>          
-          <h2 class="content-title primary--text mb-4">Client Services</h2>
+          <h2 class="content-title mb-4">Client Services</h2>
           <p>Stem is a specialist permanent recruitment consultancy providing sustainable recruitment solutions for the science, technology, engineering and manufacturing industries in Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.</p>
-          <h2 class="content-title primary--text mb-4">Our Recruitment Process</h2>
+          <h2 class="content-title mb-4">Our Recruitment Process</h2>
           <p>We provide a thorough 5-stage recruitment and vetting process which ensures that we not only find the right fit for our clients, but also the right fit for the candidate, ensuring all parties are satisfied.</p>
           <v-stepper v-model="stepper" vertical>
             <v-stepper-step :complete="stepper > 1" step="1">Vacancy registration</v-stepper-step>
@@ -80,7 +80,7 @@
           </v-stepper>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
-          <h2 class="content-title primary--text mt-4 mb-4">Industries</h2>
+          <h2 class="content-title mt-4 mb-4">Industries</h2>
           <p>We have expertise and experience in recruiting for the following industries:</p>
           <ul class="mb-3">
             <li>Automotive</li>

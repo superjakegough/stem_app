@@ -10,7 +10,7 @@
     <v-container fluid class="content-container">
       <v-layout row wrap justify-center>
         <v-flex md8 sm10 xs12 mb-4>
-          <h2 class="content-title primary--text mb-4">News &amp; Advice Blog</h2>
+          <h2 class="content-title mb-4">News &amp; Advice Blog</h2>
           <p>
             Keep up to date with the latest industry news, as well as regular activites offering recruitment and careers advice.
           </p>
@@ -21,11 +21,11 @@
         <v-flex md8 sm10 xs12 mb-4>
           <v-card :key="index" v-for="(blog, index) in blogsPaged" flat color="accent" class="mb-4">
             <v-card-text>
-              <h3 class="title primary--text mb-4">Title</h3>
+              <h3 class="title mb-4">Title</h3>
               <p class="mb-4">{{blog.title}}</p>
-              <h3 class="title primary--text mb-4">Description</h3>
+              <h3 class="title mb-4">Description</h3>
               <p class="mb-4">{{blog.description}}</p>
-              <h3 class="title primary--text mb-4">Content</h3>
+              <h3 class="title mb-4">Content</h3>
               <p>{{blog.content}}</p>
             </v-card-text>
           </v-card>

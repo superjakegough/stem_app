@@ -3,7 +3,7 @@
     <v-flex xs12>
       <v-img :src="require('@/assets/background3.jpg')" class="header-image">
         <v-layout column text-xs-right justify-end fill-height class="header-padding">
-          <h1 class="header-text primary--text">Growing your business<br/>Growing your career</h1>
+          <h1 class="header-text">Growing your business<br/>Growing your career</h1>
         </v-layout>
       </v-img>
     </v-flex>
@@ -14,7 +14,7 @@
         </v-flex>
         <v-flex sm10 xs12 mb-4 v-if="$vuetify.breakpoint.smAndDown">
           <v-img
-            :src="require('@/assets/stem_green.png')"
+            :src="require('@/assets/stem_black.png')"
             class="content-image home-logo"
             contain
           ></v-img>
@@ -33,7 +33,7 @@
         </v-flex>
         <v-flex md2 ml-3 v-if="$vuetify.breakpoint.mdAndUp">
           <v-img
-            :src="require('@/assets/stem_green.png')"
+            :src="require('@/assets/stem_black.png')"
             class="content-image home-logo"
             contain
           ></v-img>
@@ -47,7 +47,7 @@
               <template v-slot:header>
                 <div class="body-2">Clients</div>
               </template>
-              <v-card>
+              <v-card color="accent">
                 <v-card-text>
                   Stem supports science, technology, engineering and manufacturing businesses in Wales by providing permanent recruitment services. We provide experience and expertise in recruiting for a wide range of roles and are dedicated to finding the right candidates to help your business grow. Take a look at our client services page to find out more information, or if you have a vacancy and need help, then email
                   <a
@@ -69,14 +69,14 @@
               <template v-slot:header>
                 <div class="body-2">Candidates</div>
               </template>
-              <v-card>
+              <v-card color="accent">
                 <v-card-text>
                   If you’re looking to take the next step in your career, then we can help. All of our services to candidates may be free, but we take the same time and care in finding YOU the right fit as we do for our clients. To see our current job opportunities with our clients, take a look at our find a job page, or alternatively you can register with us by sending your CV to
                   <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> and we will be in contact as soon as we have any suitable job opportunities.
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn flat color="primary" to="/jobs">Jobs</v-btn>
+                  <v-btn color="accent" to="/jobs">Jobs</v-btn>
                   <v-spacer></v-spacer>
                 </v-card-actions>
               </v-card>

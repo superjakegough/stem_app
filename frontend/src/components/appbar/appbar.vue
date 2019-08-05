@@ -3,7 +3,7 @@
     <v-flex xs4>
       <v-layout align-center fill-height justify-start>
         <img
-          :src="require('@/assets/stem_green.png')"
+          :src="require('@/assets/stem_black.png')"
           class="content-image toolbar-icon"
           height="28"
         />
@@ -39,7 +39,7 @@
     <v-flex xs4>
       <v-layout align-center fill-height justify-start>
         <img
-          :src="require('@/assets/stem_green.png')"
+          :src="require('@/assets/stem_black.png')"
           class="content-image toolbar-icon"
           height="28"
         />

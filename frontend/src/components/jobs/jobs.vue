@@ -3,7 +3,7 @@
     <v-flex xs12>
       <v-img :src="require('@/assets/background2.jpg')" class="header-image">
         <v-layout column text-xs-right justify-end fill-height class="header-padding">
-          <h1 class="header-text primary--text">Jobs</h1>
+          <h1 class="header-text">Jobs</h1>
         </v-layout>
       </v-img>
     </v-flex>

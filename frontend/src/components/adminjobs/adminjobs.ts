@@ -1,8 +1,13 @@
 import { Component, Vue } from "vue-property-decorator";
+import Editor from "@/components/editor/editor";
 import Job from "@/models/job";
 import { getAllJobs, createJob, updateJob, deleteJob } from "@/services/job_service";
 
-@Component
+@Component({
+  components: {
+    Editor
+  }
+})
 export default class AdminJobsComponent extends Vue {
   $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement };
   date: string = new Date().toISOString();

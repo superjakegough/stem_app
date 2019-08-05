@@ -40,7 +40,7 @@
           <v-spacer></v-spacer>
           <v-btn depressed color="primary" @click="createShow">Create</v-btn>
       </v-toolbar>
-      <v-text-field class="mb-2" v-model="search" append-icon="search" label="Search" maxlength="50" solo flat background-color="grey lighten-2"/>
+      <v-text-field class="mb-2" v-model="search" append-icon="search" label="Search" maxlength="50" solo flat background-color="white"/>
       <v-data-iterator :items="jobs" :search="search" :loading="loading" row wrap>
         <v-flex slot="item" slot-scope="props" class="mb-4" xs12>
           <v-card>
@@ -101,14 +101,14 @@
             <v-text-field v-model="job.jobType" label="Type" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
             <v-text-field v-model="job.location" label="Location" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
             <v-text-field v-model="job.reference" label="Reference" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
-            <v-textarea v-model="job.description" label="Description" maxlength="5000" no-resize solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+            <Editor :input="job.description" />
           </v-form>
         </v-flex>
         <v-card-actions>
           <v-layout justify-center>
             <v-btn color="primary" flat @click="createDialog = false">Cancel</v-btn>
             <v-btn color="primary" flat @click="createReset">Clear</v-btn>
-            <v-btn color="primary" flat @click="create">Submit</v-btn>
+            <v-btn color="primary" :disabled="job.description.length < 1" flat @click="create">Submit</v-btn>
           </v-layout>
         </v-card-actions>
       </v-card>

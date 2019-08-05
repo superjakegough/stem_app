@@ -13,8 +13,6 @@ export default class HomeComponent extends Vue {
   getBackground(panel: boolean) {
     if (!panel) {
       return "transparent";
-    } else {
-      return "#DEDEDD";
     }
   }
 }

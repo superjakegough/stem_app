@@ -101,14 +101,14 @@
             <v-text-field v-model="job.jobType" label="Type" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
             <v-text-field v-model="job.location" label="Location" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
             <v-text-field v-model="job.reference" label="Reference" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
-            <Editor :input="job.description" />
+            <Editor @getContent="updateDescription" />
           </v-form>
         </v-flex>
         <v-card-actions>
           <v-layout justify-center>
             <v-btn color="primary" flat @click="createDialog = false">Cancel</v-btn>
             <v-btn color="primary" flat @click="createReset">Clear</v-btn>
-            <v-btn color="primary" :disabled="job.description.length < 1" flat @click="create">Submit</v-btn>
+            <v-btn color="primary" flat @click="create">Submit</v-btn>
           </v-layout>
         </v-card-actions>
       </v-card>

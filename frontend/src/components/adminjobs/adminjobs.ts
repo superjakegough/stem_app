@@ -72,15 +72,16 @@ export default class AdminJobsComponent extends Vue {
   }
 
   async create() {
-    if (this.$refs.createForm.validate()) {
-      const res = await createJob(this.job);
-      if (!res.success) {
-        this.errorMessage = "Failed to create job!";
-        this.error = true;
-      } else {
-        this.jobs.push(this.job);
-      }
-      this.createDialog = false;
+    if (this.$refs.createForm.validate() && this.job.description.length > 0) {
+      console.log(this.job);
+      // const res = await createJob(this.job);
+      // if (!res.success) {
+      //   this.errorMessage = "Failed to create job!";
+      //   this.error = true;
+      // } else {
+      //   this.jobs.push(this.job);
+      // }
+      // this.createDialog = false;
     }
   }
 
@@ -126,5 +127,9 @@ export default class AdminJobsComponent extends Vue {
 
   updateReset() {
     this.$refs.updateForm.reset();
+  }
+
+  updateDescription(content: string) {
+    this.job.description = content;
   }
 }

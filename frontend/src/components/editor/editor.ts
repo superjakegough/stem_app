@@ -1,4 +1,4 @@
-import { Component, Vue, Prop } from "vue-property-decorator";
+import { Component, Vue, Emit, Prop } from "vue-property-decorator";
 import { Editor, EditorContent, EditorMenuBar } from "tiptap";
 import {
   Heading,
@@ -18,7 +18,7 @@ import {
   }
 })
 export default class EditorComponent extends Vue {
-  @Prop() content!: string;
+  @Prop() getContent!: Function;
   editor: any = new Editor({
     extensions: [
       new Heading({ levels: [2] }),
@@ -32,13 +32,9 @@ export default class EditorComponent extends Vue {
     ],
     content: `<p>Description...</p>`,
     onUpdate: () => {
-      this.setContent = this.editor.getHTML();
+      this.getContent(this.editor.getHTML());
     }
   });
-
-  set setContent(value: string) {
-    this.$emit("content", value);
-  }
 
   iconColor(bool: boolean) {
     if (!bool) {

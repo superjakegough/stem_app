@@ -1,5 +1,5 @@
 <template>
-  <v-sheet color="white">
+  <v-sheet color="grey lighten-2">
     <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
       <v-layout row wrap>
         <v-flex>
@@ -22,9 +22,6 @@
             <v-icon :color="iconColor(isActive.bullet_list())">format_list_bulleted</v-icon>
           </v-btn>
           <v-btn icon @click="commands.ordered_list">
-            <v-icon :color="iconColor(isActive.ordered_list())">format_list_numbered</v-icon>
-          </v-btn>
-           <v-btn icon @click="printContent">
             <v-icon :color="iconColor(isActive.ordered_list())">format_list_numbered</v-icon>
           </v-btn>
           <v-divider />

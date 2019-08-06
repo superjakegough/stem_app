@@ -1,8 +1,13 @@
 import { Component, Vue } from "vue-property-decorator";
+import Editor from "@/components/editor/editor";
 import Job from "@/models/job";
 import { getAllJobs, createJob, updateJob, deleteJob } from "@/services/job_service";
 
-@Component
+@Component({
+  components: {
+    Editor
+  }
+})
 export default class AdminJobsComponent extends Vue {
   $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement };
   date: string = new Date().toISOString();
@@ -15,7 +20,7 @@ export default class AdminJobsComponent extends Vue {
     jobType: "",
     location: "",
     reference: "",
-    description: "",
+    description: "<p>Description...</p>",
     createdAt: "",
     updatedAt: ""
   };
@@ -45,8 +50,8 @@ export default class AdminJobsComponent extends Vue {
 
   async getJobs() {
     this.loading = true;
-    const res = await getAllJobs();
-    this.jobs = res;
+    // const res = await getAllJobs();
+    // this.jobs = res;
     this.loading = false;
   }
 
@@ -67,15 +72,17 @@ export default class AdminJobsComponent extends Vue {
   }
 
   async create() {
-    if (this.$refs.createForm.validate()) {
-      const res = await createJob(this.job);
-      if (!res.success) {
-        this.errorMessage = "Failed to create job!";
-        this.error = true;
-      } else {
-        this.jobs.push(this.job);
-      }
-      this.createDialog = false;
+    console.log(this.job.description);
+    if (this.$refs.createForm.validate() && this.job.description.length > 0) {
+
+      // const res = await createJob(this.job);
+      // if (!res.success) {
+      //   this.errorMessage = "Failed to create job!";
+      //   this.error = true;
+      // } else {
+      //   this.jobs.push(this.job);
+      // }
+      // this.createDialog = false;
     }
   }
 
@@ -121,5 +128,9 @@ export default class AdminJobsComponent extends Vue {
 
   updateReset() {
     this.$refs.updateForm.reset();
+  }
+
+  updateDescription(content: string) {
+    this.job.description = content;
   }
 }

@@ -60,6 +60,11 @@
   max-height: 220px;
 }
 
+.ProseMirror {
+  height: 174px;
+  overflow-y: scroll;
+}
+
 @media (max-width: 960px) {
   .content-container {
     padding: 32px;

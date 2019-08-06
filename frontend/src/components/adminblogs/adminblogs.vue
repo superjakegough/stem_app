@@ -36,7 +36,7 @@
           <v-spacer></v-spacer>
           <v-btn depressed color="primary" @click="createShow">Create</v-btn>
       </v-toolbar>
-      <v-text-field class="mb-2" v-model="search" append-icon="search" label="Search" maxlength="50" solo flat background-color="grey lighten-2"/>
+      <v-text-field class="mb-2" v-model="search" append-icon="search" label="Search" maxlength="50" solo flat background-color="white"/>
       <v-data-iterator :items="blogs" :search="search" :loading="loading" row wrap>
         <v-flex slot="item" slot-scope="props" class="mb-4" xs12>
           <v-card>

@@ -1,4 +1,4 @@
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Model } from "vue-property-decorator";
 import { Editor, EditorContent, EditorMenuBar } from "tiptap";
 import {
   Heading,
@@ -18,6 +18,7 @@ import {
   }
 })
 export default class EditorComponent extends Vue {
+  @Model("description", { type: String }) syncedDescription!: string;
   editor: any = new Editor({
     extensions: [
       new Heading({ levels: [2] }),
@@ -29,17 +30,20 @@ export default class EditorComponent extends Vue {
       new Strike(),
       new Underline()
     ],
-    content: `Type here...`,
+    onUpdate: () => {
+      this.syncedDescription = this.editor.getHTML();
+      console.log(this.syncedDescription);
+    }
   });
+
+  created() {
+    console.log("testing" + this.syncedDescription);
+  }
 
   iconColor(bool: boolean) {
     if (!bool) {
       return "grey";
     }
-  }
-
-  printContent() {
-    console.log(this.editor.getHTML());
   }
 
   beforeDestroy() {

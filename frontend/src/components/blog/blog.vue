@@ -16,10 +16,10 @@
           </p>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
-          <v-text-field v-model="searchTerm" @change="onSearch" label="Search" prepend-inner-icon="search" background-color="accent" solo flat></v-text-field>
+          <v-text-field v-model="searchTerm" @change="onSearch" label="Search" prepend-inner-icon="search" background-color="white" solo flat></v-text-field>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
-          <v-card :key="index" v-for="(blog, index) in blogsPaged" flat color="accent" class="mb-4">
+          <v-card :key="index" v-for="(blog, index) in blogsPaged" flat class="mb-4">
             <v-card-text>
               <h3 class="title mb-4">Title</h3>
               <p class="mb-4">{{blog.title}}</p>
@@ -29,7 +29,7 @@
               <p>{{blog.content}}</p>
             </v-card-text>
           </v-card>
-          <v-card v-if="blogs.length < 1" flat color="accent" class="mb-4">
+          <v-card v-if="blogs.length < 1" flat class="mb-4">
             <v-card-text class="text-xs-center">
               <p>There are currently no blogs at this time :(</p>
             </v-card-text>

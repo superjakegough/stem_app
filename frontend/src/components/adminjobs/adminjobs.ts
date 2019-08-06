@@ -20,7 +20,7 @@ export default class AdminJobsComponent extends Vue {
     jobType: "",
     location: "",
     reference: "",
-    description: "",
+    description: "<p>Description...</p>",
     createdAt: "",
     updatedAt: ""
   };
@@ -50,8 +50,8 @@ export default class AdminJobsComponent extends Vue {
 
   async getJobs() {
     this.loading = true;
-    const res = await getAllJobs();
-    this.jobs = res;
+    // const res = await getAllJobs();
+    // this.jobs = res;
     this.loading = false;
   }
 
@@ -72,8 +72,9 @@ export default class AdminJobsComponent extends Vue {
   }
 
   async create() {
+    console.log(this.job.description);
     if (this.$refs.createForm.validate() && this.job.description.length > 0) {
-      console.log(this.job);
+
       // const res = await createJob(this.job);
       // if (!res.success) {
       //   this.errorMessage = "Failed to create job!";

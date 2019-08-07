@@ -26,7 +26,7 @@
               <h3 class="title mb-4">Description</h3>
               <p class="mb-4">{{blog.description}}</p>
               <h3 class="title mb-4">Content</h3>
-              <p>{{blog.content}}</p>
+              <div v-html="blog.content"></div>
             </v-card-text>
           </v-card>
           <v-card v-if="blogs.length < 1" flat class="mb-4">

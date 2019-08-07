@@ -33,7 +33,7 @@
               <h3 class="title mb-4">Reference</h3>
               <p class="mb-4">{{job.reference}}</p>
               <h3 class="title mb-4">Description</h3>
-              <p>{{job.description}}</p>
+              <div v-html="job.description"></div>
             </v-card-text>
           </v-card>
           <v-card v-if="jobs.length < 1" flat class="mb-4">

@@ -1,4 +1,6 @@
-import { Component, Vue, Model } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
+import Job from "@/models/job";
+import Blog from "@/models/blog";
 import { Editor, EditorContent, EditorMenuBar } from "tiptap";
 import {
   Heading,
@@ -18,7 +20,8 @@ import {
   }
 })
 export default class EditorComponent extends Vue {
-  @Model("description", { type: String }) syncedDescription!: string;
+  @Prop() job!: Job;
+  @Prop() blog!: Blog;
   editor: any = new Editor({
     extensions: [
       new Heading({ levels: [2] }),
@@ -30,14 +33,20 @@ export default class EditorComponent extends Vue {
       new Strike(),
       new Underline()
     ],
+    content: `<p>Type here...</p>`,
     onUpdate: () => {
-      this.syncedDescription = this.editor.getHTML();
-      console.log(this.syncedDescription);
+      const html = this.editor.getHTML();
+      this.job ? this.job.description = html : this.blog.content = html;
     }
   });
 
-  created() {
-    console.log("testing" + this.syncedDescription);
+  setContent() {
+    if (this.job) {
+      console.log("here");
+      return this.job.description;
+    } else if (this.blog) {
+      return this.blog.content;
+    }
   }
 
   iconColor(bool: boolean) {

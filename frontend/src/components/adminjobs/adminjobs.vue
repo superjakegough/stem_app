@@ -101,7 +101,7 @@
             <v-text-field v-model="job.jobType" label="Type" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
             <v-text-field v-model="job.location" label="Location" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
             <v-text-field v-model="job.reference" label="Reference" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
-            <Editor v-model="job.description" />
+            <Editor :job="job"/>
           </v-form>
         </v-flex>
         <v-card-actions>
@@ -127,7 +127,7 @@
           <v-text-field v-model="job.jobType" label="Type" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
           <v-text-field v-model="job.location" label="Location" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
           <v-text-field v-model="job.reference" label="Reference" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
-          <v-textarea v-model="job.description" label="Description" maxlength="5000" no-resize solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+          <Editor :job="job"/>
         </v-form>
       </v-flex>
       </v-card-text>

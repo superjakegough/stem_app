@@ -81,7 +81,7 @@
           <v-form ref="createForm" lazy-validation>
             <v-text-field v-model="blog.title" label="Title" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
             <v-text-field v-model="blog.description" label="Description" maxlength="100" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
-            <v-textarea v-model="blog.content" label="Content" maxlength="5000" no-resize solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+            <Editor :blog="blog"/>
           </v-form>
         </v-flex>
         <v-card-actions>
@@ -103,7 +103,7 @@
         <v-form ref="updateForm" lazy-validation>
           <v-text-field v-model="blog.title" label="Title" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
           <v-text-field v-model="blog.description" label="Description" maxlength="100" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
-          <v-textarea v-model="blog.content" label="Content" maxlength="5000" no-resize solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+          <Editor :blog="blog"/>
         </v-form>
       </v-flex>
       </v-card-text>

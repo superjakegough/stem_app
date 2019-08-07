@@ -1,8 +1,13 @@
 import { Component, Vue } from "vue-property-decorator";
+import Editor from "@/components/editor/editor";
 import Blog from "@/models/blog";
 import { getAllBlogs, createBlog, updateBlog, deleteBlog } from "@/services/blog_service";
 
-@Component
+@Component({
+  components: {
+    Editor
+  }
+})
 export default class AdminBlogsComponent extends Vue {
   $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement };
   date: string = new Date().toISOString();
@@ -55,6 +60,7 @@ export default class AdminBlogsComponent extends Vue {
   }
 
   async create() {
+    console.log(this.blog.content);
     if (this.$refs.createForm.validate()) {
       const res = await createBlog(this.blog);
       if (!res.success) {

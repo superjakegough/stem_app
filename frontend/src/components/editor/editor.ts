@@ -40,15 +40,6 @@ export default class EditorComponent extends Vue {
     }
   });
 
-  setContent() {
-    if (this.job) {
-      console.log("here");
-      return this.job.description;
-    } else if (this.blog) {
-      return this.blog.content;
-    }
-  }
-
   iconColor(bool: boolean) {
     if (!bool) {
       return "grey";

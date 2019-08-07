@@ -1,5 +1,5 @@
 <template>
-  <v-layout align-center v-if="$vuetify.breakpoint.mdAndUp" style="opacity: 1.0">
+  <v-layout align-center v-if="$vuetify.breakpoint.mdAndUp">
     <v-flex xs4>
       <v-layout align-center fill-height justify-start>
         <img

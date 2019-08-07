@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div v-if="$vuetify.breakpoint.mdAndDown">
+    <div v-if="$vuetify.breakpoint.smAndDown">
       <v-toolbar flat fixed scroll-off-screen>
         <AppBar :menuItems="menuItems" />
       </v-toolbar>

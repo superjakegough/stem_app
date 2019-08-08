@@ -7,5 +7,9 @@ deployment:
 
 - script: |
     npm install
-    npm run build
+    npm run build:prod
   displayName: 'npm install and build'
+  
+- export DEPLOYPATH=/home/stemrecr/stem_app/
+    - /backend/dist server.js $DEPLOYPATH
+    - /frontend/dist index.html $DEPLOYPATH

@@ -1,5 +1,5 @@
 export default interface Job {
-  _id: string;
+  jobId: string;
   title: string;
   salary: string;
   benefits: string;
@@ -8,5 +8,4 @@ export default interface Job {
   reference: string;
   description: string;
   createdAt: string;
-  updatedAt: string;
 }

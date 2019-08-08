@@ -23,7 +23,7 @@ export const createJob = async (job: Job) => {
 };
 
 export const updateJob = async (job: Job) => {
-  const res = await axios.put(`${backendUrl}/${apiRoute}/update/${job._id}`, {
+  const res = await axios.put(`${backendUrl}/${apiRoute}/update/${job.jobId}`, {
     title: job.title,
     salary: job.salary,
     benefits: job.benefits,

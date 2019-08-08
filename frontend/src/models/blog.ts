@@ -1,8 +1,7 @@
 export default interface Blog {
-  _id: string;
+  blogId: string;
   title: string;
   description: string;
   content: string;
   createdAt: string;
-  updatedAt: string;
 }

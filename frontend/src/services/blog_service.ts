@@ -19,7 +19,7 @@ export const createBlog = async (blog: Blog) => {
 };
 
 export const updateBlog = async (blog: Blog) => {
-  const res = await axios.put(`${backendUrl}/${apiRoute}/update/${blog._id}`, {
+  const res = await axios.put(`${backendUrl}/${apiRoute}/update/${blog.blogId}`, {
     title: blog.title,
     description: blog.description,
     content: blog.content

@@ -28,43 +28,83 @@ resources:
   - ${file(resources/api-gateway-errors.yml)} 
 
 functions:
-  create:
-    handler: create.main
+  createJob:
+    handler: jobs/create.main
     events:
       - http:
           path: jobs
           method: post
           cors: true
           authorizer: aws_iam
-  get:
-    handler: get.main
+  getJob:
+    handler: jobs/get.main
     events:
       - http:
           path: jobs/{id}
           method: get
           cors: true
           authorizer: aws_iam
-  list:
-    handler: list.main
+  listJob:
+    handler: jobs/list.main
     events:
       - http:
           path: jobs
           method: get
           cors: true
           authorizer: aws_iam
-  update:
-    handler: update.main
+  updateJob:
+    handler: jobs/update.main
     events:
       - http:
           path: jobs/{id}
           method: put
           cors: true
           authorizer: aws_iam
-  delete:
-    handler: delete.main
+  deleteJob:
+    handler: jobs/delete.main
     events:
       - http:
           path: jobs/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+  createBlog:
+    handler: blogs/create.main
+    events:
+      - http:
+          path: blogs
+          method: post
+          cors: true
+          authorizer: aws_iam
+  getBlog:
+    handler: blogs/get.main
+    events:
+      - http:
+          path: blogs/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+  listBlog:
+    handler: blogs/list.main
+    events:
+      - http:
+          path: blogs
+          method: get
+          cors: true
+          authorizer: aws_iam
+  updateBlog:
+    handler: blogs/update.main
+    events:
+      - http:
+          path: blogs/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+  deleteBlog:
+    handler: blogs/delete.main
+    events:
+      - http:
+          path: blogs/{id}
           method: delete
           cors: true
           authorizer: aws_iam

@@ -19,25 +19,43 @@
           <v-text-field v-model="searchTerm" @change="onSearch" label="Search" prepend-inner-icon="search" background-color="white" solo flat></v-text-field>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4>
-          <v-card :key="index" v-for="(blog, index) in blogsPaged" flat class="mb-4">
-            <v-card-text>
-              <h3 class="title mb-4">Title</h3>
-              <p class="mb-4">{{blog.title}}</p>
-              <h3 class="title mb-4">Description</h3>
-              <p class="mb-4">{{blog.description}}</p>
-              <h3 class="title mb-4">Content</h3>
-              <div v-html="blog.content"></div>
-            </v-card-text>
+          <v-card flat tile>
+            <v-window v-model="onboarding" vertical>
+              <v-window-item :key="index" v-for="(blog, index) in filteredBlogs">
+                <v-card flat height="600" class="scroll">
+                  <v-card-text>
+                    <h3 class="title mb-4">Title</h3>
+                    <p class="mb-4">{{blog.title}}</p>
+                    <h3 class="title mb-4">Description</h3>
+                    <p class="mb-4">{{blog.description}}</p>
+                    <h3 class="title mb-4">Content</h3>
+                    <div v-html="blog.content"></div>
+                  </v-card-text>
+                </v-card>
+              </v-window-item>
+            </v-window>
+            <v-card-actions class="justify-space-between">
+              <v-btn flat @click="prev">
+                <v-icon color="primary">chevron_left</v-icon>
+              </v-btn>
+              <v-item-group v-model="onboarding" class="text-xs-center" mandatory v-if="$vuetify.breakpoint.smAndUp">
+                <v-item v-for="(blog, index) in filteredBlogs" :key="index">
+                  <v-btn slot-scope="{ active, toggle }" :input-value="active" icon @click="toggle">
+                    <v-icon color="primary">fiber_manual_record</v-icon>
+                  </v-btn>
+                </v-item>
+              </v-item-group>
+              <v-btn flat @click="next">
+                <v-icon color="primary">chevron_right</v-icon>
+              </v-btn>
+            </v-card-actions>
           </v-card>
-          <v-card v-if="blogs.length < 1" flat class="mb-4">
+          <v-card v-if="blogs.length < 1" flat>
             <v-card-text class="text-xs-center">
               <p>There are currently no blogs at this time :(</p>
             </v-card-text>
-          </v-card>
+          </v-card>  
         </v-flex>
-      </v-layout>
-      <v-layout justify-center mb-4>
-        <v-pagination v-model="page" :length="blogsPages" circle @input="onPageChange" ></v-pagination>
       </v-layout>
       <v-layout justify-center mb-5>
         <v-btn depressed color="primary" to="/">Home</v-btn>

@@ -6,12 +6,8 @@ import { getAllBlogs } from "@/services/blog_service";
 export default class BlogsComponent extends Vue {
   date: string = new Date().toISOString();
   blogs: Blog[] = [];
-
+  onboarding: number = 0;
   filteredBlogs: Blog[] = [];
-  page: number = 1;
-  blogsPerPage: number = 3;
-  blogsPages: number = 0;
-  blogsPaged: Blog[] = [];
   searchTerm: string = "";
 
   async mounted() {
@@ -20,18 +16,24 @@ export default class BlogsComponent extends Vue {
     this.onSearch();
   }
 
-  onPageChange() {
-    this.blogsPages = Math.ceil(this.filteredBlogs.length / this.blogsPerPage);
-    this.blogsPaged = this.filteredBlogs.slice((this.page - 1) * this.blogsPerPage, (this.page) * this.blogsPerPage);
-  }
-
   onSearch() {
-    this.page = 1;
+    this.onboarding = 0;
     if (this.searchTerm === "") {
       this.filteredBlogs = this.blogs;
     } else {
       this.filteredBlogs = this.blogs.filter(blog => blog.title.includes(this.searchTerm));
     }
-    this.onPageChange();
+  }
+
+  next() {
+    this.onboarding = this.onboarding + 1 === this.filteredBlogs.length
+      ? 0
+      : this.onboarding + 1;
+  }
+
+  prev() {
+    this.onboarding = this.onboarding - 1 < 0
+      ? this.filteredBlogs.length - 1
+      : this.onboarding - 1;
   }
 }

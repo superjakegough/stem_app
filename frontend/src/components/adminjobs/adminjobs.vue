@@ -1,5 +1,8 @@
 <template>
   <v-layout row fill-height align-center>
+    <v-layout v-if="!authorised">
+      <p>loading</p>
+    </v-layout>
     <v-layout justify-center v-if="$vuetify.breakpoint.smAndUp">
       <v-flex xs10>
         <v-card>

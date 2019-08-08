@@ -10,15 +10,16 @@ import { getAllBlogs, createBlog, updateBlog, deleteBlog } from "@/services/blog
 })
 export default class AdminBlogsComponent extends Vue {
   $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement };
+  email: string = "admin@example.com";
+  password: string = "Passw0rd!";
   date: string = new Date().toISOString();
   blogs: Blog[] = [];
   blog: Blog = {
-    _id: "",
+    blogId: "",
     title: "",
     description: "",
     content: "",
-    createdAt: "",
-    updatedAt: ""
+    createdAt: ""
   };
   loading: boolean = false;
   search: string = "";
@@ -49,12 +50,11 @@ export default class AdminBlogsComponent extends Vue {
 
   createShow() {
     this.blog = {
-      _id: "",
+      blogId: "",
       title: "",
       description: "",
       content: "",
-      createdAt: "",
-      updatedAt: ""
+      createdAt: ""
     };
     this.createDialog = true;
   }
@@ -85,7 +85,7 @@ export default class AdminBlogsComponent extends Vue {
         this.errorMessage = "Failed to update blog!";
         this.error = true;
       } else {
-        let tempBlog = this.blogs.find(i => i._id === this.blog._id);
+        let tempBlog = this.blogs.find(i => i.blogId === this.blog.blogId);
         tempBlog = this.blog;
       }
       this.updateDialog = false;
@@ -99,12 +99,12 @@ export default class AdminBlogsComponent extends Vue {
   }
 
   async deletee() {
-    const res = await deleteBlog(this.blog._id);
+    const res = await deleteBlog(this.blog.blogId);
     if (!res.success) {
       this.errorMessage = "Failed to delete blog!";
       this.error = true;
     } else {
-      this.blogs = this.blogs.filter(i => i._id !== this.blog._id);
+      this.blogs = this.blogs.filter(i => i.blogId !== this.blog.blogId);
     }
     this.deleteDialog = false;
   }

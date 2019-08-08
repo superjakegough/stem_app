@@ -2,6 +2,7 @@ import { Component, Vue } from "vue-property-decorator";
 import Editor from "@/components/editor/editor";
 import Job from "@/models/job";
 import { getAllJobs, createJob, updateJob, deleteJob } from "@/services/job_service";
+import { Auth } from "aws-amplify";
 
 @Component({
   components: {
@@ -10,10 +11,13 @@ import { getAllJobs, createJob, updateJob, deleteJob } from "@/services/job_serv
 })
 export default class AdminJobsComponent extends Vue {
   $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement };
+  email: string = "admin@example.com";
+  password: string = "Passw0rd!";
+  authorised: boolean = false;
   date: string = new Date().toISOString();
   jobs: Job[] = [];
   job: Job = {
-    _id: "",
+    jobId: "",
     title: "",
     salary: "",
     benefits: "",
@@ -21,8 +25,7 @@ export default class AdminJobsComponent extends Vue {
     location: "",
     reference: "",
     description: "",
-    createdAt: "",
-    updatedAt: ""
+    createdAt: ""
   };
   loading: boolean = false;
   search: string = "";
@@ -44,8 +47,20 @@ export default class AdminJobsComponent extends Vue {
     required: (value: string) => !!value || "Required"
   };
 
-  mounted() {
-    this.getJobs();
+  async mounted() {
+    await this.signIn();
+    if(this.authorised) {
+      this.getJobs();
+    }
+  }
+
+  async signIn() {
+    try {
+      await Auth.signIn(this.email, this.password);
+      this.authorised = true;
+    } catch (e) {
+      alert(e.message);
+    }
   }
 
   async getJobs() {
@@ -57,7 +72,7 @@ export default class AdminJobsComponent extends Vue {
 
   createShow() {
     this.job = {
-      _id: "",
+      jobId: "",
       title: "",
       salary: "",
       benefits: "",
@@ -65,8 +80,7 @@ export default class AdminJobsComponent extends Vue {
       location: "",
       reference: "",
       description: "",
-      createdAt: "",
-      updatedAt: ""
+      createdAt: ""
     };
     this.createDialog = true;
   }
@@ -96,7 +110,7 @@ export default class AdminJobsComponent extends Vue {
         this.errorMessage = "Failed to update job!";
         this.error = true;
       } else {
-        let tempJob = this.jobs.find(i => i._id === this.job._id);
+        let tempJob = this.jobs.find(i => i.jobId === this.job.jobId);
         tempJob = this.job;
       }
       this.updateDialog = false;
@@ -110,12 +124,12 @@ export default class AdminJobsComponent extends Vue {
   }
 
   async deletee() {
-    const res = await deleteJob(this.job._id);
+    const res = await deleteJob(this.job.jobId);
     if (!res.success) {
       this.errorMessage = "Failed to delete job!";
       this.error = true;
     } else {
-      this.jobs = this.jobs.filter(i => i._id !== this.job._id);
+      this.jobs = this.jobs.filter(i => i.jobId !== this.job.jobId);
     }
     this.deleteDialog = false;
   }

@@ -1,0 +1,70 @@
+service: stem-app-api
+
+package:
+  individually: true
+
+plugins:
+  - serverless-bundle 
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs10.16.2
+  stage: dev
+  region: eu-west-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:eu-east-1:*:*"
+
+resources:
+  - ${file(resources/api-gateway-errors.yml)} 
+
+functions:
+  create:
+    handler: create.main
+    events:
+      - http:
+          path: jobs
+          method: post
+          cors: true
+          authorizer: aws_iam
+  get:
+    handler: get.main
+    events:
+      - http:
+          path: jobs/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+  list:
+    handler: list.main
+    events:
+      - http:
+          path: jobs
+          method: get
+          cors: true
+          authorizer: aws_iam
+  update:
+    handler: update.main
+    events:
+      - http:
+          path: jobs/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+  delete:
+    handler: delete.main
+    events:
+      - http:
+          path: jobs/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam

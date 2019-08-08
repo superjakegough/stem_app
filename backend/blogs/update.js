@@ -1,5 +1,5 @@
-import * as dynamoDbLib from "./libs/dynamodb-lib";
-import { success, failure } from "./libs/response-lib";
+import * as dynamoDbLib from "../libs/dynamodb-lib";
+import { success, failure } from "../libs/response-lib";
 
 export async function main(event, context) {
   const data = JSON.parse(event.body);
@@ -9,7 +9,8 @@ export async function main(event, context) {
       userId: event.requestContext.identity.cognitoIdentityId,
       blogId: event.pathParameters.id
     },
-    UpdateExpression: "SET title = :title, description = :description, content = :content",
+    UpdateExpression:
+      "SET title = :title, description = :description, content = :content",
     ExpressionAttributeValues: {
       ":title": data.title || null,
       ":description": data.description || null,

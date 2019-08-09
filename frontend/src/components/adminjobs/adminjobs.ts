@@ -56,9 +56,7 @@ export default class AdminJobsComponent extends Vue {
 
   async signIn() {
     try {
-      console.log(Auth);
-      const res = await Auth.signIn(this.email, this.password);
-      console.log("testing" + res);
+      await Auth.signIn(this.email, this.password);
       this.authorised = true;
     } catch (e) {
       console.log(e);

@@ -1,5 +1,4 @@
 <template>
-  <div>
     <v-layout row fill-height align-center v-if="authorised">
       <v-layout justify-center v-if="$vuetify.breakpoint.smAndUp">
         <v-flex xs10>
@@ -89,6 +88,9 @@
           </v-flex>
         </v-data-iterator>
       </v-layout>
+      <v-layout row fill-height align-center v-if="!authorised">
+        <p>loading</p>
+      </v-layout>
       <v-dialog v-model="createDialog" max-width="600">
         <v-card>
           <v-card-title class="headline">
@@ -156,10 +158,6 @@
       </v-dialog>
       <v-snackbar v-model="error" color="error">{{ errorMessage }}<v-btn dark flat @click="error = false">Close</v-btn></v-snackbar>
     </v-layout>
-    <v-layout v-if="!authorised">
-      <p>loading</p>
-    </v-layout>
-  </div>
 </template>
 
 <script src="./adminjobs.ts"></script>

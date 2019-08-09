@@ -15,11 +15,11 @@ export const createJob = async (job: Job) => {
 };
 
 export const updateJob = async (job: Job) => {
-  API.put(apiName, `${apiPath}/${job.jobId}`, {
+  return API.put(apiName, `${apiPath}/${job.jobId}`, {
     body: job
   });
 };
 
 export const deleteJob = async (id: string) => {
-  API.del(apiName, `${apiPath}/${id}`, {});
+  return API.del(apiName, `${apiPath}/${id}`, {});
 };

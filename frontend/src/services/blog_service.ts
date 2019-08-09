@@ -15,11 +15,11 @@ export const createBlog = async (blog: Blog) => {
 };
 
 export const updateBlog = async (blog: Blog) => {
-  API.put(apiName, `${apiPath}/${blog.blogId}`, {
+  return API.put(apiName, `${apiPath}/${blog.blogId}`, {
     body: blog
   });
 };
 
 export const deleteBlog = async (id: string) => {
-  API.del(apiName, `${apiPath}/${id}`, {});
+  return API.del(apiName, `${apiPath}/${id}`, {});
 };

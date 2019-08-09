@@ -10,7 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": false,
     "baseUrl": ".",
-    "types": ["webpack-env", "vuetify"],
+    "types": ["node", "webpack-env", "vuetify"],
     "paths": {
       "@/*": ["src/*"]
     },

@@ -48,8 +48,9 @@ export default class AdminJobsComponent extends Vue {
   };
 
   async mounted() {
-    await this.signIn();
-    if(this.authorised) {
+    const res = await this.signIn();
+    console.log(res);
+    if (this.authorised) {
       this.getJobs();
     }
   }
@@ -66,6 +67,7 @@ export default class AdminJobsComponent extends Vue {
   async getJobs() {
     this.loading = true;
     const res = await getAllJobs();
+    console.log(res);
     this.jobs = res;
     this.loading = false;
   }
@@ -88,6 +90,7 @@ export default class AdminJobsComponent extends Vue {
   async create() {
     if (this.$refs.createForm.validate() && this.job.description.length > 0) {
       const res = await createJob(this.job);
+      console.log(res);
       if (!res.success) {
         this.errorMessage = "Failed to create job!";
         this.error = true;
@@ -106,6 +109,7 @@ export default class AdminJobsComponent extends Vue {
   async update() {
     if (this.$refs.updateForm.validate()) {
       const res = await updateJob(this.job);
+      console.log(res);
       if (!res.success) {
         this.errorMessage = "Failed to update job!";
         this.error = true;
@@ -125,6 +129,7 @@ export default class AdminJobsComponent extends Vue {
 
   async deletee() {
     const res = await deleteJob(this.job.jobId);
+    console.log(res);
     if (!res.success) {
       this.errorMessage = "Failed to delete job!";
       this.error = true;

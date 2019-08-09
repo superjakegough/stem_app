@@ -11,7 +11,7 @@ import { getAllBlogs, createBlog, updateBlog, deleteBlog } from "@/services/blog
 export default class AdminBlogsComponent extends Vue {
   $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement };
   email: string = "admin@example.com";
-  password: string = "Passw0rd!";
+  password: string = "StemPa55!";
   date: string = new Date().toISOString();
   blogs: Blog[] = [];
   blog: Blog = {

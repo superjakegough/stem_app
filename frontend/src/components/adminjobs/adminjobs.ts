@@ -12,7 +12,7 @@ import { Auth } from "aws-amplify";
 export default class AdminJobsComponent extends Vue {
   $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement };
   email: string = "admin@example.com";
-  password: string = "Passw0rd!";
+  password: string = "StemPa55!";
   authorised: boolean = false;
   date: string = new Date().toISOString();
   jobs: Job[] = [];

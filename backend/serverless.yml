@@ -22,7 +22,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:eu-east-1:*:*"
+      Resource: "arn:aws:dynamodb:eu-west-1:*:*"
 
 resources:
   - ${file(resources/api-gateway-errors.yml)}

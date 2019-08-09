@@ -67,7 +67,7 @@ export default class AdminJobsComponent extends Vue {
   async getJobs() {
     this.loading = true;
     const res = await getAllJobs();
-    if (!res.status) {
+    if (!res.length) {
       this.errorMessage = "Failed to get jobs!";
       this.error = true;
     } else {

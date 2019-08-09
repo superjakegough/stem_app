@@ -67,11 +67,12 @@ export default class AdminJobsComponent extends Vue {
   async getJobs() {
     this.loading = true;
     const res = await getAllJobs();
-    if (!res.length) {
+    if (!res) {
       this.errorMessage = "Failed to get jobs!";
       this.error = true;
     } else {
       this.jobs = res;
+      this.loading = false;
     }
   }
 
@@ -91,11 +92,10 @@ export default class AdminJobsComponent extends Vue {
   }
 
   async create() {
-    console.log(this.job.description.length);
     if (this.$refs.createForm.validate() && this.job.description.length > 0) {
       const res = await createJob(this.job);
       console.log(res);
-      if (!res.status) {
+      if (!res.title) {
         this.errorMessage = "Failed to create job!";
         this.error = true;
       } else {

@@ -51,6 +51,7 @@ export default class AdminJobsComponent extends Vue {
     await this.signIn();
     if (this.authorised) {
       this.getJobs();
+      this.loading = false;
     }
   }
 
@@ -66,9 +67,12 @@ export default class AdminJobsComponent extends Vue {
   async getJobs() {
     this.loading = true;
     const res = await getAllJobs();
-    console.log(res);
-    this.jobs = res;
-    this.loading = false;
+    if (!res.status) {
+      this.errorMessage = "Failed to get jobs!";
+      this.error = true;
+    } else {
+      this.jobs = res;
+    }
   }
 
   createShow() {
@@ -87,10 +91,11 @@ export default class AdminJobsComponent extends Vue {
   }
 
   async create() {
+    console.log(this.job.description.length);
     if (this.$refs.createForm.validate() && this.job.description.length > 0) {
       const res = await createJob(this.job);
       console.log(res);
-      if (!res.success) {
+      if (!res.status) {
         this.errorMessage = "Failed to create job!";
         this.error = true;
       } else {
@@ -109,7 +114,7 @@ export default class AdminJobsComponent extends Vue {
     if (this.$refs.updateForm.validate()) {
       const res = await updateJob(this.job);
       console.log(res);
-      if (!res.success) {
+      if (!res.status) {
         this.errorMessage = "Failed to update job!";
         this.error = true;
       } else {
@@ -129,7 +134,7 @@ export default class AdminJobsComponent extends Vue {
   async deletee() {
     const res = await deleteJob(this.job.jobId);
     console.log(res);
-    if (!res.success) {
+    if (!res.status) {
       this.errorMessage = "Failed to delete job!";
       this.error = true;
     } else {

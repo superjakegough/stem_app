@@ -60,10 +60,9 @@ export default class AdminBlogsComponent extends Vue {
   }
 
   async create() {
-    console.log(this.blog.content);
     if (this.$refs.createForm.validate()) {
       const res = await createBlog(this.blog);
-      if (!res.success) {
+      if (!res.status) {
         this.errorMessage = "Failed to create blog!";
         this.error = true;
       } else {
@@ -81,7 +80,7 @@ export default class AdminBlogsComponent extends Vue {
   async update() {
     if (this.$refs.updateForm.validate()) {
       const res = await updateBlog(this.blog);
-      if (!res.success) {
+      if (!res.status) {
         this.errorMessage = "Failed to update blog!";
         this.error = true;
       } else {
@@ -100,7 +99,7 @@ export default class AdminBlogsComponent extends Vue {
 
   async deletee() {
     const res = await deleteBlog(this.blog.blogId);
-    if (!res.success) {
+    if (!res.status) {
       this.errorMessage = "Failed to delete blog!";
       this.error = true;
     } else {

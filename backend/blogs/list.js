@@ -3,11 +3,7 @@ import { success, failure } from "../libs/response-lib";
 
 export async function main(event, context) {
   const params = {
-    TableName: "StemBlogs",
-    KeyConditionExpression: "userId = :userId",
-    ExpressionAttributeValues: {
-      ":userId": event.requestContext.identity.cognitoIdentityId
-    }
+    TableName: "blogs"
   };
 
   try {

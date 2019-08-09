@@ -11,17 +11,14 @@ export async function main(event, context) {
     },
     UpdateExpression:
       "SET title = :title, salary = :salary, benefits = :benefits, " +
-      "jobType = :jobType, jobLocation = :location, reference = :reference, description = :description",
+      "jobType = :jobType, jobLocation = :jobJocation, jobReference = :jobReference, description = :description",
     ExpressionAttributeValues: {
       ":title": data.title || null,
       ":salary": data.salary || null,
       ":jobType": data.jobType || null,
-      ":location": data.location || null,
-      ":reference": data.reference || null,
+      ":jobJocation": data.jobJocation || null,
+      ":jobReference": data.jobReference || null,
       ":description": data.description || null
-    },
-    ExpressionAttributeNames: {
-      jobLocation: "location"
     },
     ReturnValues: "ALL_NEW"
   };

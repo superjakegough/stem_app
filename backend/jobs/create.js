@@ -13,8 +13,8 @@ export async function main(event, context) {
       salary: data.salary,
       benefits: data.benefits,
       jobType: data.jobType,
-      location: data.location,
-      reference: data.reference,
+      jobLocation: data.jobLocation,
+      jobReference: data.jobReference,
       description: data.description,
       createdAt: Date.now()
     }

@@ -22,8 +22,8 @@ export default class AdminJobsComponent extends Vue {
     salary: "",
     benefits: "",
     jobType: "",
-    location: "",
-    reference: "",
+    jobLocation: "",
+    jobReference: "",
     description: "",
     createdAt: ""
   };
@@ -82,8 +82,8 @@ export default class AdminJobsComponent extends Vue {
       salary: "",
       benefits: "",
       jobType: "",
-      location: "",
-      reference: "",
+      jobLocation: "",
+      jobReference: "",
       description: "",
       createdAt: ""
     };

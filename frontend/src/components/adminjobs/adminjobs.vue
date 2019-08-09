@@ -22,8 +22,8 @@
                   <td>{{ props.item.salary }}</td>
                   <td>{{ props.item.benefits }}</td>
                   <td>{{ props.item.jobType }}</td>
-                  <td>{{ props.item.location }}</td>
-                  <td>{{ props.item.reference }}</td>
+                  <td>{{ props.item.jobLocation }}</td>
+                  <td>{{ props.item.jobReference }}</td>
                   <td>
                     <v-icon small class="mr-2" @click="updateShow(props.item)">edit</v-icon>
                     <v-icon small @click="deleteShow(props.item)">delete</v-icon>
@@ -77,11 +77,11 @@
                 </v-list-tile>
                 <v-list-tile>
                   <v-list-tile-content>Location:</v-list-tile-content>
-                  <v-list-tile-content class="align-end">{{ props.item.location }}</v-list-tile-content>
+                  <v-list-tile-content class="align-end">{{ props.item.jobLocation }}</v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile>
                   <v-list-tile-content>Reference:</v-list-tile-content>
-                  <v-list-tile-content class="align-end">{{ props.item.reference }}</v-list-tile-content>
+                  <v-list-tile-content class="align-end">{{ props.item.jobReference }}</v-list-tile-content>
                 </v-list-tile>
               </v-list>
             </v-card>
@@ -102,8 +102,8 @@
               <v-text-field v-model="job.salary" label="Salary" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
               <v-text-field v-model="job.benefits" label="Benefits" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
               <v-text-field v-model="job.jobType" label="Type" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
-              <v-text-field v-model="job.location" label="Location" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
-              <v-text-field v-model="job.reference" label="Reference" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+              <v-text-field v-model="job.jobLocation" label="Location" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+              <v-text-field v-model="job.jobReference" label="Reference" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
               <Editor :job="job"/>
             </v-form>
           </v-flex>
@@ -128,8 +128,8 @@
             <v-text-field v-model="job.salary" label="Salary" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
             <v-text-field v-model="job.benefits" label="Benefits" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
             <v-text-field v-model="job.jobType" label="Type" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
-            <v-text-field v-model="job.location" label="Location" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
-            <v-text-field v-model="job.reference" label="Reference" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
+            <v-text-field v-model="job.jobLocation" label="Location" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
+            <v-text-field v-model="job.jobReference" label="Reference" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
             <Editor :job="job"/>
           </v-form>
         </v-flex>

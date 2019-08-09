@@ -4,8 +4,8 @@ export default interface Job {
   salary: string;
   benefits: string;
   jobType: string;
-  location: string;
-  reference: string;
+  jobLocation: string;
+  jobReference: string;
   description: string;
   createdAt: string;
 }

@@ -3,8 +3,9 @@ import { success, failure } from "../libs/response-lib";
 
 export async function main(event, context) {
   const params = {
-    TableName: "jobs",
+    TableName: "StemJobs",
     Key: {
+      userId: event.requestContext.identity.cognitoIdentityId,
       jobId: event.pathParameters.id
     }
   };
@@ -17,6 +18,6 @@ export async function main(event, context) {
       return failure({ status: false, error: "Item not found." });
     }
   } catch (e) {
-    return failure({ status: false, error: e });
+    return failure({ status: false, error: e.message, message: "Not working Jake" });
   }
 }

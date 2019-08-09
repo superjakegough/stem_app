@@ -48,8 +48,7 @@ export default class AdminJobsComponent extends Vue {
   };
 
   async mounted() {
-    const res = await this.signIn();
-    console.log(res);
+    await this.signIn();
     if (this.authorised) {
       this.getJobs();
     }
@@ -57,10 +56,12 @@ export default class AdminJobsComponent extends Vue {
 
   async signIn() {
     try {
-      await Auth.signIn(this.email, this.password);
+      console.log(Auth);
+      const res = await Auth.signIn(this.email, this.password);
+      console.log("testing" + res);
       this.authorised = true;
     } catch (e) {
-      alert(e.message);
+      console.log(e);
     }
   }
 

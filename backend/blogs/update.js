@@ -4,9 +4,8 @@ import { success, failure } from "../libs/response-lib";
 export async function main(event, context) {
   const data = JSON.parse(event.body);
   const params = {
-    TableName: "StemBlogs",
+    TableName: "blogs",
     Key: {
-      userId: event.requestContext.identity.cognitoIdentityId,
       blogId: event.pathParameters.id
     },
     UpdateExpression:

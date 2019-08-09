@@ -21,7 +21,7 @@ export async function main(event, context) {
       ":description": data.description || null
     },
     ExpressionAttributeNames: {
-      "jobLocation": "location"
+      jobLocation: "location"
     },
     ReturnValues: "ALL_NEW"
   };

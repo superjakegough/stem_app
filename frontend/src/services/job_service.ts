@@ -11,7 +11,6 @@ const S3 = new AWS.S3({
   accessKeyId: publicId,
   secretAccessKey: accessKey,
 });
-const encoder = new TextEncoder();
 
 export const getAllJobs = async () => {
   return API.get(apiName, apiPath, {});
@@ -54,5 +53,19 @@ export const getS3Jobs = async () => {
   };
 
   const s3Jobs: any = await S3.getObject(getParams).promise();
-  return JSON.parse(s3Jobs.Body.toString());
+  const marshall: any = JSON.parse(s3Jobs.Body.toString());
+  const jobsArray: any[] = [];
+
+  console.log(marshall);
+  const test: any = AWS.DynamoDB.Converter.unmarshall(marshall);
+  console.log(test);
+  return test;
+};
+
+const convertObject = (object: any) => {
+  return object;
+};
+
+const convertArray = (array: any) => {
+  return array;
 };

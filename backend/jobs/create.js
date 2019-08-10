@@ -7,7 +7,6 @@ export async function main(event, context) {
   const params = {
     TableName: "StemJobs",
     Item: {
-      userId: event.requestContext.identity.cognitoIdentityId,
       jobId: uuid.v1(),
       title: data.title,
       salary: data.salary,

@@ -33,12 +33,25 @@ export default class EditorComponent extends Vue {
       new Strike(),
       new Underline()
     ],
-    content: this.job.description ? this.job.description : this.blog.content ? this.blog.content : `<p>Type here...</p>`,
     onUpdate: () => {
       const html = this.editor.getHTML();
       this.job ? this.job.description = html : this.blog.content = html;
     }
   });
+
+  mounted() {
+    if (this.job) {
+      if (this.job.description.length > 1) {
+        this.editor.setContent(this.job.description);
+      }
+    } else if (this.blog) {
+      if (this.blog.content.length > 1) {
+        this.editor.setContent(this.blog.content);
+      }
+    } else {
+      this.editor.setContent("<p>Type here...</p>");
+    }
+  }
 
   iconColor(bool: boolean) {
     if (!bool) {

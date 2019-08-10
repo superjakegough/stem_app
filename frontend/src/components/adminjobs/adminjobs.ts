@@ -13,6 +13,7 @@ export default class AdminJobsComponent extends Vue {
   $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement };
   email: string = "admin@example.com";
   password: string = "StemPa55!";
+  // password: string = "Passw0rd!";
   authorised: boolean = false;
   date: string = new Date().toISOString();
   jobs: Job[] = [];

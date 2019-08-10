@@ -6,7 +6,6 @@ export async function main(event, context) {
   const params = {
     TableName: "StemJobs",
     Key: {
-      userId: event.requestContext.identity.cognitoIdentityId,
       jobId: event.pathParameters.id
     },
     UpdateExpression:

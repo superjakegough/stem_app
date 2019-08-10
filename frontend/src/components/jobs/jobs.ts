@@ -1,6 +1,6 @@
 import { Component, Vue } from "vue-property-decorator";
 import Job from "@/models/job";
-import { getAllJobs } from "@/services/job_service";
+import { getS3Jobs } from "@/services/job_service";
 
 @Component
 export default class JobsComponent extends Vue {
@@ -15,8 +15,12 @@ export default class JobsComponent extends Vue {
   searchTerm: string = "";
 
   async mounted() {
-    const res = await getAllJobs();
-    this.jobs = res;
+    const res = await getS3Jobs();
+    if (Array.isArray(res)) {
+      this.jobs = res;
+    } else {
+      this.jobs.push(res);
+    }
     this.onSearch();
   }
 

@@ -4,12 +4,10 @@ import AWS from "aws-sdk";
 
 const apiName: string = "jobs";
 const apiPath: string = "/jobs";
-const publicId: string = "AKIARKIUYBJ576W7VUVT";
-const accessKey: string = "sJUCcA/00pSqUBa54L3AzlAyXAI7f08WVcagvq7p";
 const S3 = new AWS.S3({
   region: "eu-west-1",
-  accessKeyId: publicId,
-  secretAccessKey: accessKey,
+  accessKeyId: process.env.PUBLIC_ID,
+  secretAccessKey: process.env.PUBLIC_SECRET,
 });
 
 export const getAllJobs = async () => {

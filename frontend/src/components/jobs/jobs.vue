@@ -16,10 +16,9 @@
             <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> with the job reference number, and we will respond within 2 working days.
           </p>
         </v-flex>
-        <v-flex md8 sm10 xs12 mb-4>
-          <v-text-field v-model="searchTerm" @change="onSearch" label="Search" prepend-inner-icon="search" background-color="white" solo flat></v-text-field>
-        </v-flex>
-        <v-flex md8 sm10 xs12 mb-4>
+        <v-flex md8 sm10 xs12 mb-4 v-if="!loading">
+          <v-text-field v-model="searchTerm" class="mb-4" @change="onSearch" label="Search" 
+            prepend-inner-icon="search" background-color="white" solo flat></v-text-field>
           <v-card :key="index" v-for="(job, index) in jobsPaged" flat class="mb-4">
             <v-card-text>
               <h3 class="title mb-4">Title</h3>
@@ -32,7 +31,6 @@
               <p class="mb-4">{{job.jobLocation}}</p>
               <h3 class="title mb-4">Reference</h3>
               <p class="mb-4">{{job.jobReference}}</p>
-              <h3 class="title mb-4">Description</h3>
               <div v-html="job.description"></div>
             </v-card-text>
           </v-card>
@@ -41,10 +39,13 @@
               <p>There are currently no job opportunities available :(</p>
             </v-card-text>
           </v-card>
+          <v-layout justify-center mb-4>
+            <v-pagination v-model="page" :length="jobsPages" circle @input="onPageChange" ></v-pagination>
+          </v-layout>
         </v-flex>
-      </v-layout>
-      <v-layout justify-center mb-4>
-        <v-pagination v-model="page" :length="jobsPages" circle @input="onPageChange" ></v-pagination>
+        <v-flex md8 sm10 xs12 mt-2 mb-5 text-xs-center v-if="loading">
+           <v-progress-circular indeterminate color="primary"></v-progress-circular>
+        </v-flex>
       </v-layout>
       <v-layout justify-center mb-5>
         <v-btn depressed color="primary" to="/">Home</v-btn>

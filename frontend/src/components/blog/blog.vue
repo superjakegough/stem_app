@@ -5,7 +5,7 @@
         <v-flex sm10 xs12 mt-5 v-if="!loading">
           <v-card flat class="mb-4">
             <v-card-text>
-              <h3 class="title mb-4">{{blog.title}}</h3>
+              <h3 class="title primary--text mb-4">{{blog.title}}</h3>
               <p class="mb-4">{{blog.description}}</p>
               <v-divider class="mb-4"/>
               <div v-html="blog.content"></div>

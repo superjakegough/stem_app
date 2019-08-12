@@ -21,12 +21,13 @@
           <v-card flat tile>
             <v-window v-model="onboarding" vertical>
               <v-window-item :key="index" v-for="(blog, index) in filteredBlogs">
-                <v-card flat height="600" class="scroll">
+                <v-card flat >
                   <v-card-text>
-                    <h3 class="title mb-4">{{blog.title}}</h3>
+                    <v-layout justify-space-between align-start>
+                      <h3 class="title mb-4">{{blog.title}}</h3>
+                      <v-btn flat icon color="primary" class="ma-0" @click="openRoute(blog.blogId)"><v-icon>launch</v-icon></v-btn>
+                    </v-layout>
                     <p class="mb-4">{{blog.description}}</p>
-                    <v-divider class="mb-4"/>
-                    <div v-html="blog.content"></div>
                   </v-card-text>
                 </v-card>
               </v-window-item>

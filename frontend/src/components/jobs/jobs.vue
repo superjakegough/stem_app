@@ -36,7 +36,6 @@
               <p class="mb-4">{{job.jobLocation}}</p>
               <h3 class="title mb-4">Reference</h3>
               <p class="mb-4">{{job.jobReference}}</p>
-              <div class="long-content" v-html="job.description"></div>
             </v-card-text>
           </v-card>
           <v-card v-if="jobs.length < 1" flat class="mb-4">

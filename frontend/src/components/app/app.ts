@@ -14,6 +14,6 @@ export default class AppComponent extends Vue {
     new MenuItem("Home", "home", "/"),
     new MenuItem("Services", "pages", "/services"),
     new MenuItem("Jobs", "assignment", "/jobs"),
-    new MenuItem("Blog", "event_note", "/blog")
+    new MenuItem("Blogs", "event_note", "/blogs")
   ];
 }

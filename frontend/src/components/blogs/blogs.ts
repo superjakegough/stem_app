@@ -41,4 +41,8 @@ export default class BlogsComponent extends Vue {
       ? this.filteredBlogs.length - 1
       : this.onboarding - 1;
   }
+
+  openRoute(id: string) {
+    this.$router.push({ path: `/blog/${id}` });
+  }
 }

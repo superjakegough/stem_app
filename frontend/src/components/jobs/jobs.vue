@@ -21,13 +21,8 @@
             prepend-inner-icon="search" background-color="white" solo flat></v-text-field>
           <v-card :key="index" v-for="(job, index) in jobsPaged" flat class="mb-4">
             <v-card-text>
-              <v-layout justify-space-between align-start>
-                <div>
-                  <h3 class="title mb-4">Title</h3>
-                  <p class="mb-4">{{job.title}}</p>
-                </div>
-                <v-btn flat icon color="primary" class="ma-0" @click="openRoute(job.jobId)"><v-icon>launch</v-icon></v-btn>
-              </v-layout>
+              <h3 class="title mb-4">Title</h3>
+              <p class="mb-4">{{job.title}}</p>
               <h3 class="title mb-4">Salary - Benefits</h3>
               <p class="mb-4">{{job.salary}} - {{job.benefits}}</p>
               <h3 class="title mb-4">Type</h3>
@@ -37,6 +32,11 @@
               <h3 class="title mb-4">Reference</h3>
               <p class="mb-4">{{job.jobReference}}</p>
             </v-card-text>
+            <v-card-actions>
+              <v-layout justify-center>
+                <v-btn flat color="primary" class="ma-0" @click="openRoute(job.jobId)">View</v-btn>
+              </v-layout>
+            </v-card-actions>
           </v-card>
           <v-card v-if="jobs.length < 1" flat class="mb-4">
             <v-card-text class="text-xs-center">

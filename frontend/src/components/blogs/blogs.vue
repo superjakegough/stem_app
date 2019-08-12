@@ -23,12 +23,14 @@
               <v-window-item :key="index" v-for="(blog, index) in filteredBlogs">
                 <v-card flat >
                   <v-card-text>
-                    <v-layout justify-space-between align-start>
-                      <h3 class="title mb-4">{{blog.title}}</h3>
-                      <v-btn flat icon color="primary" class="ma-0" @click="openRoute(blog.blogId)"><v-icon>launch</v-icon></v-btn>
-                    </v-layout>
+                    <h3 class="title mb-4">{{blog.title}}</h3>
                     <p class="mb-4">{{blog.description}}</p>
                   </v-card-text>
+                  <v-card-actions>
+                    <v-layout justify-center>
+                      <v-btn flat color="primary" class="ma-0" @click="openRoute(blog.blogId)">View</v-btn>
+                    </v-layout>
+                  </v-card-actions>
                 </v-card>
               </v-window-item>
             </v-window>

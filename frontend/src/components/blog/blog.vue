@@ -1,7 +1,7 @@
 <template>
   <v-layout column>
     <v-flex xs12>
-      <v-img :src="require('@/assets/background4.jpg')" class="header-image">
+      <v-img :src="require('@/assets/blog.jpg')" class="header-image">
         <v-layout column text-xs-right justify-end fill-height class="header-padding">
           <h1 class="header-text">Blog</h1>
         </v-layout>
@@ -15,20 +15,17 @@
             Keep up to date with the latest industry news, as well as regular activites offering recruitment and careers advice.
           </p>
         </v-flex>
-        <v-flex md8 sm10 xs12 mb-4>
-          <v-text-field v-model="searchTerm" @change="onSearch" label="Search" prepend-inner-icon="search" background-color="white" solo flat></v-text-field>
-        </v-flex>
-        <v-flex md8 sm10 xs12 mb-4>
+        <v-flex md8 sm10 xs12 mb-4 v-if="!loading">
+           <v-text-field v-model="searchTerm" class="mb-4" @change="onSearch" label="Search" 
+            prepend-inner-icon="search" background-color="white" solo flat></v-text-field>
           <v-card flat tile>
             <v-window v-model="onboarding" vertical>
               <v-window-item :key="index" v-for="(blog, index) in filteredBlogs">
                 <v-card flat height="600" class="scroll">
                   <v-card-text>
-                    <h3 class="title mb-4">Title</h3>
-                    <p class="mb-4">{{blog.title}}</p>
-                    <h3 class="title mb-4">Description</h3>
+                    <h3 class="title mb-4">{{blog.title}}</h3>
                     <p class="mb-4">{{blog.description}}</p>
-                    <h3 class="title mb-4">Content</h3>
+                    <v-divider class="mb-4"/>
                     <div v-html="blog.content"></div>
                   </v-card-text>
                 </v-card>
@@ -55,6 +52,9 @@
               <p>There are currently no blogs at this time :(</p>
             </v-card-text>
           </v-card>  
+        </v-flex>
+        <v-flex md8 sm10 xs12 mt-2 mb-5 text-xs-center v-if="loading">
+           <v-progress-circular indeterminate color="primary"></v-progress-circular>
         </v-flex>
       </v-layout>
       <v-layout justify-center mb-5>

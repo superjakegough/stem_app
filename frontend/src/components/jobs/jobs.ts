@@ -6,7 +6,7 @@ import { getAllJobs } from "@/services/job_service";
 export default class JobsComponent extends Vue {
   date: string = new Date().toISOString();
   jobs: any[] = [];
-
+  loading: boolean = false;
   filteredJobs: Job[] = [];
   page: number = 1;
   jobsPerPage: number = 3;
@@ -15,11 +15,13 @@ export default class JobsComponent extends Vue {
   searchTerm: string = "";
 
   async mounted() {
+    this.loading = true;
     const res = await getAllJobs();
     if (res) {
       this.jobs = res;
     }
     this.onSearch();
+    this.loading = false;
   }
 
   onPageChange() {

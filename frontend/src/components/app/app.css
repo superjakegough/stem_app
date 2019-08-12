@@ -60,6 +60,11 @@
   max-height: 220px;
 }
 
+.rec-logo {
+  display: flex;
+  height: 100px;
+}
+
 .ProseMirror {
   height: 142px;
   overflow-y: scroll;

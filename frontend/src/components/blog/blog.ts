@@ -6,14 +6,19 @@ import { getAllBlogs } from "@/services/blog_service";
 export default class BlogsComponent extends Vue {
   date: string = new Date().toISOString();
   blogs: Blog[] = [];
+  loading: boolean = false;
   onboarding: number = 0;
   filteredBlogs: Blog[] = [];
   searchTerm: string = "";
 
   async mounted() {
+    this.loading = true;
     const res = await getAllBlogs();
-    this.blogs = res;
+    if (res) {
+      this.blogs = res;
+    }
     this.onSearch();
+    this.loading = false;
   }
 
   onSearch() {

@@ -1,5 +1,6 @@
 <template>
   <v-layout row fill-height align-center>
+    <v-layout v-if="authorised">
     <v-layout justify-center v-if="$vuetify.breakpoint.smAndUp">
       <v-flex xs10>
         <v-card>
@@ -130,6 +131,19 @@
       </v-card>
     </v-dialog>
     <v-snackbar v-model="error" color="error">{{ errorMessage }}<v-btn dark flat @click="error = false">Close</v-btn></v-snackbar>
+    </v-layout>
+    <v-layout justify-center v-if="!authorised">
+      <v-flex md3 sm6 xs10>
+        <v-form ref="authForm" lazy-validation>
+          <v-text-field v-model="email" label="Username" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+          <v-text-field v-model="password" label="Password" maxlength="50" type="password" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
+          <v-layout justify-center>
+            <v-btn color="primary" flat @click="signIn" v-if="!signingIn">Sign In</v-btn>
+            <v-progress-circular indeterminate color="primary" v-if="signingIn"></v-progress-circular>
+          </v-layout>
+        </v-form>
+      </v-flex>
+    </v-layout>
   </v-layout>
 </template>
 

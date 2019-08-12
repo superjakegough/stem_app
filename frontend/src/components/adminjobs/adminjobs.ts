@@ -10,7 +10,7 @@ import { Auth } from "aws-amplify";
   }
 })
 export default class AdminJobsComponent extends Vue {
-  $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement };
+  $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement, authForm: HTMLFormElement };
   email: string = "";
   password: string = "";
   signingIn: boolean = false;
@@ -49,15 +49,17 @@ export default class AdminJobsComponent extends Vue {
   };
 
   async signIn() {
-    this.signingIn = true;
-    try {
-      await Auth.signIn(this.email, this.password);
-      this.authorised = true;
-      this.getJobs();
-    } catch (e) {
-      console.log(e);
+    if (this.$refs.authForm.validate()) {
+      this.signingIn = true;
+      try {
+        await Auth.signIn(this.email, this.password);
+        this.authorised = true;
+        this.getJobs();
+      } catch (e) {
+        console.log(e);
+      }
+      this.signingIn = false;
     }
-    this.signingIn = false;
   }
 
   async getJobs() {
@@ -141,9 +143,5 @@ export default class AdminJobsComponent extends Vue {
 
   updateReset() {
     this.$refs.updateForm.reset();
-  }
-
-  updateDescription(content: string) {
-    this.job.description = content;
   }
 }

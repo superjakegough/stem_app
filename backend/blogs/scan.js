@@ -3,15 +3,11 @@ import { success, failure } from "../libs/response-lib";
 
 export async function main(event, context) {
   const params = {
-    TableName: "StemBlogs",
-    KeyConditionExpression: "userId = :userId",
-    ExpressionAttributeValues: {
-      ":userId": event.requestContext.identity.cognitoIdentityId
-    }
+    TableName: "StemBlogs"
   };
 
   try {
-    const result = await dynamoDbLib.call("query", params);
+    const result = await dynamoDbLib.call("scan", params);
     return success(result.Items);
   } catch (e) {
     return failure({ status: false, error: e });

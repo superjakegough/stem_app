@@ -2,6 +2,7 @@ import { Component, Vue } from "vue-property-decorator";
 import Editor from "@/components/editor/editor";
 import Blog from "@/models/blog";
 import { getAllBlogs, createBlog, updateBlog, deleteBlog } from "@/services/blog_service";
+import { Auth } from "aws-amplify";
 
 @Component({
   components: {
@@ -9,9 +10,11 @@ import { getAllBlogs, createBlog, updateBlog, deleteBlog } from "@/services/blog
   }
 })
 export default class AdminBlogsComponent extends Vue {
-  $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement };
-  email: string = "admin@example.com";
-  password: string = "StemPa55!";
+  $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement, authForm: HTMLFormElement };
+  email: string = "";
+  password: string = "";
+  signingIn: boolean = false;
+  authorised: boolean = false;
   date: string = new Date().toISOString();
   blogs: Blog[] = [];
   blog: Blog = {
@@ -37,14 +40,29 @@ export default class AdminBlogsComponent extends Vue {
     required: (value: string) => !!value || "Required"
   };
 
-  mounted() {
-    this.getBlogs();
+  async signIn() {
+    if (this.$refs.authForm.validate()) {
+      this.signingIn = true;
+      try {
+        await Auth.signIn(this.email, this.password);
+        this.authorised = true;
+        this.getBlogs();
+      } catch (e) {
+        console.log(e);
+      }
+      this.signingIn = false;
+    }
   }
 
   async getBlogs() {
     this.loading = true;
     const res = await getAllBlogs();
-    this.blogs = res;
+    if (!res) {
+      this.errorMessage = "Failed to get blogs!";
+      this.error = true;
+    } else {
+      this.blogs = res;
+    }
     this.loading = false;
   }
 
@@ -60,7 +78,7 @@ export default class AdminBlogsComponent extends Vue {
   }
 
   async create() {
-    if (this.$refs.createForm.validate()) {
+    if (this.$refs.createForm.validate() && this.blog.content.length > 0) {
       const res = await createBlog(this.blog);
       if (!res.status) {
         this.errorMessage = "Failed to create blog!";
@@ -88,7 +106,6 @@ export default class AdminBlogsComponent extends Vue {
         tempBlog = this.blog;
       }
       this.updateDialog = false;
-      this.getBlogs();
     }
   }
 

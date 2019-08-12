@@ -97,7 +97,6 @@
             <p>
               I am a personable and technical recruiter with a simple and transparent approach that has both client and candidate satisfaction at its core. I offer extensive market knowledge of the science, technology, engineering and manufacturing industries in Wales, along with a large network of candidates and clients. I have recruited for a variety of companies; from start-ups and SMEs, right through to blue-chip organisations and global brands.
             </p>
-            <v-btn depressed color="primary" to="/blog">Blog</v-btn>
           </v-layout>
         </v-flex>
         <v-flex md4 sm10 xs12>
@@ -121,7 +120,7 @@
                   <v-list-tile-sub-title>jack.taylor@stemrecruit.co.uk</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
-              <v-list-tile avatar three-line>
+              <v-list-tile avatar three-line class="mb-4">
                 <v-list-tile-avatar>
                   <v-icon large color="primary">phone</v-icon>
                 </v-list-tile-avatar>
@@ -130,11 +129,12 @@
                   <v-list-tile-sub-title>029 2120 2879</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
+              <v-img contain height="100" :src="require('@/assets/rec.jpg')"></v-img>
             </v-list>
           </v-layout>
         </v-flex>
       </v-layout>
-      <v-layout justify-center>
+      <v-layout justify-center mb-5>
         <v-btn depressed color="primary" to="/privacy">Privacy Notice</v-btn>
       </v-layout>
     </v-container>

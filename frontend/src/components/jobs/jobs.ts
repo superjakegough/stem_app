@@ -38,4 +38,8 @@ export default class JobsComponent extends Vue {
     }
     this.onPageChange();
   }
+
+  openRoute(id: string) {
+    this.$router.push({ path: `/job/${id}` });
+  }
 }

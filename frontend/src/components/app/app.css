@@ -40,6 +40,12 @@
   letter-spacing: normal;
 }
 
+.long-content {
+  max-height: 120px;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+}
+
 .header-image {
   height: 100vh;
 }
@@ -97,7 +103,7 @@
   }
 
   .header-text {
-    font-size: 34px;
+    font-size: 28px;
     font-weight: 500;
     line-height: 2.5rem;
     letter-spacing: normal;

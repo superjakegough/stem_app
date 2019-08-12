@@ -31,8 +31,12 @@
               <p class="mb-4">{{job.jobLocation}}</p>
               <h3 class="title mb-4">Reference</h3>
               <p class="mb-4">{{job.jobReference}}</p>
-              <div v-html="job.description"></div>
             </v-card-text>
+            <v-card-actions>
+              <v-layout justify-center>
+                <v-btn flat color="primary" class="ma-0" @click="openRoute(job.jobId)">View</v-btn>
+              </v-layout>
+            </v-card-actions>
           </v-card>
           <v-card v-if="jobs.length < 1" flat class="mb-4">
             <v-card-text class="text-xs-center">

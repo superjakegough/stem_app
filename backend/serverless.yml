@@ -43,7 +43,6 @@ functions:
           path: jobs/{id}
           method: get
           cors: true
-          authorizer: aws_iam
   scanJob:
     handler: jobs/scan.main
     events:
@@ -82,7 +81,6 @@ functions:
           path: blogs/{id}
           method: get
           cors: true
-          authorizer: aws_iam
   scanBlog:
     handler: blogs/scan.main
     events:

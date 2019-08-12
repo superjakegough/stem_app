@@ -2,7 +2,7 @@
   <v-layout column>
     <v-container fluid class="content-container">
       <v-layout row wrap justify-center>
-        <v-flex sm10 xs12 mt-4>
+        <v-flex sm10 xs12 mt-5>
           <h2 class="content-title text-xs-center mb-4">Privacy Notice</h2>
           <p>
             Stem Skills &amp; Recruitment Ltd (Company number 11987221) (“we”, “us” or “our) is a recruitment business which provides work-finding services to its clients and work-seekers. Stem Skills &amp; Recruitment Ltd must process personal data (including sensitive personal data) so that it can provide these services – in doing so, we act as a data controller. 

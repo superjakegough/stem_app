@@ -3,6 +3,8 @@ import Router from "vue-router";
 import Home from "@/components/home/home.vue";
 import Services from "@/components/services/services.vue";
 import Jobs from "@/components/jobs/jobs.vue";
+import Job from "@/components/job/job.vue";
+import Blogs from "@/components/blogs/blogs.vue";
 import Blog from "@/components/blog/blog.vue";
 import AdminJobs from "@/components/adminjobs/adminjobs";
 import AdminBlogs from "@/components/adminblogs/adminblogs";
@@ -30,7 +32,17 @@ export default new Router({
       component: Jobs
     },
     {
-      path: "/blog",
+      path: "/job/:id",
+      name: "job",
+      component: Job
+    },
+    {
+      path: "/blogs",
+      name: "blogs",
+      component: Blogs
+    },
+    {
+      path: "/blog/:id",
       name: "blog",
       component: Blog
     },

@@ -63,4 +63,4 @@
     </v-container>
   </v-layout>
 </template>
-<script src="./blog.ts"></script>
+<script src="./blogs.ts"></script>

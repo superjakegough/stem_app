@@ -40,6 +40,12 @@
   letter-spacing: normal;
 }
 
+.long-content {
+  max-height: 120px;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+}
+
 .header-image {
   height: 100vh;
 }

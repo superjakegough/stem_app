@@ -138,8 +138,7 @@
           <v-text-field v-model="email" label="Username" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
           <v-text-field v-model="password" label="Password" maxlength="50" type="password" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
           <v-layout justify-center>
-            <v-btn color="primary" flat @click="signIn" v-if="!signingIn">Sign In</v-btn>
-            <v-progress-circular indeterminate color="primary" v-if="signingIn"></v-progress-circular>
+            <v-btn color="primary" flat @click="signIn" :disabled="signingIn">Sign In</v-btn>
           </v-layout>
         </v-form>
       </v-flex>

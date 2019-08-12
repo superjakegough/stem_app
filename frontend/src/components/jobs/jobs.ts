@@ -5,7 +5,7 @@ import { getAllJobs } from "@/services/job_service";
 @Component
 export default class JobsComponent extends Vue {
   date: string = new Date().toISOString();
-  jobs: Job[] = [];
+  jobs: any[] = [];
 
   filteredJobs: Job[] = [];
   page: number = 1;
@@ -16,7 +16,9 @@ export default class JobsComponent extends Vue {
 
   async mounted() {
     const res = await getAllJobs();
-    this.jobs = res;
+    if (res) {
+      this.jobs = res;
+    }
     this.onSearch();
   }
 
@@ -30,7 +32,7 @@ export default class JobsComponent extends Vue {
     if (this.searchTerm === "") {
       this.filteredJobs = this.jobs;
     } else {
-      this.filteredJobs = this.jobs.filter(job => job.title.includes(this.searchTerm));
+      this.filteredJobs = this.jobs.filter(job => job.title.s.includes(this.searchTerm));
     }
     this.onPageChange();
   }

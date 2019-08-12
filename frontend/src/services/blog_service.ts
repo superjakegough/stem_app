@@ -1,33 +1,25 @@
-import axios from "axios";
 import Blog from "../models/blog";
+import { API } from "aws-amplify";
 
-const backendUrl: string = "http://localhost:3001";
-const apiRoute: string = "blogs";
+const apiName: string = "blogs";
+const apiPath: string = "/blogs";
 
 export const getAllBlogs = async () => {
-  const res = await axios.get(`${backendUrl}/${apiRoute}/getAll`);
-  return res.data.blog;
+  return API.get(apiName, apiPath, {});
 };
 
 export const createBlog = async (blog: Blog) => {
-  const res = await axios.post(`${backendUrl}/${apiRoute}/create`, {
-    title: blog.title,
-    description: blog.description,
-    content: blog.content
+  return API.post(apiName, apiPath, {
+    body: blog
   });
-  return res.data;
 };
 
 export const updateBlog = async (blog: Blog) => {
-  const res = await axios.put(`${backendUrl}/${apiRoute}/update/${blog._id}`, {
-    title: blog.title,
-    description: blog.description,
-    content: blog.content
+  return API.put(apiName, `${apiPath}/${blog.blogId}`, {
+    body: blog
   });
-  return res.data;
 };
 
 export const deleteBlog = async (id: string) => {
-  const res = await axios.delete(`${backendUrl}/${apiRoute}/delete/${id}`);
-  return res.data;
+  return API.del(apiName, `${apiPath}/${id}`, {});
 };

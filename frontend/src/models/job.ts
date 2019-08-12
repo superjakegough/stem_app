@@ -1,12 +1,11 @@
 export default interface Job {
-  _id: string;
+  jobId: string;
   title: string;
   salary: string;
   benefits: string;
   jobType: string;
-  location: string;
-  reference: string;
+  jobLocation: string;
+  jobReference: string;
   description: string;
   createdAt: string;
-  updatedAt: string;
 }

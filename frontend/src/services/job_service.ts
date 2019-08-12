@@ -1,41 +1,25 @@
-import axios from "axios";
 import Job from "../models/job";
+import { API } from "aws-amplify";
 
-const backendUrl: string = "http://localhost:3001";
-const apiRoute: string = "jobs";
+const apiName: string = "jobs";
+const apiPath: string = "/jobs";
 
 export const getAllJobs = async () => {
-  const res = await axios.get(`${backendUrl}/${apiRoute}/getAll`);
-  return res.data.job;
+  return API.get(apiName, apiPath, {});
 };
 
 export const createJob = async (job: Job) => {
-  const res = await axios.post(`${backendUrl}/${apiRoute}/create`, {
-    title: job.title,
-    salary: job.salary,
-    benefits: job.benefits,
-    jobType: job.jobType,
-    location: job.location,
-    reference: job.reference,
-    description: job.description
+  return API.post(apiName, apiPath, {
+    body: job
   });
-  return res.data;
 };
 
 export const updateJob = async (job: Job) => {
-  const res = await axios.put(`${backendUrl}/${apiRoute}/update/${job._id}`, {
-    title: job.title,
-    salary: job.salary,
-    benefits: job.benefits,
-    jobType: job.jobType,
-    location: job.location,
-    reference: job.reference,
-    description: job.description
+  return API.put(apiName, `${apiPath}/${job.jobId}`, {
+    body: job
   });
-  return res.data;
 };
 
 export const deleteJob = async (id: string) => {
-  const res = await axios.delete(`${backendUrl}/${apiRoute}/delete/${id}`);
-  return res.data;
+  return API.del(apiName, `${apiPath}/${id}`, {});
 };

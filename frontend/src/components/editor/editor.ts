@@ -33,7 +33,7 @@ export default class EditorComponent extends Vue {
       new Strike(),
       new Underline()
     ],
-    content: `<p>Type here...</p>`,
+    content: this.job ? this.job.description : this.blog.content,
     onUpdate: () => {
       const html = this.editor.getHTML();
       this.job ? this.job.description = html : this.blog.content = html;

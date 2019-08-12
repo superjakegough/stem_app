@@ -2,6 +2,7 @@ import { Component, Vue } from "vue-property-decorator";
 import Editor from "@/components/editor/editor";
 import Job from "@/models/job";
 import { getAllJobs, createJob, updateJob, deleteJob } from "@/services/job_service";
+import { Auth } from "aws-amplify";
 
 @Component({
   components: {
@@ -9,20 +10,23 @@ import { getAllJobs, createJob, updateJob, deleteJob } from "@/services/job_serv
   }
 })
 export default class AdminJobsComponent extends Vue {
-  $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement };
+  $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement, authForm: HTMLFormElement };
+  email: string = "";
+  password: string = "";
+  signingIn: boolean = false;
+  authorised: boolean = false;
   date: string = new Date().toISOString();
   jobs: Job[] = [];
   job: Job = {
-    _id: "",
+    jobId: "",
     title: "",
     salary: "",
     benefits: "",
     jobType: "",
-    location: "",
-    reference: "",
+    jobLocation: "",
+    jobReference: "",
     description: "",
-    createdAt: "",
-    updatedAt: ""
+    createdAt: ""
   };
   loading: boolean = false;
   search: string = "";
@@ -44,29 +48,43 @@ export default class AdminJobsComponent extends Vue {
     required: (value: string) => !!value || "Required"
   };
 
-  mounted() {
-    this.getJobs();
+  async signIn() {
+    if (this.$refs.authForm.validate()) {
+      this.signingIn = true;
+      try {
+        await Auth.signIn(this.email, this.password);
+        this.authorised = true;
+        this.getJobs();
+      } catch (e) {
+        console.log(e);
+      }
+      this.signingIn = false;
+    }
   }
 
   async getJobs() {
     this.loading = true;
     const res = await getAllJobs();
-    this.jobs = res;
+    if (!res) {
+      this.errorMessage = "Failed to get jobs!";
+      this.error = true;
+    } else {
+      this.jobs = res;
+    }
     this.loading = false;
   }
 
   createShow() {
     this.job = {
-      _id: "",
+      jobId: "",
       title: "",
       salary: "",
       benefits: "",
       jobType: "",
-      location: "",
-      reference: "",
-      description: "",
-      createdAt: "",
-      updatedAt: ""
+      jobLocation: "",
+      jobReference: "",
+      description: "<p>Type here...</p>",
+      createdAt: ""
     };
     this.createDialog = true;
   }
@@ -74,7 +92,7 @@ export default class AdminJobsComponent extends Vue {
   async create() {
     if (this.$refs.createForm.validate() && this.job.description.length > 0) {
       const res = await createJob(this.job);
-      if (!res.success) {
+      if (!res.title) {
         this.errorMessage = "Failed to create job!";
         this.error = true;
       } else {
@@ -92,15 +110,14 @@ export default class AdminJobsComponent extends Vue {
   async update() {
     if (this.$refs.updateForm.validate()) {
       const res = await updateJob(this.job);
-      if (!res.success) {
+      if (!res.status) {
         this.errorMessage = "Failed to update job!";
         this.error = true;
       } else {
-        let tempJob = this.jobs.find(i => i._id === this.job._id);
+        let tempJob = this.jobs.find(i => i.jobId === this.job.jobId);
         tempJob = this.job;
       }
       this.updateDialog = false;
-      this.getJobs();
     }
   }
 
@@ -110,12 +127,12 @@ export default class AdminJobsComponent extends Vue {
   }
 
   async deletee() {
-    const res = await deleteJob(this.job._id);
-    if (!res.success) {
+    const res = await deleteJob(this.job.jobId);
+    if (!res.status) {
       this.errorMessage = "Failed to delete job!";
       this.error = true;
     } else {
-      this.jobs = this.jobs.filter(i => i._id !== this.job._id);
+      this.jobs = this.jobs.filter(i => i.jobId !== this.job.jobId);
     }
     this.deleteDialog = false;
   }
@@ -126,9 +143,5 @@ export default class AdminJobsComponent extends Vue {
 
   updateReset() {
     this.$refs.updateForm.reset();
-  }
-
-  updateDescription(content: string) {
-    this.job.description = content;
   }
 }

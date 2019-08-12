@@ -29,9 +29,9 @@
               <h3 class="title mb-4">Type</h3>
               <p class="mb-4">{{job.jobType}}</p>
               <h3 class="title mb-4">Location</h3>
-              <p class="mb-4">{{job.location}}</p>
+              <p class="mb-4">{{job.jobLocation}}</p>
               <h3 class="title mb-4">Reference</h3>
-              <p class="mb-4">{{job.reference}}</p>
+              <p class="mb-4">{{job.jobReference}}</p>
               <h3 class="title mb-4">Description</h3>
               <div v-html="job.description"></div>
             </v-card-text>

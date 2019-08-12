@@ -73,7 +73,7 @@
         </v-flex>
       </v-data-iterator>
     </v-layout>
-    <v-dialog v-model="createDialog" max-width="600">
+    <v-dialog v-if="createDialog" v-model="createDialog" max-width="600">
       <v-card>
         <v-card-title class="headline">
           Create Blog
@@ -94,7 +94,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-dialog v-model="updateDialog" max-width="600">
+    <v-dialog v-if="updateDialog" v-model="updateDialog" max-width="600">
       <v-card>
         <v-card-title class="headline">
           Update Blog

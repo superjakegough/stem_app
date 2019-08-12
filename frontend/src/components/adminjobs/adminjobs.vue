@@ -89,7 +89,7 @@
           </v-flex>
         </v-data-iterator>
       </v-layout>
-      <v-dialog v-model="createDialog" max-width="600">
+      <v-dialog v-if="createDialog" v-model="createDialog" max-width="1000">
         <v-card>
           <v-card-title class="headline">
             Create Job
@@ -114,7 +114,7 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-      <v-dialog v-model="updateDialog" max-width="600">
+      <v-dialog v-if="updateDialog" v-model="updateDialog" max-width="600">
         <v-card>
           <v-card-title class="headline">
             Update Job
@@ -162,7 +162,7 @@
           <v-text-field v-model="email" label="Username" maxlength="50" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
           <v-text-field v-model="password" label="Password" maxlength="50" type="password" solo flat background-color="grey lighten-2" :rules="[rules.required]"/>
           <v-layout justify-center>
-            <v-btn color="primary" flat @click="signIn" :disabled="signingIn">Sign In</v-btn>
+            <v-btn color="primary" flat @click="signIn" :disabled="signingIn">{{signingIn ? "Signing In" : "Submit"}}</v-btn>
           </v-layout>
         </v-form>
       </v-flex>

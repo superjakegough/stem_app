@@ -71,7 +71,7 @@ export default class AdminBlogsComponent extends Vue {
       blogId: "",
       title: "",
       description: "",
-      content: "",
+      content: "<p>Type here...</p>",
       createdAt: ""
     };
     this.createDialog = true;

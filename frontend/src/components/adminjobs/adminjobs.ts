@@ -83,7 +83,7 @@ export default class AdminJobsComponent extends Vue {
       jobType: "",
       jobLocation: "",
       jobReference: "",
-      description: "",
+      description: "<p>Type here...</p>",
       createdAt: ""
     };
     this.createDialog = true;

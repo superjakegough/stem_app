@@ -11,8 +11,9 @@ import { Auth } from "aws-amplify";
 })
 export default class AdminJobsComponent extends Vue {
   $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement };
-  email: string = "admin@example.com";
-  password: string = "St3mPa55!";
+  email: string = "";
+  password: string = "";
+  signingIn: boolean = false;
   authorised: boolean = false;
   date: string = new Date().toISOString();
   jobs: Job[] = [];
@@ -47,23 +48,16 @@ export default class AdminJobsComponent extends Vue {
     required: (value: string) => !!value || "Required"
   };
 
-  async mounted() {
-    await this.signIn();
-    if (this.authorised) {
-      this.getJobs();
-      this.loading = false;
-    }
-  }
-
   async signIn() {
+    this.signingIn = true;
     try {
-      console.log("test");
-      const res = await Auth.signIn(this.email, this.password);
-      console.log(res);
+      await Auth.signIn(this.email, this.password);
       this.authorised = true;
+      this.getJobs();
     } catch (e) {
       console.log(e);
     }
+    this.signingIn = false;
   }
 
   async getJobs() {
@@ -74,8 +68,8 @@ export default class AdminJobsComponent extends Vue {
       this.error = true;
     } else {
       this.jobs = res;
-      this.loading = false;
     }
+    this.loading = false;
   }
 
   createShow() {
@@ -96,7 +90,6 @@ export default class AdminJobsComponent extends Vue {
   async create() {
     if (this.$refs.createForm.validate() && this.job.description.length > 0) {
       const res = await createJob(this.job);
-      console.log(res);
       if (!res.title) {
         this.errorMessage = "Failed to create job!";
         this.error = true;
@@ -115,7 +108,6 @@ export default class AdminJobsComponent extends Vue {
   async update() {
     if (this.$refs.updateForm.validate()) {
       const res = await updateJob(this.job);
-      console.log(res);
       if (!res.status) {
         this.errorMessage = "Failed to update job!";
         this.error = true;
@@ -124,7 +116,6 @@ export default class AdminJobsComponent extends Vue {
         tempJob = this.job;
       }
       this.updateDialog = false;
-      this.getJobs();
     }
   }
 
@@ -135,7 +126,6 @@ export default class AdminJobsComponent extends Vue {
 
   async deletee() {
     const res = await deleteJob(this.job.jobId);
-    console.log(res);
     if (!res.status) {
       this.errorMessage = "Failed to delete job!";
       this.error = true;

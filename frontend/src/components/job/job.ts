@@ -15,9 +15,14 @@ export default class JobComponent extends Vue {
     description: "",
     createdAt: ""
   };
+  loading: boolean = false;
 
   async mounted() {
+    this.loading = true;
     const res = await getJob(this.$router.currentRoute.params.id);
-    console.log(res);
+    if (res) {
+      this.job = res;
+    }
+    this.loading = false;
   }
 }

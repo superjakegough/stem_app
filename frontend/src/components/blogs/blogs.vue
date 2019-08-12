@@ -1,16 +1,16 @@
 <template>
   <v-layout column>
     <v-flex xs12>
-      <v-img :src="require('@/assets/blog.jpg')" class="header-image">
+      <v-img :src="require('@/assets/blogs.jpg')" class="header-image">
         <v-layout column text-xs-right justify-end fill-height class="header-padding">
-          <h1 class="header-text">Blog</h1>
+          <h1 class="header-text">Blogs</h1>
         </v-layout>
       </v-img>
     </v-flex>
     <v-container fluid class="content-container">
       <v-layout row wrap justify-center>
         <v-flex md8 sm10 xs12 mb-4>
-          <h2 class="content-title mb-4">News &amp; Advice Blog</h2>
+          <h2 class="content-title mb-4">News &amp; Advice Blogs</h2>
           <p>
             Keep up to date with the latest industry news, as well as regular activites offering recruitment and careers advice.
           </p>

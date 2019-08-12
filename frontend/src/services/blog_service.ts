@@ -8,6 +8,10 @@ export const getAllBlogs = async () => {
   return API.get(apiName, apiPath, {});
 };
 
+export const getBlog = async (id: string) => {
+  return API.get(apiName, `${apiPath}/${id}`, {});
+};
+
 export const createBlog = async (blog: Blog) => {
   return API.post(apiName, apiPath, {
     body: blog

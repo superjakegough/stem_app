@@ -23,17 +23,17 @@
           <v-card :key="index" v-for="(job, index) in jobsPaged" flat class="mb-4">
             <v-card-text>
               <h3 class="title mb-4">Title</h3>
-              <p class="mb-4">{{job.title.s}}</p>
+              <p class="mb-4">{{job.title}}</p>
               <h3 class="title mb-4">Salary - Benefits</h3>
-              <p class="mb-4">{{job.salary.s}} - {{job.benefits.s}}</p>
+              <p class="mb-4">{{job.salary}} - {{job.benefits}}</p>
               <h3 class="title mb-4">Type</h3>
-              <p class="mb-4">{{job.jobType.s}}</p>
+              <p class="mb-4">{{job.jobType}}</p>
               <h3 class="title mb-4">Location</h3>
-              <p class="mb-4">{{job.jobLocation.s}}</p>
+              <p class="mb-4">{{job.jobLocation}}</p>
               <h3 class="title mb-4">Reference</h3>
-              <p class="mb-4">{{job.jobReference.s}}</p>
+              <p class="mb-4">{{job.jobReference}}</p>
               <h3 class="title mb-4">Description</h3>
-              <div v-html="job.description.s"></div>
+              <div v-html="job.description"></div>
             </v-card-text>
           </v-card>
           <v-card v-if="jobs.length < 1" flat class="mb-4">

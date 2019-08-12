@@ -44,14 +44,13 @@ functions:
           method: get
           cors: true
           authorizer: aws_iam
-  listJob:
-    handler: jobs/list.main
+  scanJob:
+    handler: jobs/scan.main
     events:
       - http:
           path: jobs
           method: get
           cors: true
-          authorizer: aws_iam
   updateJob:
     handler: jobs/update.main
     events:
@@ -84,14 +83,13 @@ functions:
           method: get
           cors: true
           authorizer: aws_iam
-  listBlog:
-    handler: blogs/list.main
+  scanBlog:
+    handler: blogs/scan.main
     events:
       - http:
           path: blogs
           method: get
           cors: true
-          authorizer: aws_iam
   updateBlog:
     handler: blogs/update.main
     events:

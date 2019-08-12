@@ -12,8 +12,7 @@ import { Auth } from "aws-amplify";
 export default class AdminJobsComponent extends Vue {
   $refs!: { createForm: HTMLFormElement, updateForm: HTMLFormElement };
   email: string = "admin@example.com";
-  password: string = "StemPa55!";
-  // password: string = "Passw0rd!";
+  password: string = "St3mPa55!";
   authorised: boolean = false;
   date: string = new Date().toISOString();
   jobs: Job[] = [];
@@ -58,7 +57,9 @@ export default class AdminJobsComponent extends Vue {
 
   async signIn() {
     try {
-      await Auth.signIn(this.email, this.password);
+      console.log("test");
+      const res = await Auth.signIn(this.email, this.password);
+      console.log(res);
       this.authorised = true;
     } catch (e) {
       console.log(e);

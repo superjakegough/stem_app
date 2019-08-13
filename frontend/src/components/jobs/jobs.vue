@@ -21,7 +21,7 @@
             prepend-inner-icon="search" background-color="white" solo flat></v-text-field>
           <v-card :key="index" v-for="(job, index) in jobsPaged" flat class="mb-4">
             <v-card-text>
-              <h3 class="title primary--text mb-4">{{job.title}}</h3>
+              <h3 class="title text-xs-center primary--text mb-4">{{job.title}}</h3>
               <h3 class="title mb-4">Salary - Benefits</h3>
               <p class="mb-4">{{job.salary}} - {{job.benefits}}</p>
               <h3 class="title mb-4">Type</h3>

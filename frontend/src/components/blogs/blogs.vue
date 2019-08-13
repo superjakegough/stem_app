@@ -23,7 +23,7 @@
               <v-window-item :key="index" v-for="(blog, index) in filteredBlogs">
                 <v-card flat >
                   <v-card-text>
-                    <h3 class="title primary--text mb-4">{{blog.title}}</h3>
+                    <h3 class="title text-xs-center primary--text mb-4">{{blog.title}}</h3>
                     <p>{{blog.description}}</p>
                   </v-card-text>
                   <v-layout justify-center>

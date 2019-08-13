@@ -5,7 +5,7 @@
         <v-flex sm10 xs12 mt-5 v-if="!loading">
           <v-card flat class="mb-4">
             <v-card-text>
-              <h3 class="title primary--text mb-4">{{job.title}}</h3>
+              <h3 class="title text-xs-center primary--text mb-4">{{job.title}}</h3>
               <h3 class="title mb-4">Salary - Benefits</h3>
               <p class="mb-4">{{job.salary}} - {{job.benefits}}</p>
               <h3 class="title mb-4">Type</h3>

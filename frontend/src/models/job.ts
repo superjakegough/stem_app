@@ -7,5 +7,6 @@ export default interface Job {
   jobLocation: string;
   jobReference: string;
   description: string;
+  jobFilled: string;
   createdAt: string;
 }

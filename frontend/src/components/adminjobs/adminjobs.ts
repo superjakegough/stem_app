@@ -26,6 +26,7 @@ export default class AdminJobsComponent extends Vue {
     jobLocation: "",
     jobReference: "",
     description: "",
+    jobFilled: "",
     createdAt: ""
   };
   loading: boolean = false;
@@ -84,6 +85,7 @@ export default class AdminJobsComponent extends Vue {
       jobLocation: "",
       jobReference: "",
       description: "<p>Type here...</p>",
+      jobFilled: "false",
       createdAt: ""
     };
     this.createDialog = true;

@@ -9,8 +9,8 @@ export async function main(event, context) {
       jobId: event.pathParameters.id
     },
     UpdateExpression:
-      "SET title = :title, salary = :salary, benefits = :benefits, " +
-      "jobType = :jobType, jobLocation = :jobLocation, jobReference = :jobReference, description = :description",
+      "SET title = :title, salary = :salary, benefits = :benefits, jobType = :jobType, " +
+      "jobLocation = :jobLocation, jobReference = :jobReference, description = :description, jobFilled = : jobFilled",
     ExpressionAttributeValues: {
       ":title": data.title || null,
       ":salary": data.salary || null,
@@ -18,7 +18,8 @@ export async function main(event, context) {
       ":jobType": data.jobType || null,
       ":jobLocation": data.jobLocation || null,
       ":jobReference": data.jobReference || null,
-      ":description": data.description || null
+      ":description": data.description || null,
+      ":jobFilled": data.jobFilled || null
     },
     ReturnValues: "ALL_NEW"
   };

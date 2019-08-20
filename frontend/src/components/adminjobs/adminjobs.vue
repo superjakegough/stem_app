@@ -114,12 +114,11 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-      <v-dialog v-if="updateDialog" v-model="updateDialog" max-width="600">
+      <v-dialog v-if="updateDialog" v-model="updateDialog" max-width="1000">
         <v-card>
           <v-card-title class="headline">
             Update Job
           </v-card-title>
-        <v-card-text>
         <v-flex px-4>
           <v-form ref="updateForm" lazy-validation>
             <v-text-field v-model="job.title" label="Title" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
@@ -131,7 +130,6 @@
             <Editor :job="job"/>
           </v-form>
         </v-flex>
-        </v-card-text>
         <v-card-actions>
           <v-layout justify-center>
             <v-btn color="primary" flat @click="updateDialog = false">Cancel</v-btn>

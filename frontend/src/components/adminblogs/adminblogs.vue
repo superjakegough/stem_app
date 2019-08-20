@@ -99,7 +99,6 @@
         <v-card-title class="headline">
           Update Blog
         </v-card-title>
-      <v-card-text>
       <v-flex px-4>
         <v-form ref="updateForm" lazy-validation>
           <v-text-field v-model="blog.title" label="Title" maxlength="50" solo background-color="grey lighten-2" flat :rules="[rules.required]"/>
@@ -107,7 +106,6 @@
           <Editor :blog="blog"/>
         </v-form>
       </v-flex>
-      </v-card-text>
       <v-card-actions>
         <v-layout justify-center>
           <v-btn color="primary" flat @click="updateDialog = false">Cancel</v-btn>

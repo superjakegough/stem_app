@@ -1,25 +1,24 @@
 import Amplify from "aws-amplify";
-import config from "@/configs/aws-config";
 
 Amplify.configure({
   Auth: {
     mandatorySignIn: true,
-    region: config.cognito.REGION,
-    userPoolId: config.cognito.USER_POOL_ID,
-    identityPoolId: config.cognito.IDENTITY_POOL_ID,
-    userPoolWebClientId: config.cognito.APP_CLIENT_ID
+    region: process.env.VUE_APP_AWS_REGION,
+    userPoolId: process.env.VUE_APP_USER_POOL,
+    identityPoolId: process.env.VUE_APP_IDENTITY_POOL,
+    userPoolWebClientId: process.env.VUE_APP_APP_CLIENT
   },
   API: {
     endpoints: [
       {
         name: "jobs",
-        endpoint: config.apiGateway.URL,
-        region: config.apiGateway.REGION
+        endpoint: process.env.VUE_APP_GATEWAY_URL,
+        region: process.env.VUE_APP_AWS_REGION
       },
       {
         name: "blogs",
-        endpoint: config.apiGateway.URL,
-        region: config.apiGateway.REGION
+        endpoint: process.env.VUE_APP_GATEWAY_URL,
+        region: process.env.VUE_APP_AWS_REGION
       }
     ]
   }

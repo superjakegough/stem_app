@@ -2,7 +2,7 @@ import { Component, Vue } from "vue-property-decorator";
 import Editor from "@/components/editor/editor";
 import Blog from "@/models/blog";
 import { getAllBlogs, createBlog, updateBlog, deleteBlog } from "@/services/blog_service";
-import { Auth } from "aws-amplify";
+import Auth from "@aws-amplify/auth";
 
 @Component({
   components: {

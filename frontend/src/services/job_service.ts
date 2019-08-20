@@ -1,5 +1,5 @@
 import Job from "../models/job";
-import { API } from "aws-amplify";
+import API from "@aws-amplify/api";
 
 const apiName: string = "jobs";
 const apiPath: string = "/jobs";

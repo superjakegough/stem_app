@@ -1,5 +1,5 @@
 import Blog from "../models/blog";
-import { API } from "aws-amplify";
+import API from "@aws-amplify/api";
 
 const apiName: string = "blogs";
 const apiPath: string = "/blogs";

@@ -15,6 +15,7 @@ export async function main(event, context) {
       jobLocation: data.jobLocation,
       jobReference: data.jobReference,
       description: data.description,
+      jobFilled: data.jobFilled,
       createdAt: Date.now()
     }
   };

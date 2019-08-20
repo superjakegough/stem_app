@@ -13,6 +13,7 @@ export default class JobComponent extends Vue {
     jobLocation: "",
     jobReference: "",
     description: "",
+    jobFilled: "",
     createdAt: ""
   };
   loading: boolean = false;

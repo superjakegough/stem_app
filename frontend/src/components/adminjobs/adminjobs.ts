@@ -26,6 +26,7 @@ export default class AdminJobsComponent extends Vue {
     jobLocation: "",
     jobReference: "",
     description: "",
+    jobFilled: "",
     createdAt: ""
   };
   loading: boolean = false;
@@ -47,6 +48,10 @@ export default class AdminJobsComponent extends Vue {
   rules: object = {
     required: (value: string) => !!value || "Required"
   };
+
+  mounted() {
+    console.log(process.env);
+  }
 
   async signIn() {
     if (this.$refs.authForm.validate()) {
@@ -84,6 +89,7 @@ export default class AdminJobsComponent extends Vue {
       jobLocation: "",
       jobReference: "",
       description: "<p>Type here...</p>",
+      jobFilled: "false",
       createdAt: ""
     };
     this.createDialog = true;

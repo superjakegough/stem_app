@@ -10,7 +10,7 @@ export async function main(event, context) {
     },
     UpdateExpression:
       "SET title = :title, salary = :salary, benefits = :benefits, jobType = :jobType, " +
-      "jobLocation = :jobLocation, jobReference = :jobReference, description = :description, jobFilled = : jobFilled",
+      "jobLocation = :jobLocation, jobReference = :jobReference, description = :description, jobFilled = :jobFilled",
     ExpressionAttributeValues: {
       ":title": data.title || null,
       ":salary": data.salary || null,

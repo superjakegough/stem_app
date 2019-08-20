@@ -114,7 +114,7 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-      <v-dialog v-if="updateDialog" v-model="updateDialog" max-width="600">
+      <v-dialog v-if="updateDialog" v-model="updateDialog" max-width="1000">
         <v-card>
           <v-card-title class="headline">
             Update Job

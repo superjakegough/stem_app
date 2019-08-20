@@ -2,7 +2,7 @@ import { Component, Vue } from "vue-property-decorator";
 import Editor from "@/components/editor/editor";
 import Job from "@/models/job";
 import { getAllJobs, createJob, updateJob, deleteJob } from "@/services/job_service";
-import { Auth } from "aws-amplify";
+import Auth from "@aws-amplify/auth";
 
 @Component({
   components: {

@@ -7,8 +7,8 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "aws-amplify": "^1.1.36",
-    "aws-sdk": "^2.507.0",
+    "@aws-amplify/api": "^1.0.42",
+    "@aws-amplify/auth": "^1.2.31",
     "tiptap": "^1.23.6",
     "tiptap-extensions": "^1.25.1",
     "vue": "^2.6.10",
@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "@types/graphql": "^14.2.3",
-    "@types/node": "^12.7.1",
     "@types/zen-observable": "^0.8.0",
     "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-plugin-typescript": "^3.8.1",

@@ -48,7 +48,7 @@ export default class AdminJobsComponent extends Vue {
   rules: object = {
     required: (value: string) => !!value || "Required"
   };
-  
+
   async signIn() {
     if (this.$refs.authForm.validate()) {
       this.signingIn = true;

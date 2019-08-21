@@ -55,8 +55,7 @@ export default class EditorComponent extends Vue {
   showImagePrompt(command: any) {
     const src = prompt("Enter the URL of your image");
     if (src) {
-      const est = command({src});
-      console.log(est);
+      command({src});
     }
   }
 

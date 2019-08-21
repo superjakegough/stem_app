@@ -1,7 +1,7 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 import Job from "@/models/job";
 import Blog from "@/models/blog";
-import { Editor, EditorContent, EditorMenuBar, EditorMenuBubble } from "tiptap";
+import { Editor, EditorContent, EditorMenuBar } from "tiptap";
 import {
   Heading,
   OrderedList,
@@ -11,14 +11,14 @@ import {
   Italic,
   Strike,
   Underline,
+  Link,
   Image
 } from "tiptap-extensions";
 
 @Component({
   components: {
     EditorMenuBar,
-    EditorContent,
-    EditorMenuBubble
+    EditorContent
   }
 })
 export default class EditorComponent extends Vue {
@@ -34,6 +34,7 @@ export default class EditorComponent extends Vue {
       new Italic(),
       new Strike(),
       new Underline(),
+      new Link(),
       new Image()
     ],
     content: this.job ? this.job.description : this.blog.content,
@@ -42,13 +43,20 @@ export default class EditorComponent extends Vue {
       this.job ? (this.job.description = html) : (this.blog.content = html);
     }
   });
-  linkUrl: string = "";
-  linkMenuIsActive: boolean = false;
+
+  showLinkPrompt(command: any) {
+    const linkText = prompt("Enter the text for your link");
+    const linkUrl = prompt("Enter the URL of your link");
+    if (linkText && linkUrl) {
+      command({href: linkUrl});
+    }
+  }
 
   showImagePrompt(command: any) {
-    const src = prompt("Enter the URL of your image here");
+    const src = prompt("Enter the URL of your image");
     if (src) {
-      command({src});
+      const est = command({src});
+      console.log(est);
     }
   }
 

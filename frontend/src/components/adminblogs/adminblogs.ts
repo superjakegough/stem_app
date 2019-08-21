@@ -80,7 +80,7 @@ export default class AdminBlogsComponent extends Vue {
   async create() {
     if (this.$refs.createForm.validate() && this.blog.content.length > 0) {
       const res = await createBlog(this.blog);
-      if (!res.status) {
+      if (!res.title) {
         this.errorMessage = "Failed to create blog!";
         this.error = true;
       } else {

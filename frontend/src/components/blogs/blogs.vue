@@ -24,6 +24,7 @@
                 <v-card flat >
                   <v-card-text>
                     <h3 class="title text-xs-center primary--text mb-4">{{blog.title}}</h3>
+                    <p>Published: {{convertDate(blog.createdAt)}}</p>
                     <p>{{blog.description}}</p>
                   </v-card-text>
                   <v-layout justify-center>

@@ -21,4 +21,9 @@ export default class BlogComponent extends Vue {
     }
     this.loading = false;
   }
+
+  convertDate(timestamp: string) {
+    const date: Date = new Date(timestamp);
+    return date.toLocaleDateString("en-GB");
+  }
 }

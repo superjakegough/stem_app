@@ -36,6 +36,11 @@ export default class BlogsComponent extends Vue {
       : this.onboarding + 1;
   }
 
+  convertDate(timestamp: string) {
+    const date: Date = new Date(timestamp);
+    return date.toLocaleDateString("en-GB");
+  }
+
   prev() {
     this.onboarding = this.onboarding - 1 < 0
       ? this.filteredBlogs.length - 1

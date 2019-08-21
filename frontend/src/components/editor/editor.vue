@@ -24,6 +24,9 @@
           <v-btn icon @click="commands.ordered_list">
             <v-icon :color="iconColor(isActive.ordered_list())">format_list_numbered</v-icon>
           </v-btn>
+          <v-btn icon @click="showImagePrompt(commands.image)">
+            <v-icon :color="iconColor(isActive.image())">image</v-icon>
+          </v-btn>
           <v-divider />
         </v-flex>
       </v-layout>

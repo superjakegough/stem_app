@@ -71,8 +71,14 @@
   height: 100px;
 }
 
+.blog-image img {
+  display: flex;
+  margin: auto;
+  max-width: 100%;
+}
+
 .ProseMirror {
-  height: 142px;
+  max-height: 442px;
   overflow-y: scroll;
 }
 

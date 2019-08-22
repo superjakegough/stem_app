@@ -26,6 +26,8 @@
                     <h3 class="title text-xs-center primary--text mb-4">{{blog.title}}</h3>
                     <p>Published: {{convertDate(blog.createdAt)}}</p>
                     <p>{{blog.description}}</p>
+                    <div class="blog-short-content blog-image" v-html="blog.content"></div>
+                    <p>...</p>
                   </v-card-text>
                   <v-layout justify-center>
                     <v-btn flat color="primary" class="ma-0" @click="openRoute(blog.blogId)">View</v-btn>

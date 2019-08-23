@@ -45,10 +45,9 @@ export default class EditorComponent extends Vue {
   });
 
   showLinkPrompt(command: any) {
-    const linkText = prompt("Enter the text for your link");
     const linkUrl = prompt("Enter the URL of your link");
-    if (linkText && linkUrl) {
-      command({text: linkText, href: linkUrl});
+    if (linkUrl) {
+      command({href: linkUrl});
     }
   }
 

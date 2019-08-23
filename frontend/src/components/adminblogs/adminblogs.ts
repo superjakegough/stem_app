@@ -102,8 +102,8 @@ export default class AdminBlogsComponent extends Vue {
         this.errorMessage = "Failed to update blog!";
         this.error = true;
       } else {
-        let tempBlog = this.blogs.find(i => i.blogId === this.blog.blogId);
-        tempBlog = this.blog;
+        const temp = this.blogs.map(blog => blog.blogId === this.blog.blogId ? this.blog : blog);
+        this.blogs = temp;
       }
       this.updateDialog = false;
     }

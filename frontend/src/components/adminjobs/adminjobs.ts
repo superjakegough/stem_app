@@ -116,8 +116,13 @@ export default class AdminJobsComponent extends Vue {
         this.errorMessage = "Failed to update job!";
         this.error = true;
       } else {
-        let tempJob = this.jobs.find(i => i.jobId === this.job.jobId);
-        tempJob = this.job;
+        // console.log(this.job.jobId);
+        // const updateIndex = this.jobs.findIndex(i => i.jobId === this.job.jobId);
+        // console.log(updateIndex);
+        // this.jobs[updateIndex] = this.job;
+        // console.log(this.jobs[updateIndex]);
+        const temp = this.jobs.map(job => job.jobId === this.job.jobId ? this.job : job);
+        this.jobs = temp;
       }
       this.updateDialog = false;
     }

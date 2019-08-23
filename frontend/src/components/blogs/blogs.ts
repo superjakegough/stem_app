@@ -5,10 +5,13 @@ import { getAllBlogs } from "@/services/blog_service";
 @Component
 export default class BlogsComponent extends Vue {
   date: string = new Date().toISOString();
-  blogs: Blog[] = [];
+  blogs: any[] = [];
   loading: boolean = false;
-  onboarding: number = 0;
   filteredBlogs: Blog[] = [];
+  page: number = 1;
+  blogsPerPage: number = 3;
+  blogsPages: number = 0;
+  blogsPaged: Blog[] = [];
   searchTerm: string = "";
 
   async mounted() {
@@ -21,30 +24,24 @@ export default class BlogsComponent extends Vue {
     this.loading = false;
   }
 
+  onPageChange() {
+    this.blogsPages = Math.ceil(this.filteredBlogs.length / this.blogsPerPage);
+    this.blogsPaged = this.filteredBlogs.slice((this.page - 1) * this.blogsPerPage, (this.page) * this.blogsPerPage);
+  }
+
   onSearch() {
-    this.onboarding = 0;
+    this.page = 1;
     if (this.searchTerm === "") {
       this.filteredBlogs = this.blogs;
     } else {
-      this.filteredBlogs = this.blogs.filter(blog => blog.title.includes(this.searchTerm));
+      this.filteredBlogs = this.blogs.filter(blog => blog.title.s.includes(this.searchTerm));
     }
-  }
-
-  next() {
-    this.onboarding = this.onboarding + 1 === this.filteredBlogs.length
-      ? 0
-      : this.onboarding + 1;
+    this.onPageChange();
   }
 
   convertDate(timestamp: string) {
     const date: Date = new Date(timestamp);
     return date.toLocaleDateString("en-GB");
-  }
-
-  prev() {
-    this.onboarding = this.onboarding - 1 < 0
-      ? this.filteredBlogs.length - 1
-      : this.onboarding - 1;
   }
 
   openRoute(id: string) {

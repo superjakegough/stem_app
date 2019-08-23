@@ -72,7 +72,7 @@
 }
 
 .blog-short-content {
-  max-height: 400px;
+  max-height: 600px;
   overflow-y: hidden;
   text-overflow: ellipsis;
 }

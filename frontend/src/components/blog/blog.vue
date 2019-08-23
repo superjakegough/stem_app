@@ -7,7 +7,7 @@
             <v-card-text>
               <h3 class="title text-xs-center primary--text mb-4">{{blog.title}}</h3>
               <div class="blog-image" v-html="blog.content"></div>
-              <p class="text-xs-center">Published: {{convertDate(blog.createdAt)}}</p>
+              <p>Published: {{convertDate(blog.createdAt)}}</p>
             </v-card-text>
           </v-card>
           <v-layout justify-center content-subtitle mt-2 mb-4>

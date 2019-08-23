@@ -10,10 +10,9 @@
     <v-container fluid class="content-container">
       <v-layout row wrap justify-center>
         <v-flex md8 sm10 xs12 mb-4>
-          <h2 class="content-title mb-4">Current Opportunities</h2>
+          <h2 class="content-title mb-4">News &amp; Advice Blogs</h2>
           <p>
-            Interested in any of the below opportunities? To apply, please send your CV to
-            <a href="mailto:blogs@stemrecruit.co.uk">blogs@stemrecruit.co.uk.</a> with the blog reference number, and we will respond within 2 working days.
+            Keep up to date with the latest industry news, as well as regular activites offering recruitment and careers advice.
           </p>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4 v-if="!loading">

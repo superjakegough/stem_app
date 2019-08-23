@@ -34,7 +34,7 @@ export default class JobsComponent extends Vue {
     if (this.searchTerm === "") {
       this.filteredJobs = this.jobs;
     } else {
-      this.filteredJobs = this.jobs.filter(job => job.title.s.includes(this.searchTerm));
+      this.filteredJobs = this.jobs.filter(job => job.title.includes(this.searchTerm));
     }
     this.onPageChange();
   }

@@ -30,11 +30,12 @@ export default class BlogsComponent extends Vue {
   }
 
   onSearch() {
+    const regex = new RegExp(`^.*${this.searchTerm}.*$`, "i");
     this.page = 1;
-    if (this.searchTerm === "") {
+    if (!this.searchTerm) {
       this.filteredBlogs = this.blogs;
     } else {
-      this.filteredBlogs = this.blogs.filter(blog => blog.title.includes(this.searchTerm));
+      this.filteredBlogs = this.blogs.filter(blog => regex.test(blog.title));
     }
     this.onPageChange();
   }

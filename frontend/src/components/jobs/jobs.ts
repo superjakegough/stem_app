@@ -30,14 +30,16 @@ export default class JobsComponent extends Vue {
   }
 
   onSearch() {
+    const regex = new RegExp(`^.*${this.searchTerm}.*$`, "i");
     this.page = 1;
-    if (this.searchTerm === "") {
+    if (!this.searchTerm) {
       this.filteredJobs = this.jobs;
     } else {
-      this.filteredJobs = this.jobs.filter(job => job.title.includes(this.searchTerm));
+      this.filteredJobs = this.jobs.filter(job => regex.test(job.title));
     }
     this.onPageChange();
   }
+
 
   openRoute(id: string) {
     this.$router.push({ path: `/job/${id}` });

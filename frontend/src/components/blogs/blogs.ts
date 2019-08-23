@@ -34,7 +34,7 @@ export default class BlogsComponent extends Vue {
     if (this.searchTerm === "") {
       this.filteredBlogs = this.blogs;
     } else {
-      this.filteredBlogs = this.blogs.filter(blog => blog.title.s.includes(this.searchTerm));
+      this.filteredBlogs = this.blogs.filter(blog => blog.title.includes(this.searchTerm));
     }
     this.onPageChange();
   }

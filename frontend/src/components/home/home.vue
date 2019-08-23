@@ -21,12 +21,17 @@
         </v-flex>
         <v-flex md6 sm10 xs12>
           <p>
-            We are Stem. We are not just here to get a fee – we are here to
-            <strong>grow your business</strong> and
-            <strong>grow your career</strong>. We are more than just a specialist recruitment consultancy; we also aim to support the growth of the industries for which we recruit, in mutual benefit.
+            Stem Skills &amp; Recruitment is a specialist recruitment consultancy, which also aims to support the growth of industries it recruits for.
           </p>
-          <p>Based in Wales, we provide expertise and experience in recruitment for the science, technology, engineering and manufacturing industries across the region. Our approach to recruitment is simple and transparent, with a focus on not just short-term solutions to find you the right candidate, but also on investing into long-term solutions for your recruitment needs.</p>
-          <p>Whether you are a business looking to recruit, or a candidate looking to take the next step in your career, then we are here to listen to your needs and expectations, offer market advice and knowledge, and work with you to find you the right match.</p>
+          <p>
+            Based in Wales, we provide expertise in recruitment for Science, Technology, Engineering and Manufacturing businesses across the region.
+          </p>
+          <p>
+            Our approach to recruitment is simple and transparent, and whilst providing short-term solutions to find you the right candidate or job, we also invest into long-term solutions for your recruitment and career needs.
+          </p>
+          <p>
+            Whether you are a business looking to recruit, or a candidate looking to take the next step in your career, then we are here to listen to your requirements and expectations, offer market advice and knowledge, and work with you to find you the right match.
+          </p>
         </v-flex>
         <v-flex md2 ml-3 v-if="$vuetify.breakpoint.mdAndUp">
           <v-img

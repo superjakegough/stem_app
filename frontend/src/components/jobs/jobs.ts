@@ -27,10 +27,12 @@ export default class JobsComponent extends Vue {
     createdAt: ""
   };
   salaries: string[] = [
-    "> £20,000",
     "£20,000+",
+    "£25,000+",
     "£30,000+",
+    "£35,000+",
     "£40,000+",
+    "£45,000+",
     "£50,000+",
   ];
   benefits: string[] = [];
@@ -54,7 +56,6 @@ export default class JobsComponent extends Vue {
   }
 
   onSearch() {
-    const regex = new RegExp(`^.*${this.job.title}.*$`, "i");
     this.page = 1;
     this.searchTerm = `${this.job.title}, ${this.job.salary}, ${this.job.benefits}, ${this.job.jobType}, ${this.job.jobLocation}`;
     if (!this.searchTerm.replace(", ", "")) {
@@ -83,10 +84,33 @@ export default class JobsComponent extends Vue {
   checkJob(checkJob: Job) {
     const regex = new RegExp(`^.*${this.job.title}.*$`, "i");
     if (this.job.title) {
-      if (regex.test(checkJob.title)) {
-        
+      if (!regex.test(checkJob.title)) {
+        return false;
       }
     }
+    if (this.job.salary) {
+      const checkJobSalary: number = parseInt(checkJob.salary.replace(/[£,+]/g, ""));
+      const thisJobSalaray: number = parseInt(this.job.salary.replace(/[£,+]/g, ""));
+      if (checkJobSalary < thisJobSalaray) {
+        return false;
+      }
+    }
+    if (this.job.benefits) {
+      if (checkJob.benefits !== this.job.benefits) {
+        return false;
+      }
+    }
+    if (this.job.jobType) {
+      if (checkJob.jobType !== this.job.jobType) {
+        return false;
+      }
+    }
+    if (this.job.jobLocation) {
+      if (checkJob.jobLocation !== this.job.jobLocation) {
+        return false;
+      }
+    }
+    return true;
   }
 
   openRoute(id: string) {

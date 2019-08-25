@@ -57,13 +57,14 @@ export default class JobsComponent extends Vue {
 
   onSearch() {
     this.page = 1;
-    this.searchTerm = `${this.job.title}, ${this.job.salary}, ${this.job.benefits}, ${this.job.jobType}, ${this.job.jobLocation}`;
-    if (!this.searchTerm.replace(", ", "")) {
-      this.filteredJobs = this.jobs;
-    } else {
+    this.generateSearchTerm();
+    if (this.searchTerm) {
       this.filteredJobs = this.jobs.filter(job => this.checkJob(job));
+    } else {
+      this.filteredJobs = this.jobs;
     }
     this.onPageChange();
+    this.searchDialog = false;
   }
 
   populateSets() {
@@ -111,6 +112,25 @@ export default class JobsComponent extends Vue {
       }
     }
     return true;
+  }
+
+  generateSearchTerm() {
+    this.searchTerm = "";
+    if (this.job.title) {
+      this.searchTerm += this.job.title + " ";
+    }
+    if (this.job.salary) {
+      this.searchTerm += this.job.salary + " ";
+    }
+    if (this.job.benefits) {
+      this.searchTerm += this.job.benefits + " ";
+    }
+    if (this.job.jobType) {
+      this.searchTerm += this.job.jobType + " ";
+    }
+    if (this.job.jobLocation) {
+      this.searchTerm += this.job.jobLocation + " ";
+    }
   }
 
   openRoute(id: string) {

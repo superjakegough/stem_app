@@ -17,8 +17,10 @@
           </p>
         </v-flex>
         <v-flex md8 sm10 xs12 mb-4 v-if="!loading">
-          <v-text-field v-model="searchTerm" class="mb-4" @change="onSearch" label="Search" 
-            prepend-inner-icon="search" background-color="white" solo flat></v-text-field>
+          <div @click="searchDialog = true">
+            <v-text-field v-model="searchTerm" class="mb-4" label="Search" 
+              prepend-inner-icon="search" background-color="white" solo flat></v-text-field>
+          </div>
           <v-card :key="index" v-for="(job, index) in jobsPaged" flat class="mb-4">
             <v-card-text>
               <h3 class="title text-xs-center primary--text mb-4">{{job.title}}</h3>
@@ -51,6 +53,26 @@
       <v-layout justify-center mb-5>
         <v-btn depressed color="primary" to="/">Home</v-btn>
       </v-layout>
+      <v-dialog v-if="searchDialog" v-model="searchDialog" max-width="1000">
+        <v-card>
+          <v-card-title class="headline">
+            Search Jobs
+          </v-card-title>
+          <v-flex px-4>
+            <v-text-field v-model="job.title" label="Title" maxlength="50" solo flat background-color="grey lighten-2" clearable />
+            <v-select :items="salaries" v-model="job.salary" label="Salary" maxlength="50" solo flat background-color="grey lighten-2" clearable />
+            <v-select :items="benefits" v-model="job.benefits" label="Benefits" maxlength="50" solo flat background-color="grey lighten-2" clearable />
+            <v-select :items="jobTypes" v-model="job.jobType" label="Type" maxlength="50" solo flat background-color="grey lighten-2" clearable />
+            <v-select :items="jobLocations" v-model="job.jobLocation" label="Location" maxlength="50" solo flat background-color="grey lighten-2" clearable />
+          </v-flex>
+          <v-card-actions>
+            <v-layout justify-center>
+              <v-btn color="primary" flat @click="searchDialog = false">Cancel</v-btn>
+              <v-btn color="primary" flat @click="onSearch">Submit</v-btn>
+            </v-layout>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-container>
   </v-layout>
 </template>

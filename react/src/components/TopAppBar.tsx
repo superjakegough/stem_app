@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -29,12 +30,23 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const TopAppBar: React.FunctionComponent = props => {
   const classes = useStyles({});
-
-  return (
+  const small = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const topAppBar = small ? (
+    <AppBar position="fixed" className={classes.appBar}>
+        <Toolbar>
+          <img className={classes.logo} src={logo} height="28" alt="" />
+          <Spacer />
+          <Typography variant="h6">
+            Stem
+          </Typography>
+          <Spacer />
+        </Toolbar>
+      </AppBar>
+  ) : (
     <AppBar position="fixed" className={classes.appBar}>
       <Toolbar>
         <img className={classes.logo} src={logo} height="28" alt="" />
-        <Typography variant="h6" noWrap>
+        <Typography variant="h6">
           Stem
         </Typography>
         <Spacer />
@@ -45,6 +57,12 @@ const TopAppBar: React.FunctionComponent = props => {
         <Spacer />
       </Toolbar>
     </AppBar>
+  );
+
+  return (
+    <>
+     {topAppBar}
+    </>
   );
 };
 

@@ -7,7 +7,12 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Spacer from "./Spacer";
 import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
 import logo from "../assets/stem_green.png";
+import facebook from "../assets/facebook.svg";
+import instagram from "../assets/instagram.svg";
+import linkedin from "../assets/linkedin.svg";
+import twitter from "../assets/twitter.svg";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -55,6 +60,18 @@ const TopAppBar: React.FunctionComponent = props => {
         <Button className={classes.button} color="primary" component={Link} to="/jobs">Jobs</Button>
         <Button className={classes.button} color="primary" component={Link} to="/blogs">Blogs</Button>
         <Spacer />
+        <IconButton color="primary">
+          <img src={facebook} height="24" alt=""/>
+        </IconButton>
+        <IconButton color="primary">
+          <img src={twitter} height="24" alt=""/>
+        </IconButton>
+        <IconButton color="primary">
+          <img src={linkedin} height="24" alt=""/>
+        </IconButton>
+        <IconButton color="primary">
+          <img src={instagram} height="24" alt=""/>
+        </IconButton>
       </Toolbar>
     </AppBar>
   );

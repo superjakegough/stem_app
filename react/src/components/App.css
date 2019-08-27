@@ -1,3 +1,140 @@
-.grid-box {
-  border: 1px solid #FFC107;
+.theme--light.v-toolbar {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.theme--light.v-bottom-nav {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.theme--light.v-bottom-nav .v-btn:not(.v-btn--active) {
+  color: #DEDEDD !important;
+}
+
+.v-expansion-panel__container--active {
+  box-shadow: none !important;
+}
+
+.v-stepper {
+  box-shadow: none;
+}
+
+.content-container {
+  padding: 56px;
+}
+
+.content-image {
+  border-radius: 2px;
+}
+
+.content-title {
+  font-size: 45px;
+  font-weight: 500;
+  line-height: 45px;
+  letter-spacing: normal;
+}
+
+.content-subtitle {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: normal;
+}
+
+.long-content {
+  max-height: 120px;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-image {
+  height: 100vh;
+}
+
+.header-padding {
+  padding: 36px;
+}
+
+.header-text {
+  color: #FCFCFC;
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 56px;
+  letter-spacing: -0.32px;
+}
+
+.home-logo {
+  max-height: 220px;
+}
+
+.rec-logo {
+  display: flex;
+  height: 100px;
+}
+
+.blog-short-content {
+  max-height: 600px;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+}
+
+.blog-image img {
+  display: flex;
+  margin: auto;
+  max-width: 100%;
+}
+
+.ProseMirror {
+  max-height: 442px;
+  overflow-y: scroll;
+}
+
+.scroll {
+  overflow-y: scroll
+}
+
+@media (max-width: 960px) {
+  .content-container {
+    padding: 32px;
+  }
+
+  .content-title {
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 40px;
+    letter-spacing: normal;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+  }
+  
+  .header-image {
+    height: calc(100vh - 56px);
+  }
+
+  .header-padding {
+    padding: 16px;
+  }
+
+  .header-text {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 2.5rem;
+    letter-spacing: normal;
+    margin-bottom: 56px;
+  }
+
+  .home-logo {
+    max-height: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-logo {
+    max-height: 120px;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-logo {
+    max-height: 120px;
+  }
 }

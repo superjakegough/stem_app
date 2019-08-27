@@ -8,11 +8,14 @@ import Typography from "@material-ui/core/Typography";
 import Spacer from "./Spacer";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 import logo from "../assets/stem_green.png";
-import facebook from "../assets/facebook.svg";
-import instagram from "../assets/instagram.svg";
-import linkedin from "../assets/linkedin.svg";
-import twitter from "../assets/twitter.svg";
+import facebooklogo from "../assets/facebook.svg";
+import instagramlogo from "../assets/instagram.svg";
+import linkedinlogo from "../assets/linkedin.svg";
+import twitterlogo from "../assets/twitter.svg";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -30,11 +33,32 @@ const useStyles = makeStyles((theme: Theme) =>
     logo: {
       marginRight: theme.spacing(3)
     },
+    menuImage: {
+      margin: "auto"
+    }
   }),
 );
 
 const TopAppBar: React.FunctionComponent = props => {
   const classes = useStyles({});
+  const [anchorEl, setAnchorEl] = React.useState<undefined | HTMLElement>(undefined);
+  const facebook: string = "https://facebook.com/Stem-Skills-Recruitment-Ltd-107387030612608";
+  const twitter: string = "https://twitter.com/StemRecruitLtd";
+  const linkedIn: string = "https://linkedin.com/company/stem-skills-recruitment-ltd/";
+  const instagram: string = "https://instagram.com/stemskillsrecruitment";
+
+  function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
+    setAnchorEl(event.currentTarget);
+  }
+
+  function handleClose () {
+    setAnchorEl(undefined);
+  }
+
+  function handleSocialClick (url: string) {
+    window.open(url);
+  }
+
   const small = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
   const topAppBar = small ? (
     <AppBar position="fixed" className={classes.appBar}>
@@ -45,6 +69,23 @@ const TopAppBar: React.FunctionComponent = props => {
             Stem
           </Typography>
           <Spacer />
+          <IconButton color="primary" onClick={handleClick}>
+           <MoreVertIcon />
+          </IconButton>
+          <Menu anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
+            <MenuItem onClick={() => handleSocialClick(facebook)}>
+              <img className={classes.menuImage} src={facebooklogo} height="24" alt=""/>
+            </MenuItem>
+            <MenuItem onClick={() => handleSocialClick(twitter)}>
+              <img className={classes.menuImage} src={twitterlogo} height="24" alt=""/>
+            </MenuItem>
+            <MenuItem onClick={() => handleSocialClick(linkedIn)}>
+              <img className={classes.menuImage} src={linkedinlogo} height="24" alt=""/>
+            </MenuItem>
+            <MenuItem onClick={() => handleSocialClick(instagram)}>
+              <img className={classes.menuImage} src={instagramlogo} height="24" alt=""/>
+            </MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
   ) : (
@@ -60,26 +101,26 @@ const TopAppBar: React.FunctionComponent = props => {
         <Button className={classes.button} color="primary" component={Link} to="/jobs">Jobs</Button>
         <Button className={classes.button} color="primary" component={Link} to="/blogs">Blogs</Button>
         <Spacer />
-        <IconButton color="primary">
-          <img src={facebook} height="24" alt=""/>
+        <IconButton color="primary" onClick={() => handleSocialClick(facebook)}>
+          <img src={facebooklogo} height="24" alt=""/>
         </IconButton>
-        <IconButton color="primary">
-          <img src={twitter} height="24" alt=""/>
+        <IconButton color="primary" onClick={() => handleSocialClick(twitter)}>
+          <img src={twitterlogo} height="24" alt=""/>
         </IconButton>
-        <IconButton color="primary">
-          <img src={linkedin} height="24" alt=""/>
+        <IconButton color="primary" onClick={() => handleSocialClick(linkedIn)}>
+          <img src={linkedinlogo} height="24" alt=""/>
         </IconButton>
-        <IconButton color="primary">
-          <img src={instagram} height="24" alt=""/>
+        <IconButton color="primary" onClick={() => handleSocialClick(instagram)}>
+          <img src={instagramlogo} height="24" alt=""/>
         </IconButton>
       </Toolbar>
     </AppBar>
   );
 
   return (
-    <>
+    <div>
      {topAppBar}
-    </>
+    </div>
   );
 };
 

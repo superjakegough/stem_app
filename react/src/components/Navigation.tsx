@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const TopAppBar: React.FunctionComponent = props => {
+const Navigation: React.FunctionComponent = props => {
   const classes = useStyles({});
 
   return (
@@ -43,4 +43,4 @@ const TopAppBar: React.FunctionComponent = props => {
   );
 };
 
-export default TopAppBar;
+export default Navigation;

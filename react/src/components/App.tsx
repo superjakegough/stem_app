@@ -3,6 +3,9 @@ import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import Navigation from "./Navigation";
 import Home from "./Home";
+import Services from "./Services";
+import Jobs from "./Jobs";
+import Blogs from "./Blogs";
 import "./App.css";
 
 const history = createBrowserHistory();
@@ -16,15 +19,15 @@ export default function App() {
           </Route>
         </Switch>
         <Switch>
-          <Route path="/services" exact component={Home}>
+          <Route path="/services" exact component={Services}>
           </Route>
         </Switch>
         <Switch>
-          <Route path="/jobs" exact component={Home}>
+          <Route path="/jobs" exact component={Jobs}>
           </Route>
         </Switch>
         <Switch>
-          <Route path="/blogs" exact component={Home}>
+          <Route path="/blogs" exact component={Blogs}>
           </Route>
         </Switch>
       </Navigation>

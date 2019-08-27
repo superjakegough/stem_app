@@ -1,11 +1,11 @@
 import React from "react";
+import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Spacer from "./Spacer";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
 import logo from "../assets/stem_green.png";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -38,22 +38,14 @@ const TopAppBar: React.FunctionComponent = props => {
           Stem
         </Typography>
         <Spacer />
-        <Link to="/" className={classes.buttonLink}>
-          <Button className={classes.button} color="primary">Home</Button>
-        </Link>
-        <Link to="/services" className={classes.buttonLink}>
-          <Button className={classes.button} color="primary">Services</Button>
-        </Link>
-        <Link to="/jobs" className={classes.buttonLink}>
-          <Button className={classes.button} color="primary">Jobs</Button>
-        </Link>
-        <Link to="/blogs" className={classes.buttonLink}>
-          <Button className={classes.button} color="primary">Blogs</Button>
-        </Link>
+        <Button className={classes.button} color="primary" component={Link} to="/">Home</Button>
+        <Button className={classes.button} color="primary" component={Link} to="/services">Services</Button>
+        <Button className={classes.button} color="primary" component={Link} to="/jobs">Jobs</Button>
+        <Button className={classes.button} color="primary" component={Link} to="/blogs">Blogs</Button>
         <Spacer />
       </Toolbar>
     </AppBar>
   );
 };
 
-export default TopAppBar;
+export default withRouter(TopAppBar);

@@ -1,6 +1,7 @@
 import React from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import TopAppBar from "./TopAppBar";
+import BottomNav from "./BottomNav";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,6 +26,7 @@ const Navigation: React.FunctionComponent = props => {
         <div className={classes.toolbar} />
           {props.children}
       </main>
+      <BottomNav />
     </div>
   );
 };

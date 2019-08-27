@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { DndProvider } from "react-dnd";
-import HTML5Backend from "react-dnd-html5-backend";
+import { ThemeProvider } from "@material-ui/styles";
+import { CssBaseline } from "@material-ui/core";
 import App from "./components/App";
-import "react-grid-layout/css/styles.css";
-import "react-resizable/css/styles.css";
+import theme from "./theme";
 
 ReactDOM.render(
-  <DndProvider backend={HTML5Backend}>
+  <ThemeProvider theme={theme}>
+  <CssBaseline />
     <App />
-  </DndProvider>,
+  </ThemeProvider>,
   document.querySelector("#root")
 );

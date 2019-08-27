@@ -1,16 +1,15 @@
 import React from "react";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
-import TopAppBar from "./Navigation/TopAppBar";
-import MainLayout from "./Layout/MainLayout";
-import "./App.scss";
+import TopAppBar from "./TopAppBar";
+import "./App.css";
 
 export default function App() {
   return (
     <TopAppBar>
       <Container>
         <Box my={4}>
-          <MainLayout />
+          <div>hello</div>
         </Box>
       </Container>
     </TopAppBar>

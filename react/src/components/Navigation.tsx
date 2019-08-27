@@ -11,9 +11,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     content: {
       flexGrow: 1,
-      padding: theme.spacing(3),
     },
-    toolbar: theme.mixins.toolbar,
   }),
 );
 
@@ -26,8 +24,7 @@ const Navigation: React.FunctionComponent = props => {
     <div className={classes.root}>
       <TopAppBar />
       <main className={classes.content}>
-        <div className={classes.toolbar} />
-          {props.children}
+        {props.children}
       </main>
       {bottomNav}
     </div>

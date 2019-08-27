@@ -20,7 +20,6 @@ import twitterlogo from "../assets/twitter.svg";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
-      zIndex: theme.zIndex.drawer + 1,
       backgroundColor: "rgba(255, 255, 255, 0.8)",
       boxShadow: "none"
     },
@@ -62,32 +61,32 @@ const TopAppBar: React.FunctionComponent = props => {
   const small = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
   const topAppBar = small ? (
     <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
-          <img className={classes.logo} src={logo} height="28" alt="" />
-          <Spacer />
-          <Typography variant="h6">
-            Stem
-          </Typography>
-          <Spacer />
-          <IconButton color="primary" onClick={handleClick}>
-           <MoreVertIcon />
-          </IconButton>
-          <Menu anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
-            <MenuItem onClick={() => handleSocialClick(facebook)}>
-              <img className={classes.menuImage} src={facebooklogo} height="24" alt=""/>
-            </MenuItem>
-            <MenuItem onClick={() => handleSocialClick(twitter)}>
-              <img className={classes.menuImage} src={twitterlogo} height="24" alt=""/>
-            </MenuItem>
-            <MenuItem onClick={() => handleSocialClick(linkedIn)}>
-              <img className={classes.menuImage} src={linkedinlogo} height="24" alt=""/>
-            </MenuItem>
-            <MenuItem onClick={() => handleSocialClick(instagram)}>
-              <img className={classes.menuImage} src={instagramlogo} height="24" alt=""/>
-            </MenuItem>
-          </Menu>
-        </Toolbar>
-      </AppBar>
+      <Toolbar>
+        <img className={classes.logo} src={logo} height="28" alt="" />
+        <Spacer />
+        <Typography variant="h6">
+          Stem
+        </Typography>
+        <Spacer />
+        <IconButton color="primary" onClick={handleClick}>
+          <MoreVertIcon />
+        </IconButton>
+        <Menu anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
+          <MenuItem onClick={() => handleSocialClick(facebook)}>
+            <img className={classes.menuImage} src={facebooklogo} height="24" alt=""/>
+          </MenuItem>
+          <MenuItem onClick={() => handleSocialClick(twitter)}>
+            <img className={classes.menuImage} src={twitterlogo} height="24" alt=""/>
+          </MenuItem>
+          <MenuItem onClick={() => handleSocialClick(linkedIn)}>
+            <img className={classes.menuImage} src={linkedinlogo} height="24" alt=""/>
+          </MenuItem>
+          <MenuItem onClick={() => handleSocialClick(instagram)}>
+            <img className={classes.menuImage} src={instagramlogo} height="24" alt=""/>
+          </MenuItem>
+        </Menu>
+      </Toolbar>
+    </AppBar>
   ) : (
     <AppBar position="fixed" className={classes.appBar}>
       <Toolbar>

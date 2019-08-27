@@ -16,6 +16,18 @@ export default function App() {
           <Route path="/" exact component={Home}>
           </Route>
         </Switch>
+        <Switch>
+          <Route path="/services" exact component={Home}>
+          </Route>
+        </Switch>
+        <Switch>
+          <Route path="/jobs" exact component={Home}>
+          </Route>
+        </Switch>
+        <Switch>
+          <Route path="/blogs" exact component={Home}>
+          </Route>
+        </Switch>
       </Navigation>
     </Router>
   );

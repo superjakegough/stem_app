@@ -5,7 +5,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Spacer from "./Spacer";
 
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -31,7 +30,7 @@ const TopAppBar: React.FunctionComponent = props => {
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" noWrap>
-            Ampy App
+            Stem
           </Typography>
           <Spacer />
         </Toolbar>

@@ -9,12 +9,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({}));
 const Home: React.FunctionComponent = props => {
   const classes = useStyles({});
   const small = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
-  const whoWeAre = small ? (
-    <div>
-    </div>
+  const smallLogo = small ? (
+      <Grid item sm={10} xs={12} className="mb-4">
+
+      </Grid>
   ) : (
-    <div>
-    </div>
+    undefined
   );
 
   return (
@@ -28,7 +28,7 @@ const Home: React.FunctionComponent = props => {
           <Grid item md={8} sm={10} xs={12} className="mb-4">
             <h2 className="content-title">Who We Are</h2>
           </Grid>
-          {whoWeAre}
+          {smallLogo}
         </Grid>
       </Grid>
     </div>

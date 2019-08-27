@@ -1,3 +1,11 @@
+.switch-wrapper {
+  position: relative;
+}
+ 
+.switch-wrapper > div {
+  position: absolute;
+}
+
 .content-container {
   padding: 56px;
 }
@@ -29,6 +37,7 @@
 .header-image {
   height: 100vh;
   width: 100%;
+  object-fit: cover;
 }
 
 .header-text {

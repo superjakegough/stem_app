@@ -6,9 +6,9 @@ import blogsimage from "../assets/blogs.jpg";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
-import Blog from "../models/blog";
-import { GetAllBlogs } from "../services/blog_service";
-import { ConvertDate } from "../helpers/DateHelper";
+import Blog from "../../models/blog";
+import { GetAllBlogs } from "../../services/blog_service";
+import { ConvertDate } from "../../helpers/DateHelper";
 import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -81,6 +81,8 @@ const Blogs: React.FunctionComponent = props => {
             </Typography>
             <Typography className="blog-short-content blog-image" dangerouslySetInnerHTML={{__html: blog.content}}>
             </Typography>
+            <Typography>...</Typography>
+            <Typography className="text-center">{ConvertDate(blog.createdAt)}</Typography>
             <Grid container justify="center">
               <Button className={classes.button} color="primary" component={Link} to={{ pathname: `/blog/${blog.blogId}`}}>View</Button>
             </Grid>

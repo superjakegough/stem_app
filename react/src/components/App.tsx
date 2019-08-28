@@ -1,13 +1,13 @@
 import React from "react";
 import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import Navigation from "./Navigation";
-import Home from "./Home";
-import Services from "./Services";
-import Jobs from "./Jobs";
-import Blog from "./Blog";
-import Blogs from "./Blogs";
-import Privacy from "./Privacy";
+import Navigation from "./Layout/Navigation";
+import Home from "./Pages/Home";
+import Services from "./Pages/Services";
+import Jobs from "./Pages/Jobs";
+import Blog from "./Pages/Blog";
+import Blogs from "./Pages/Blogs";
+import Privacy from "./Pages/Privacy";
 import "./App.css";
 
 const history = createBrowserHistory();

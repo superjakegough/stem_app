@@ -3,6 +3,9 @@ import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import servicesimage from "../assets/services.jpg";
 import Typography from "@material-ui/core/Typography";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
@@ -53,53 +56,53 @@ const Services: React.FunctionComponent = props => {
         return (
           <>
             <Typography className={classes.bodyText}>Via a telephone or face-to-face meeting, we listen to your recruitment needs and:</Typography>
-            <ul className="mb-24">
-              <li><Typography className={classes.bodyText}>Discuss the job description and understand the job responsibilities.</Typography></li>
-              <li><Typography className={classes.bodyText}>Understand the skills and qualifications that you are looking for, identifying essential and desirable requirements.</Typography></li>
-              <li><Typography className={classes.bodyText}>Understand the training, progression and other opportunities the vacancy might hold.</Typography></li>
-              <li><Typography className={classes.bodyText}>Understand your business culture and establish behavioral competencies that will be needed to fit in with the role and company culture.</Typography></li>
-              <li><Typography className={classes.bodyText}>We can provide expert advice as to what skills are available, as well as advice on industry trends.</Typography></li>
-              <li><Typography className={classes.bodyText}>Once we have established what you are looking for, we tailor our recruitment process to meet your requirements, and begin a candidate sourcing and selection process.</Typography></li>
-            </ul>
+            <List className="mb-24">
+              <ListItem><ListItemText>&bull; Discuss the job description and understand the job responsibilities.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Understand the skills and qualifications that you are looking for, identifying essential and desirable requirements.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Understand the training, progression and other opportunities the vacancy might hold.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Understand your business culture and establish behavioral competencies that will be needed to fit in with the role and company culture.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; We can provide expert advice as to what skills are available, as well as advice on industry trends.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Once we have established what you are looking for, we tailor our recruitment process to meet your requirements, and begin a candidate sourcing and selection process.</ListItemText></ListItem>
+            </List>
           </>
         );
       case 1:
           return (
             <>
             <Typography className={classes.bodyText}>We search through our large network of candidates to find you the right candidate. We use a variety of sourcing tools including:</Typography>
-            <ul className="mb-24">
-              <li><Typography className={classes.bodyText}>Internal database of science, technology, engineering and manufacturing professionals in Wales.</Typography></li>
-              <li><Typography className={classes.bodyText}>UK job boards – including advertising and access to millions of CVs UK-wide.</Typography></li>
-              <li><Typography className={classes.bodyText}>Social media – LinkedIn, Twitter and Facebook.</Typography></li>
-              <li><Typography className={classes.bodyText}>Stem Website – advertising on Stem’s website job page.</Typography></li>
-              <li><Typography className={classes.bodyText}>Networking and events – we network at industry events meeting with both active and passive candidates.</Typography></li>
-              <li><Typography className={classes.bodyText}>Education links – for graduate roles, we have strong links with Wales’ universities.</Typography></li>
-            </ul>
+            <List className="mb-24">
+              <ListItem><ListItemText>&bull; Internal database of science, technology, engineering and manufacturing professionals in Wales.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; UK job boards – including advertising and access to millions of CVs UK-wide.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Social media – LinkedIn, Twitter and Facebook.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Stem Website – advertising on Stem’s website job page.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Networking and events – we network at industry events meeting with both active and passive candidates.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Education links – for graduate roles, we have strong links with Wales’ universities.</ListItemText></ListItem>
+            </List>
             </>
           );
       case 2:
         return (
           <>
           <Typography className={classes.bodyText}>Candidates selected from sourcing will be screened further via a telephone or face-to-face interview by Stem and will be evaluated on the following:</Typography>
-            <ul className="mb-24">
-              <li><Typography className={classes.bodyText}>Current salary, benefits package and expectations vs. what your opportunity offers.</Typography></li>
-              <li><Typography className={classes.bodyText}>Location/commute to your business and hours of work.</Typography></li>
-              <li><Typography className={classes.bodyText}>Relevant skills, qualifications and behavioral competencies.</Typography></li>
-              <li><Typography className={classes.bodyText}>Career plans and aspirations.</Typography></li>
-              <li><Typography className={classes.bodyText}>Availability.</Typography></li>
-            </ul>
+            <List className="mb-24">
+              <ListItem><ListItemText>&bull; Current salary, benefits package and expectations vs. what your opportunity offers.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Location/commute to your business and hours of work.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Relevant skills, qualifications and behavioral competencies.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Career plans and aspirations.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Availability.</ListItemText></ListItem>
+            </List>
           </>
         );
       case 3:
         return (
           <>
           <Typography className={classes.bodyText}>Following the first stage Stem interview, candidates will be sent a job application email including:</Typography>
-            <ul className="mb-24">
-              <li><Typography className={classes.bodyText}>The job description.</Typography></li>
-              <li><Typography className={classes.bodyText}>Job advert.</Typography></li>
-              <li><Typography className={classes.bodyText}>Your company website.</Typography></li>
-              <li><Typography className={classes.bodyText}>An application form with questions or technical test can also be sent. The job application email tests the candidate’s interest and commitment.</Typography></li>
-            </ul>
+            <List className="mb-24">
+              <ListItem><ListItemText>&bull; The job description.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Job advert.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Your company website.</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; An application form with questions or technical test can also be sent. The job application email tests the candidate’s interest and commitment.</ListItemText></ListItem>
+            </List>
           </>
         );
       case 4:
@@ -164,23 +167,23 @@ const Services: React.FunctionComponent = props => {
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <h2 className="content-title mt-24 mb-24">Industries</h2>
             <Typography className={classes.bodyText}>We have expertise and experience in recruiting for the following industries:</Typography>
-            <ul className="mb-24">
-              <li><Typography className={classes.bodyText}>Automotive</Typography></li>
-              <li><Typography className={classes.bodyText}>Aerospace</Typography></li>
-              <li><Typography className={classes.bodyText}>Pharmaceutical</Typography></li>
-              <li><Typography className={classes.bodyText}>Life Science</Typography></li>
-              <li><Typography className={classes.bodyText}>Medical Device</Typography></li>
-              <li><Typography className={classes.bodyText}>Electronic</Typography></li>
-              <li><Typography className={classes.bodyText}>Semiconductor</Typography></li>
-              <li><Typography className={classes.bodyText}>FMCG</Typography></li>
-              <li><Typography className={classes.bodyText}>Food Manufacturing</Typography></li>
-              <li><Typography className={classes.bodyText}>Oil &amp; Gas</Typography></li>
-              <li><Typography className={classes.bodyText}>Chemicals Manufacturing</Typography></li>
-              <li><Typography className={classes.bodyText}>Materials Manufacturing</Typography></li>
-              <li><Typography className={classes.bodyText}>Heavy Industry</Typography></li>
-              <li><Typography className={classes.bodyText}>Digital</Typography></li>
-              <li><Typography className={classes.bodyText}>Technology</Typography></li>
-            </ul>
+            <List className="mb-24">
+              <ListItem><ListItemText>&bull; Automotive</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Aerospace</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Pharmaceutical</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Life Science</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Medical Device</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Electronic</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Semiconductor</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; FMCG</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Food Manufacturing</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Oil &amp; Gas</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Chemicals Manufacturing</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Materials Manufacturing</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Heavy Industry</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Digital</ListItemText></ListItem>
+              <ListItem><ListItemText>&bull; Technology</ListItemText></ListItem>
+            </List>
             <Typography className={classes.bodyText}>If you would like to find out more about how Stem can help grow your business, or if you have a vacancy and need help, then call us on 029 2120 2879, or email {" "}
             <a href="mailto:info@stemrecruit.co.uk">info@stemrecruit.co.uk.</a></Typography>
           </Grid>

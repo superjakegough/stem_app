@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 const Home: React.FunctionComponent = props => {
   const classes = useStyles({});
   const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
-  const stemImg = <img className="home-logo" src={stemlogo}/>;
+  const stemImg = <img className="home-logo" src={stemlogo} alt=""/>;
 
   return (
     <div>
@@ -176,7 +176,7 @@ const Home: React.FunctionComponent = props => {
                   <ListItemText primary="Telephone" secondary="029 2120 2879"/>
                 </ListItem>
                 <ListItem>
-                  <img src={rec} className={classes.recLogo} />
+                  <img src={rec} className={classes.recLogo} alt="" />
                 </ListItem>
               </List>
             </Grid>

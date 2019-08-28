@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import blogsimage from "../assets/blogs.jpg";
+import blogsimage from "../../assets/blogs.jpg";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";

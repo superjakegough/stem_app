@@ -18,10 +18,10 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import EmailIcon from "@material-ui/icons/Email";
 import PhoneIcon from "@material-ui/icons/Phone";
-import homeimage from "../assets/home.jpg";
-import stemlogo from "../assets/stem_green.png";
-import avatar from "../assets/jack.jpg";
-import rec from "../assets/rec.jpg";
+import homeimage from "../../assets/home.jpg";
+import stemlogo from "../../assets/stem_green.png";
+import avatar from "../../assets/jack.jpg";
+import rec from "../../assets/rec.jpg";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   avatar: {

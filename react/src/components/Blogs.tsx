@@ -9,10 +9,14 @@ import Paper from "@material-ui/core/Paper";
 import Blog from "../models/blog";
 import { GetAllBlogs } from "../services/blog_service";
 import { ConvertDate } from "../helpers/DateHelper";
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   bodyText: {
     marginBottom: theme.spacing(1)
+  },
+  button: {
+    margin: theme.spacing(1)
   },
   paper: {
     padding: theme.spacing(2)
@@ -77,6 +81,9 @@ const Blogs: React.FunctionComponent = props => {
             </Typography>
             <Typography className="blog-short-content blog-image" dangerouslySetInnerHTML={{__html: blog.content}}>
             </Typography>
+            <Grid container justify="center">
+              <Button className={classes.button} color="primary" component={Link} to={{ pathname: `/blog/${blog.blogId}`}}>View</Button>
+            </Grid>
           </Paper>
         );
       })}

@@ -5,6 +5,7 @@ import Navigation from "./Navigation";
 import Home from "./Home";
 import Services from "./Services";
 import Jobs from "./Jobs";
+import Blog from "./Blog";
 import Blogs from "./Blogs";
 import Privacy from "./Privacy";
 import "./App.css";
@@ -21,6 +22,8 @@ export default function App() {
           <Route path="/services" exact component={Services}>
           </Route>
           <Route path="/jobs" exact component={Jobs}>
+          </Route>
+          <Route path="/blog/:id" exact component={Blog}>
           </Route>
           <Route path="/blogs" exact component={Blogs}>
           </Route>

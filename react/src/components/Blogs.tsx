@@ -26,7 +26,7 @@ const Blogs: React.FunctionComponent = props => {
   const blogsPerPage: number = 3;
 
   useEffect(() => {
-   FetchBlogs();
+    FetchBlogs();
   }, []);
 
   async function FetchBlogs() {
@@ -37,6 +37,7 @@ const Blogs: React.FunctionComponent = props => {
     }
     onSearch();
     setLoading(false);
+
   }
 
   function onPageChange() {

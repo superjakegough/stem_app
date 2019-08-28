@@ -181,7 +181,7 @@ const Home: React.FunctionComponent = props => {
               </List>
             </Grid>
           </Grid>
-          <Grid container justify="center" className="mb-32">
+          <Grid container justify="center" className="mb-48">
             <Button className={classes.button} color="primary" component={Link} to="/privacy">Privacy Notice</Button>
           </Grid>
         </Grid>

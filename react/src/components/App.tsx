@@ -6,6 +6,7 @@ import Home from "./Home";
 import Services from "./Services";
 import Jobs from "./Jobs";
 import Blogs from "./Blogs";
+import Privacy from "./Privacy";
 import "./App.css";
 
 const history = createBrowserHistory();
@@ -22,6 +23,8 @@ export default function App() {
           <Route path="/jobs" exact component={Jobs}>
           </Route>
           <Route path="/blogs" exact component={Blogs}>
+          </Route>
+          <Route path="/privacy" exact component={Privacy}>
           </Route>
         </Switch>
       </Navigation>

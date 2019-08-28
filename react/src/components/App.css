@@ -43,6 +43,14 @@ a {
   margin-bottom: 24px;
 }
 
+.mb-32 {
+  margin-bottom: 32px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
 .ml-16 {
   margin-left: 16px;
 }

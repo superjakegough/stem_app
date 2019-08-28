@@ -58,7 +58,7 @@ const Blogs: React.FunctionComponent<RouteComponentProps> = props => {
       </Typography>
       <Typography className="blog-image" dangerouslySetInnerHTML={{__html: blog.content}}>
       </Typography>
-      <Typography className="text-center">{ConvertDate(blog.createdAt)}</Typography>
+      <Typography>Published: {ConvertDate(blog.createdAt)}</Typography>
     </Paper>
   );
 

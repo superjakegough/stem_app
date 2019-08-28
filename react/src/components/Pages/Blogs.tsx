@@ -81,8 +81,8 @@ const Blogs: React.FunctionComponent = props => {
             </Typography>
             <Typography className="blog-short-content blog-image" dangerouslySetInnerHTML={{__html: blog.content}}>
             </Typography>
-            <Typography>...</Typography>
-            <Typography className="text-center">{ConvertDate(blog.createdAt)}</Typography>
+            <Typography className={classes.bodyText}>...</Typography>
+            <Typography>Published: {ConvertDate(blog.createdAt)}</Typography>
             <Grid container justify="center">
               <Button className={classes.button} color="primary" component={Link} to={{ pathname: `/blog/${blog.blogId}`}}>View</Button>
             </Grid>

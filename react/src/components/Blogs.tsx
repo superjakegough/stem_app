@@ -4,6 +4,8 @@ import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import blogsimage from "../assets/blogs.jpg";
 import Typography from "@material-ui/core/Typography";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Paper from "@material-ui/core/Paper";
 import Blog from "../models/blog";
 import { GetAllBlogs } from "../services/blog_service";
 import { ConvertDate } from "../helpers/DateHelper";
@@ -12,6 +14,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   bodyText: {
     marginBottom: theme.spacing(1)
   },
+  paper: {
+    padding: theme.spacing(2)
+  }
 }));
 
 const Blogs: React.FunctionComponent = props => {
@@ -27,7 +32,7 @@ const Blogs: React.FunctionComponent = props => {
 
   useEffect(() => {
     FetchBlogs();
-  }, [blogs]);
+  }, [blogs.length]);
 
   async function FetchBlogs() {
     setLoading(true);
@@ -55,6 +60,29 @@ const Blogs: React.FunctionComponent = props => {
     }
   }
 
+  const content = loading ? (
+    <Grid container justify="center" className="mt-24 mb-24">
+      <CircularProgress color="primary" />
+    </Grid>
+  ) : (
+    <>
+      {filteredBlogs.map((blog: Blog) => {
+        return (
+          <Paper key={blog.blogId} elevation={0} className={classes.paper}>
+            <Typography variant="h6" color="primary" className="text-center">
+              {blog.title}
+            </Typography>
+            <Typography>
+              {blog.description}
+            </Typography>
+            <Typography className="blog-short-content blog-image" dangerouslySetInnerHTML={{__html: blog.content}}>
+            </Typography>
+          </Paper>
+        );
+      })}
+    </>
+  );
+
   return (
     <div>
       <Grid container direction="column" justify="center">
@@ -68,13 +96,7 @@ const Blogs: React.FunctionComponent = props => {
             <Typography className={classes.bodyText}>Keep up to date with the latest industry news, as well as regular activites offering recruitment and careers advice.</Typography>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className="mb-24">
-            {filteredBlogs.map((blog: Blog) => {
-              return (
-                <div key={blog.blogId}>
-                  {blog.title}
-                </div>
-              );
-            })}
+            {content}
           </Grid>
         </Grid>
       </Grid>

@@ -9,16 +9,27 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Divider from "@material-ui/core/Divider";
+import Avatar from "@material-ui/core/Avatar"; 
 import homeimage from "../assets/home.jpg";
 import stemlogo from "../assets/stem_green.png";
+import avatar from "../assets/jack.jpg";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
+  avatar: {
+    height: 200,
+    width: 200,
+    marginBottom: theme.spacing(4)
+  },
   bodyText: {
     marginBottom: theme.spacing(1)
   },
   button: {
     marginTop: theme.spacing(2),
     marginBottom: -theme.spacing(1)
+  },
+  divider: {
+    margin: theme.spacing(4)
   },
   expansionSummary: {
     fontWeight: 500
@@ -87,7 +98,7 @@ const Home: React.FunctionComponent = props => {
                 </Grid>
               </ExpansionPanelDetails>
             </ExpansionPanel>
-            <ExpansionPanel elevation={0}>
+            <ExpansionPanel elevation={0} className="mb-24">
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.expansionSummary}>
                   Candidates
@@ -107,6 +118,12 @@ const Home: React.FunctionComponent = props => {
                 </Grid>
               </ExpansionPanelDetails>
             </ExpansionPanel>
+          </Grid>
+          <Grid item sm={10} xs={12}>
+            <Divider className={classes.divider}/>
+          </Grid>
+          <Grid item md={4} sm={10} xs={12} className="mt-24 text-center">
+            <Avatar src={avatar} alt="" className={classes.avatar} />
           </Grid>
         </Grid>
       </Grid>

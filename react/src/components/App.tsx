@@ -1,6 +1,5 @@
 import React from "react";
-import { Router, Route } from "react-router-dom";
-import { AnimatedSwitch } from "react-router-transition";
+import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import Navigation from "./Navigation";
 import Home from "./Home";
@@ -15,12 +14,7 @@ export default function App() {
   return (
     <Router history={history}>
       <Navigation>
-        <AnimatedSwitch
-          atEnter={{ opacity: 0 }}
-          atLeave={{ opacity: 0 }}
-          atActive={{ opacity: 1 }}
-          className="switch-wrapper"
-        >
+        <Switch>
           <Route path="/" exact component={Home}>
           </Route>
           <Route path="/services" exact component={Services}>
@@ -29,7 +23,7 @@ export default function App() {
           </Route>
           <Route path="/blogs" exact component={Blogs}>
           </Route>
-        </AnimatedSwitch>
+        </Switch>
       </Navigation>
     </Router>
   );

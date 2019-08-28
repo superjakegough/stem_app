@@ -26,9 +26,6 @@ const useStyles = makeStyles((theme: Theme) =>
     button: {
       margin: theme.spacing(1)
     },
-    buttonLink: {
-      textDecoration: "none"
-    },
     logo: {
       marginRight: theme.spacing(3)
     },
@@ -61,8 +58,8 @@ const TopAppBar: React.FunctionComponent = props => {
     window.open(url);
   }
 
-  const small = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
-  const topAppBar = small ? (
+  const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const topAppBar = smAndDown ? (
     <AppBar position="fixed" className={classes.appBar}>
       <Toolbar>
         <Grid container alignItems="center">

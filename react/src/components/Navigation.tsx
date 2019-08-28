@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Navigation: React.FunctionComponent = props => {
   const classes = useStyles({});
-  const small = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
-  const bottomNav = small ? <BottomNav /> : undefined;
+  const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const bottomNav = smAndDown ? <BottomNav /> : undefined;
 
   return (
     <div className={classes.root}>

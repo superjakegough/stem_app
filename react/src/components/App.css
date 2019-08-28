@@ -1,9 +1,14 @@
-.switch-wrapper {
-  position: relative;
+body {
+  font-family: "Roboto", sans-serif;
 }
- 
-.switch-wrapper > div {
-  position: absolute;
+
+a {
+  color: #22B771;
+  text-decoration: unset;
+}
+
+.MuiExpansionPanel-root:before {
+  background-color: unset !important;
 }
 
 .content-container {
@@ -12,6 +17,34 @@
 
 .content-image {
   border-radius: 2px;
+}
+
+.body-header {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-24 {
+  margin-top: 24px;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
+}
+
+.ml-16 {
+  margin-left: 16px;
 }
 
 .content-title {
@@ -32,6 +65,10 @@
   max-height: 120px;
   overflow-y: hidden;
   text-overflow: ellipsis;
+}
+
+.header-grid {
+  position: relative;
 }
 
 .header-image {

@@ -27,7 +27,7 @@ const Blogs: React.FunctionComponent = props => {
 
   useEffect(() => {
     FetchBlogs();
-  }, []);
+  }, [blogs]);
 
   async function FetchBlogs() {
     setLoading(true);
@@ -70,7 +70,7 @@ const Blogs: React.FunctionComponent = props => {
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             {filteredBlogs.map((blog: Blog) => {
               return (
-                <div>
+                <div key={blog.blogId}>
                   {blog.title}
                 </div>
               );

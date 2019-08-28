@@ -3,6 +3,9 @@ import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
 import Button from "@material-ui/core/Button";
 const useStyles = makeStyles((theme: Theme) => createStyles({
   avatar: {
@@ -48,38 +51,38 @@ const Privacy: React.FunctionComponent = props => {
           <Typography>
             We must have a legal basis to process your personal data. The legal bases we rely upon to offer our work-finding services to you are:
           </Typography>
-          <ul>
-            <li><Typography>
+          <List>
+            <ListItem><ListItemText> &bull;
               Your consent
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               Where we have a legitimate interest
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               To comply with a legal obligation that we have
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               To fulfil a contractual obligation that we have with you
-            </Typography></li>
-          </ul>
+            </ListItemText></ListItem>
+          </List>
           <Typography className={classes.bodyHeader}>Legitimate interest</Typography>
           <Typography className={classes.bodyText}>
             This is where Stem Skills &amp; Recruitment Ltd has a legitimate reason to process your data provided it is reasonable and does not go against what you would reasonably expect from us.  Where we have relied on a legitimate interest to process your personal data our legitimate interests is/are as follows:
           </Typography>
-          <ul>
-            <li><Typography>
+          <List>
+            <ListItem><ListItemText> &bull;
               Managing our database and keeping work-seeker records up to date;
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               Providing work-finding services to you and our clients;
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               Contacting you to seek your consent where we need it;
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               Giving you information about similar products or services that you have used from us recently;
-            </Typography></li>
-          </ul>
+            </ListItemText></ListItem>
+          </List>
           <Typography className={classes.bodyHeader}>Statutory/contractual requirement</Typography>
           <Typography className={classes.bodyText}>
             Stem Skills &amp; Recruitment Ltd has certain legal and contractual requirements to collect personal data (e.g. to comply with the Conduct of Employment Agencies and Employment Businesses Regulations 2003, immigration and tax legislation, and in some circumstances safeguarding requirements.)  Our clients may also require this personal data, and/or we may need your data to enter into a contract with you. If you do not give us personal data we need to collect we may not be able to continue to provide work-finding services to you. 
@@ -88,48 +91,48 @@ const Privacy: React.FunctionComponent = props => {
           <Typography className={classes.bodyText}>
             Stem Skills &amp; Recruitment Ltd will process your personal data and/or sensitive personal data with the following recipients:
           </Typography>
-          <ul>
-            <li><Typography>
+          <List>
+            <ListItem><ListItemText> &bull;
               Clients (whom we may introduce or supply you to, only when your consent has been given)
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               Former employers whom we may seek references from (if details are provided to us by the candidate)
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               Third parties who perform functions on our behalf and who also provide services to us, such as IT technicians who provide support on our business technology systems, software solutions providers and back office support. These third parties comply with similar undertakings of privacy and confidentiality as us. Please note: These third parties will only have access to your personal data if required by them to perform their functions and they are not permitted to use any personal data for any other purposes.
-            </Typography></li>
-          </ul>
+            </ListItemText></ListItem>
+          </List>
           <Typography className={classes.bodyHeader}>Categories of data</Typography>
           <Typography className={classes.bodyText}>
             Stem Skills &amp; Recruitment Ltd may collect the following personal data on you:
           </Typography>
           <Typography className={classes.bodyText}><i>Personal data:</i></Typography>
-          <ul>
-            <li><Typography>
+          <List>
+            <ListItem><ListItemText> &bull;
               Full name
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               Date of birth
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               Contact details (including postal address, mobile no., email address)
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               National insurance no.
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               Identification documents (e.g. passport, driving licence, utility bill)
-            </Typography></li>
-          </ul>
+            </ListItemText></ListItem>
+          </List>
           <Typography className={classes.bodyText}><i>We might also collect the following sensitive personal data if required for a security check or by our clients when providing you with work-finding services: </i></Typography>
-          <ul>
-            <li><Typography>
+          <List>
+            <ListItem><ListItemText> &bull;
               Health information including whether you have a disability
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               Criminal conviction
-            </Typography></li>
-          </ul>
+            </ListItemText></ListItem>
+          </List>
           <Typography className={classes.bodyHeader}>Overseas Transfers</Typography>
           <Typography className={classes.bodyText}>
             Stem Skills &amp; Recruitment Ltd may transfer the information you provide to us to countries outside the European Economic Area (‘EEA’) for the purposes of providing you with work-finding services. We will take steps to ensure adequate protections are in place to ensure the security of your information. The EEA comprises the EU member states plus Norway, Iceland and Liechtenstein. 
@@ -145,35 +148,35 @@ const Privacy: React.FunctionComponent = props => {
           <Typography className={classes.bodyText}>
             Please be aware that you have the following data protection rights:
           </Typography>
-          <ul>
-            <li><Typography>
+          <List>
+            <ListItem><ListItemText> &bull;
               The right to be informed about the personal data we process on you;
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               The right of access to the personal data we process on you;
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               The right to rectification of your personal data;
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               The right to erasure of your personal data in certain circumstances;
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               The right to restrict processing of your personal data;
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               The right to data portability in certain circumstances;
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               The right to object to the processing of your personal data that was based on a public or legitimate interest;
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               The right not to be subjected to automated decision making and profiling; and
-            </Typography></li>
-            <li><Typography>
+            </ListItemText></ListItem>
+            <ListItem><ListItemText> &bull;
               The right to withdraw consent at any time.
-            </Typography></li>
-          </ul>
+            </ListItemText></ListItem>
+          </List>
           <Typography className={classes.bodyText}>
             Where you have consented to Stem Skills &amp; Recruitment Ltd processing your personal data you have the right to withdraw that consent at any time by contacting Jack Taylor (Director &amp; Data Protection Officer at the Company) on  <a href="mailto:jack.taylor@stemrecruit.co.uk">jack.taylor@stemrecruit.co.uk.</a> Please note that if you withdraw your consent to further processing that does not affect any processing done prior to the withdrawal of that consent, or which is done according to another legal basis.
           </Typography>

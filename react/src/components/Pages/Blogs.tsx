@@ -28,18 +28,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   textField: {
     flexBasis: 200,
     marginBottom: theme.spacing(4),
-    width: "100%",
-    "& .MuiFilledInput-root": {
-      backgroundColor: "white",
-      borderRadius: 8
-    },
-    "& .MuiFilledInput-underline:before": {
-      borderBottom: 0,
-    },
-    "& .MuiFilledInput-underline:after": {
-      borderBottomColor: theme.palette.primary.main,
-      borderRadius: 8,
-    },
   },
 }));
 
@@ -49,7 +37,7 @@ const Blogs: React.FunctionComponent = props => {
   const [filteredBlogs, setFilteredBlogs] = React.useState<Blog[]>([]);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [page, setPage] = React.useState<number>(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState<number>(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState<number>(3);
   const [searchTerm, setSearchTerm] = React.useState<string>("");
 
   useEffect(() => {
@@ -61,10 +49,9 @@ const Blogs: React.FunctionComponent = props => {
     const result = await GetAllBlogs();
     if (result) {
       setBlogs(result);
+      setFilteredBlogs(result);
     }
-    onSearch();
     setLoading(false);
-
   }
 
   function handleChangePage(event: unknown, newPage: number) {
@@ -76,9 +63,10 @@ const Blogs: React.FunctionComponent = props => {
     setPage(0);
   }
 
-  function onSearch() {
+  function handleSubmitSearch(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     const regex = new RegExp(`^.*${searchTerm}.*$`, "i");
-    setPage(1);
+    setPage(0);
     if (!searchTerm) {
       setFilteredBlogs(blogs);
     } else {
@@ -94,8 +82,8 @@ const Blogs: React.FunctionComponent = props => {
     <>
       {filteredBlogs.map((blog: Blog) => {
         return (
-          <>
-            <Paper key={blog.blogId} elevation={0} className={classes.paper}>
+          <div key={blog.blogId}>
+            <Paper elevation={0} className={classes.paper}>
               <Typography variant="h6" color="primary" className="text-center">
                 {blog.title}
               </Typography>
@@ -110,19 +98,28 @@ const Blogs: React.FunctionComponent = props => {
                 <Button className={classes.button} color="primary" component={Link} to={{ pathname: `/blog/${blog.blogId}`}}>View</Button>
               </Grid>
             </Paper>
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 25]}
-              component="div"
-              count={filteredBlogs.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onChangePage={handleChangePage}
-              onChangeRowsPerPage={handleChangeRowsPerPage}
-            />
-          </>
+          </div>
         );
       })}
     </>
+  );
+
+  const pagination = filteredBlogs.length > 0 ? (
+    <TablePagination
+      rowsPerPageOptions={[3, 5, 10]}
+      component="div"
+      count={filteredBlogs.length}
+      rowsPerPage={rowsPerPage}
+      page={page}
+      onChangePage={handleChangePage}
+      onChangeRowsPerPage={handleChangeRowsPerPage}
+    />
+  ) : (
+    <Paper elevation={0} className={classes.paper}>
+      <Typography className="text-center">
+        No blogs found
+      </Typography>
+    </Paper>
   );
 
   return (
@@ -138,16 +135,21 @@ const Blogs: React.FunctionComponent = props => {
             <Typography className={classes.bodyText}>Keep up to date with the latest industry news, as well as regular activites offering recruitment and careers advice.</Typography>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <TextField
-              className={classes.textField}
-              variant="filled"
-              margin="dense"
-              hiddenLabel
-              InputProps={{
-                startAdornment: <InputAdornment position="start"><SearchIcon color="primary"/></InputAdornment>,
-              }}
-            />
+            <form onSubmit={handleSubmitSearch}>
+              <TextField
+                className={classes.textField}
+                variant="filled"
+                margin="dense"
+                fullWidth
+                hiddenLabel
+                onChange={e => setSearchTerm(e.target.value)}
+                InputProps={{
+                  startAdornment: <InputAdornment position="start"><SearchIcon color="primary"/></InputAdornment>,
+                }}
+              />
+            </form>
             {content}
+            {pagination}
           </Grid>
         </Grid>
       </Grid>

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import blogsimage from "../assets/blogs.jpg";
 import Typography from "@material-ui/core/Typography";
 import Blog from "../models/blog";
+import { GetAllBlogs } from "../services/blog_service";
 import { ConvertDate } from "../helpers/DateHelper";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -15,7 +16,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 const Blogs: React.FunctionComponent = props => {
   const classes = useStyles({});
-  const date: string = new Date().toISOString();
   const [blogs, setBlogs] = React.useState<Blog[]>([]);
   const [filteredBlogs, setFilteredBlogs] = React.useState<Blog[]>([]);
   const [pagedBlogs, setPagedBlogs] = React.useState<Blog[]>([]);
@@ -24,6 +24,20 @@ const Blogs: React.FunctionComponent = props => {
   const [blogsPages, setBlogsPages] = React.useState<number>(1);
   const [searchTerm, setSearchTerm] = React.useState<string>("");
   const blogsPerPage: number = 3;
+
+  useEffect(() => {
+   FetchBlogs();
+  }, []);
+
+  async function FetchBlogs() {
+    setLoading(true);
+    const result = await GetAllBlogs();
+    if (result) {
+      setBlogs(result);
+    }
+    onSearch();
+    setLoading(false);
+  }
 
   function onPageChange() {
     setBlogsPages(Math.ceil(filteredBlogs.length / blogsPerPage));
@@ -51,6 +65,15 @@ const Blogs: React.FunctionComponent = props => {
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <h2 className="content-title mb-24">News &amp; Advice Blogs</h2>
             <Typography className={classes.bodyText}>Keep up to date with the latest industry news, as well as regular activites offering recruitment and careers advice.</Typography>
+          </Grid>
+          <Grid item md={8} sm={10} xs={12} className="mb-24">
+            {filteredBlogs.map((blog: Blog) => {
+              return (
+                <div>
+                  {blog.title}
+                </div>
+              );
+            })}
           </Grid>
         </Grid>
       </Grid>

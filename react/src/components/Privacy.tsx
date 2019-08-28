@@ -178,13 +178,13 @@ const Privacy: React.FunctionComponent = props => {
             Where you have consented to Stem Skills &amp; Recruitment Ltd processing your personal data you have the right to withdraw that consent at any time by contacting Jack Taylor (Director &amp; Data Protection Officer at the Company) on  <a href="mailto:jack.taylor@stemrecruit.co.uk">jack.taylor@stemrecruit.co.uk.</a> Please note that if you withdraw your consent to further processing that does not affect any processing done prior to the withdrawal of that consent, or which is done according to another legal basis.
           </Typography>
           <Typography className={classes.bodyText}>
-            There may be circumstances where Stem Skills &amp; Recruitment Ltd will still need to process your data for legal or official reasons. Where this is the case, we will tell you and we will restrict the data to only what is necessary for those specific reasons. 
+            There may be circumstances where Stem Skills &amp; Recruitment Ltd will still need to process your data for legal or official reasons. Where this is the case, we will tell you and we will restrict the data to only what is necessary for those specific reasons.
           </Typography>
           <Typography className={classes.bodyText}>
-            If you believe that any of your data that Stem Skills &amp; Recruitment Ltd processes is incorrect or incomplete, please contact us using the details above and we will take reasonable steps to check its accuracy and correct it where necessary.  
+            If you believe that any of your data that Stem Skills &amp; Recruitment Ltd processes is incorrect or incomplete, please contact us using the details above and we will take reasonable steps to check its accuracy and correct it where necessary.
           </Typography>
           <Typography className={classes.bodyText}><strong>
-            You can also contact us using the above details if you want us to restrict the type or amount of data we process for you, access your personal data or exercise any of the other rights listed above.  
+            You can also contact us using the above details if you want us to restrict the type or amount of data we process for you, access your personal data or exercise any of the other rights listed above.
           </strong></Typography>
           <Typography className={classes.bodyHeader}>Links to external websites</Typography>
           <Typography className={classes.bodyText}>

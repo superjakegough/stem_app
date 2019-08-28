@@ -11,6 +11,10 @@ a {
   background-color: unset !important;
 }
 
+.MuiStepIcon-text {
+  fill: white !important;
+}
+
 .content-container {
   padding: 56px;
 }

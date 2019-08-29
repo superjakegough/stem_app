@@ -74,6 +74,24 @@ const Blogs: React.FunctionComponent = props => {
     }
   }
 
+  const pagination = filteredBlogs.length > 0 ? (
+    <TablePagination
+      rowsPerPageOptions={[3, 5, 10]}
+      component="div"
+      count={filteredBlogs.length}
+      rowsPerPage={rowsPerPage}
+      page={page}
+      onChangePage={handleChangePage}
+      onChangeRowsPerPage={handleChangeRowsPerPage}
+    />
+  ) : (
+    <Paper elevation={0} className={classes.paper}>
+      <Typography className="text-center">
+        No blogs found
+      </Typography>
+    </Paper>
+  );
+
   const content = loading ? (
     <Grid container justify="center" className="mt-24 mb-24">
       <CircularProgress color="primary" />
@@ -101,25 +119,8 @@ const Blogs: React.FunctionComponent = props => {
           </div>
         );
       })}
+      {pagination}
     </>
-  );
-
-  const pagination = filteredBlogs.length > 0 ? (
-    <TablePagination
-      rowsPerPageOptions={[3, 5, 10]}
-      component="div"
-      count={filteredBlogs.length}
-      rowsPerPage={rowsPerPage}
-      page={page}
-      onChangePage={handleChangePage}
-      onChangeRowsPerPage={handleChangeRowsPerPage}
-    />
-  ) : (
-    <Paper elevation={0} className={classes.paper}>
-      <Typography className="text-center">
-        No blogs found
-      </Typography>
-    </Paper>
   );
 
   return (
@@ -149,7 +150,6 @@ const Blogs: React.FunctionComponent = props => {
               />
             </form>
             {content}
-            {pagination}
           </Grid>
         </Grid>
       </Grid>

@@ -74,6 +74,24 @@ const Jobs: React.FunctionComponent = props => {
     }
   }
 
+  const pagination = filteredJobs.length > 0 ? (
+    <TablePagination
+      rowsPerPageOptions={[3, 5, 10]}
+      component="div"
+      count={filteredJobs.length}
+      rowsPerPage={rowsPerPage}
+      page={page}
+      onChangePage={handleChangePage}
+      onChangeRowsPerPage={handleChangeRowsPerPage}
+    />
+  ) : (
+    <Paper elevation={0} className={classes.paper}>
+      <Typography className="text-center">
+        No jobs found
+      </Typography>
+    </Paper>
+  );
+
   const content = loading ? (
     <Grid container justify="center" className="mt-24 mb-24">
       <CircularProgress color="primary" />
@@ -111,6 +129,7 @@ const Jobs: React.FunctionComponent = props => {
               <Typography>
                 {job.jobReference}
               </Typography>
+              <Typography>Published: {ConvertDate(job.createdAt)}</Typography>
               <Grid container justify="center">
                 <Button className={classes.button} color="primary" component={Link} to={{ pathname: `/job/${job.jobId}`}}>View</Button>
               </Grid>
@@ -118,25 +137,8 @@ const Jobs: React.FunctionComponent = props => {
           </div>
         );
       })}
+      {pagination}
     </>
-  );
-
-  const pagination = filteredJobs.length > 0 ? (
-    <TablePagination
-      rowsPerPageOptions={[3, 5, 10]}
-      component="div"
-      count={filteredJobs.length}
-      rowsPerPage={rowsPerPage}
-      page={page}
-      onChangePage={handleChangePage}
-      onChangeRowsPerPage={handleChangeRowsPerPage}
-    />
-  ) : (
-    <Paper elevation={0} className={classes.paper}>
-      <Typography className="text-center">
-        No jobs found
-      </Typography>
-    </Paper>
   );
 
   return (
@@ -152,7 +154,6 @@ const Jobs: React.FunctionComponent = props => {
             <Typography className={classes.bodyText}>Interested in any of the below opportunities? To apply, please send your CV to
             <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> with the job reference number, and we will respond within 2 working days.</Typography>
           </Grid>
-        </Grid>
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <form onSubmit={handleSubmitSearch}>
               <TextField
@@ -168,9 +169,9 @@ const Jobs: React.FunctionComponent = props => {
               />
             </form>
             {content}
-            {pagination}
           </Grid>
         </Grid>
+      </Grid>
     </div>
   );
 };

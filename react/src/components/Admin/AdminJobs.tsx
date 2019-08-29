@@ -9,14 +9,22 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
+import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Job from "../../models/job";
 import { GetAllJobs } from "../../services/job_service";
+import Toolbar from "@material-ui/core/Toolbar";
+import Spacer from "../Layout/Spacer";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
+  button: {
+    margin: theme.spacing(1)
+  },
   root: {
     width: "100%",
     marginTop: theme.spacing(3),
@@ -31,6 +39,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   tableWrapper: {
     overflowX: "auto",
   },
+  toolbar: {
+    width: "100%"
+  }
 }));
 
 const AdminJobs: React.FunctionComponent = props => {
@@ -72,6 +83,10 @@ const AdminJobs: React.FunctionComponent = props => {
     <Paper className={classes.root}>
       <Table className={classes.table}>
         <TableHead>
+          <Toolbar className={classes.toolbar}>
+              <h6>Jobs</h6>
+              <Button className={classes.button} color="primary">Create</Button>
+          </Toolbar>
           <TableRow>
             <TableCell>Title</TableCell>
             <TableCell align="right">Salary</TableCell>
@@ -79,6 +94,7 @@ const AdminJobs: React.FunctionComponent = props => {
             <TableCell align="right">Type</TableCell>
             <TableCell align="right">Location</TableCell>
             <TableCell align="right">Reference</TableCell>
+            <TableCell align="right">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -94,6 +110,10 @@ const AdminJobs: React.FunctionComponent = props => {
               <TableCell align="right">{job.jobType}</TableCell>
               <TableCell align="right">{job.jobLocation}</TableCell>
               <TableCell align="right">{job.jobReference}</TableCell>
+              <TableCell align="right">
+                <EditIcon color="primary"/>
+                <DeleteIcon color="primary"/>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -30,9 +30,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     margin: "auto",
     marginBottom: theme.spacing(4)
   },
-  bodyText: {
-    marginBottom: theme.spacing(1)
-  },
   button: {
     marginTop: theme.spacing(2),
     marginBottom: -theme.spacing(1)
@@ -41,7 +38,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     margin: theme.spacing(4)
   },
   expansionSummary: {
-    fontWeight: 500
+    fontWeight: 500,
+    margin: 0
   },
   fillHeight: {
     height: "100%"
@@ -74,18 +72,18 @@ const Home: React.FunctionComponent = props => {
             </Grid>
           )}
           <Grid item md={6} sm={10} xs={12}>
-            <Typography className={classes.bodyText}>
+            <p>
               Stem Skills &amp; Recruitment is a specialist recruitment consultancy, which also aims to support the growth of industries it recruits for.
-            </Typography>
-            <Typography className={classes.bodyText}>
+            </p>
+            <p>
               Based in Wales, we provide expertise in recruitment for Science, Technology, Engineering and Manufacturing businesses across the region.
-            </Typography>
-            <Typography className={classes.bodyText}>
+            </p>
+            <p>
               Our approach to recruitment is simple and transparent, and whilst providing short-term solutions to find you the right candidate or job, we also invest into long-term solutions for your recruitment and career needs.
-            </Typography>
-            <Typography className={classes.bodyText}>
+            </p>
+            <p>
               Whether you are a business looking to recruit, or a candidate looking to take the next step in your career, then we are here to listen to your requirements and expectations, offer market advice and knowledge, and work with you to find you the right match.
-            </Typography>
+            </p>
           </Grid>
           {!smAndDown && (
             <Grid item md={2} className="ml-16">
@@ -94,19 +92,19 @@ const Home: React.FunctionComponent = props => {
           )}
           <Grid item md={8} sm={10} xs={12} className="mt-24 mb-24">
             <h2 className="content-title mt-24 mb-24">What We Do</h2>
-            <ExpansionPanel elevation={0} defaultExpanded={true}>
+            <ExpansionPanel elevation={0} defaultExpanded={true} className="mb-24">
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography className={classes.expansionSummary}>
+                <p className={classes.expansionSummary}>
                   Clients
-                </Typography>
+                </p>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                 <Grid container direction="column" justify="center" alignItems="center">
                   <Grid item>
-                    <Typography>
+                    <p>
                       Stem supports science, technology, engineering and manufacturing businesses in Wales by providing permanent recruitment services. We provide experience and expertise in recruiting for a wide range of roles and are dedicated to finding the right candidates to help your business grow. Take a look at our client services page to find out more information, or if you have a vacancy and need help, then email {" "}
                       <a href="mailto:info@stemrecruit.co.uk">info@stemrecruit.co.uk.</a>
-                    </Typography>
+                    </p>
                   </Grid>
                   <Grid item>
                     <Button className={classes.button} color="primary" component={Link} to="/services">Services</Button>
@@ -116,17 +114,17 @@ const Home: React.FunctionComponent = props => {
             </ExpansionPanel>
             <ExpansionPanel elevation={0} className="mb-24">
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography className={classes.expansionSummary}>
+                <p className={classes.expansionSummary}>
                   Candidates
-                </Typography>
+                </p>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                 <Grid container direction="column" justify="center" alignItems="center">
                   <Grid item>
-                    <Typography>
+                    <p>
                       If you’re looking to take the next step in your career, then we can help. All of our services to candidates may be free, but we take the same time and care in finding YOU the right fit as we do for our clients. To see our current job opportunities with our clients, take a look at our find a job page, or alternatively you can register with us by sending your CV to {" "}
                       <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> {" "} and we will be in contact as soon as we have any suitable job opportunities.
-                    </Typography>
+                    </p>
                   </Grid>
                   <Grid item>
                     <Button className={classes.button} color="primary" component={Link} to="/jobs">Jobs</Button>
@@ -149,9 +147,9 @@ const Home: React.FunctionComponent = props => {
           </Grid>
           <Grid item md={4} sm={10} xs={12}>
             <Grid container justify="center" alignItems="center" className={classes.fillHeight}>
-              <Typography>
+              <p>
                 I am a personable and technical recruiter with a simple and transparent approach that has both client and candidate satisfaction at its core. I offer extensive market knowledge of the science, technology, engineering and manufacturing industries in Wales, along with a large network of candidates and clients. I have recruited for a variety of companies; from start-ups and SMEs, right through to blue-chip organisations and global brands.
-              </Typography>
+              </p>
             </Grid>
           </Grid>
           <Grid item md={4} sm={10} xs={12} className="mb-24">

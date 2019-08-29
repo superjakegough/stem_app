@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     margin: theme.spacing(1)
   },
   paper: {
+    marginTop: theme.spacing(3),
     padding: theme.spacing(2)
   }
 }));
@@ -68,7 +69,7 @@ const Blogs: React.FunctionComponent<RouteComponentProps> = props => {
         <Grid item md={8} sm={10} xs={12} className="mb-24">
           {content}
         </Grid>
-        <Grid container justify="center" className="mb-48">
+        <Grid container justify="center" className="mb-24">
           <Button className={classes.button} color="primary" component={Link} to="/blogs">Blogs</Button>
         </Grid>
       </Grid>

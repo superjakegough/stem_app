@@ -29,6 +29,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   button: {
     margin: theme.spacing(1)
   },
+  divider: {
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2)
+  },
+  grid: {
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2)
+  },
   icon: {
     color: "#9e9e9e"
   },
@@ -82,7 +90,19 @@ const AdminJobs: React.FunctionComponent = props => {
             <EditIcon className={classes.icon} />
             <DeleteIcon className={classes.icon}/>
           </Toolbar>
-          <Divider />
+          <Divider className={classes.divider} />
+          <Grid container justify="space-between" className={classes.grid}>
+            <p className={classes.boldText}>Type:</p>
+            <p>{job.jobType}</p>
+          </Grid>
+          <Grid container justify="space-between" className={classes.grid}>
+            <p className={classes.boldText}>Location:</p>
+            <p>{job.jobLocation}</p>
+          </Grid>
+          <Grid container justify="space-between" className={classes.grid}>
+            <p className={classes.boldText}>Reference:</p>
+            <p>{job.jobReference}</p>
+          </Grid>
         </Paper>
       ))}
       <TablePagination

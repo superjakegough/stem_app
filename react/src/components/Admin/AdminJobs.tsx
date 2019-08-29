@@ -81,16 +81,15 @@ const AdminJobs: React.FunctionComponent = props => {
     </Grid>
   ) : (
     <Paper className={classes.root}>
+      <Toolbar className={classes.toolbar}>
+        <h6>Jobs</h6>
+        <Spacer />
+        <Button className={classes.button} color="primary">Create</Button>
+      </Toolbar>
       <Table className={classes.table}>
         <TableHead>
-          <Toolbar className={classes.toolbar}>
-              <h6>Jobs</h6>
-              <Button className={classes.button} color="primary">Create</Button>
-          </Toolbar>
           <TableRow>
             <TableCell>Title</TableCell>
-            <TableCell align="right">Salary</TableCell>
-            <TableCell align="right">Benefits</TableCell>
             <TableCell align="right">Type</TableCell>
             <TableCell align="right">Location</TableCell>
             <TableCell align="right">Reference</TableCell>
@@ -105,8 +104,6 @@ const AdminJobs: React.FunctionComponent = props => {
               <TableCell component="th" scope="row">
                 {job.title}
               </TableCell>
-              <TableCell align="right">{job.salary}</TableCell>
-              <TableCell align="right">{job.benefits}</TableCell>
               <TableCell align="right">{job.jobType}</TableCell>
               <TableCell align="right">{job.jobLocation}</TableCell>
               <TableCell align="right">{job.jobReference}</TableCell>

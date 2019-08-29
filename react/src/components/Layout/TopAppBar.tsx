@@ -103,7 +103,7 @@ const TopAppBar: React.FunctionComponent = props => {
       <Toolbar>
         <Grid container alignItems="center">
           <Grid item xs>
-            <Grid container direction="row">
+            <Grid container alignItems="center">
               <img className={classes.logo} src={logo} height="28" alt="" />
               <h6>
                 Stem

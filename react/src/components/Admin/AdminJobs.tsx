@@ -10,38 +10,33 @@ import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import Button from "@material-ui/core/Button";
+import Divider from "@material-ui/core/Divider";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import Job from "../../models/job";
-import { GetAllJobs } from "../../services/job_service";
 import Toolbar from "@material-ui/core/Toolbar";
 import Spacer from "../Layout/Spacer";
+import Job from "../../models/job";
+import { GetAllJobs } from "../../services/job_service";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
+  boldText: {
+    fontWeight: 500
+  },
   button: {
     margin: theme.spacing(1)
   },
-  root: {
-    width: "100%",
-    marginTop: theme.spacing(3),
+  icon: {
+    color: "#9e9e9e"
   },
   paper: {
     width: "100%",
-    marginBottom: theme.spacing(2),
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3)
   },
-  table: {
-    minWidth: 750,
-  },
-  tableWrapper: {
-    overflowX: "auto",
-  },
-  toolbar: {
-    width: "100%"
-  }
 }));
 
 const AdminJobs: React.FunctionComponent = props => {
@@ -75,18 +70,39 @@ const AdminJobs: React.FunctionComponent = props => {
     setPage(0);
   }
 
-  const content = loading ? (
-    <Grid container justify="center" className="mt-24 mb-24">
-      <CircularProgress color="primary" />
-    </Grid>
+  const table = smAndDown ? (
+    <>
+      {jobs
+        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+        .map(job => (
+        <Paper key={job.jobId} className={classes.paper}>
+          <Toolbar>
+            <p className={classes.boldText}>{job.title}</p>
+            <Spacer />
+            <EditIcon className={classes.icon} />
+            <DeleteIcon className={classes.icon}/>
+          </Toolbar>
+          <Divider />
+        </Paper>
+      ))}
+      <TablePagination
+        rowsPerPageOptions={[5, 10, 25]}
+        component="div"
+        count={jobs.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleChangeRowsPerPage}
+      />
+    </>
   ) : (
-    <Paper className={classes.root}>
-      <Toolbar className={classes.toolbar}>
+    <Paper className={classes.paper}>
+      <Toolbar>
         <h6>Jobs</h6>
         <Spacer />
         <Button className={classes.button} color="primary">Create</Button>
       </Toolbar>
-      <Table className={classes.table}>
+      <Table>
         <TableHead>
           <TableRow>
             <TableCell>Title</TableCell>
@@ -108,8 +124,8 @@ const AdminJobs: React.FunctionComponent = props => {
               <TableCell align="right">{job.jobLocation}</TableCell>
               <TableCell align="right">{job.jobReference}</TableCell>
               <TableCell align="right">
-                <EditIcon color="primary"/>
-                <DeleteIcon color="primary"/>
+                <EditIcon className={classes.icon} />
+                <DeleteIcon className={classes.icon}/>
               </TableCell>
             </TableRow>
           ))}
@@ -125,6 +141,14 @@ const AdminJobs: React.FunctionComponent = props => {
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
     </Paper>
+  );
+
+  const content = loading ? (
+    <Grid container justify="center" className="mt-24 mb-24">
+      <CircularProgress color="primary" />
+    </Grid>
+  ) : (
+    table
   );
 
   return (

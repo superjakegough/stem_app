@@ -149,6 +149,10 @@ h6 {
   letter-spacing: -0.32px;
 }
 
+.admin-table {
+  height: 100vh;
+}
+
 .home-logo {
   max-height: 220px;
 }

@@ -32,7 +32,6 @@ const Blogs: React.FunctionComponent = props => {
   const classes = useStyles({});
   const [blogs, setBlogs] = React.useState<Blog[]>([]);
   const [filteredBlogs, setFilteredBlogs] = React.useState<Blog[]>([]);
-  const [pagedBlogs, setPagedBlogs] = React.useState<Blog[]>([]);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [page, setPage] = React.useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = React.useState<number>(3);
@@ -46,10 +45,6 @@ const Blogs: React.FunctionComponent = props => {
     handlePages(0);
   }, [filteredBlogs.length]);
 
-  useEffect(() => {
-    handlePages(0);
-  }, [rowsPerPage]);
-
   async function fetchBlogs() {
     setLoading(true);
     const result = await GetAllBlogs();
@@ -61,10 +56,6 @@ const Blogs: React.FunctionComponent = props => {
   }
 
   function handlePages(newPage: number) {
-    setPagedBlogs(filteredBlogs.slice(
-      (newPage) * rowsPerPage,
-      (newPage + 1) * rowsPerPage
-    ));
     setPage(newPage);
   }
 
@@ -110,7 +101,9 @@ const Blogs: React.FunctionComponent = props => {
     </Grid>
   ) : (
     <>
-      {pagedBlogs.map((blog: Blog) => {
+      {filteredBlogs
+        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+        .map((blog: Blog) => {
         return (
           <div key={blog.blogId}>
             <Paper elevation={0} className={classes.paper}>

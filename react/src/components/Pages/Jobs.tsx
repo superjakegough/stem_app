@@ -32,7 +32,6 @@ const Jobs: React.FunctionComponent = props => {
   const classes = useStyles({});
   const [jobs, setJobs] = React.useState<Job[]>([]);
   const [filteredJobs, setFilteredJobs] = React.useState<Job[]>([]);
-  const [pagedJobs, setPagedJobs] = React.useState<Job[]>([]);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [page, setPage] = React.useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = React.useState<number>(3);
@@ -46,10 +45,6 @@ const Jobs: React.FunctionComponent = props => {
     handlePages(0);
   }, [filteredJobs.length]);
 
-  useEffect(() => {
-    handlePages(0);
-  }, [rowsPerPage]);
-
   async function fetchJobs() {
     setLoading(true);
     const result = await GetAllJobs();
@@ -61,10 +56,6 @@ const Jobs: React.FunctionComponent = props => {
   }
 
   function handlePages(newPage: number) {
-    setPagedJobs(filteredJobs.slice(
-      (newPage) * rowsPerPage,
-      (newPage + 1) * rowsPerPage
-    ));
     setPage(newPage);
   }
 
@@ -110,7 +101,9 @@ const Jobs: React.FunctionComponent = props => {
     </Grid>
   ) : (
     <>
-      {pagedJobs.map((job: Job) => {
+      {filteredJobs
+        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+        .map((job: Job) => {
         return (
           <div key={job.jobId}>
             <Paper elevation={0} className={classes.paper}>
@@ -163,8 +156,8 @@ const Jobs: React.FunctionComponent = props => {
         <Grid container justify="center" className="content-container">
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <h2 className="content-title mb-24">Current Opportunities</h2>
-            <p>Interested in any of the below opportunities? To apply, please send your CV to
-            <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> with the job reference number, and we will respond within 2 working days.</p>
+            <p>Interested in any of the below opportunities? To apply, please send your CV to {" "}
+            <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk</a> with the job reference number, and we will respond within 2 working days.</p>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <form onSubmit={handleSubmitSearch}>

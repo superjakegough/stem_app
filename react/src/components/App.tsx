@@ -5,8 +5,9 @@ import Navigation from "./Layout/Navigation";
 import Home from "./Pages/Home";
 import Services from "./Pages/Services";
 import Jobs from "./Pages/Jobs";
-import Blog from "./Pages/Blog";
+import Job from "./Pages/Job";
 import Blogs from "./Pages/Blogs";
+import Blog from "./Pages/Blog";
 import Privacy from "./Pages/Privacy";
 import "./App.css";
 
@@ -23,9 +24,11 @@ export default function App() {
           </Route>
           <Route path="/jobs" exact component={Jobs}>
           </Route>
-          <Route path="/blog/:id" exact component={Blog}>
+          <Route path="/job/:id" exact component={Job}>
           </Route>
           <Route path="/blogs" exact component={Blogs}>
+          </Route>
+          <Route path="/blog/:id" exact component={Blog}>
           </Route>
           <Route path="/privacy" exact component={Privacy}>
           </Route>

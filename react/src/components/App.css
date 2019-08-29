@@ -185,7 +185,8 @@ h6 {
 
 @media (max-width: 960px) {
   .content-container {
-    padding: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 
   .content-title {

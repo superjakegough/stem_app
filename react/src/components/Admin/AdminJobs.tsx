@@ -79,7 +79,7 @@ const AdminJobs: React.FunctionComponent = props => {
   }
 
   const table = smAndDown ? (
-    <>
+    <div className="mb-48">
       {jobs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map(job => (
@@ -114,7 +114,7 @@ const AdminJobs: React.FunctionComponent = props => {
         onChangePage={handleChangePage}
         onChangeRowsPerPage={handleChangeRowsPerPage}
       />
-    </>
+    </div>
   ) : (
     <Paper className={classes.paper}>
       <Toolbar>
@@ -174,7 +174,7 @@ const AdminJobs: React.FunctionComponent = props => {
   return (
     <div>
       <Grid container justify="center" alignItems="center" className="content-container admin-table">
-        <Grid item xs={10}>
+        <Grid item md={10} sm={10} xs={12}>
           {content}
         </Grid>
       </Grid>

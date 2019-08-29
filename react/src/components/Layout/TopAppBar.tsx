@@ -111,7 +111,7 @@ const TopAppBar: React.FunctionComponent = props => {
             </Grid>
           </Grid>
           <Grid item xs>
-            <Grid container justify="center">
+            <Grid container justify="center" wrap="nowrap">
               <Button className={classes.button} color="primary" component={Link} to="/">Home</Button>
               <Button className={classes.button} color="primary" component={Link} to="/services">Services</Button>
               <Button className={classes.button} color="primary" component={Link} to="/jobs">Jobs</Button>

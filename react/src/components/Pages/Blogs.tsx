@@ -35,16 +35,25 @@ const Blogs: React.FunctionComponent = props => {
   const classes = useStyles({});
   const [blogs, setBlogs] = React.useState<Blog[]>([]);
   const [filteredBlogs, setFilteredBlogs] = React.useState<Blog[]>([]);
+  const [pagedBlogs, setPagedBlogs] = React.useState<Blog[]>([]);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [page, setPage] = React.useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = React.useState<number>(3);
   const [searchTerm, setSearchTerm] = React.useState<string>("");
 
   useEffect(() => {
-    FetchBlogs();
+    fetchBlogs();
   }, [blogs.length]);
 
-  async function FetchBlogs() {
+  useEffect(() => {
+    handlePages(0);
+  }, [filteredBlogs.length]);
+
+  useEffect(() => {
+    handlePages(0);
+  }, [rowsPerPage]);
+
+  async function fetchBlogs() {
     setLoading(true);
     const result = await GetAllBlogs();
     if (result) {
@@ -54,19 +63,25 @@ const Blogs: React.FunctionComponent = props => {
     setLoading(false);
   }
 
-  function handleChangePage(event: unknown, newPage: number) {
+  function handlePages(newPage: number) {
+    setPagedBlogs(filteredBlogs.slice(
+      (newPage) * rowsPerPage,
+      (newPage + 1) * rowsPerPage
+    ));
     setPage(newPage);
+  }
+
+  function handleChangePage(event: unknown, newPage: number) {
+    handlePages(newPage);
   }
 
   function handleChangeRowsPerPage(event: React.ChangeEvent<HTMLInputElement>) {
     setRowsPerPage(+event.target.value);
-    setPage(0);
   }
 
   function handleSubmitSearch(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const regex = new RegExp(`^.*${searchTerm}.*$`, "i");
-    setPage(0);
     if (!searchTerm) {
       setFilteredBlogs(blogs);
     } else {
@@ -98,7 +113,7 @@ const Blogs: React.FunctionComponent = props => {
     </Grid>
   ) : (
     <>
-      {filteredBlogs.map((blog: Blog) => {
+      {pagedBlogs.map((blog: Blog) => {
         return (
           <div key={blog.blogId}>
             <Paper elevation={0} className={classes.paper}>

@@ -37,10 +37,10 @@ const Jobs: React.FunctionComponent<RouteComponentProps> = props => {
   const params: any = props.match.params;
 
   useEffect(() => {
-    FetchJob();
+    fetchJob();
   }, [job.jobId]);
 
-  async function FetchJob() {
+  async function fetchJob() {
     setLoading(true);
     const result = await GetJob(params.id);
     if (result) {

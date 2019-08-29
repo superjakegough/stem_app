@@ -32,10 +32,10 @@ const Blogs: React.FunctionComponent<RouteComponentProps> = props => {
   const params: any = props.match.params;
 
   useEffect(() => {
-    FetchBlog();
+    fetchBlog();
   }, [blog.blogId]);
 
-  async function FetchBlog() {
+  async function fetchBlog() {
     setLoading(true);
     const result = await GetBlog(params.id);
     if (result) {

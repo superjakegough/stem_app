@@ -35,16 +35,25 @@ const Jobs: React.FunctionComponent = props => {
   const classes = useStyles({});
   const [jobs, setJobs] = React.useState<Job[]>([]);
   const [filteredJobs, setFilteredJobs] = React.useState<Job[]>([]);
+  const [pagedJobs, setPagedJobs] = React.useState<Job[]>([]);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [page, setPage] = React.useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = React.useState<number>(3);
   const [searchTerm, setSearchTerm] = React.useState<string>("");
 
   useEffect(() => {
-    FetchJobs();
+    fetchJobs();
   }, [jobs.length]);
 
-  async function FetchJobs() {
+  useEffect(() => {
+    handlePages(0);
+  }, [filteredJobs.length]);
+
+  useEffect(() => {
+    handlePages(0);
+  }, [rowsPerPage]);
+
+  async function fetchJobs() {
     setLoading(true);
     const result = await GetAllJobs();
     if (result) {
@@ -54,19 +63,25 @@ const Jobs: React.FunctionComponent = props => {
     setLoading(false);
   }
 
-  function handleChangePage(event: unknown, newPage: number) {
+  function handlePages(newPage: number) {
+    setPagedJobs(filteredJobs.slice(
+      (newPage) * rowsPerPage,
+      (newPage + 1) * rowsPerPage
+    ));
     setPage(newPage);
+  }
+
+  function handleChangePage(event: unknown, newPage: number) {
+    handlePages(newPage);
   }
 
   function handleChangeRowsPerPage(event: React.ChangeEvent<HTMLInputElement>) {
     setRowsPerPage(+event.target.value);
-    setPage(0);
   }
 
   function handleSubmitSearch(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const regex = new RegExp(`^.*${searchTerm}.*$`, "i");
-    setPage(0);
     if (!searchTerm) {
       setFilteredJobs(jobs);
     } else {
@@ -98,7 +113,7 @@ const Jobs: React.FunctionComponent = props => {
     </Grid>
   ) : (
     <>
-      {filteredJobs.map((job: Job) => {
+      {pagedJobs.map((job: Job) => {
         return (
           <div key={job.jobId}>
             <Paper elevation={0} className={classes.paper}>
@@ -155,7 +170,7 @@ const Jobs: React.FunctionComponent = props => {
             <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> with the job reference number, and we will respond within 2 working days.</Typography>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <form onSubmit={handleSubmitSearch}>
+            <form onSubmit={() => handleSubmitSearch}>
               <TextField
                 className={classes.textField}
                 variant="filled"

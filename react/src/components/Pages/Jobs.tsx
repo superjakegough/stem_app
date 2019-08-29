@@ -23,7 +23,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     margin: theme.spacing(1)
   },
   paper: {
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
+    marginBottom: theme.spacing(4)
   },
   textField: {
     flexBasis: 200,
@@ -170,7 +171,7 @@ const Jobs: React.FunctionComponent = props => {
             <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> with the job reference number, and we will respond within 2 working days.</Typography>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <form onSubmit={() => handleSubmitSearch}>
+            <form onSubmit={handleSubmitSearch}>
               <TextField
                 className={classes.textField}
                 variant="filled"

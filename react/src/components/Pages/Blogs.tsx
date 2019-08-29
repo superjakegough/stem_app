@@ -23,7 +23,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     margin: theme.spacing(1)
   },
   paper: {
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
+    marginBottom: theme.spacing(4)
   },
   textField: {
     flexBasis: 200,

@@ -118,30 +118,30 @@ const Jobs: React.FunctionComponent = props => {
         return (
           <div key={job.jobId}>
             <Paper elevation={0} className={classes.paper}>
-              <Typography variant="h6" color="primary" className="text-center">
+              <h6 className="primary-text text-center">
                 {job.title}
-              </Typography>
-              <Typography variant="h6">
+              </h6>
+              <h6>
                 Salary - Benefits
-              </Typography>
+              </h6>
               <Typography>
                 {`${job.salary} - ${job.benefits}`}
               </Typography>
-              <Typography variant="h6">
+              <h6>
                 Type
-              </Typography>
+              </h6>
               <Typography>
                 {job.jobType}
               </Typography>
-              <Typography variant="h6">
+              <h6>
                 Location
-              </Typography>
+              </h6>
               <Typography>
                 {job.jobLocation}
               </Typography>
-              <Typography variant="h6">
+              <h6>
                 Reference
-              </Typography>
+              </h6>
               <Typography>
                 {job.jobReference}
               </Typography>

@@ -5,7 +5,6 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
@@ -70,9 +69,9 @@ const TopAppBar: React.FunctionComponent = props => {
           </Grid>
           <Grid item xs>
             <Grid container justify="center">
-              <Typography variant="h6">
+              <h6>
                 Stem
-              </Typography>
+              </h6>
             </Grid>
           </Grid>
           <Grid item xs>
@@ -106,9 +105,9 @@ const TopAppBar: React.FunctionComponent = props => {
           <Grid item xs>
             <Grid container direction="row">
               <img className={classes.logo} src={logo} height="28" alt="" />
-              <Typography variant="h6">
+              <h6>
                 Stem
-              </Typography>
+              </h6>
             </Grid>
           </Grid>
           <Grid item xs>

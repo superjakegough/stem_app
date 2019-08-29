@@ -118,9 +118,9 @@ const Blogs: React.FunctionComponent = props => {
         return (
           <div key={blog.blogId}>
             <Paper elevation={0} className={classes.paper}>
-              <Typography variant="h6" color="primary" className="text-center">
+              <h6 className="primary-text text-center">
                 {blog.title}
-              </Typography>
+              </h6>
               <Typography>
                 {blog.description}
               </Typography>

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
@@ -16,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
   paper: {
     marginTop: theme.spacing(3),
-    padding: theme.spacing(2)
+    padding: theme.spacing(3)
   }
 }));
 
@@ -51,15 +50,15 @@ const Blogs: React.FunctionComponent<RouteComponentProps> = props => {
     </Grid>
   ) : (
     <Paper key={blog.blogId} elevation={0} className={classes.paper}>
-      <Typography variant="h6" color="primary" className="text-center">
+      <h6 className="primary-text text-center">
         {blog.title}
-      </Typography>
-      <Typography>
+      </h6>
+      <p>
         {blog.description}
-      </Typography>
-      <Typography className="blog-image" dangerouslySetInnerHTML={{__html: blog.content}}>
-      </Typography>
-      <Typography>Published: {ConvertDate(blog.createdAt)}</Typography>
+      </p>
+      <div className="blog-image" dangerouslySetInnerHTML={{__html: blog.content}}>
+      </div>
+      <p>Published: {ConvertDate(blog.createdAt)}</p>
     </Paper>
   );
 

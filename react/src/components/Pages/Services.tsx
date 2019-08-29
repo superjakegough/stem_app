@@ -1,10 +1,6 @@
 import React from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
@@ -152,7 +148,7 @@ const Services: React.FunctionComponent = props => {
             </Stepper>
             {activeStep === steps.length && (
               <Paper square elevation={0} className={classes.resetContainer}>
-                <Typography>All steps completed - you&apos;ve finished!</Typography>
+                <p>All steps completed - you&apos;ve finished!</p>
                 <Button color="primary" onClick={handleReset} className={classes.button}>
                   Reset
                 </Button>

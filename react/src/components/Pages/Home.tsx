@@ -6,7 +6,6 @@ import Grid from "@material-ui/core/Grid";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
 import Avatar from "@material-ui/core/Avatar";
@@ -138,12 +137,12 @@ const Home: React.FunctionComponent = props => {
           </Grid>
           <Grid item md={4} sm={10} xs={12} className="mt-24 mb-24 text-center">
             <Avatar src={avatar} alt="" className={classes.avatar} />
-            <Typography variant="h6" className="mb-16">
+            <h6>
               JACK TAYLOR
-            </Typography>
-            <Typography variant="h6" className="mb-16">
+            </h6>
+            <h6>
               Founder &amp; Recruitment Consultant
-            </Typography>
+            </h6>
           </Grid>
           <Grid item md={4} sm={10} xs={12}>
             <Grid container justify="center" alignItems="center" className={classes.fillHeight}>

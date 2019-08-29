@@ -9,6 +9,8 @@ import Job from "./Pages/Job";
 import Blogs from "./Pages/Blogs";
 import Blog from "./Pages/Blog";
 import Privacy from "./Pages/Privacy";
+import AdminJobs from "./Admin/AdminJobs";
+import AdminBlogs from "./Admin/AdminBlogs";
 import "./App.css";
 
 const history = createBrowserHistory();
@@ -31,6 +33,10 @@ export default function App() {
           <Route path="/blog/:id" exact component={Blog}>
           </Route>
           <Route path="/privacy" exact component={Privacy}>
+          </Route>
+          <Route path="/adminjobs" exact component={AdminJobs}>
+          </Route>
+          <Route path="/adminblogs" exact component={AdminBlogs}>
           </Route>
         </Switch>
       </Navigation>

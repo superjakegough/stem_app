@@ -3,7 +3,6 @@ import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import blogsimage from "../../assets/blogs.jpg";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import TablePagination from "@material-ui/core/TablePagination";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -16,14 +15,11 @@ import { GetAllBlogs } from "../../services/blog_service";
 import { ConvertDate } from "../../helpers/DateHelper";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
-  bodyText: {
-    marginBottom: theme.spacing(1)
-  },
   button: {
     margin: theme.spacing(1)
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     marginBottom: theme.spacing(4)
   },
   textField: {
@@ -102,9 +98,9 @@ const Blogs: React.FunctionComponent = props => {
     />
   ) : (
     <Paper elevation={0} className={classes.paper}>
-      <Typography className="text-center">
+      <p className="text-center">
         No blogs found
-      </Typography>
+      </p>
     </Paper>
   );
 
@@ -121,13 +117,13 @@ const Blogs: React.FunctionComponent = props => {
               <h6 className="primary-text text-center">
                 {blog.title}
               </h6>
-              <Typography>
+              <p>
                 {blog.description}
-              </Typography>
-              <Typography className="blog-short-content blog-image" dangerouslySetInnerHTML={{__html: blog.content}}>
-              </Typography>
-              <Typography className={classes.bodyText}>...</Typography>
-              <Typography>Published: {ConvertDate(blog.createdAt)}</Typography>
+              </p>
+              <div className="blog-short-content blog-image" dangerouslySetInnerHTML={{__html: blog.content}}>
+              </div>
+              <p>...</p>
+              <p>Published: {ConvertDate(blog.createdAt)}</p>
               <Grid container justify="center">
                 <Button className={classes.button} color="primary" component={Link} to={{ pathname: `/blog/${blog.blogId}`}}>View</Button>
               </Grid>
@@ -149,7 +145,7 @@ const Blogs: React.FunctionComponent = props => {
         <Grid container justify="center" className="content-container">
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <h2 className="content-title mb-24">News &amp; Advice Blogs</h2>
-            <Typography className={classes.bodyText}>Keep up to date with the latest industry news, as well as regular activites offering recruitment and careers advice.</Typography>
+            <p>Keep up to date with the latest industry news, as well as regular activites offering recruitment and careers advice.</p>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <form onSubmit={handleSubmitSearch}>

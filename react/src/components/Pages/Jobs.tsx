@@ -3,7 +3,6 @@ import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import jobsimage from "../../assets/jobs.jpg";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import TablePagination from "@material-ui/core/TablePagination";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -16,14 +15,11 @@ import { GetAllJobs } from "../../services/job_service";
 import { ConvertDate } from "../../helpers/DateHelper";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
-  bodyText: {
-    marginBottom: theme.spacing(1)
-  },
   button: {
     margin: theme.spacing(1)
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     marginBottom: theme.spacing(4)
   },
   textField: {
@@ -102,9 +98,9 @@ const Jobs: React.FunctionComponent = props => {
     />
   ) : (
     <Paper elevation={0} className={classes.paper}>
-      <Typography className="text-center">
+      <p className="text-center">
         No jobs found
-      </Typography>
+      </p>
     </Paper>
   );
 
@@ -124,28 +120,28 @@ const Jobs: React.FunctionComponent = props => {
               <h6>
                 Salary - Benefits
               </h6>
-              <Typography>
+              <p>
                 {`${job.salary} - ${job.benefits}`}
-              </Typography>
+              </p>
               <h6>
                 Type
               </h6>
-              <Typography>
+              <p>
                 {job.jobType}
-              </Typography>
+              </p>
               <h6>
                 Location
               </h6>
-              <Typography>
+              <p>
                 {job.jobLocation}
-              </Typography>
+              </p>
               <h6>
                 Reference
               </h6>
-              <Typography>
+              <p>
                 {job.jobReference}
-              </Typography>
-              <Typography>Published: {ConvertDate(job.createdAt)}</Typography>
+              </p>
+              <p>Published: {ConvertDate(job.createdAt)}</p>
               <Grid container justify="center">
                 <Button className={classes.button} color="primary" component={Link} to={{ pathname: `/job/${job.jobId}`}}>View</Button>
               </Grid>
@@ -167,8 +163,8 @@ const Jobs: React.FunctionComponent = props => {
         <Grid container justify="center" className="content-container">
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <h2 className="content-title mb-24">Current Opportunities</h2>
-            <Typography className={classes.bodyText}>Interested in any of the below opportunities? To apply, please send your CV to
-            <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> with the job reference number, and we will respond within 2 working days.</Typography>
+            <p>Interested in any of the below opportunities? To apply, please send your CV to
+            <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> with the job reference number, and we will respond within 2 working days.</p>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <form onSubmit={handleSubmitSearch}>

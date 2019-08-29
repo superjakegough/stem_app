@@ -41,10 +41,6 @@ const Blogs: React.FunctionComponent = props => {
     fetchBlogs();
   }, [blogs.length]);
 
-  useEffect(() => {
-    handlePages(0);
-  }, [filteredBlogs.length]);
-
   async function fetchBlogs() {
     setLoading(true);
     const result = await GetAllBlogs();
@@ -55,12 +51,8 @@ const Blogs: React.FunctionComponent = props => {
     setLoading(false);
   }
 
-  function handlePages(newPage: number) {
-    setPage(newPage);
-  }
-
   function handleChangePage(event: unknown, newPage: number) {
-    handlePages(newPage);
+    setPage(newPage);
   }
 
   function handleChangeRowsPerPage(event: React.ChangeEvent<HTMLInputElement>) {

@@ -41,10 +41,6 @@ const Jobs: React.FunctionComponent = props => {
     fetchJobs();
   }, [jobs.length]);
 
-  useEffect(() => {
-    handlePages(0);
-  }, [filteredJobs.length]);
-
   async function fetchJobs() {
     setLoading(true);
     const result = await GetAllJobs();
@@ -55,12 +51,8 @@ const Jobs: React.FunctionComponent = props => {
     setLoading(false);
   }
 
-  function handlePages(newPage: number) {
-    setPage(newPage);
-  }
-
   function handleChangePage(event: unknown, newPage: number) {
-    handlePages(newPage);
+    setPage(newPage);
   }
 
   function handleChangeRowsPerPage(event: React.ChangeEvent<HTMLInputElement>) {

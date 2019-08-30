@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import classNames from "classnames";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -10,6 +11,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
 import Divider from "@material-ui/core/Divider";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -87,8 +89,12 @@ const AdminJobs: React.FunctionComponent = props => {
           <Toolbar>
             <p className={classes.boldText}>{job.title}</p>
             <Spacer />
-            <EditIcon className={classes.icon} />
-            <DeleteIcon className={classes.icon}/>
+            <IconButton size="small">
+              <EditIcon className={classes.icon} />
+            </IconButton>
+            <IconButton size="small">
+              <DeleteIcon className={classNames(classes.icon)}/>
+            </IconButton>
           </Toolbar>
           <Divider className={classes.divider} />
           <Grid container justify="space-between" className={classes.grid}>
@@ -144,8 +150,12 @@ const AdminJobs: React.FunctionComponent = props => {
               <TableCell align="right">{job.jobLocation}</TableCell>
               <TableCell align="right">{job.jobReference}</TableCell>
               <TableCell align="right">
-                <EditIcon className={classes.icon} />
-                <DeleteIcon className={classes.icon}/>
+                <IconButton size="small">
+                  <EditIcon className={classes.icon} />
+                </IconButton>
+                <IconButton size="small">
+                  <DeleteIcon className={classNames(classes.icon)}/>
+                </IconButton>
               </TableCell>
             </TableRow>
           ))}

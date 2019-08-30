@@ -15,9 +15,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
       boxShadow: "none"
     }
   },
-  form: {
-    width: "100%"
-  },
   textField: {
     marginBottom: theme.spacing(4),
     "& .MuiFilledInput-root": {
@@ -56,66 +53,81 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
     }
   }
 
+  function validateDialog() {
+    if (job.title && job.salary && job.benefits && job.jobType
+      && job.jobLocation && job.jobReference && job.description) {
+        return false;
+      } else {
+        return true;
+      }
+  }
+
   return (
     <Dialog open={props.open} onClose={props.handleClose} className={classes.dialog}>
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
-        <FormControl className={classes.form}>
-          <TextField
-            className={classes.textField}
-            label="Title"
-            variant="filled"
-            margin="dense"
-            fullWidth
-            onChange={e => setJob({...job, title: e.target.value})}
-          />
-          <TextField
-            className={classes.textField}
-            label="Salary"
-            variant="filled"
-            margin="dense"
-            fullWidth
-            onChange={e => setJob({...job, salary: e.target.value})}
-          />
-          <TextField
-            className={classes.textField}
-            label="Benefits"
-            variant="filled"
-            margin="dense"
-            fullWidth
-            onChange={e => setJob({...job, benefits: e.target.value})}
-          />
-          <TextField
-            className={classes.textField}
-            label="Type"
-            variant="filled"
-            margin="dense"
-            fullWidth
-            onChange={e => setJob({...job, jobType: e.target.value})}
-          />
-          <TextField
-            className={classes.textField}
-            label="Location"
-            variant="filled"
-            margin="dense"
-            fullWidth
-            onChange={e => setJob({...job, jobLocation: e.target.value})}
-          />
-          <TextField
-            className={classes.textField}
-            label="Reference"
-            variant="filled"
-            margin="dense"
-            fullWidth
-            onChange={e => setJob({...job, jobReference: e.target.value})}
-          />
-        </FormControl>
+        <TextField
+          className={classes.textField}
+          label="Title"
+          variant="filled"
+          margin="dense"
+          fullWidth
+          onChange={e => setJob({...job, title: e.target.value})}
+        />
+        <TextField
+          className={classes.textField}
+          label="Salary"
+          variant="filled"
+          margin="dense"
+          fullWidth
+          onChange={e => setJob({...job, salary: e.target.value})}
+        />
+        <TextField
+          className={classes.textField}
+          label="Benefits"
+          variant="filled"
+          margin="dense"
+          fullWidth
+          onChange={e => setJob({...job, benefits: e.target.value})}
+        />
+        <TextField
+          className={classes.textField}
+          label="Type"
+          variant="filled"
+          margin="dense"
+          fullWidth
+          onChange={e => setJob({...job, jobType: e.target.value})}
+        />
+        <TextField
+          className={classes.textField}
+          label="Location"
+          variant="filled"
+          margin="dense"
+          fullWidth
+          onChange={e => setJob({...job, jobLocation: e.target.value})}
+        />
+        <TextField
+          className={classes.textField}
+          label="Reference"
+          variant="filled"
+          margin="dense"
+          fullWidth
+          onChange={e => setJob({...job, jobReference: e.target.value})}
+        />
+        <TextField
+          className={classes.textField}
+          label="Description"
+          variant="filled"
+          margin="dense"
+          fullWidth
+          onChange={e => setJob({...job, description: e.target.value})}
+        />
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose} color="primary">
           Cancel
         </Button>
-        <Button onClick={handleSubmit} color="primary">
+        <Button onClick={handleSubmit} color="primary" disabled={validateDialog()}>
           Submit
         </Button>
       </DialogActions>

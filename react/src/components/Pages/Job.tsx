@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -36,7 +36,7 @@ const Jobs: React.FunctionComponent<RouteComponentProps> = props => {
   const [loading, setLoading] = React.useState<boolean>(false);
   const params: any = props.match.params;
 
-  useEffect(() => {
+  React.useEffect(() => {
     fetchJob();
   }, [job.jobId]);
 

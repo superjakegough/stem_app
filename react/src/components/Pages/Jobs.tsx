@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -37,7 +37,7 @@ const Jobs: React.FunctionComponent = props => {
   const [rowsPerPage, setRowsPerPage] = React.useState<number>(3);
   const [searchTerm, setSearchTerm] = React.useState<string>("");
 
-  useEffect(() => {
+  React.useEffect(() => {
     fetchJobs();
   }, [jobs.length]);
 

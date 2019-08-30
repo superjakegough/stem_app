@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -58,7 +58,7 @@ const AdminJobs: React.FunctionComponent = props => {
   const [searchTerm, setSearchTerm] = React.useState<string>("");
   const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
-  useEffect(() => {
+  React.useEffect(() => {
     fetchJobs();
   }, [jobs.length]);
 

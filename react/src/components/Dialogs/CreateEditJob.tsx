@@ -71,6 +71,7 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
           variant="filled"
           margin="dense"
           fullWidth
+          value={job.title}
           onChange={e => setJob({...job, title: e.target.value})}
         />
         <TextField
@@ -79,6 +80,7 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
           variant="filled"
           margin="dense"
           fullWidth
+          value={job.salary}
           onChange={e => setJob({...job, salary: e.target.value})}
         />
         <TextField
@@ -87,6 +89,7 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
           variant="filled"
           margin="dense"
           fullWidth
+          value={job.benefits}
           onChange={e => setJob({...job, benefits: e.target.value})}
         />
         <TextField
@@ -95,6 +98,7 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
           variant="filled"
           margin="dense"
           fullWidth
+          value={job.jobType}
           onChange={e => setJob({...job, jobType: e.target.value})}
         />
         <TextField
@@ -103,6 +107,7 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
           variant="filled"
           margin="dense"
           fullWidth
+          value={job.jobLocation}
           onChange={e => setJob({...job, jobLocation: e.target.value})}
         />
         <TextField
@@ -111,6 +116,7 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
           variant="filled"
           margin="dense"
           fullWidth
+          value={job.jobReference}
           onChange={e => setJob({...job, jobReference: e.target.value})}
         />
         <TextField
@@ -119,6 +125,7 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
           variant="filled"
           margin="dense"
           fullWidth
+          value={job.description}
           onChange={e => setJob({...job, description: e.target.value})}
         />
       </DialogContent>

@@ -1,6 +1,5 @@
 import React from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
-import classNames from "classnames";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -13,9 +12,6 @@ import TableRow from "@material-ui/core/TableRow";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Divider from "@material-ui/core/Divider";
-import TextField from "@material-ui/core/TextField";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import SearchIcon from "@material-ui/icons/Search";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -61,14 +57,13 @@ const AdminJobs: React.FunctionComponent = props => {
     jobLocation: "",
     jobReference: "",
     description: "",
-    jobFilled: "",
+    jobFilled: "false",
     createdAt: ""
   });
   const [jobs, setJobs] = React.useState<Job[]>([]);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [page, setPage] = React.useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = React.useState<number>(5);
-  const [searchTerm, setSearchTerm] = React.useState<string>("");
   const [openCreateEdit, setCreateEdit] = React.useState<boolean>(false);
   const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
@@ -98,6 +93,27 @@ const AdminJobs: React.FunctionComponent = props => {
     setCreateEdit(false);
   }
 
+  function handleOpenCreate() {
+    setJob({
+      jobId: "",
+      title: "",
+      salary: "",
+      benefits: "",
+      jobType: "",
+      jobLocation: "",
+      jobReference: "",
+      description: "",
+      jobFilled: "",
+      createdAt: ""
+    });
+    setCreateEdit(true);
+  }
+
+  function handleOpenUpdate(index: number) {
+    setJob(JSON.parse(JSON.stringify(jobs[index])));
+    setCreateEdit(true);
+  }
+
   function handleCreate(job: Job) {
     console.log(job);
     setCreateEdit(false);
@@ -112,16 +128,16 @@ const AdminJobs: React.FunctionComponent = props => {
     <div className="mb-48">
       {jobs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-        .map(job => (
+        .map((job: Job, index: number) => (
         <Paper key={job.jobId} className={classes.paper}>
           <Toolbar>
             <p className={classes.boldText}>{job.title}</p>
             <Spacer />
-            <IconButton size="small">
-              <EditIcon className={classes.icon} />
+            <IconButton size="small" onClick={() => handleOpenUpdate(index)}>
+              <EditIcon className={classes.icon}/>
             </IconButton>
             <IconButton size="small">
-              <DeleteIcon className={classNames(classes.icon)}/>
+              <DeleteIcon className={classes.icon}/>
             </IconButton>
           </Toolbar>
           <Divider className={classes.divider} />
@@ -154,7 +170,7 @@ const AdminJobs: React.FunctionComponent = props => {
       <Toolbar>
         <h6>Jobs</h6>
         <Spacer />
-        <Button className={classes.button} color="primary" onClick={() => setCreateEdit(true)}>Create</Button>
+        <Button className={classes.button} color="primary" onClick={handleOpenCreate}>Create</Button>
       </Toolbar>
       <Table>
         <TableHead>
@@ -169,7 +185,7 @@ const AdminJobs: React.FunctionComponent = props => {
         <TableBody>
           {jobs
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            .map(job => (
+            .map((job: Job, index: number) => (
             <TableRow key={job.jobId}>
               <TableCell component="th" scope="row">
                 {job.title}
@@ -178,11 +194,11 @@ const AdminJobs: React.FunctionComponent = props => {
               <TableCell align="right">{job.jobLocation}</TableCell>
               <TableCell align="right">{job.jobReference}</TableCell>
               <TableCell align="right">
-                <IconButton size="small">
+                <IconButton size="small" onClick={() => handleOpenUpdate(index)}>
                   <EditIcon className={classes.icon} />
                 </IconButton>
                 <IconButton size="small">
-                  <DeleteIcon className={classNames(classes.icon)}/>
+                  <DeleteIcon className={classes.icon}/>
                 </IconButton>
               </TableCell>
             </TableRow>

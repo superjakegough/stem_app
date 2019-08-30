@@ -15,9 +15,22 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
       boxShadow: "none"
     }
   },
+  form: {
+    width: "100%"
+  },
   textField: {
-    flexBasis: 200,
     marginBottom: theme.spacing(4),
+    "& .MuiFilledInput-root": {
+      borderRadius: 4
+    },
+    "& .MuiFilledInput-underline:before": {
+      borderBottom: 0
+    },
+    "& .MuiFilledInput-underline:after": {
+      marginRight: 2,
+      marginLeft: 2,
+      borderRadius: 4
+    }
   },
 }));
 
@@ -47,6 +60,7 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
     <Dialog open={props.open} onClose={props.handleClose} className={classes.dialog}>
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
+        <FormControl className={classes.form}>
           <TextField
             className={classes.textField}
             label="Title"
@@ -95,6 +109,7 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
             fullWidth
             onChange={e => setJob({...job, jobReference: e.target.value})}
           />
+        </FormControl>
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose} color="primary">

@@ -21,6 +21,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Toolbar from "@material-ui/core/Toolbar";
 import Spacer from "../Layout/Spacer";
+import CreateEditJob from "../Dialogs/CreateEditJob";
 import Job from "../../models/job";
 import { GetAllJobs } from "../../services/job_service";
 
@@ -51,11 +52,24 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 const AdminJobs: React.FunctionComponent = props => {
   const classes = useStyles({});
+  const [job, setJob] = React.useState<Job>({
+    jobId: "",
+    title: "",
+    salary: "",
+    benefits: "",
+    jobType: "",
+    jobLocation: "",
+    jobReference: "",
+    description: "",
+    jobFilled: "",
+    createdAt: ""
+  });
   const [jobs, setJobs] = React.useState<Job[]>([]);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [page, setPage] = React.useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = React.useState<number>(5);
   const [searchTerm, setSearchTerm] = React.useState<string>("");
+  const [openCreateEdit, setCreateEdit] = React.useState<boolean>(false);
   const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
   React.useEffect(() => {
@@ -78,6 +92,20 @@ const AdminJobs: React.FunctionComponent = props => {
   function handleChangeRowsPerPage(event: React.ChangeEvent<HTMLInputElement>) {
     setRowsPerPage(+event.target.value);
     setPage(0);
+  }
+
+  function handleCreateEditClose() {
+    setCreateEdit(false);
+  }
+
+  function handleCreate(job: Job) {
+    console.log(job);
+    setCreateEdit(false);
+  }
+
+  function handleUpdate(job: Job) {
+    console.log(job);
+    setCreateEdit(false);
   }
 
   const table = smAndDown ? (
@@ -126,7 +154,7 @@ const AdminJobs: React.FunctionComponent = props => {
       <Toolbar>
         <h6>Jobs</h6>
         <Spacer />
-        <Button className={classes.button} color="primary">Create</Button>
+        <Button className={classes.button} color="primary" onClick={() => setCreateEdit(true)}>Create</Button>
       </Toolbar>
       <Table>
         <TableHead>
@@ -187,6 +215,13 @@ const AdminJobs: React.FunctionComponent = props => {
         <Grid item md={10} sm={10} xs={12}>
           {content}
         </Grid>
+        <CreateEditJob
+          open={openCreateEdit}
+          job={job}
+          handleClose={handleCreateEditClose}
+          handleCreate={handleCreate}
+          handleUpdate={handleUpdate}
+        />
       </Grid>
     </div>
   );

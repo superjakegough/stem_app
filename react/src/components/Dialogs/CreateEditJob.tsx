@@ -40,9 +40,20 @@ interface CreateEditJobProps {
 
 const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
   const classes = useStyles({});
-  const [job, setJob] = React.useState<Job>(props.job);
+  const [job, setJob] = React.useState<Job>({
+    jobId: props.job.jobId,
+    title: props.job.title,
+    salary: props.job.salary,
+    benefits: props.job.benefits,
+    jobType: props.job.jobId,
+    jobLocation: props.job.jobLocation,
+    jobReference: props.job.jobReference,
+    description: props.job.description,
+    jobFilled: props.job.jobFilled,
+    createdAt: props.job.createdAt
+  });
 
-  const title: string = props.job ? "Create Job" : "Update Job";
+  const title: string = props.job.jobId ? "Update Job" : "Create Job";
 
   function handleSubmit() {
     if (props.job) {

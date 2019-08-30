@@ -103,14 +103,14 @@ const AdminJobs: React.FunctionComponent = props => {
       jobLocation: "",
       jobReference: "",
       description: "",
-      jobFilled: "",
+      jobFilled: "false",
       createdAt: ""
     });
     setCreateEdit(true);
   }
 
   function handleOpenUpdate(index: number) {
-    setJob(JSON.parse(JSON.stringify(jobs[index])));
+    setJob(jobs[index]);
     setCreateEdit(true);
   }
 

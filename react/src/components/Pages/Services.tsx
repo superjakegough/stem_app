@@ -20,6 +20,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   resetContainer: {
     padding: theme.spacing(3),
   },
+  stepper: {
+    "& .MuiStepIcon-text": {
+      fill: "white"
+    }
+  }
 }));
 
 const Services: React.FunctionComponent = props => {
@@ -118,7 +123,7 @@ const Services: React.FunctionComponent = props => {
             <p>Stem is a specialist permanent recruitment consultancy providing sustainable recruitment solutions for the science, technology, engineering and manufacturing industries in Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.</p>
             <h2 className="content-title mb-24">Our Recruitment Process</h2>
             <p>We provide a thorough 5-stage recruitment and vetting process which ensures that we not only find the right fit for our clients, but also the right fit for the candidate, ensuring all parties are satisfied.</p>
-            <Stepper activeStep={activeStep} orientation="vertical">
+            <Stepper activeStep={activeStep} orientation="vertical" className={classes.stepper}>
               {steps.map((label, index) => (
                 <Step key={label}>
                   <StepLabel>{label}</StepLabel>

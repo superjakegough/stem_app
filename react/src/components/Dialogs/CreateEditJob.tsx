@@ -10,6 +10,11 @@ import TextField from "@material-ui/core/TextField";
 import Job from "../../models/job";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
+  dialog: {
+    "& .MuiPaper-elevation24": {
+      boxShadow: "none"
+    }
+  },
   textField: {
     flexBasis: 200,
     marginBottom: theme.spacing(4),
@@ -39,17 +44,15 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
   }
 
   return (
-    <Dialog open={props.open} onClose={props.handleClose}>
+    <Dialog open={props.open} onClose={props.handleClose} className={classes.dialog}>
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
-        <FormControl>
           <TextField
             className={classes.textField}
             label="Title"
             variant="filled"
             margin="dense"
             fullWidth
-            hiddenLabel
             onChange={e => setJob({...job, title: e.target.value})}
           />
           <TextField
@@ -58,7 +61,6 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
             variant="filled"
             margin="dense"
             fullWidth
-            hiddenLabel
             onChange={e => setJob({...job, salary: e.target.value})}
           />
           <TextField
@@ -67,7 +69,6 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
             variant="filled"
             margin="dense"
             fullWidth
-            hiddenLabel
             onChange={e => setJob({...job, benefits: e.target.value})}
           />
           <TextField
@@ -76,7 +77,6 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
             variant="filled"
             margin="dense"
             fullWidth
-            hiddenLabel
             onChange={e => setJob({...job, jobType: e.target.value})}
           />
           <TextField
@@ -85,7 +85,6 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
             variant="filled"
             margin="dense"
             fullWidth
-            hiddenLabel
             onChange={e => setJob({...job, jobLocation: e.target.value})}
           />
           <TextField
@@ -94,10 +93,8 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
             variant="filled"
             margin="dense"
             fullWidth
-            hiddenLabel
             onChange={e => setJob({...job, jobReference: e.target.value})}
           />
-        </FormControl>
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose} color="primary">

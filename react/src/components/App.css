@@ -41,22 +41,8 @@ h6 {
   background-color: unset !important;
 }
 
-.MuiStepIcon-text {
-  fill: white !important;
-}
-
-.MuiFilledInput-root {
+.dialog-text-field {
   background-color: white !important;
-  border-radius: 8 !important;
-}
-
-.MuiFilledInput-underline:before {
-  border-bottom: 0 !important;
-}
-
-.MuiFilledInput-underline:after {
-  border-bottom-color: #22B771 !important;
-  border-radius: 8 !important;
 }
 
 .content-container {

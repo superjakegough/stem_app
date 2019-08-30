@@ -25,6 +25,18 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   textField: {
     flexBasis: 200,
     marginBottom: theme.spacing(4),
+    "& .MuiFilledInput-root": {
+      backgroundColor: "white",
+      borderRadius: 4
+    },
+    "& .MuiFilledInput-underline:before": {
+      borderBottom: 0
+    },
+    "& .MuiFilledInput-underline:after": {
+      marginRight: 2,
+      marginLeft: 2,
+      borderRadius: 4
+    }
   },
 }));
 

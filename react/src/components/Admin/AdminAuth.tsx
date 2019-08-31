@@ -1,7 +1,6 @@
 import React from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -10,10 +9,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   }
 }));
 
-const AdminAuth: React.FunctionComponent = props => {
+interface AdminAuthProps {
+  handleLoggedIn: () => void;
+}
+
+const AdminAuth: React.FunctionComponent<AdminAuthProps> = props => {
   const classes = useStyles({});
   const [loading, setLoading] = React.useState<boolean>(false);
-  const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
 
   const signIn = loading ? "Signing In" : "Sign In";
 

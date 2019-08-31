@@ -66,7 +66,7 @@ const AdminJobs: React.FunctionComponent = props => {
   const [page, setPage] = React.useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = React.useState<number>(5);
   const [openCreateEdit, setCreateEdit] = React.useState<boolean>(false);
-  const [selected, setSelected] = React.useState<string>();
+  const [selected, setSelected] = React.useState<number>(0);
   const [openDelete, setDelete] = React.useState<boolean>(false);
   const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
@@ -121,8 +121,8 @@ const AdminJobs: React.FunctionComponent = props => {
     setCreateEdit(true);
   }
 
-  function handleOpenDelete(jobId: string) {
-    setSelected(jobId);
+  function handleOpenDelete(index: number) {
+    setSelected(index);
     setDelete(true);
   }
 
@@ -137,7 +137,8 @@ const AdminJobs: React.FunctionComponent = props => {
   }
 
   function handleDelete() {
-    setJobs(jobs.filter((item: Job) => item.jobId !== selected));
+    const deleteId: string = jobs[selected].jobId;
+    setJobs(jobs.filter((item: Job) => item.jobId !== deleteId));
     setDelete(false);
   }
 
@@ -154,7 +155,7 @@ const AdminJobs: React.FunctionComponent = props => {
               <EditIcon className={classes.icon}/>
             </IconButton>
             <IconButton size="small">
-              <DeleteIcon className={classes.icon}/>
+              <DeleteIcon className={classes.icon} onClick={() => handleOpenDelete(index)}/>
             </IconButton>
           </Toolbar>
           <Divider className={classes.divider} />
@@ -214,7 +215,7 @@ const AdminJobs: React.FunctionComponent = props => {
                 <IconButton size="small" onClick={() => handleOpenUpdate(index)}>
                   <EditIcon className={classes.icon} />
                 </IconButton>
-                <IconButton size="small">
+                <IconButton size="small" onClick={() => handleOpenDelete(index)}>
                   <DeleteIcon className={classes.icon}/>
                 </IconButton>
               </TableCell>

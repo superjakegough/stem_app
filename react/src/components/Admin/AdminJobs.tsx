@@ -17,7 +17,8 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Toolbar from "@material-ui/core/Toolbar";
 import Spacer from "../Layout/Spacer";
-import CreateEditJob from "../Dialogs/CreateEditJob";
+import CreateEditJobDialog from "../Dialogs/CreateEditJobDialog";
+import DeleteDialog from "../Dialogs/DeleteDialog";
 import Job from "../../models/job";
 import { GetAllJobs } from "../../services/job_service";
 
@@ -65,6 +66,8 @@ const AdminJobs: React.FunctionComponent = props => {
   const [page, setPage] = React.useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = React.useState<number>(5);
   const [openCreateEdit, setCreateEdit] = React.useState<boolean>(false);
+  const [selected, setSelected] = React.useState<string>();
+  const [openDelete, setDelete] = React.useState<boolean>(false);
   const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
   React.useEffect(() => {
@@ -93,6 +96,10 @@ const AdminJobs: React.FunctionComponent = props => {
     setCreateEdit(false);
   }
 
+  function handleDeleteClose() {
+    setDelete(false);
+  }
+
   function handleOpenCreate() {
     setJob({
       jobId: "",
@@ -114,8 +121,12 @@ const AdminJobs: React.FunctionComponent = props => {
     setCreateEdit(true);
   }
 
+  function handleOpenDelete(jobId: string) {
+    setSelected(jobId);
+    setDelete(true);
+  }
+
   function handleCreate(job: Job) {
-    console.log("test");
     setJobs([...jobs, job]);
     setCreateEdit(false);
   }
@@ -123,6 +134,11 @@ const AdminJobs: React.FunctionComponent = props => {
   function handleUpdate(job: Job) {
     setJobs(jobs.map((item: Job) => item.jobId === job.jobId ? job : item));
     setCreateEdit(false);
+  }
+
+  function handleDelete() {
+    setJobs(jobs.filter((item: Job) => item.jobId !== selected));
+    setDelete(false);
   }
 
   const table = smAndDown ? (
@@ -232,12 +248,17 @@ const AdminJobs: React.FunctionComponent = props => {
         <Grid item md={10} sm={10} xs={12}>
           {content}
         </Grid>
-        <CreateEditJob
+        <CreateEditJobDialog
           open={openCreateEdit}
           job={job}
           handleClose={handleCreateEditClose}
           handleCreate={handleCreate}
           handleUpdate={handleUpdate}
+        />
+        <DeleteDialog 
+          open={openDelete}
+          handleClose={handleDeleteClose}
+          handleDelete={handleDelete}
         />
       </Grid>
     </div>

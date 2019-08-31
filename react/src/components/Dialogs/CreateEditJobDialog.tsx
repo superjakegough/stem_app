@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
 }));
 
-interface CreateEditJobProps {
+interface CreateEditJobDialogProps {
   open: boolean;
   handleClose: () => void;
   handleCreate: (job: Job) => void;
@@ -38,7 +38,7 @@ interface CreateEditJobProps {
   job: Job;
 }
 
-const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
+const CreateEditJobDialog: React.FunctionComponent<CreateEditJobDialogProps> = props => {
   const classes = useStyles({});
   const [job, setJob] = React.useState<Job>(props.job);
 
@@ -145,4 +145,4 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
   );
 };
 
-export default CreateEditJob;
+export default CreateEditJobDialog;

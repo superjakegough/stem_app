@@ -69,7 +69,7 @@ const AdminJobs: React.FunctionComponent = props => {
 
   React.useEffect(() => {
     fetchJobs();
-  }, [jobs.length]);
+  }, []);
 
   async function fetchJobs() {
     setLoading(true);
@@ -110,17 +110,18 @@ const AdminJobs: React.FunctionComponent = props => {
   }
 
   function handleOpenUpdate(index: number) {
-    setJob(JSON.parse(JSON.stringify(jobs[index])));
+    setJob(Object.assign({}, jobs[index]));
     setCreateEdit(true);
   }
 
   function handleCreate(job: Job) {
-    console.log(job);
+    console.log("test");
+    setJobs([...jobs, job]);
     setCreateEdit(false);
   }
 
   function handleUpdate(job: Job) {
-    console.log(job);
+    setJobs(jobs.map((item: Job) => item.jobId === job.jobId ? job : item));
     setCreateEdit(false);
   }
 

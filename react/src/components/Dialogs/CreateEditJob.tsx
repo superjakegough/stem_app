@@ -46,10 +46,10 @@ const CreateEditJob: React.FunctionComponent<CreateEditJobProps> = props => {
     setJob(props.job);
   }, [props.job]);
 
-  const title: string = props.job.jobId ? "Update Job" : "Create Job";
+  const title: string = props.job.title ? "Update Job" : "Create Job";
 
   function handleSubmit() {
-    if (props.job) {
+    if (props.job.title) {
       props.handleUpdate(job);
     } else {
       props.handleCreate(job);

@@ -256,7 +256,7 @@ const AdminJobTable: React.FunctionComponent = props => {
           handleCreate={handleCreate}
           handleUpdate={handleUpdate}
         />
-        <DeleteDialog 
+        <DeleteDialog
           open={openDelete}
           handleClose={handleDeleteClose}
           handleDelete={handleDelete}

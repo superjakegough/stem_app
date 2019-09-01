@@ -8,8 +8,9 @@ import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
 import FormatListNumberedIcon from "@material-ui/icons/FormatListNumbered";
 import InsertLinkIcon from "@material-ui/icons/InsertLink";
 import InsertPhotoIcon from "@material-ui/icons/InsertPhoto";
-import { Editor, EditorState } from "draft-js";
+import { Editor, EditorState, RichUtils } from "draft-js";
 import { stateToHTML } from "draft-js-export-html";
+import "draft-js/dist/Draft.css";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -46,6 +47,15 @@ const DraftEditor: React.FunctionComponent<DraftEditorProps> = props => {
     editor.current.focus();
   }
 
+  const onChange = (editorState: EditorState) => {
+    setEditorState(editorState);
+  };
+
+  function toggleRichUtil(event: React.MouseEvent<HTMLButtonElement, MouseEvent>, util: string) {
+    event.preventDefault();
+    onChange(RichUtils.toggleInlineStyle(editorState, util));
+  }
+
   React.useEffect(() => {
     focusEditor();
   }, []);
@@ -53,7 +63,7 @@ const DraftEditor: React.FunctionComponent<DraftEditorProps> = props => {
   return (
     <div onClick={focusEditor} className={classes.editor}>
       <div>
-        <IconButton size="small" className={classes.icon}>
+        <IconButton size="small" className={classes.icon} onMouseDown={(event) => toggleRichUtil(event, "BOLD")}>
           <FormatBoldIcon />
         </IconButton>
         <IconButton size="small" className={classes.icon}>
@@ -76,10 +86,7 @@ const DraftEditor: React.FunctionComponent<DraftEditorProps> = props => {
       <Editor
         ref={editor}
         editorState={editorState}
-        onChange={editorState => {
-          setEditorState(editorState);
-          console.log(stateToHTML(editorState.getCurrentContent()));
-        }}
+        onChange={onChange}
       />
     </div>
   );

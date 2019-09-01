@@ -31,6 +31,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     select: {
       marginBottom: theme.spacing(4),
+      "& .MuiInputBase-root": {
+        borderRadius: 4,
+        backgroundColor: "#E8E8E8",
+      }
     }
   })
 );
@@ -40,9 +44,6 @@ interface JobDialogProps {
   handleClose: () => void;
   handleSearch: (jobs: Job[], searchTerm: string) => void;
   jobs: Job[];
-  benefits: string[];
-  jobTypes: string[];
-  jobLocations: string[];
 }
 
 const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
@@ -73,6 +74,7 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
   function handleSearch() {
     const searchTerm: string = "";
     props.handleSearch(jobs, searchTerm);
+    props.handleClose();
   }
 
   return (
@@ -80,9 +82,6 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
       open={props.open}
       onClose={props.handleClose}
       className={classes.dialog}
-      disableBackdropClick={true}
-      fullWidth={true}
-      maxWidth={"lg"}
     >
       <DialogContent>
         <TextField
@@ -95,19 +94,12 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => setJob({ ...job, title: event.target.value })}
         />
         <Select
-          className={classes.select}
           name="Salary"
           variant="filled"
-          margin="dense"
           fullWidth
           value={job.salary}
-          onChange={(event: React.ChangeEvent<{ name?: string; value: string }>) => setJob({ ...job, salary: event.target.value })}
+          onChange={() => {}}
         >
-          {salaries.map((salary: string) => {
-            <>
-            {salary}
-            </>;
-          })}
         </ Select>
         <TextField
           className={classes.textField}

@@ -10,6 +10,7 @@ import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import Paper from "@material-ui/core/Paper";
+import SearchDialog from "../Dialogs/SearchDialog";
 import Job from "../../models/job";
 import { GetAllJobs } from "../../services/job_service";
 import { ConvertDate } from "../../helpers/DateHelper";
@@ -50,6 +51,7 @@ const Jobs: React.FunctionComponent = props => {
   const [page, setPage] = React.useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = React.useState<number>(3);
   const [searchTerm, setSearchTerm] = React.useState<string>("");
+  const [openSearch, setOpenSearch] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     fetchJobs();
@@ -71,6 +73,14 @@ const Jobs: React.FunctionComponent = props => {
 
   function handleChangeRowsPerPage(event: React.ChangeEvent<HTMLInputElement>) {
     setRowsPerPage(+event.target.value);
+  }
+
+  function handleOpenSearch() {
+    setOpenSearch(true);
+  }
+
+  function handleCloseSearch() {
+    setOpenSearch(false);
   }
 
   function handleSubmitSearch(filteredJobs: Job[], searchTerm: string) {
@@ -132,6 +142,7 @@ const Jobs: React.FunctionComponent = props => {
           );
         })}
       {pagination}
+      <SearchDialog open={openSearch} jobs={jobs} handleClose={handleCloseSearch} handleSearch={handleSubmitSearch}/>
     </>
   );
 
@@ -153,24 +164,21 @@ const Jobs: React.FunctionComponent = props => {
               working days.
             </p>
           </Grid>
-          <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <div>
-              <TextField
-                className={classes.textField}
-                variant="filled"
-                margin="dense"
-                fullWidth
-                hiddenLabel
-                onChange={e => setSearchTerm(e.target.value)}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SearchIcon color="primary" />
-                    </InputAdornment>
-                  )
-                }}
-              />
-            </div>
+          <Grid item md={8} sm={10} xs={12} className="mb-24" onClick={handleOpenSearch}>
+            <TextField
+              className={classes.textField}
+              variant="filled"
+              margin="dense"
+              fullWidth
+              hiddenLabel
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon color="primary" />
+                  </InputAdornment>
+                )
+              }}
+            />
             {content}
           </Grid>
         </Grid>

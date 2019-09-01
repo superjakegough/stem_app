@@ -79,6 +79,8 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
       open={props.open}
       onClose={props.handleClose}
       className={classes.dialog}
+      disableBackdropClick={true}
+      fullWidth={true}
     >
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>

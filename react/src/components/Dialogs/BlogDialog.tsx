@@ -6,7 +6,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import DraftEditor from "../Layout/DraftEditor";
+import RichEditor from "../Layout/RichEditor";
 import Blog from "../../models/blog";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -72,6 +72,9 @@ const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
       open={props.open}
       onClose={props.handleClose}
       className={classes.dialog}
+      disableBackdropClick={true}
+      fullWidth={true}
+      maxWidth={"lg"}
     >
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
@@ -93,7 +96,7 @@ const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
           value={blog.description}
           onChange={e => setBlog({ ...blog, description: e.target.value })}
         />
-        <DraftEditor content={blog.content} />
+        <RichEditor content={blog.content} />
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose} color="primary">

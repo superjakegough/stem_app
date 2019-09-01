@@ -46,11 +46,12 @@ const AdminAuth: React.FunctionComponent<AdminAuthProps> = props => {
     setLoading(true);
     try {
       await Auth.signIn(username, password);
+      setLoading(false);
       props.handleSignedIn();
     } catch (e) {
       console.log(e);
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   return (

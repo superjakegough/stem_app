@@ -40,26 +40,40 @@ interface RichEditorProps {
 
 const RichEditor: React.FunctionComponent<RichEditorProps> = props => {
   const classes = useStyles({});
+  const [editor, setEditor] = React.useState<any>();
+  const [content, setContent] = React.useState<string>(props.content);
+
+  const imageHandler = () => {
+    const value = prompt("What is the image URL");
+    const quill = editor.getEditor();
+    if (value) {
+        quill.insertEmbed(quill.getSelection(), "image", value);
+    }
+  };
 
   const modules = {
-    toolbar: [
-      ["bold", "italic", "underline", { list: "ordered" }, { list: "bullet" }, "link", "image"]
-    ]
+    toolbar: {
+      container: [["bold", "italic", "underline", { list: "ordered" }, { list: "bullet" }, "link", "image"]],
+      handlers: {
+        image: imageHandler
+      }
+    }
   };
 
   const formats = ["bold", "italic", "underline", "list", "bullet", "link", "image"];
 
   function onChange(content: any, delta: any, source: any, editor: any) {
-    props.handleSetContent(editor.getHTML());
+    // props.handleSetContent(editor.getHTML());
   }
 
   return (
     <div className={classes.editor}>
       <ReactQuill
+        ref={(el) => setEditor(el)}
         modules={modules}
         formats={formats}
         onChange={onChange}
-        value={props.content}
+        value={content}
       />
     </div>
   );

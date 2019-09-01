@@ -94,6 +94,7 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => setJob({ ...job, title: event.target.value })}
         />
         <Select
+          className={classes.select}
           name="Salary"
           variant="filled"
           fullWidth

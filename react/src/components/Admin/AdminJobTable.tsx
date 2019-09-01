@@ -22,30 +22,32 @@ import DeleteDialog from "../Dialogs/DeleteDialog";
 import Job from "../../models/job";
 import { GetAllJobs } from "../../services/job_service";
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  boldText: {
-    fontWeight: 500
-  },
-  button: {
-    margin: theme.spacing(1)
-  },
-  divider: {
-    marginLeft: theme.spacing(2),
-    marginRight: theme.spacing(2)
-  },
-  grid: {
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2)
-  },
-  icon: {
-    color: "#9e9e9e"
-  },
-  paper: {
-    width: "100%",
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3)
-  },
-}));
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    boldText: {
+      fontWeight: 500
+    },
+    button: {
+      margin: theme.spacing(1)
+    },
+    divider: {
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2)
+    },
+    grid: {
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2)
+    },
+    icon: {
+      color: "#9e9e9e"
+    },
+    paper: {
+      width: "100%",
+      marginTop: theme.spacing(3),
+      marginBottom: theme.spacing(3)
+    }
+  })
+);
 
 const AdminJobTable: React.FunctionComponent = props => {
   const classes = useStyles({});
@@ -68,7 +70,9 @@ const AdminJobTable: React.FunctionComponent = props => {
   const [openCreateEdit, setCreateEdit] = React.useState<boolean>(false);
   const [selected, setSelected] = React.useState<number>(0);
   const [openDelete, setDelete] = React.useState<boolean>(false);
-  const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const smAndDown = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
 
   React.useEffect(() => {
     fetchJobs();
@@ -132,7 +136,7 @@ const AdminJobTable: React.FunctionComponent = props => {
   }
 
   function handleUpdate(job: Job) {
-    setJobs(jobs.map((item: Job) => item.jobId === job.jobId ? job : item));
+    setJobs(jobs.map((item: Job) => (item.jobId === job.jobId ? job : item)));
     setCreateEdit(false);
   }
 
@@ -147,32 +151,32 @@ const AdminJobTable: React.FunctionComponent = props => {
       {jobs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map((job: Job, index: number) => (
-        <Paper key={job.jobId} className={classes.paper}>
-          <Toolbar>
-            <p className={classes.boldText}>{job.title}</p>
-            <Spacer />
-            <IconButton size="small" onClick={() => handleOpenUpdate(index)}>
-              <EditIcon className={classes.icon}/>
-            </IconButton>
-            <IconButton size="small">
-              <DeleteIcon className={classes.icon} onClick={() => handleOpenDelete(index)}/>
-            </IconButton>
-          </Toolbar>
-          <Divider className={classes.divider} />
-          <Grid container justify="space-between" className={classes.grid}>
-            <p className={classes.boldText}>Type:</p>
-            <p>{job.jobType}</p>
-          </Grid>
-          <Grid container justify="space-between" className={classes.grid}>
-            <p className={classes.boldText}>Location:</p>
-            <p>{job.jobLocation}</p>
-          </Grid>
-          <Grid container justify="space-between" className={classes.grid}>
-            <p className={classes.boldText}>Reference:</p>
-            <p>{job.jobReference}</p>
-          </Grid>
-        </Paper>
-      ))}
+          <Paper key={job.jobId} className={classes.paper}>
+            <Toolbar>
+              <p className={classes.boldText}>{job.title}</p>
+              <Spacer />
+              <IconButton size="small" onClick={() => handleOpenUpdate(index)}>
+                <EditIcon className={classes.icon} />
+              </IconButton>
+              <IconButton size="small" onClick={() => handleOpenDelete(index)}>
+                <DeleteIcon className={classes.icon} />
+              </IconButton>
+            </Toolbar>
+            <Divider className={classes.divider} />
+            <Grid container justify="space-between" className={classes.grid}>
+              <p className={classes.boldText}>Type:</p>
+              <p>{job.jobType}</p>
+            </Grid>
+            <Grid container justify="space-between" className={classes.grid}>
+              <p className={classes.boldText}>Location:</p>
+              <p>{job.jobLocation}</p>
+            </Grid>
+            <Grid container justify="space-between" className={classes.grid}>
+              <p className={classes.boldText}>Reference:</p>
+              <p>{job.jobReference}</p>
+            </Grid>
+          </Paper>
+        ))}
       <TablePagination
         rowsPerPageOptions={[5, 10, 25]}
         component="div"
@@ -188,7 +192,13 @@ const AdminJobTable: React.FunctionComponent = props => {
       <Toolbar>
         <h6>Jobs</h6>
         <Spacer />
-        <Button className={classes.button} color="primary" onClick={handleOpenCreate}>Create</Button>
+        <Button
+          className={classes.button}
+          color="primary"
+          onClick={handleOpenCreate}
+        >
+          Create
+        </Button>
       </Toolbar>
       <Table>
         <TableHead>
@@ -204,34 +214,40 @@ const AdminJobTable: React.FunctionComponent = props => {
           {jobs
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((job: Job, index: number) => (
-            <TableRow key={job.jobId}>
-              <TableCell component="th" scope="row">
-                {job.title}
-              </TableCell>
-              <TableCell align="right">{job.jobType}</TableCell>
-              <TableCell align="right">{job.jobLocation}</TableCell>
-              <TableCell align="right">{job.jobReference}</TableCell>
-              <TableCell align="right">
-                <IconButton size="small" onClick={() => handleOpenUpdate(index)}>
-                  <EditIcon className={classes.icon} />
-                </IconButton>
-                <IconButton size="small" onClick={() => handleOpenDelete(index)}>
-                  <DeleteIcon className={classes.icon}/>
-                </IconButton>
-              </TableCell>
-            </TableRow>
-          ))}
+              <TableRow key={job.jobId}>
+                <TableCell component="th" scope="row">
+                  {job.title}
+                </TableCell>
+                <TableCell align="right">{job.jobType}</TableCell>
+                <TableCell align="right">{job.jobLocation}</TableCell>
+                <TableCell align="right">{job.jobReference}</TableCell>
+                <TableCell align="right">
+                  <IconButton
+                    size="small"
+                    onClick={() => handleOpenUpdate(index)}
+                  >
+                    <EditIcon className={classes.icon} />
+                  </IconButton>
+                  <IconButton
+                    size="small"
+                    onClick={() => handleOpenDelete(index)}
+                  >
+                    <DeleteIcon className={classes.icon} />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            ))}
         </TableBody>
       </Table>
       <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={jobs.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onChangePage={handleChangePage}
-          onChangeRowsPerPage={handleChangeRowsPerPage}
-        />
+        rowsPerPageOptions={[5, 10, 25]}
+        component="div"
+        count={jobs.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleChangeRowsPerPage}
+      />
     </Paper>
   );
 
@@ -245,7 +261,12 @@ const AdminJobTable: React.FunctionComponent = props => {
 
   return (
     <div>
-      <Grid container justify="center" alignItems="center" className="content-container full-height">
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        className="content-container full-height"
+      >
         <Grid item md={10} sm={10} xs={12}>
           {content}
         </Grid>

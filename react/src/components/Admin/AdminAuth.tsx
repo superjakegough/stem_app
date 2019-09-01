@@ -5,22 +5,24 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  textField: {
-    marginBottom: theme.spacing(4),
-    "& .MuiFilledInput-root": {
-      borderRadius: 4
-    },
-    "& .MuiFilledInput-underline:before": {
-      borderBottom: 0
-    },
-    "& .MuiFilledInput-underline:after": {
-      marginRight: 2,
-      marginLeft: 2,
-      borderRadius: 4
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    textField: {
+      marginBottom: theme.spacing(4),
+      "& .MuiFilledInput-root": {
+        borderRadius: 4
+      },
+      "& .MuiFilledInput-underline:before": {
+        borderBottom: 0
+      },
+      "& .MuiFilledInput-underline:after": {
+        marginRight: 2,
+        marginLeft: 2,
+        borderRadius: 4
+      }
     }
-  }
-}));
+  })
+);
 
 interface AdminAuthProps {
   handleSignedIn: () => void;
@@ -36,10 +38,10 @@ const AdminAuth: React.FunctionComponent<AdminAuthProps> = props => {
 
   function validateSignIn() {
     if (username && password) {
-        return false;
-      } else {
-        return true;
-      }
+      return false;
+    } else {
+      return true;
+    }
   }
 
   async function authSignIn() {
@@ -56,8 +58,14 @@ const AdminAuth: React.FunctionComponent<AdminAuthProps> = props => {
 
   return (
     <div>
-      <Grid direction="column" container justify="center" alignItems="center" className="content-container full-height">
-        <Grid item md={3} sm={6} xs={10}>
+      <Grid
+        container
+        direction="column"
+        justify="center"
+        alignItems="center"
+        className="content-container full-height"
+      >
+        <Grid item sm={6} xs={10}>
           <TextField
             className={classes.textField}
             label="Username"
@@ -75,10 +83,14 @@ const AdminAuth: React.FunctionComponent<AdminAuthProps> = props => {
             fullWidth
             onChange={e => setPassword(e.target.value)}
           />
-        </Grid>
-        <Grid item md={3} sm={6} xs={10}>
           <Grid container justify="center">
-            <Button color="primary" disabled={validateSignIn() || loading} onClick={authSignIn}>{signIn}</Button>
+            <Button
+              color="primary"
+              disabled={validateSignIn() || loading}
+              onClick={authSignIn}
+            >
+              {signIn}
+            </Button>
           </Grid>
         </Grid>
       </Grid>

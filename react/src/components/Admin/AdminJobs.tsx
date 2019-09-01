@@ -9,13 +9,13 @@ const AdminJob: React.FunctionComponent = props => {
     setSignedIn(true);
   }
 
-  const content = signedIn ? <AdminJobTable /> : <AdminAuth handleSignedIn={handleSignedIn}/>;
-
-  return (
-    <div>
-      {content}
-    </div>
+  const content = signedIn ? (
+    <AdminJobTable />
+  ) : (
+    <AdminAuth handleSignedIn={handleSignedIn} />
   );
+
+  return <div>{content}</div>;
 };
 
 export default AdminJob;

@@ -26,11 +26,39 @@ const BottomNav: React.FunctionComponent = props => {
   }
 
   return (
-    <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-      <BottomNavigationAction label="Home" value="/" icon={<HomeIcon />} component={Link} to="/" />
-      <BottomNavigationAction label="Services" value="/services" icon={<PagesIcon />} component={Link} to="/services" />
-      <BottomNavigationAction label="Jobs" value="/jobs" icon={<AssignmentIcon />} component={Link} to="/jobs" />
-      <BottomNavigationAction label="Blogs" value="/blogs" icon={<EventNoteIcon />} component={Link} to="/blogs" />
+    <BottomNavigation
+      value={value}
+      onChange={handleChange}
+      className={classes.root}
+    >
+      <BottomNavigationAction
+        label="Home"
+        value="/"
+        icon={<HomeIcon />}
+        component={Link}
+        to="/"
+      />
+      <BottomNavigationAction
+        label="Services"
+        value="/services"
+        icon={<PagesIcon />}
+        component={Link}
+        to="/services"
+      />
+      <BottomNavigationAction
+        label="Jobs"
+        value="/jobs"
+        icon={<AssignmentIcon />}
+        component={Link}
+        to="/jobs"
+      />
+      <BottomNavigationAction
+        label="Blogs"
+        value="/blogs"
+        icon={<EventNoteIcon />}
+        component={Link}
+        to="/blogs"
+      />
     </BottomNavigation>
   );
 };

@@ -8,27 +8,29 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Blog from "../../models/blog";
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  dialog: {
-    "& .MuiPaper-elevation24": {
-      boxShadow: "none"
-    }
-  },
-  textField: {
-    marginBottom: theme.spacing(4),
-    "& .MuiFilledInput-root": {
-      borderRadius: 4
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    dialog: {
+      "& .MuiPaper-elevation24": {
+        boxShadow: "none"
+      }
     },
-    "& .MuiFilledInput-underline:before": {
-      borderBottom: 0
-    },
-    "& .MuiFilledInput-underline:after": {
-      marginRight: 2,
-      marginLeft: 2,
-      borderRadius: 4
+    textField: {
+      marginBottom: theme.spacing(4),
+      "& .MuiFilledInput-root": {
+        borderRadius: 4
+      },
+      "& .MuiFilledInput-underline:before": {
+        borderBottom: 0
+      },
+      "& .MuiFilledInput-underline:after": {
+        marginRight: 2,
+        marginLeft: 2,
+        borderRadius: 4
+      }
     }
-  },
-}));
+  })
+);
 
 interface BlogDialogProps {
   open: boolean;
@@ -58,14 +60,18 @@ const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
 
   function validateDialog() {
     if (blog.title && blog.description && blog.content) {
-        return false;
-      } else {
-        return true;
-      }
+      return false;
+    } else {
+      return true;
+    }
   }
 
   return (
-    <Dialog open={props.open} onClose={props.handleClose} className={classes.dialog}>
+    <Dialog
+      open={props.open}
+      onClose={props.handleClose}
+      className={classes.dialog}
+    >
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
         <TextField
@@ -75,7 +81,7 @@ const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
           margin="dense"
           fullWidth
           value={blog.title}
-          onChange={e => setBlog({...blog, title: e.target.value})}
+          onChange={e => setBlog({ ...blog, title: e.target.value })}
         />
         <TextField
           className={classes.textField}
@@ -84,7 +90,7 @@ const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
           margin="dense"
           fullWidth
           value={blog.description}
-          onChange={e => setBlog({...blog, description: e.target.value})}
+          onChange={e => setBlog({ ...blog, description: e.target.value })}
         />
         <TextField
           className={classes.textField}
@@ -93,14 +99,18 @@ const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
           margin="dense"
           fullWidth
           value={blog.content}
-          onChange={e => setBlog({...blog, content: e.target.value})}
+          onChange={e => setBlog({ ...blog, content: e.target.value })}
         />
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose} color="primary">
           Cancel
         </Button>
-        <Button onClick={handleSubmit} color="primary" disabled={validateDialog()}>
+        <Button
+          onClick={handleSubmit}
+          color="primary"
+          disabled={validateDialog()}
+        >
           Submit
         </Button>
       </DialogActions>

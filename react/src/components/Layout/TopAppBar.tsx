@@ -34,30 +34,36 @@ const useStyles = makeStyles((theme: Theme) =>
     moreButton: {
       marginRight: -22
     }
-  }),
+  })
 );
 
 const TopAppBar: React.FunctionComponent = props => {
   const classes = useStyles({});
-  const [anchorEl, setAnchorEl] = React.useState<undefined | HTMLElement>(undefined);
-  const facebook: string = "https://facebook.com/Stem-Skills-Recruitment-Ltd-107387030612608";
+  const [anchorEl, setAnchorEl] = React.useState<undefined | HTMLElement>(
+    undefined
+  );
+  const facebook: string =
+    "https://facebook.com/Stem-Skills-Recruitment-Ltd-107387030612608";
   const twitter: string = "https://twitter.com/StemRecruitLtd";
-  const linkedIn: string = "https://linkedin.com/company/stem-skills-recruitment-ltd/";
+  const linkedIn: string =
+    "https://linkedin.com/company/stem-skills-recruitment-ltd/";
   const instagram: string = "https://instagram.com/stemskillsrecruitment";
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
     setAnchorEl(event.currentTarget);
   }
 
-  function handleClose () {
+  function handleClose() {
     setAnchorEl(undefined);
   }
 
-  function handleSocialClick (url: string) {
+  function handleSocialClick(url: string) {
     window.open(url);
   }
 
-  const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const smAndDown = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
   const topAppBar = smAndDown ? (
     <AppBar position="fixed" className={classes.appBar}>
       <Toolbar>
@@ -69,28 +75,55 @@ const TopAppBar: React.FunctionComponent = props => {
           </Grid>
           <Grid item xs>
             <Grid container justify="center">
-              <h6>
-                Stem
-              </h6>
+              <h6>Stem</h6>
             </Grid>
           </Grid>
           <Grid item xs>
             <Grid container justify="flex-end">
-              <IconButton className={classes.moreButton} color="primary" onClick={handleClick}>
+              <IconButton
+                className={classes.moreButton}
+                color="primary"
+                onClick={handleClick}
+              >
                 <MoreVertIcon />
               </IconButton>
-              <Menu anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
+              <Menu
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
                 <MenuItem onClick={() => handleSocialClick(facebook)}>
-                  <img className={classes.menuImage} src={facebooklogo} height="24" alt=""/>
+                  <img
+                    className={classes.menuImage}
+                    src={facebooklogo}
+                    height="24"
+                    alt=""
+                  />
                 </MenuItem>
                 <MenuItem onClick={() => handleSocialClick(twitter)}>
-                  <img className={classes.menuImage} src={twitterlogo} height="24" alt=""/>
+                  <img
+                    className={classes.menuImage}
+                    src={twitterlogo}
+                    height="24"
+                    alt=""
+                  />
                 </MenuItem>
                 <MenuItem onClick={() => handleSocialClick(linkedIn)}>
-                  <img className={classes.menuImage} src={linkedinlogo} height="24" alt=""/>
+                  <img
+                    className={classes.menuImage}
+                    src={linkedinlogo}
+                    height="24"
+                    alt=""
+                  />
                 </MenuItem>
                 <MenuItem onClick={() => handleSocialClick(instagram)}>
-                  <img className={classes.menuImage} src={instagramlogo} height="24" alt=""/>
+                  <img
+                    className={classes.menuImage}
+                    src={instagramlogo}
+                    height="24"
+                    alt=""
+                  />
                 </MenuItem>
               </Menu>
             </Grid>
@@ -105,32 +138,70 @@ const TopAppBar: React.FunctionComponent = props => {
           <Grid item xs>
             <Grid container alignItems="center">
               <img className={classes.logo} src={logo} height="28" alt="" />
-              <h6>
-                Stem
-              </h6>
+              <h6>Stem</h6>
             </Grid>
           </Grid>
           <Grid item xs>
             <Grid container justify="center" wrap="nowrap">
-              <Button className={classes.button} color="primary" component={Link} to="/">Home</Button>
-              <Button className={classes.button} color="primary" component={Link} to="/services">Services</Button>
-              <Button className={classes.button} color="primary" component={Link} to="/jobs">Jobs</Button>
-              <Button className={classes.button} color="primary" component={Link} to="/blogs">Blogs</Button>
+              <Button
+                className={classes.button}
+                color="primary"
+                component={Link}
+                to="/"
+              >
+                Home
+              </Button>
+              <Button
+                className={classes.button}
+                color="primary"
+                component={Link}
+                to="/services"
+              >
+                Services
+              </Button>
+              <Button
+                className={classes.button}
+                color="primary"
+                component={Link}
+                to="/jobs"
+              >
+                Jobs
+              </Button>
+              <Button
+                className={classes.button}
+                color="primary"
+                component={Link}
+                to="/blogs"
+              >
+                Blogs
+              </Button>
             </Grid>
           </Grid>
           <Grid item xs>
             <Grid container justify="flex-end">
-              <IconButton color="primary" onClick={() => handleSocialClick(facebook)}>
-                <img src={facebooklogo} height="24" alt=""/>
+              <IconButton
+                color="primary"
+                onClick={() => handleSocialClick(facebook)}
+              >
+                <img src={facebooklogo} height="24" alt="" />
               </IconButton>
-              <IconButton color="primary" onClick={() => handleSocialClick(twitter)}>
-                <img src={twitterlogo} height="24" alt=""/>
+              <IconButton
+                color="primary"
+                onClick={() => handleSocialClick(twitter)}
+              >
+                <img src={twitterlogo} height="24" alt="" />
               </IconButton>
-              <IconButton color="primary" onClick={() => handleSocialClick(linkedIn)}>
-                <img src={linkedinlogo} height="24" alt=""/>
+              <IconButton
+                color="primary"
+                onClick={() => handleSocialClick(linkedIn)}
+              >
+                <img src={linkedinlogo} height="24" alt="" />
               </IconButton>
-              <IconButton color="primary" onClick={() => handleSocialClick(instagram)}>
-                <img src={instagramlogo} height="24" alt=""/>
+              <IconButton
+                color="primary"
+                onClick={() => handleSocialClick(instagram)}
+              >
+                <img src={instagramlogo} height="24" alt="" />
               </IconButton>
             </Grid>
           </Grid>
@@ -139,11 +210,7 @@ const TopAppBar: React.FunctionComponent = props => {
     </AppBar>
   );
 
-  return (
-    <div>
-     {topAppBar}
-    </div>
-  );
+  return <div>{topAppBar}</div>;
 };
 
 export default withRouter(TopAppBar);

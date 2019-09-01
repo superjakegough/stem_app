@@ -8,27 +8,29 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Job from "../../models/job";
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  dialog: {
-    "& .MuiPaper-elevation24": {
-      boxShadow: "none"
-    }
-  },
-  textField: {
-    marginBottom: theme.spacing(4),
-    "& .MuiFilledInput-root": {
-      borderRadius: 4
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    dialog: {
+      "& .MuiPaper-elevation24": {
+        boxShadow: "none"
+      }
     },
-    "& .MuiFilledInput-underline:before": {
-      borderBottom: 0
-    },
-    "& .MuiFilledInput-underline:after": {
-      marginRight: 2,
-      marginLeft: 2,
-      borderRadius: 4
+    textField: {
+      marginBottom: theme.spacing(4),
+      "& .MuiFilledInput-root": {
+        borderRadius: 4
+      },
+      "& .MuiFilledInput-underline:before": {
+        borderBottom: 0
+      },
+      "& .MuiFilledInput-underline:after": {
+        marginRight: 2,
+        marginLeft: 2,
+        borderRadius: 4
+      }
     }
-  },
-}));
+  })
+);
 
 interface JobDialogProps {
   open: boolean;
@@ -57,16 +59,27 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
   }
 
   function validateDialog() {
-    if (job.title && job.salary && job.benefits && job.jobType
-      && job.jobLocation && job.jobReference && job.description) {
-        return false;
-      } else {
-        return true;
-      }
+    if (
+      job.title &&
+      job.salary &&
+      job.benefits &&
+      job.jobType &&
+      job.jobLocation &&
+      job.jobReference &&
+      job.description
+    ) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   return (
-    <Dialog open={props.open} onClose={props.handleClose} className={classes.dialog}>
+    <Dialog
+      open={props.open}
+      onClose={props.handleClose}
+      className={classes.dialog}
+    >
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
         <TextField
@@ -76,7 +89,7 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
           margin="dense"
           fullWidth
           value={job.title}
-          onChange={e => setJob({...job, title: e.target.value})}
+          onChange={e => setJob({ ...job, title: e.target.value })}
         />
         <TextField
           className={classes.textField}
@@ -85,7 +98,7 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
           margin="dense"
           fullWidth
           value={job.salary}
-          onChange={e => setJob({...job, salary: e.target.value})}
+          onChange={e => setJob({ ...job, salary: e.target.value })}
         />
         <TextField
           className={classes.textField}
@@ -94,7 +107,7 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
           margin="dense"
           fullWidth
           value={job.benefits}
-          onChange={e => setJob({...job, benefits: e.target.value})}
+          onChange={e => setJob({ ...job, benefits: e.target.value })}
         />
         <TextField
           className={classes.textField}
@@ -103,7 +116,7 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
           margin="dense"
           fullWidth
           value={job.jobType}
-          onChange={e => setJob({...job, jobType: e.target.value})}
+          onChange={e => setJob({ ...job, jobType: e.target.value })}
         />
         <TextField
           className={classes.textField}
@@ -112,7 +125,7 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
           margin="dense"
           fullWidth
           value={job.jobLocation}
-          onChange={e => setJob({...job, jobLocation: e.target.value})}
+          onChange={e => setJob({ ...job, jobLocation: e.target.value })}
         />
         <TextField
           className={classes.textField}
@@ -121,7 +134,7 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
           margin="dense"
           fullWidth
           value={job.jobReference}
-          onChange={e => setJob({...job, jobReference: e.target.value})}
+          onChange={e => setJob({ ...job, jobReference: e.target.value })}
         />
         <TextField
           className={classes.textField}
@@ -130,14 +143,18 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
           margin="dense"
           fullWidth
           value={job.description}
-          onChange={e => setJob({...job, description: e.target.value})}
+          onChange={e => setJob({ ...job, description: e.target.value })}
         />
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose} color="primary">
           Cancel
         </Button>
-        <Button onClick={handleSubmit} color="primary" disabled={validateDialog()}>
+        <Button
+          onClick={handleSubmit}
+          color="primary"
+          disabled={validateDialog()}
+        >
           Submit
         </Button>
       </DialogActions>

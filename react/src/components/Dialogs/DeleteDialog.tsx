@@ -5,13 +5,15 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import Button from "@material-ui/core/Button";
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  dialog: {
-    "& .MuiPaper-elevation24": {
-      boxShadow: "none"
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    dialog: {
+      "& .MuiPaper-elevation24": {
+        boxShadow: "none"
+      }
     }
-  }
-}));
+  })
+);
 
 interface DeleteProps {
   open: boolean;
@@ -27,7 +29,11 @@ const DeleteDialog: React.FunctionComponent<DeleteProps> = props => {
   }
 
   return (
-    <Dialog open={props.open} onClose={props.handleClose} className={classes.dialog}>
+    <Dialog
+      open={props.open}
+      onClose={props.handleClose}
+      className={classes.dialog}
+    >
       <DialogContent>
         <p>Are you sure you wish to delete this item?</p>
       </DialogContent>

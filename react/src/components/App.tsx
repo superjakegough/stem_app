@@ -20,24 +20,15 @@ export default function App() {
     <Router history={history}>
       <Navigation>
         <Switch>
-          <Route path="/" exact component={Home}>
-          </Route>
-          <Route path="/services" exact component={Services}>
-          </Route>
-          <Route path="/jobs" exact component={Jobs}>
-          </Route>
-          <Route path="/job/:id" exact component={Job}>
-          </Route>
-          <Route path="/blogs" exact component={Blogs}>
-          </Route>
-          <Route path="/blog/:id" exact component={Blog}>
-          </Route>
-          <Route path="/privacy" exact component={Privacy}>
-          </Route>
-          <Route path="/adminjobs" exact component={AdminJobs}>
-          </Route>
-          <Route path="/adminblogs" exact component={AdminBlogs}>
-          </Route>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/services" exact component={Services}></Route>
+          <Route path="/jobs" exact component={Jobs}></Route>
+          <Route path="/job/:id" exact component={Job}></Route>
+          <Route path="/blogs" exact component={Blogs}></Route>
+          <Route path="/blog/:id" exact component={Blog}></Route>
+          <Route path="/privacy" exact component={Privacy}></Route>
+          <Route path="/adminjobs" exact component={AdminJobs}></Route>
+          <Route path="/adminblogs" exact component={AdminBlogs}></Route>
         </Switch>
       </Navigation>
     </Router>

@@ -3,7 +3,7 @@ body {
 }
 
 a {
-  color: #22B771;
+  color: #22b771;
   text-decoration: unset;
 }
 
@@ -34,7 +34,7 @@ h6 {
 }
 
 .primary-text {
-  color: #22B771;
+  color: #22b771;
 }
 
 .MuiExpansionPanel-root:before {
@@ -128,7 +128,7 @@ h6 {
   bottom: 0;
   right: 0;
   padding: 36px;
-  color: #FCFCFC;
+  color: #fcfcfc;
   font-size: 56px;
   font-weight: 500;
   line-height: 56px;
@@ -166,7 +166,7 @@ h6 {
 }
 
 .scroll {
-  overflow-y: scroll
+  overflow-y: scroll;
 }
 
 @media (max-width: 960px) {
@@ -182,7 +182,7 @@ h6 {
     letter-spacing: normal;
     text-align: center;
   }
-  
+
   .header-image {
     height: calc(100vh - 56px);
   }

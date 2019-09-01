@@ -9,15 +9,17 @@ import Blog from "../../models/blog";
 import { GetBlog } from "../../services/blog_service";
 import { ConvertDate } from "../../helpers/DateHelper";
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  button: {
-    margin: theme.spacing(1)
-  },
-  paper: {
-    marginTop: theme.spacing(3),
-    padding: theme.spacing(3)
-  }
-}));
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    button: {
+      margin: theme.spacing(1)
+    },
+    paper: {
+      marginTop: theme.spacing(3),
+      padding: theme.spacing(3)
+    }
+  })
+);
 
 const Blogs: React.FunctionComponent<RouteComponentProps> = props => {
   const classes = useStyles({});
@@ -50,14 +52,12 @@ const Blogs: React.FunctionComponent<RouteComponentProps> = props => {
     </Grid>
   ) : (
     <Paper key={blog.blogId} elevation={0} className={classes.paper}>
-      <h6 className="primary-text text-center">
-        {blog.title}
-      </h6>
-      <p>
-        {blog.description}
-      </p>
-      <div className="blog-image" dangerouslySetInnerHTML={{__html: blog.content}}>
-      </div>
+      <h6 className="primary-text text-center">{blog.title}</h6>
+      <p>{blog.description}</p>
+      <div
+        className="blog-image"
+        dangerouslySetInnerHTML={{ __html: blog.content }}
+      ></div>
       <p>Published: {ConvertDate(blog.createdAt)}</p>
     </Paper>
   );
@@ -69,7 +69,14 @@ const Blogs: React.FunctionComponent<RouteComponentProps> = props => {
           {content}
         </Grid>
         <Grid container justify="center" className="mb-24">
-          <Button className={classes.button} color="primary" component={Link} to="/blogs">Blogs</Button>
+          <Button
+            className={classes.button}
+            color="primary"
+            component={Link}
+            to="/blogs"
+          >
+            Blogs
+          </Button>
         </Grid>
       </Grid>
     </div>

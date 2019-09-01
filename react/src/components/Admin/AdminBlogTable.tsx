@@ -21,30 +21,32 @@ import DeleteDialog from "../Dialogs/DeleteDialog";
 import Blog from "../../models/blog";
 import { GetAllBlogs } from "../../services/blog_service";
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  boldText: {
-    fontWeight: 500
-  },
-  button: {
-    margin: theme.spacing(1)
-  },
-  divider: {
-    marginLeft: theme.spacing(2),
-    marginRight: theme.spacing(2)
-  },
-  grid: {
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2)
-  },
-  icon: {
-    color: "#9e9e9e"
-  },
-  paper: {
-    width: "100%",
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3)
-  },
-}));
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    boldText: {
+      fontWeight: 500
+    },
+    button: {
+      margin: theme.spacing(1)
+    },
+    divider: {
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2)
+    },
+    grid: {
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2)
+    },
+    icon: {
+      color: "#9e9e9e"
+    },
+    paper: {
+      width: "100%",
+      marginTop: theme.spacing(3),
+      marginBottom: theme.spacing(3)
+    }
+  })
+);
 
 const AdminBlogTable: React.FunctionComponent = props => {
   const classes = useStyles({});
@@ -62,7 +64,9 @@ const AdminBlogTable: React.FunctionComponent = props => {
   const [openCreateEdit, setCreateEdit] = React.useState<boolean>(false);
   const [selected, setSelected] = React.useState<number>(0);
   const [openDelete, setDelete] = React.useState<boolean>(false);
-  const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const smAndDown = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
 
   React.useEffect(() => {
     fetchBlogs();
@@ -121,7 +125,9 @@ const AdminBlogTable: React.FunctionComponent = props => {
   }
 
   function handleUpdate(blog: Blog) {
-    setBlogs(blogs.map((item: Blog) => item.blogId === blog.blogId ? blog : item));
+    setBlogs(
+      blogs.map((item: Blog) => (item.blogId === blog.blogId ? blog : item))
+    );
     setCreateEdit(false);
   }
 
@@ -136,19 +142,19 @@ const AdminBlogTable: React.FunctionComponent = props => {
       {blogs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map((blog: Blog, index: number) => (
-        <Paper key={blog.blogId} className={classes.paper}>
-          <Toolbar>
-            <p className={classes.boldText}>{blog.title}</p>
-            <Spacer />
-            <IconButton size="small" onClick={() => handleOpenUpdate(index)}>
-              <EditIcon className={classes.icon}/>
-            </IconButton>
-            <IconButton size="small">
-              <DeleteIcon className={classes.icon} onClick={() => handleOpenDelete(index)}/>
-            </IconButton>
-          </Toolbar>
-        </Paper>
-      ))}
+          <Paper key={blog.blogId} className={classes.paper}>
+            <Toolbar>
+              <p className={classes.boldText}>{blog.title}</p>
+              <Spacer />
+              <IconButton size="small" onClick={() => handleOpenUpdate(index)}>
+                <EditIcon className={classes.icon} />
+              </IconButton>
+              <IconButton size="small" onClick={() => handleOpenDelete(index)}>
+                <DeleteIcon className={classes.icon} />
+              </IconButton>
+            </Toolbar>
+          </Paper>
+        ))}
       <TablePagination
         rowsPerPageOptions={[5, 10, 25]}
         component="div"
@@ -164,45 +170,58 @@ const AdminBlogTable: React.FunctionComponent = props => {
       <Toolbar>
         <h6>Blogs</h6>
         <Spacer />
-        <Button className={classes.button} color="primary" onClick={handleOpenCreate}>Create</Button>
+        <Button
+          className={classes.button}
+          color="primary"
+          onClick={handleOpenCreate}
+        >
+          Create
+        </Button>
       </Toolbar>
       <Table>
         <TableHead>
           <TableRow>
             <TableCell>Title</TableCell>
             <TableCell align="right">Description</TableCell>
+            <TableCell align="right">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {blogs
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((blog: Blog, index: number) => (
-            <TableRow key={blog.blogId}>
-              <TableCell component="th" scope="row">
-                {blog.title}
-              </TableCell>
-              <TableCell align="right">{blog.description}</TableCell>
-              <TableCell align="right">
-                <IconButton size="small" onClick={() => handleOpenUpdate(index)}>
-                  <EditIcon className={classes.icon} />
-                </IconButton>
-                <IconButton size="small" onClick={() => handleOpenDelete(index)}>
-                  <DeleteIcon className={classes.icon}/>
-                </IconButton>
-              </TableCell>
-            </TableRow>
-          ))}
+              <TableRow key={blog.blogId}>
+                <TableCell component="th" scope="row">
+                  {blog.title}
+                </TableCell>
+                <TableCell align="right">{blog.description}</TableCell>
+                <TableCell align="right">
+                  <IconButton
+                    size="small"
+                    onClick={() => handleOpenUpdate(index)}
+                  >
+                    <EditIcon className={classes.icon} />
+                  </IconButton>
+                  <IconButton
+                    size="small"
+                    onClick={() => handleOpenDelete(index)}
+                  >
+                    <DeleteIcon className={classes.icon} />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            ))}
         </TableBody>
       </Table>
       <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={blogs.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onChangePage={handleChangePage}
-          onChangeRowsPerPage={handleChangeRowsPerPage}
-        />
+        rowsPerPageOptions={[5, 10, 25]}
+        component="div"
+        count={blogs.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleChangeRowsPerPage}
+      />
     </Paper>
   );
 
@@ -216,7 +235,12 @@ const AdminBlogTable: React.FunctionComponent = props => {
 
   return (
     <div>
-      <Grid container justify="center" alignItems="center" className="content-container full-height">
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        className="content-container full-height"
+      >
         <Grid item md={10} sm={10} xs={12}>
           {content}
         </Grid>
@@ -227,7 +251,7 @@ const AdminBlogTable: React.FunctionComponent = props => {
           handleCreate={handleCreate}
           handleUpdate={handleUpdate}
         />
-        <DeleteDialog 
+        <DeleteDialog
           open={openDelete}
           handleClose={handleDeleteClose}
           handleDelete={handleDelete}

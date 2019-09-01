@@ -14,31 +14,33 @@ import Blog from "../../models/blog";
 import { GetAllBlogs } from "../../services/blog_service";
 import { ConvertDate } from "../../helpers/DateHelper";
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  button: {
-    margin: theme.spacing(1)
-  },
-  paper: {
-    padding: theme.spacing(3),
-    marginBottom: theme.spacing(4)
-  },
-  textField: {
-    flexBasis: 200,
-    marginBottom: theme.spacing(4),
-    "& .MuiFilledInput-root": {
-      backgroundColor: "white",
-      borderRadius: 4
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    button: {
+      margin: theme.spacing(1)
     },
-    "& .MuiFilledInput-underline:before": {
-      borderBottom: 0
+    paper: {
+      padding: theme.spacing(3),
+      marginBottom: theme.spacing(4)
     },
-    "& .MuiFilledInput-underline:after": {
-      marginRight: 2,
-      marginLeft: 2,
-      borderRadius: 4
+    textField: {
+      flexBasis: 200,
+      marginBottom: theme.spacing(4),
+      "& .MuiFilledInput-root": {
+        backgroundColor: "white",
+        borderRadius: 4
+      },
+      "& .MuiFilledInput-underline:before": {
+        borderBottom: 0
+      },
+      "& .MuiFilledInput-underline:after": {
+        marginRight: 2,
+        marginLeft: 2,
+        borderRadius: 4
+      }
     }
-  },
-}));
+  })
+);
 
 const Blogs: React.FunctionComponent = props => {
   const classes = useStyles({});
@@ -81,23 +83,22 @@ const Blogs: React.FunctionComponent = props => {
     }
   }
 
-  const pagination = filteredBlogs.length > 0 ? (
-    <TablePagination
-      rowsPerPageOptions={[3, 5, 10]}
-      component="div"
-      count={filteredBlogs.length}
-      rowsPerPage={rowsPerPage}
-      page={page}
-      onChangePage={handleChangePage}
-      onChangeRowsPerPage={handleChangeRowsPerPage}
-    />
-  ) : (
-    <Paper elevation={0} className={classes.paper}>
-      <p className="text-center">
-        No blogs found
-      </p>
-    </Paper>
-  );
+  const pagination =
+    filteredBlogs.length > 0 ? (
+      <TablePagination
+        rowsPerPageOptions={[3, 5, 10]}
+        component="div"
+        count={filteredBlogs.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleChangeRowsPerPage}
+      />
+    ) : (
+      <Paper elevation={0} className={classes.paper}>
+        <p className="text-center">No blogs found</p>
+      </Paper>
+    );
 
   const content = loading ? (
     <Grid container justify="center" className="mt-24 mb-24">
@@ -108,26 +109,31 @@ const Blogs: React.FunctionComponent = props => {
       {filteredBlogs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map((blog: Blog) => {
-        return (
-          <div key={blog.blogId}>
-            <Paper elevation={0} className={classes.paper}>
-              <h6 className="primary-text text-center">
-                {blog.title}
-              </h6>
-              <p>
-                {blog.description}
-              </p>
-              <div className="blog-short-content blog-image" dangerouslySetInnerHTML={{__html: blog.content}}>
-              </div>
-              <p>...</p>
-              <p>Published: {ConvertDate(blog.createdAt)}</p>
-              <Grid container justify="center">
-                <Button className={classes.button} color="primary" component={Link} to={{ pathname: `/blog/${blog.blogId}`}}>View</Button>
-              </Grid>
-            </Paper>
-          </div>
-        );
-      })}
+          return (
+            <div key={blog.blogId}>
+              <Paper elevation={0} className={classes.paper}>
+                <h6 className="primary-text text-center">{blog.title}</h6>
+                <p>{blog.description}</p>
+                <div
+                  className="blog-short-content blog-image"
+                  dangerouslySetInnerHTML={{ __html: blog.content }}
+                ></div>
+                <p>...</p>
+                <p>Published: {ConvertDate(blog.createdAt)}</p>
+                <Grid container justify="center">
+                  <Button
+                    className={classes.button}
+                    color="primary"
+                    component={Link}
+                    to={{ pathname: `/blog/${blog.blogId}` }}
+                  >
+                    View
+                  </Button>
+                </Grid>
+              </Paper>
+            </div>
+          );
+        })}
       {pagination}
     </>
   );
@@ -136,13 +142,16 @@ const Blogs: React.FunctionComponent = props => {
     <div>
       <Grid container direction="column" justify="center">
         <Grid item xs={12}>
-          <img src={blogsimage} className="header-image" alt=""/>
+          <img src={blogsimage} className="header-image" alt="" />
           <div className="header-text">Blogs</div>
         </Grid>
         <Grid container justify="center" className="content-container">
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <h2 className="content-title mb-24">News &amp; Advice Blogs</h2>
-            <p>Keep up to date with the latest industry news, as well as regular activites offering recruitment and careers advice.</p>
+            <p>
+              Keep up to date with the latest industry news, as well as regular
+              activites offering recruitment and careers advice.
+            </p>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <form onSubmit={handleSubmitSearch}>
@@ -154,7 +163,11 @@ const Blogs: React.FunctionComponent = props => {
                 hiddenLabel
                 onChange={e => setSearchTerm(e.target.value)}
                 InputProps={{
-                  startAdornment: <InputAdornment position="start"><SearchIcon color="primary"/></InputAdornment>,
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon color="primary" />
+                    </InputAdornment>
+                  )
                 }}
               />
             </form>

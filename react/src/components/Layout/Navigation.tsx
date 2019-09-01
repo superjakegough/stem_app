@@ -7,25 +7,25 @@ import BottomNav from "./BottomNav";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      display: "flex",
+      display: "flex"
     },
     content: {
-      flexGrow: 1,
-    },
-  }),
+      flexGrow: 1
+    }
+  })
 );
 
 const Navigation: React.FunctionComponent = props => {
   const classes = useStyles({});
-  const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const smAndDown = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
   const bottomNav = smAndDown ? <BottomNav /> : undefined;
 
   return (
     <div className={classes.root}>
       <TopAppBar />
-      <main className={classes.content}>
-        {props.children}
-      </main>
+      <main className={classes.content}>{props.children}</main>
       {bottomNav}
     </div>
   );

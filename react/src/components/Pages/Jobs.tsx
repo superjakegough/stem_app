@@ -14,31 +14,33 @@ import Job from "../../models/job";
 import { GetAllJobs } from "../../services/job_service";
 import { ConvertDate } from "../../helpers/DateHelper";
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  button: {
-    margin: theme.spacing(1)
-  },
-  paper: {
-    padding: theme.spacing(3),
-    marginBottom: theme.spacing(4)
-  },
-  textField: {
-    flexBasis: 200,
-    marginBottom: theme.spacing(4),
-    "& .MuiFilledInput-root": {
-      backgroundColor: "white",
-      borderRadius: 4
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    button: {
+      margin: theme.spacing(1)
     },
-    "& .MuiFilledInput-underline:before": {
-      borderBottom: 0
+    paper: {
+      padding: theme.spacing(3),
+      marginBottom: theme.spacing(4)
     },
-    "& .MuiFilledInput-underline:after": {
-      marginRight: 2,
-      marginLeft: 2,
-      borderRadius: 4
+    textField: {
+      flexBasis: 200,
+      marginBottom: theme.spacing(4),
+      "& .MuiFilledInput-root": {
+        backgroundColor: "white",
+        borderRadius: 4
+      },
+      "& .MuiFilledInput-underline:before": {
+        borderBottom: 0
+      },
+      "& .MuiFilledInput-underline:after": {
+        marginRight: 2,
+        marginLeft: 2,
+        borderRadius: 4
+      }
     }
-  },
-}));
+  })
+);
 
 const Jobs: React.FunctionComponent = props => {
   const classes = useStyles({});
@@ -81,23 +83,22 @@ const Jobs: React.FunctionComponent = props => {
     }
   }
 
-  const pagination = filteredJobs.length > 0 ? (
-    <TablePagination
-      rowsPerPageOptions={[3, 5, 10]}
-      component="div"
-      count={filteredJobs.length}
-      rowsPerPage={rowsPerPage}
-      page={page}
-      onChangePage={handleChangePage}
-      onChangeRowsPerPage={handleChangeRowsPerPage}
-    />
-  ) : (
-    <Paper elevation={0} className={classes.paper}>
-      <p className="text-center">
-        No jobs found
-      </p>
-    </Paper>
-  );
+  const pagination =
+    filteredJobs.length > 0 ? (
+      <TablePagination
+        rowsPerPageOptions={[3, 5, 10]}
+        component="div"
+        count={filteredJobs.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleChangeRowsPerPage}
+      />
+    ) : (
+      <Paper elevation={0} className={classes.paper}>
+        <p className="text-center">No jobs found</p>
+      </Paper>
+    );
 
   const content = loading ? (
     <Grid container justify="center" className="mt-24 mb-24">
@@ -108,44 +109,33 @@ const Jobs: React.FunctionComponent = props => {
       {filteredJobs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map((job: Job) => {
-        return (
-          <div key={job.jobId}>
-            <Paper elevation={0} className={classes.paper}>
-              <h6 className="primary-text text-center">
-                {job.title}
-              </h6>
-              <h6>
-                Salary - Benefits
-              </h6>
-              <p>
-                {`${job.salary} - ${job.benefits}`}
-              </p>
-              <h6>
-                Type
-              </h6>
-              <p>
-                {job.jobType}
-              </p>
-              <h6>
-                Location
-              </h6>
-              <p>
-                {job.jobLocation}
-              </p>
-              <h6>
-                Reference
-              </h6>
-              <p>
-                {job.jobReference}
-              </p>
-              <p>Published: {ConvertDate(job.createdAt)}</p>
-              <Grid container justify="center">
-                <Button className={classes.button} color="primary" component={Link} to={{ pathname: `/job/${job.jobId}`}}>View</Button>
-              </Grid>
-            </Paper>
-          </div>
-        );
-      })}
+          return (
+            <div key={job.jobId}>
+              <Paper elevation={0} className={classes.paper}>
+                <h6 className="primary-text text-center">{job.title}</h6>
+                <h6>Salary - Benefits</h6>
+                <p>{`${job.salary} - ${job.benefits}`}</p>
+                <h6>Type</h6>
+                <p>{job.jobType}</p>
+                <h6>Location</h6>
+                <p>{job.jobLocation}</p>
+                <h6>Reference</h6>
+                <p>{job.jobReference}</p>
+                <p>Published: {ConvertDate(job.createdAt)}</p>
+                <Grid container justify="center">
+                  <Button
+                    className={classes.button}
+                    color="primary"
+                    component={Link}
+                    to={{ pathname: `/job/${job.jobId}` }}
+                  >
+                    View
+                  </Button>
+                </Grid>
+              </Paper>
+            </div>
+          );
+        })}
       {pagination}
     </>
   );
@@ -154,14 +144,19 @@ const Jobs: React.FunctionComponent = props => {
     <div>
       <Grid container direction="column" justify="center">
         <Grid item xs={12}>
-          <img src={jobsimage} className="header-image" alt=""/>
+          <img src={jobsimage} className="header-image" alt="" />
           <div className="header-text">Jobs</div>
         </Grid>
         <Grid container justify="center" className="content-container">
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <h2 className="content-title mb-24">Current Opportunities</h2>
-            <p>Interested in any of the below opportunities? To apply, please send your CV to {" "}
-            <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk</a> with the job reference number, and we will respond within 2 working days.</p>
+            <p>
+              Interested in any of the below opportunities? To apply, please
+              send your CV to{" "}
+              <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk</a>{" "}
+              with the job reference number, and we will respond within 2
+              working days.
+            </p>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <form onSubmit={handleSubmitSearch}>
@@ -173,7 +168,11 @@ const Jobs: React.FunctionComponent = props => {
                 hiddenLabel
                 onChange={e => setSearchTerm(e.target.value)}
                 InputProps={{
-                  startAdornment: <InputAdornment position="start"><SearchIcon color="primary"/></InputAdornment>,
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon color="primary" />
+                    </InputAdornment>
+                  )
                 }}
               />
             </form>

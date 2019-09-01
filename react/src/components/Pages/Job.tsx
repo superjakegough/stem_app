@@ -9,15 +9,17 @@ import Job from "../../models/job";
 import { GetJob } from "../../services/job_service";
 import { ConvertDate } from "../../helpers/DateHelper";
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  button: {
-    margin: theme.spacing(1)
-  },
-  paper: {
-    marginTop: theme.spacing(3),
-    padding: theme.spacing(3)
-  }
-}));
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    button: {
+      margin: theme.spacing(1)
+    },
+    paper: {
+      marginTop: theme.spacing(3),
+      padding: theme.spacing(3)
+    }
+  })
+);
 
 const Jobs: React.FunctionComponent<RouteComponentProps> = props => {
   const classes = useStyles({});
@@ -55,35 +57,16 @@ const Jobs: React.FunctionComponent<RouteComponentProps> = props => {
     </Grid>
   ) : (
     <Paper key={job.jobId} elevation={0} className={classes.paper}>
-      <h6 className="primary-text text-center">
-        {job.title}
-      </h6>
-      <h6>
-        Salary - Benefits
-      </h6>
-      <p>
-        {`${job.salary} - ${job.benefits}`}
-      </p>
-      <h6>
-        Type
-      </h6>
-      <p>
-        {job.jobType}
-      </p>
-      <h6>
-        Location
-      </h6>
-      <p>
-        {job.jobLocation}
-      </p>
-      <h6>
-        Reference
-      </h6>
-      <p>
-        {job.jobReference}
-      </p>
-      <div dangerouslySetInnerHTML={{__html: job.description}}>
-      </div>
+      <h6 className="primary-text text-center">{job.title}</h6>
+      <h6>Salary - Benefits</h6>
+      <p>{`${job.salary} - ${job.benefits}`}</p>
+      <h6>Type</h6>
+      <p>{job.jobType}</p>
+      <h6>Location</h6>
+      <p>{job.jobLocation}</p>
+      <h6>Reference</h6>
+      <p>{job.jobReference}</p>
+      <div dangerouslySetInnerHTML={{ __html: job.description }}></div>
       <p>Published: {ConvertDate(job.createdAt)}</p>
     </Paper>
   );
@@ -95,7 +78,14 @@ const Jobs: React.FunctionComponent<RouteComponentProps> = props => {
           {content}
         </Grid>
         <Grid container justify="center" className="mb-24">
-          <Button className={classes.button} color="primary" component={Link} to="/jobs">Jobs</Button>
+          <Button
+            className={classes.button}
+            color="primary"
+            component={Link}
+            to="/jobs"
+          >
+            Jobs
+          </Button>
         </Grid>
       </Grid>
     </div>

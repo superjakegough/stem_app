@@ -3,9 +3,13 @@ import AdminJobTable from "./AdminJobTable";
 import AdminAuth from "./AdminAuth";
 
 const AdminJob: React.FunctionComponent = props => {
-  const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
+  const [signedIn, setSignedIn] = React.useState<boolean>(false);
 
-  const content = loggedIn ? <AdminJobTable /> : <AdminAuth />;
+  function handleSignedIn() {
+    setSignedIn(true);
+  }
+
+  const content = signedIn ? <AdminJobTable /> : <AdminAuth handleSignedIn={handleSignedIn}/>;
 
   return (
     <div>

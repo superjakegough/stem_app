@@ -3,9 +3,13 @@ import AdminBlogTable from "./AdminBlogTable";
 import AdminAuth from "./AdminAuth";
 
 const AdminBlog: React.FunctionComponent = props => {
-  const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
+  const [signedIn, setSignedIn] = React.useState<boolean>(false);
 
-  const content = loggedIn ? <AdminBlogTable /> : <AdminAuth />;
+  function handleSignedIn() {
+    setSignedIn(true);
+  }
+
+  const content = signedIn ? <AdminBlogTable /> : <AdminAuth handleSignedIn={handleSignedIn}/>;
 
   return (
     <div>

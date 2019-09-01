@@ -55,7 +55,7 @@ const AdminAuth: React.FunctionComponent<AdminAuthProps> = props => {
 
   return (
     <div>
-      <Grid container justify="center" className="content-container">
+      <Grid direction="column" container justify="center" alignItems="center" className="content-container full-height">
         <Grid item md={3} sm={6} xs={10}>
           <TextField
             className={classes.textField}
@@ -70,12 +70,15 @@ const AdminAuth: React.FunctionComponent<AdminAuthProps> = props => {
             label="Password"
             variant="filled"
             margin="dense"
+            type="password"
             fullWidth
             onChange={e => setPassword(e.target.value)}
           />
         </Grid>
-        <Grid container justify="center">
-          <Button color="primary" disabled={validateSignIn() || loading} onClick={authSignIn}>{signIn}</Button>
+        <Grid item md={3} sm={6} xs={10}>
+          <Grid container justify="center">
+            <Button color="primary" disabled={validateSignIn() || loading} onClick={authSignIn}>{signIn}</Button>
+          </Grid>
         </Grid>
       </Grid>
     </div>

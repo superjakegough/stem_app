@@ -216,7 +216,7 @@ const AdminBlogTable: React.FunctionComponent = props => {
 
   return (
     <div>
-      <Grid container justify="center" alignItems="center" className="content-container admin-table">
+      <Grid container justify="center" alignItems="center" className="content-container full-height">
         <Grid item md={10} sm={10} xs={12}>
           {content}
         </Grid>

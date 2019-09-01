@@ -9,7 +9,7 @@ const AdminBlog: React.FunctionComponent = props => {
     setSignedIn(true);
   }
 
-  const content = !signedIn ? (
+  const content = signedIn ? (
     <AdminBlogTable />
   ) : (
     <AdminAuth handleSignedIn={handleSignedIn} />

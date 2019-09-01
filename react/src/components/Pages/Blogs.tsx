@@ -161,7 +161,9 @@ const Blogs: React.FunctionComponent = props => {
                 margin="dense"
                 fullWidth
                 hiddenLabel
-                onChange={e => setSearchTerm(e.target.value)}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                  setSearchTerm(event.target.value)
+                }
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">

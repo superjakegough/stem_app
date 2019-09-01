@@ -60,7 +60,7 @@ const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
   }
 
   function handleSetContent(content: string) {
-    setBlog({...blog, content: content});
+    setBlog({ ...blog, content: content });
   }
 
   function validateDialog() {
@@ -89,7 +89,9 @@ const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
           margin="dense"
           fullWidth
           value={blog.title}
-          onChange={e => setBlog({ ...blog, title: e.target.value })}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setBlog({ ...blog, title: event.target.value })
+          }
         />
         <TextField
           className={classes.textField}
@@ -98,9 +100,14 @@ const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
           margin="dense"
           fullWidth
           value={blog.description}
-          onChange={e => setBlog({ ...blog, description: e.target.value })}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setBlog({ ...blog, description: event.target.value })
+          }
         />
-        <RichEditor content={blog.content} handleSetContent={handleSetContent}/>
+        <RichEditor
+          content={blog.content}
+          handleSetContent={handleSetContent}
+        />
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose} color="primary">

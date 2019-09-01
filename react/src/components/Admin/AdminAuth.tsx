@@ -72,7 +72,9 @@ const AdminAuth: React.FunctionComponent<AdminAuthProps> = props => {
             variant="filled"
             margin="dense"
             fullWidth
-            onChange={e => setUsername(e.target.value)}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+              setUsername(event.target.value)
+            }
           />
           <TextField
             className={classes.textField}
@@ -81,7 +83,9 @@ const AdminAuth: React.FunctionComponent<AdminAuthProps> = props => {
             margin="dense"
             type="password"
             fullWidth
-            onChange={e => setPassword(e.target.value)}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+              setPassword(event.target.value)
+            }
           />
           <Grid container justify="center">
             <Button

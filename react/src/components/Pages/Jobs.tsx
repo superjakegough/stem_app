@@ -73,14 +73,9 @@ const Jobs: React.FunctionComponent = props => {
     setRowsPerPage(+event.target.value);
   }
 
-  function handleSubmitSearch(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const regex = new RegExp(`^.*${searchTerm}.*$`, "i");
-    if (!searchTerm) {
-      setFilteredJobs(jobs);
-    } else {
-      setFilteredJobs(jobs.filter(job => regex.test(job.title)));
-    }
+  function handleSubmitSearch(filteredJobs: Job[], searchTerm: string) {
+    setFilteredJobs(filteredJobs);
+    setSearchTerm(searchTerm);
   }
 
   const pagination =
@@ -159,7 +154,7 @@ const Jobs: React.FunctionComponent = props => {
             </p>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <form onSubmit={handleSubmitSearch}>
+            <div>
               <TextField
                 className={classes.textField}
                 variant="filled"
@@ -175,7 +170,7 @@ const Jobs: React.FunctionComponent = props => {
                   )
                 }}
               />
-            </form>
+            </div>
             {content}
           </Grid>
         </Grid>

@@ -6,6 +6,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import RichEditor from "../Layout/RichEditor";
 import Job from "../../models/job";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -58,6 +59,10 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
     }
   }
 
+  function handleSetDescription(description: string) {
+    setJob({...job, description: description});
+  }
+
   function validateDialog() {
     if (
       job.title &&
@@ -81,6 +86,7 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
       className={classes.dialog}
       disableBackdropClick={true}
       fullWidth={true}
+      maxWidth={"lg"}
     >
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
@@ -138,15 +144,7 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
           value={job.jobReference}
           onChange={e => setJob({ ...job, jobReference: e.target.value })}
         />
-        <TextField
-          className={classes.textField}
-          label="Description"
-          variant="filled"
-          margin="dense"
-          fullWidth
-          value={job.description}
-          onChange={e => setJob({ ...job, description: e.target.value })}
-        />
+        <RichEditor content={job.description} handleSetContent={handleSetDescription}/>
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose} color="primary">

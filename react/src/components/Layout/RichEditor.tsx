@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface RichEditorProps {
   content: string;
+  handleSetContent: (content: string) => void;
 }
 
 const RichEditor: React.FunctionComponent<RichEditorProps> = props => {
@@ -49,7 +50,7 @@ const RichEditor: React.FunctionComponent<RichEditorProps> = props => {
   const formats = ["bold", "italic", "underline", "list", "bullet", "link", "image"];
 
   function onChange(content: any, delta: any, source: any, editor: any) {
-    console.log(editor.getHTML());
+    props.handleSetContent(editor.getHTML());
   }
 
   return (

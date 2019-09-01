@@ -59,6 +59,10 @@ const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
     }
   }
 
+  function handleSetContent(content: string) {
+    setBlog({...blog, content: content});
+  }
+
   function validateDialog() {
     if (blog.title && blog.description && blog.content) {
       return false;
@@ -96,7 +100,7 @@ const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
           value={blog.description}
           onChange={e => setBlog({ ...blog, description: e.target.value })}
         />
-        <RichEditor content={blog.content} />
+        <RichEditor content={blog.content} handleSetContent={handleSetContent}/>
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose} color="primary">

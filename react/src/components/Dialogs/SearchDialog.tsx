@@ -88,7 +88,6 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
       filteredJobs = jobs;
     }
     props.handleSearch(filteredJobs, searchTerm);
-    props.handleClose();
   }
 
   function populateSets() {
@@ -101,6 +100,21 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
     }
     setJobTypes(Array.from(jobTypesSet));
     setJobLocations(Array.from(jobLocationsSet));
+  }
+
+  function handleReset() {
+    setSearchJob({
+      jobId: "",
+      title: "",
+      salary: "",
+      benefits: "",
+      jobType: "",
+      jobLocation: "",
+      jobReference: "",
+      description: "",
+      jobFilled: "false",
+      createdAt: ""
+    });
   }
 
   return (
@@ -119,7 +133,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           value={searchJob.title}
           onChange={(event: ChangeEvent<HTMLInputElement>) => setSearchJob({ ...searchJob, title: event.target.value })}
         />
-        <Select
+        {/* <Select
           className={classes.select}
           name="Salary"
           variant="filled"
@@ -127,7 +141,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           value={searchJob.salary}
           onChange={() => {}}
         >
-        </ Select>
+        </ Select> */}
         <TextField
           className={classes.textField}
           label="Type"
@@ -159,6 +173,9 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
       <DialogActions>
         <Button onClick={props.handleClose} color="primary">
           Cancel
+        </Button>
+        <Button onClick={handleReset} color="primary">
+          Reset
         </Button>
         <Button
           onClick={handleSearch}

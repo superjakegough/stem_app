@@ -86,6 +86,7 @@ const Jobs: FunctionComponent = props => {
   function handleSubmitSearch(filteredJobs: Job[], searchTerm: string) {
     setFilteredJobs(filteredJobs);
     setSearchTerm(searchTerm);
+    setOpenSearch(false);
   }
 
   const pagination =
@@ -142,12 +143,6 @@ const Jobs: FunctionComponent = props => {
           );
         })}
       {pagination}
-      <SearchDialog
-        open={openSearch}
-        jobs={jobs}
-        handleClose={handleCloseSearch}
-        handleSearch={handleSubmitSearch}
-      />
     </>
   );
 
@@ -169,26 +164,34 @@ const Jobs: FunctionComponent = props => {
               working days.
             </p>
           </Grid>
-          <Grid item md={8} sm={10} xs={12} className="mb-24" onClick={handleOpenSearch}>
-            <TextField
-              className={classes.textField}
-              variant="filled"
-              margin="dense"
-              fullWidth
-              hiddenLabel
-              value={searchTerm}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon color="primary" />
-                  </InputAdornment>
-                )
-              }}
-            />
+          <Grid item md={8} sm={10} xs={12} className="mb-24">
+            <div onClick={handleOpenSearch}>
+              <TextField
+                className={classes.textField}
+                variant="filled"
+                margin="dense"
+                fullWidth
+                hiddenLabel
+                value={searchTerm}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon color="primary" />
+                    </InputAdornment>
+                  )
+                }}
+              />
+            </div>
             {content}
           </Grid>
         </Grid>
       </Grid>
+      <SearchDialog
+        open={openSearch}
+        jobs={jobs}
+        handleClose={handleCloseSearch}
+        handleSearch={handleSubmitSearch}
+      />
     </div>
   );
 };

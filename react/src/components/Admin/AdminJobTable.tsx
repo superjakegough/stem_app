@@ -19,7 +19,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Spacer from "../Layout/Spacer";
 import JobDialog from "../Dialogs/JobDialog";
 import DeleteDialog from "../Dialogs/DeleteDialog";
-import Job from "../../models/job";
+import { Job, BlankJob } from "../../models/job";
 import { GetAllJobs } from "../../services/job_service";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -51,18 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const AdminJobTable: FunctionComponent = props => {
   const classes = useStyles({});
-  const [job, setJob] = useState<Job>({
-    jobId: "",
-    title: "",
-    salary: "",
-    benefits: "",
-    jobType: "",
-    jobLocation: "",
-    jobReference: "",
-    description: "",
-    jobFilled: "false",
-    createdAt: ""
-  });
+  const [job, setJob] = useState<Job>(BlankJob());
   const [jobs, setJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(0);
@@ -105,18 +94,7 @@ const AdminJobTable: FunctionComponent = props => {
   }
 
   function handleOpenCreate() {
-    setJob({
-      jobId: "",
-      title: "",
-      salary: "",
-      benefits: "",
-      jobType: "",
-      jobLocation: "",
-      jobReference: "",
-      description: "",
-      jobFilled: "false",
-      createdAt: ""
-    });
+    setJob(BlankJob());
     setCreateEdit(true);
   }
 

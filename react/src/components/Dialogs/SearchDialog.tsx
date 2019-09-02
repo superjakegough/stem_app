@@ -6,7 +6,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
-import Job from "../../models/job";
+import { Job, BlankJob } from "../../models/job";
 import { checkJob, generateSearchTerm } from "../../helpers/SearchHelper";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -52,18 +52,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [jobTypes, setJobTypes] = useState<string[]>([]);
   const [jobLocations, setJobLocations] = useState<string[]>([]);
-  const [searchJob, setSearchJob] = useState<Job>({
-    jobId: "",
-    title: "",
-    salary: "",
-    benefits: "",
-    jobType: "",
-    jobLocation: "",
-    jobReference: "",
-    description: "",
-    jobFilled: "false",
-    createdAt: ""
-  });
+  const [searchJob, setSearchJob] = useState<Job>(BlankJob());
   const salaries: string[] = [
     "£20,000+",
     "£25,000+",
@@ -103,18 +92,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
   }
 
   function handleReset() {
-    setSearchJob({
-      jobId: "",
-      title: "",
-      salary: "",
-      benefits: "",
-      jobType: "",
-      jobLocation: "",
-      jobReference: "",
-      description: "",
-      jobFilled: "false",
-      createdAt: ""
-    });
+    setSearchJob(BlankJob());
   }
 
   return (

@@ -1,4 +1,4 @@
-import Job from "../models/job";
+import { Job } from "../models/job";
 import API from "@aws-amplify/api";
 
 const apiName: string = "jobs";

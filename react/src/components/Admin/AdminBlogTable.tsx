@@ -18,7 +18,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Spacer from "../Layout/Spacer";
 import BlogDialog from "../Dialogs/BlogDialog";
 import DeleteDialog from "../Dialogs/DeleteDialog";
-import Blog from "../../models/blog";
+import { Blog, BlankBlog } from "../../models/blog";
 import { GetAllBlogs } from "../../services/blog_service";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -50,13 +50,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const AdminBlogTable: FunctionComponent = props => {
   const classes = useStyles({});
-  const [blog, setBlog] = useState<Blog>({
-    blogId: "",
-    title: "",
-    description: "",
-    content: "",
-    createdAt: ""
-  });
+  const [blog, setBlog] = useState<Blog>(BlankBlog());
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(0);
@@ -99,13 +93,7 @@ const AdminBlogTable: FunctionComponent = props => {
   }
 
   function handleOpenCreate() {
-    setBlog({
-      blogId: "",
-      title: "",
-      description: "",
-      content: "",
-      createdAt: ""
-    });
+    setBlog(BlankBlog());
     setCreateEdit(true);
   }
 

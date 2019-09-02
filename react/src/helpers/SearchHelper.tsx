@@ -1,4 +1,4 @@
-import Job from "../models/job";
+import { Job } from "../models/job";
 
 export const checkJob = (job: Job, searchJob: Job) => {
   const regex = new RegExp(`^.*${job.title}.*$`, "i");

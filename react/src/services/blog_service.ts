@@ -1,4 +1,4 @@
-import Blog from "../models/blog";
+import { Blog } from "../models/blog";
 import API from "@aws-amplify/api";
 
 const apiName: string = "blogs";

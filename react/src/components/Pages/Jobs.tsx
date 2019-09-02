@@ -11,7 +11,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import Paper from "@material-ui/core/Paper";
 import SearchDialog from "../Dialogs/SearchDialog";
-import Job from "../../models/job";
+import { Job } from "../../models/job";
 import { GetAllJobs } from "../../services/job_service";
 import { ConvertDate } from "../../helpers/DateHelper";
 

@@ -7,7 +7,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import RichEditor from "../Layout/RichEditor";
-import Blog from "../../models/blog";
+import { Blog } from "../../models/blog";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

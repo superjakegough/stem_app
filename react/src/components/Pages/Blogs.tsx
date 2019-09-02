@@ -10,7 +10,7 @@ import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import Paper from "@material-ui/core/Paper";
-import Blog from "../../models/blog";
+import { Blog } from "../../models/blog";
 import { GetAllBlogs } from "../../services/blog_service";
 import { ConvertDate } from "../../helpers/DateHelper";
 

@@ -32,7 +32,9 @@ interface RichEditorProps {
 
 const RichEditor: React.FunctionComponent<RichEditorProps> = props => {
   const classes = useStyles({});
-  const [value, setValue] = React.useState<EditorValue>(RichTextEditor.createValueFromString(props.content, "html"));
+  const [value, setValue] = React.useState<EditorValue>(
+    RichTextEditor.createValueFromString(props.content, "html")
+  );
 
   function onChange(value: EditorValue) {
     setValue(value);
@@ -40,12 +42,12 @@ const RichEditor: React.FunctionComponent<RichEditorProps> = props => {
   }
 
   return (
-      <RichTextEditor
-        value={value}
-        onChange={onChange}
-        className={classes.editor}
-        editorClassName={classes.editorBody}
-      />
+    <RichTextEditor
+      value={value}
+      onChange={onChange}
+      className={classes.editor}
+      editorClassName={classes.editorBody}
+    />
   );
 };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent, useState } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import RichTextEditor, { EditorValue } from "react-rte";
 
@@ -30,9 +30,9 @@ interface RichEditorProps {
   handleSetContent: (content: string) => void;
 }
 
-const RichEditor: React.FunctionComponent<RichEditorProps> = props => {
+const RichEditor: FunctionComponent<RichEditorProps> = props => {
   const classes = useStyles({});
-  const [value, setValue] = React.useState<EditorValue>(
+  const [value, setValue] = useState<EditorValue>(
     RichTextEditor.createValueFromString(props.content, "html")
   );
 

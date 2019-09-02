@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FunctionComponent, useState } from "react";
 import AdminJobTable from "./AdminJobTable";
 import AdminAuth from "./AdminAuth";
 
-const AdminJob: React.FunctionComponent = props => {
-  const [signedIn, setSignedIn] = React.useState<boolean>(false);
+const AdminJob: FunctionComponent = props => {
+  const [signedIn, setSignedIn] = useState<boolean>(false);
 
   function handleSignedIn() {
     setSignedIn(true);

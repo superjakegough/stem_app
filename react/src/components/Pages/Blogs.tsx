@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent, useState, useEffect, FormEvent, ChangeEvent } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -42,16 +42,16 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Blogs: React.FunctionComponent = props => {
+const Blogs: FunctionComponent = props => {
   const classes = useStyles({});
-  const [blogs, setBlogs] = React.useState<Blog[]>([]);
-  const [filteredBlogs, setFilteredBlogs] = React.useState<Blog[]>([]);
-  const [loading, setLoading] = React.useState<boolean>(false);
-  const [page, setPage] = React.useState<number>(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState<number>(3);
-  const [searchTerm, setSearchTerm] = React.useState<string>("");
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [filteredBlogs, setFilteredBlogs] = useState<Blog[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(0);
+  const [rowsPerPage, setRowsPerPage] = useState<number>(3);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchBlogs();
   }, [blogs.length]);
 
@@ -69,11 +69,11 @@ const Blogs: React.FunctionComponent = props => {
     setPage(newPage);
   }
 
-  function handleChangeRowsPerPage(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleChangeRowsPerPage(event: ChangeEvent<HTMLInputElement>) {
     setRowsPerPage(+event.target.value);
   }
 
-  function handleSubmitSearch(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmitSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const regex = new RegExp(`^.*${searchTerm}.*$`, "i");
     if (!searchTerm) {
@@ -161,7 +161,7 @@ const Blogs: React.FunctionComponent = props => {
                 margin="dense"
                 fullWidth
                 hiddenLabel
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                onChange={(event: ChangeEvent<HTMLInputElement>) =>
                   setSearchTerm(event.target.value)
                 }
                 InputProps={{

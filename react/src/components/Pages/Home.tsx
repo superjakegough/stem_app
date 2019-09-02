@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Home: React.FunctionComponent = props => {
+const Home: FunctionComponent = props => {
   const classes = useStyles({});
   const smAndDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent, useState, ChangeEvent } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
@@ -17,11 +17,11 @@ const useStyles = makeStyles({
   }
 });
 
-const BottomNav: React.FunctionComponent = props => {
+const BottomNav: FunctionComponent = props => {
   const classes = useStyles({});
-  const [value, setValue] = React.useState("/");
+  const [value, setValue] = useState("/");
 
-  function handleChange(event: React.ChangeEvent<{}>, newValue: string) {
+  function handleChange(event: ChangeEvent<{}>, newValue: string) {
     setValue(newValue);
   }
 

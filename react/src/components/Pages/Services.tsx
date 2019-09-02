@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent, useState } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Stepper from "@material-ui/core/Stepper";
@@ -29,9 +29,9 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Services: React.FunctionComponent = props => {
+const Services: FunctionComponent = props => {
   const classes = useStyles({});
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = useState(0);
   const steps = getSteps();
 
   function handleNext() {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TopAppBar from "./TopAppBar";
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Navigation: React.FunctionComponent = props => {
+const Navigation: FunctionComponent = props => {
   const classes = useStyles({});
   const smAndDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")

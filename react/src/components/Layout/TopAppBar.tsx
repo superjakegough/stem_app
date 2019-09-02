@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent, useState, MouseEvent } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -37,9 +37,9 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const TopAppBar: React.FunctionComponent = props => {
+const TopAppBar: FunctionComponent = props => {
   const classes = useStyles({});
-  const [anchorEl, setAnchorEl] = React.useState<undefined | HTMLElement>(
+  const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(
     undefined
   );
   const facebook: string =
@@ -49,7 +49,7 @@ const TopAppBar: React.FunctionComponent = props => {
     "https://linkedin.com/company/stem-skills-recruitment-ltd/";
   const instagram: string = "https://instagram.com/stemskillsrecruitment";
 
-  function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
+  function handleClick(event: MouseEvent<HTMLButtonElement>) {
     setAnchorEl(event.currentTarget);
   }
 

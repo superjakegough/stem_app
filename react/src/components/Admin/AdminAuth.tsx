@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent, useState, ChangeEvent } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Auth from "@aws-amplify/auth";
 import Grid from "@material-ui/core/Grid";
@@ -28,11 +28,11 @@ interface AdminAuthProps {
   handleSignedIn: () => void;
 }
 
-const AdminAuth: React.FunctionComponent<AdminAuthProps> = props => {
+const AdminAuth: FunctionComponent<AdminAuthProps> = props => {
   const classes = useStyles({});
-  const [loading, setLoading] = React.useState<boolean>(false);
-  const [username, setUsername] = React.useState<string>("");
-  const [password, setPassword] = React.useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const signIn = loading ? "Signing In" : "Sign In";
 
@@ -72,7 +72,7 @@ const AdminAuth: React.FunctionComponent<AdminAuthProps> = props => {
             variant="filled"
             margin="dense"
             fullWidth
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            onChange={(event: ChangeEvent<HTMLInputElement>) =>
               setUsername(event.target.value)
             }
           />
@@ -83,7 +83,7 @@ const AdminAuth: React.FunctionComponent<AdminAuthProps> = props => {
             margin="dense"
             type="password"
             fullWidth
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            onChange={(event: ChangeEvent<HTMLInputElement>) =>
               setPassword(event.target.value)
             }
           />

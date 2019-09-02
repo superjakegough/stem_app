@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent, useState, ChangeEvent } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -44,12 +44,14 @@ interface JobDialogProps {
   handleClose: () => void;
   handleSearch: (jobs: Job[], searchTerm: string) => void;
   jobs: Job[];
+  jobTypes: string[];
+  jobLocations: string[];
 }
 
-const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
+const JobDialog: FunctionComponent<JobDialogProps> = props => {
   const classes = useStyles({});
-  const [jobs, setJobs] = React.useState<Job[]>(props.jobs);
-  const [job, setJob] = React.useState<Job>({
+  const [jobs, setJobs] = useState<Job[]>(props.jobs);
+  const [job, setJob] = useState<Job>({
     jobId: "",
     title: "",
     salary: "",
@@ -91,7 +93,7 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
           margin="dense"
           fullWidth
           value={job.title}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => setJob({ ...job, title: event.target.value })}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => setJob({ ...job, title: event.target.value })}
         />
         <Select
           className={classes.select}
@@ -104,21 +106,12 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
         </ Select>
         <TextField
           className={classes.textField}
-          label="Benefits"
-          variant="filled"
-          margin="dense"
-          fullWidth
-          value={job.benefits}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => setJob({ ...job, benefits: event.target.value })}
-        />
-        <TextField
-          className={classes.textField}
           label="Type"
           variant="filled"
           margin="dense"
           fullWidth
           value={job.jobType}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => setJob({ ...job, jobType: event.target.value })}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => setJob({ ...job, jobType: event.target.value })}
         />
         <TextField
           className={classes.textField}
@@ -127,7 +120,7 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
           margin="dense"
           fullWidth
           value={job.jobLocation}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => setJob({ ...job, jobLocation: event.target.value })}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => setJob({ ...job, jobLocation: event.target.value })}
         />
         <TextField
           className={classes.textField}
@@ -136,7 +129,7 @@ const JobDialog: React.FunctionComponent<JobDialogProps> = props => {
           margin="dense"
           fullWidth
           value={job.jobReference}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => setJob({ ...job, jobReference: event.target.value })}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => setJob({ ...job, jobReference: event.target.value })}
         />
       </DialogContent>
       <DialogActions>

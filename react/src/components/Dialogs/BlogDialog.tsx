@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -41,11 +41,11 @@ interface BlogDialogProps {
   blog: Blog;
 }
 
-const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
+const BlogDialog: FunctionComponent<BlogDialogProps> = props => {
   const classes = useStyles({});
-  const [blog, setBlog] = React.useState<Blog>(props.blog);
+  const [blog, setBlog] = useState<Blog>(props.blog);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setBlog(props.blog);
   }, [props.blog]);
 
@@ -90,7 +90,7 @@ const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
           margin="dense"
           fullWidth
           value={blog.title}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
             setBlog({ ...blog, title: event.target.value })
           }
         />
@@ -101,7 +101,7 @@ const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
           margin="dense"
           fullWidth
           value={blog.description}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
             setBlog({ ...blog, description: event.target.value })
           }
         />

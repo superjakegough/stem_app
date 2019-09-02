@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent, useState, useEffect } from "react";
 import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -21,9 +21,9 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Jobs: React.FunctionComponent<RouteComponentProps> = props => {
+const Jobs: FunctionComponent<RouteComponentProps> = props => {
   const classes = useStyles({});
-  const [job, setJob] = React.useState<Job>({
+  const [job, setJob] = useState<Job>({
     jobId: "",
     title: "",
     salary: "",
@@ -35,10 +35,10 @@ const Jobs: React.FunctionComponent<RouteComponentProps> = props => {
     jobFilled: "",
     createdAt: ""
   });
-  const [loading, setLoading] = React.useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const params: any = props.match.params;
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchJob();
   }, [job.jobId]);
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent, useState, ChangeEvent } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
@@ -49,9 +49,9 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const AdminJobTable: React.FunctionComponent = props => {
+const AdminJobTable: FunctionComponent = props => {
   const classes = useStyles({});
-  const [job, setJob] = React.useState<Job>({
+  const [job, setJob] = useState<Job>({
     jobId: "",
     title: "",
     salary: "",
@@ -63,18 +63,18 @@ const AdminJobTable: React.FunctionComponent = props => {
     jobFilled: "false",
     createdAt: ""
   });
-  const [jobs, setJobs] = React.useState<Job[]>([]);
-  const [loading, setLoading] = React.useState<boolean>(false);
-  const [page, setPage] = React.useState<number>(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState<number>(5);
-  const [openCreateEdit, setCreateEdit] = React.useState<boolean>(false);
-  const [selected, setSelected] = React.useState<number>(0);
-  const [openDelete, setDelete] = React.useState<boolean>(false);
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(0);
+  const [rowsPerPage, setRowsPerPage] = useState<number>(5);
+  const [openCreateEdit, setCreateEdit] = useState<boolean>(false);
+  const [selected, setSelected] = useState<number>(0);
+  const [openDelete, setDelete] = useState<boolean>(false);
   const smAndDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchJobs();
   }, []);
 
@@ -91,7 +91,7 @@ const AdminJobTable: React.FunctionComponent = props => {
     setPage(newPage);
   }
 
-  function handleChangeRowsPerPage(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleChangeRowsPerPage(event: ChangeEvent<HTMLInputElement>) {
     setRowsPerPage(+event.target.value);
     setPage(0);
   }

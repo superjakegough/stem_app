@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -21,7 +21,7 @@ interface DeleteProps {
   handleDelete: () => void;
 }
 
-const DeleteDialog: React.FunctionComponent<DeleteProps> = props => {
+const DeleteDialog: FunctionComponent<DeleteProps> = props => {
   const classes = useStyles({});
 
   function handleSubmit() {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent, useState, useEffect, FormEvent, ChangeEvent } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -43,17 +43,17 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Jobs: React.FunctionComponent = props => {
+const Jobs: FunctionComponent = props => {
   const classes = useStyles({});
-  const [jobs, setJobs] = React.useState<Job[]>([]);
-  const [filteredJobs, setFilteredJobs] = React.useState<Job[]>([]);
-  const [loading, setLoading] = React.useState<boolean>(false);
-  const [page, setPage] = React.useState<number>(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState<number>(3);
-  const [searchTerm, setSearchTerm] = React.useState<string>("");
-  const [openSearch, setOpenSearch] = React.useState<boolean>(false);
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(0);
+  const [rowsPerPage, setRowsPerPage] = useState<number>(3);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [openSearch, setOpenSearch] = useState<boolean>(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchJobs();
   }, [jobs.length]);
 
@@ -71,7 +71,7 @@ const Jobs: React.FunctionComponent = props => {
     setPage(newPage);
   }
 
-  function handleChangeRowsPerPage(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleChangeRowsPerPage(event: ChangeEvent<HTMLInputElement>) {
     setRowsPerPage(+event.target.value);
   }
 
@@ -142,7 +142,7 @@ const Jobs: React.FunctionComponent = props => {
           );
         })}
       {pagination}
-      <SearchDialog open={openSearch} jobs={jobs} handleClose={handleCloseSearch} handleSearch={handleSubmitSearch}/>
+      {/* <SearchDialog open={openSearch} jobs={jobs} handleClose={handleCloseSearch} handleSearch={handleSubmitSearch}/> */}
     </>
   );
 

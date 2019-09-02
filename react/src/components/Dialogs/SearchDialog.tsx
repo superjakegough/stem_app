@@ -121,7 +121,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           }
         />
         <FormControl variant="filled" fullWidth>
-          <InputLabel htmlFor="search-salary">Salary</InputLabel>
+          <InputLabel htmlFor="search-job-salary">Salary</InputLabel>
           <Select
             value={searchJob.salary}
             onChange={(event: ChangeEvent<{ name?: string; value: unknown }>) => {
@@ -129,40 +129,63 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
             }}
             input={
               <FilledInput
-                id="search-salary"
+                id="search-job-salary"
                 className={classes.input}
                 margin="dense"
                 fullWidth
               />
             }
           >
+            <MenuItem value={""}>None</MenuItem>
             {salaries.map((salary: string) => (
               <MenuItem key={salary} value={salary}>{salary}</MenuItem>
             ))}
           </Select>
         </FormControl>
-        <TextField
-          className={classes.textField}
-          label="Type"
-          variant="filled"
-          margin="dense"
-          fullWidth
-          value={searchJob.jobType}
-          onChange={(event: ChangeEvent<HTMLInputElement>) =>
-            setSearchJob({ ...searchJob, jobType: event.target.value })
-          }
-        />
-        <TextField
-          className={classes.textField}
-          label="Location"
-          variant="filled"
-          margin="dense"
-          fullWidth
-          value={searchJob.jobLocation}
-          onChange={(event: ChangeEvent<HTMLInputElement>) =>
-            setSearchJob({ ...searchJob, jobLocation: event.target.value })
-          }
-        />
+        <FormControl variant="filled" fullWidth>
+          <InputLabel htmlFor="search-job-types">Type</InputLabel>
+          <Select
+            value={searchJob.jobType}
+            onChange={(event: ChangeEvent<{ name?: string; value: unknown }>) => {
+              setSearchJob({...searchJob, jobType: event.target.value as string });
+            }}
+            input={
+              <FilledInput
+                id="search-job-types"
+                className={classes.input}
+                margin="dense"
+                fullWidth
+              />
+            }
+          >
+            <MenuItem value={""}>None</MenuItem>
+            {jobTypes.map((jobType: string) => (
+              <MenuItem key={jobType} value={jobType}>{jobType}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <FormControl variant="filled" fullWidth>
+          <InputLabel htmlFor="search-job-locations">Location</InputLabel>
+          <Select
+            value={searchJob.jobLocation}
+            onChange={(event: ChangeEvent<{ name?: string; value: unknown }>) => {
+              setSearchJob({...searchJob, jobLocation: event.target.value as string });
+            }}
+            input={
+              <FilledInput
+                id="search-job-locations"
+                className={classes.input}
+                margin="dense"
+                fullWidth
+              />
+            }
+          >
+            <MenuItem value={""}>None</MenuItem>
+            {jobLocations.map((jobLocation: string) => (
+              <MenuItem key={jobLocation} value={jobLocation}>{jobLocation}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         <TextField
           className={classes.textField}
           label="Reference"

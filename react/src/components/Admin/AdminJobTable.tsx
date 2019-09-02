@@ -14,13 +14,14 @@ import IconButton from "@material-ui/core/IconButton";
 import Divider from "@material-ui/core/Divider";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
+import LinearProgress from "@material-ui/core/LinearProgress";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Toolbar from "@material-ui/core/Toolbar";
 import Spacer from "../Layout/Spacer";
 import JobDialog from "../Dialogs/JobDialog";
 import DeleteDialog from "../Dialogs/DeleteDialog";
 import { Job, BlankJob } from "../../models/job";
-import { GetAllJobs } from "../../services/job_service";
+import { GetAllJobs, CreateJob, UpdateJob, DeleteJob } from "../../services/job_service";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -64,11 +65,11 @@ const AdminJobTable: FunctionComponent = props => {
   );
 
   useEffect(() => {
+    setLoading(true);
     fetchJobs();
   }, []);
 
   async function fetchJobs() {
-    setLoading(true);
     const result = await GetAllJobs();
     if (result) {
       setJobs(result);
@@ -108,23 +109,33 @@ const AdminJobTable: FunctionComponent = props => {
     setDelete(true);
   }
 
-  function handleCreate(job: Job) {
-    setJobs([...jobs, job]);
+  async function handleCreate(job: Job) {
+    setLoading(true);
     setCreateEdit(false);
+    await CreateJob(job);
+    await fetchJobs();
   }
 
-  function handleUpdate(job: Job) {
-    setJobs(jobs.map((item: Job) => (item.jobId === job.jobId ? job : item)));
+  async function handleUpdate(job: Job) {
+    setLoading(true);
     setCreateEdit(false);
+    await UpdateJob(job);
+    await fetchJobs();
   }
 
-  function handleDelete() {
-    const deleteId: string = jobs[selected].jobId;
-    setJobs(jobs.filter((item: Job) => item.jobId !== deleteId));
+  async function handleDelete() {
+    setLoading(true);
     setDelete(false);
+    const deleteId: string = jobs[selected].jobId;
+    await DeleteJob(deleteId);
+    await fetchJobs();
   }
 
-  const table = smAndDown ? (
+  const smContent = loading ? (
+    <Grid container justify="center" className="mt-24 mb-24">
+      <CircularProgress color="primary" />
+    </Grid>
+  ) : (
     <div className="mb-48">
       {jobs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -165,6 +176,10 @@ const AdminJobTable: FunctionComponent = props => {
         onChangeRowsPerPage={handleChangeRowsPerPage}
       />
     </div>
+  );
+
+  const content = smAndDown ? (
+    smContent
   ) : (
     <Paper className={classes.paper}>
       <Toolbar>
@@ -178,6 +193,7 @@ const AdminJobTable: FunctionComponent = props => {
           Create
         </Button>
       </Toolbar>
+      {loading && (<LinearProgress />)}
       <Table>
         <TableHead>
           <TableRow>
@@ -227,14 +243,6 @@ const AdminJobTable: FunctionComponent = props => {
         onChangeRowsPerPage={handleChangeRowsPerPage}
       />
     </Paper>
-  );
-
-  const content = loading ? (
-    <Grid container justify="center" className="mt-24 mb-24">
-      <CircularProgress color="primary" />
-    </Grid>
-  ) : (
-    table
   );
 
   return (

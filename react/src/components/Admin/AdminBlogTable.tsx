@@ -13,13 +13,14 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
+import LinearProgress from "@material-ui/core/LinearProgress";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Toolbar from "@material-ui/core/Toolbar";
 import Spacer from "../Layout/Spacer";
 import BlogDialog from "../Dialogs/BlogDialog";
 import DeleteDialog from "../Dialogs/DeleteDialog";
 import { Blog, BlankBlog } from "../../models/blog";
-import { GetAllBlogs } from "../../services/blog_service";
+import { GetAllBlogs, CreateBlog, UpdateBlog, DeleteBlog } from "../../services/blog_service";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -63,11 +64,11 @@ const AdminBlogTable: FunctionComponent = props => {
   );
 
   useEffect(() => {
+    setLoading(true);
     fetchBlogs();
   }, []);
 
   async function fetchBlogs() {
-    setLoading(true);
     const result = await GetAllBlogs();
     if (result) {
       setBlogs(result);
@@ -107,25 +108,33 @@ const AdminBlogTable: FunctionComponent = props => {
     setDelete(true);
   }
 
-  function handleCreate(blog: Blog) {
-    setBlogs([...blogs, blog]);
+  async function handleCreate(blog: Blog) {
+    setLoading(true);
     setCreateEdit(false);
+    await CreateBlog(blog);
+    await fetchBlogs();
   }
 
-  function handleUpdate(blog: Blog) {
-    setBlogs(
-      blogs.map((item: Blog) => (item.blogId === blog.blogId ? blog : item))
-    );
+  async function handleUpdate(blog: Blog) {
+    setLoading(true);
     setCreateEdit(false);
+    await UpdateBlog(blog);
+    await fetchBlogs();
   }
 
-  function handleDelete() {
-    const deleteId: string = blogs[selected].blogId;
-    setBlogs(blogs.filter((item: Blog) => item.blogId !== deleteId));
+  async function handleDelete() {
+    setLoading(true);
     setDelete(false);
+    const deleteId: string = blogs[selected].blogId;
+    await DeleteBlog(deleteId);
+    await fetchBlogs();
   }
 
-  const table = smAndDown ? (
+  const smContent = loading ? (
+    <Grid container justify="center" className="mt-24 mb-24">
+      <CircularProgress color="primary" />
+    </Grid>
+  ) : (
     <div className="mb-48">
       {blogs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -153,6 +162,10 @@ const AdminBlogTable: FunctionComponent = props => {
         onChangeRowsPerPage={handleChangeRowsPerPage}
       />
     </div>
+  );
+
+  const content = smAndDown ? (
+    smContent
   ) : (
     <Paper className={classes.paper}>
       <Toolbar>
@@ -166,6 +179,7 @@ const AdminBlogTable: FunctionComponent = props => {
           Create
         </Button>
       </Toolbar>
+      {loading && (<LinearProgress />)}
       <Table>
         <TableHead>
           <TableRow>
@@ -211,14 +225,6 @@ const AdminBlogTable: FunctionComponent = props => {
         onChangeRowsPerPage={handleChangeRowsPerPage}
       />
     </Paper>
-  );
-
-  const content = loading ? (
-    <Grid container justify="center" className="mt-24 mb-24">
-      <CircularProgress color="primary" />
-    </Grid>
-  ) : (
-    table
   );
 
   return (

@@ -60,6 +60,7 @@ const BlogDialog: React.FunctionComponent<BlogDialogProps> = props => {
   }
 
   function handleSetContent(content: string) {
+    console.log(content);
     setBlog({ ...blog, content: content });
   }
 

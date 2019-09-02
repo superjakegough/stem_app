@@ -1,35 +1,27 @@
 import React from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import RichTextEditor, { EditorValue } from "react-rte";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     editor: {
       backgroundColor: "#E8E8E8",
-      borderRadius: 8,
-      padding: theme.spacing(2),
-      maxHeight: 500,
-      overflowY: "scroll",
-      "& .ql-toolbar": {
-        borderTop: "unset",
-        borderLeft: "unset",
-        borderRight: "unset",
-        paddingTop: 0,
-        paddingLeft: 0,
-        paddingRight: 0,
-        paddingBottom: theme.spacing(1)
-      },
-      "& .ql-container": {
-        border: "unset"
-      },
-      "& .ql-tooltip": {
-        position: "unset",
-        border: "unset",
-        borderRadius: 8,
-        boxShadow: "none"
+      border: "none",
+      borderRadius: 4,
+      fontSize: "1rem",
+      fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+      lineHeight: 1.5,
+      letterSpacing: "0.00938em",
+      "& button": {
+        border: "none",
+        background: "none"
       }
     },
+    editorBody: {
+      maxHeight: 500,
+      overflowY: "scroll",
+      padding: theme.spacing(1)
+    }
   })
 );
 
@@ -40,42 +32,20 @@ interface RichEditorProps {
 
 const RichEditor: React.FunctionComponent<RichEditorProps> = props => {
   const classes = useStyles({});
-  const [editor, setEditor] = React.useState<any>();
-  const [content, setContent] = React.useState<string>(props.content);
+  const [value, setValue] = React.useState<EditorValue>(RichTextEditor.createValueFromString(props.content, "html"));
 
-  const imageHandler = () => {
-    const value = prompt("What is the image URL");
-    const quill = editor.getEditor();
-    if (value) {
-        quill.insertEmbed(quill.getSelection(), "image", value);
-    }
-  };
-
-  const modules = {
-    toolbar: {
-      container: [["bold", "italic", "underline", { list: "ordered" }, { list: "bullet" }, "link", "image"]],
-      handlers: {
-        image: imageHandler
-      }
-    }
-  };
-
-  const formats = ["bold", "italic", "underline", "list", "bullet", "link", "image"];
-
-  function onChange(content: any, delta: any, source: any, editor: any) {
-    // props.handleSetContent(editor.getHTML());
+  function onChange(value: EditorValue) {
+    setValue(value);
+    props.handleSetContent(value.toString("html"));
   }
 
   return (
-    <div className={classes.editor}>
-      <ReactQuill
-        ref={(el) => setEditor(el)}
-        modules={modules}
-        formats={formats}
+      <RichTextEditor
+        value={value}
         onChange={onChange}
-        value={content}
+        className={classes.editor}
+        editorClassName={classes.editorBody}
       />
-    </div>
   );
 };
 

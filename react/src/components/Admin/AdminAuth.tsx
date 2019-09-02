@@ -12,9 +12,6 @@ const useStyles = makeStyles((theme: Theme) =>
       "& .MuiFilledInput-root": {
         borderRadius: 4
       },
-      "& .MuiFilledInput-underline:before": {
-        borderBottom: 0
-      },
       "& .MuiFilledInput-underline:after": {
         marginRight: 2,
         marginLeft: 2,

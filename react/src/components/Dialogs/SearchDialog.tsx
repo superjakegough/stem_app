@@ -5,9 +5,13 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import FilledInput from "@material-ui/core/FilledInput";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import { Job, BlankJob } from "../../models/job";
 import { checkJob, generateSearchTerm } from "../../helpers/SearchHelper";
+import FormControl from "@material-ui/core/FormControl";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,20 +25,23 @@ const useStyles = makeStyles((theme: Theme) =>
       "& .MuiFilledInput-root": {
         borderRadius: 4
       },
-      "& .MuiFilledInput-underline:before": {
-        borderBottom: 0
-      },
       "& .MuiFilledInput-underline:after": {
         marginRight: 2,
         marginLeft: 2,
         borderRadius: 4
       }
     },
-    select: {
-      marginBottom: theme.spacing(4),
-      "& .MuiInputBase-root": {
+    input: {
+      marginBottom: theme.spacing(3),
+      borderRadius: 4,
+      "& .MuiFilledInput-root": {
         borderRadius: 4,
         backgroundColor: "#E8E8E8",
+      },
+      "& .MuiFilledInput-underline:after": {
+        marginRight: 2,
+        marginLeft: 2,
+        borderRadius: 4
       }
     }
   })
@@ -109,17 +116,31 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           margin="dense"
           fullWidth
           value={searchJob.title}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => setSearchJob({ ...searchJob, title: event.target.value })}
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            setSearchJob({ ...searchJob, title: event.target.value })
+          }
         />
-        {/* <Select
-          className={classes.select}
-          name="Salary"
-          variant="filled"
-          fullWidth
-          value={searchJob.salary}
-          onChange={() => {}}
-        >
-        </ Select> */}
+        <FormControl variant="filled" fullWidth>
+          <InputLabel htmlFor="search-salary">Salary</InputLabel>
+          <Select
+            value={searchJob.salary}
+            onChange={(event: ChangeEvent<{ name?: string; value: unknown }>) => {
+              setSearchJob({...searchJob, salary: event.target.value as string });
+            }}
+            input={
+              <FilledInput
+                id="search-salary"
+                className={classes.input}
+                margin="dense"
+                fullWidth
+              />
+            }
+          >
+            {salaries.map((salary: string) => (
+              <MenuItem key={salary} value={salary}>{salary}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         <TextField
           className={classes.textField}
           label="Type"
@@ -127,7 +148,9 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           margin="dense"
           fullWidth
           value={searchJob.jobType}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => setSearchJob({ ...searchJob, jobType: event.target.value })}
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            setSearchJob({ ...searchJob, jobType: event.target.value })
+          }
         />
         <TextField
           className={classes.textField}
@@ -136,7 +159,9 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           margin="dense"
           fullWidth
           value={searchJob.jobLocation}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => setSearchJob({ ...searchJob, jobLocation: event.target.value })}
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            setSearchJob({ ...searchJob, jobLocation: event.target.value })
+          }
         />
         <TextField
           className={classes.textField}
@@ -145,7 +170,9 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           margin="dense"
           fullWidth
           value={searchJob.jobReference}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => setSearchJob({ ...searchJob, jobReference: event.target.value })}
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            setSearchJob({ ...searchJob, jobReference: event.target.value })
+          }
         />
       </DialogContent>
       <DialogActions>
@@ -155,10 +182,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
         <Button onClick={handleReset} color="primary">
           Reset
         </Button>
-        <Button
-          onClick={handleSearch}
-          color="primary"
-        >
+        <Button onClick={handleSearch} color="primary">
           Submit
         </Button>
       </DialogActions>

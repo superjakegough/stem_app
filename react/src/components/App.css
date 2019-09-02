@@ -41,6 +41,10 @@ h6 {
   background-color: unset !important;
 }
 
+.MuiFilledInput-underline:before {
+  border-bottom: none !important;
+}
+
 .dialog-text-field {
   background-color: white !important;
 }

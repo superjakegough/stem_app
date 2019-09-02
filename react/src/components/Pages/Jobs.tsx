@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useEffect, FormEvent, ChangeEvent } from "react";
+import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -142,7 +142,12 @@ const Jobs: FunctionComponent = props => {
           );
         })}
       {pagination}
-      {/* <SearchDialog open={openSearch} jobs={jobs} handleClose={handleCloseSearch} handleSearch={handleSubmitSearch}/> */}
+      <SearchDialog
+        open={openSearch}
+        jobs={jobs}
+        handleClose={handleCloseSearch}
+        handleSearch={handleSubmitSearch}
+      />
     </>
   );
 
@@ -171,6 +176,7 @@ const Jobs: FunctionComponent = props => {
               margin="dense"
               fullWidth
               hiddenLabel
+              value={searchTerm}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, ChangeEvent } from "react";
+import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import Job from "../../models/job";
+import { checkJob, generateSearchTerm } from "../../helpers/SearchHelper";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -44,14 +45,14 @@ interface JobDialogProps {
   handleClose: () => void;
   handleSearch: (jobs: Job[], searchTerm: string) => void;
   jobs: Job[];
-  jobTypes: string[];
-  jobLocations: string[];
 }
 
 const JobDialog: FunctionComponent<JobDialogProps> = props => {
   const classes = useStyles({});
-  const [jobs, setJobs] = useState<Job[]>(props.jobs);
-  const [job, setJob] = useState<Job>({
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [jobTypes, setJobTypes] = useState<string[]>([]);
+  const [jobLocations, setJobLocations] = useState<string[]>([]);
+  const [searchJob, setSearchJob] = useState<Job>({
     jobId: "",
     title: "",
     salary: "",
@@ -73,10 +74,33 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
     "£50,000+",
   ];
 
+  useEffect(() => {
+    setJobs(props.jobs);
+    populateSets();
+  }, [props.jobs.length]);
+
   function handleSearch() {
-    const searchTerm: string = "";
-    props.handleSearch(jobs, searchTerm);
+    const searchTerm: string = generateSearchTerm(searchJob);
+    let filteredJobs: Job[];
+    if (searchTerm) {
+      filteredJobs = jobs.filter(job => checkJob(searchJob, job));
+    } else {
+      filteredJobs = jobs;
+    }
+    props.handleSearch(filteredJobs, searchTerm);
     props.handleClose();
+  }
+
+  function populateSets() {
+    const jobTypesSet: Set<string> = new Set<string>();
+    const jobLocationsSet: Set<string> = new Set<string>();
+
+    for (let i = 0; i < props.jobs.length; i++) {
+      jobTypesSet.add(props.jobs[i].jobType);
+      jobLocationsSet.add(props.jobs[i].jobLocation);
+    }
+    setJobTypes(Array.from(jobTypesSet));
+    setJobLocations(Array.from(jobLocationsSet));
   }
 
   return (
@@ -92,15 +116,15 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           variant="filled"
           margin="dense"
           fullWidth
-          value={job.title}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => setJob({ ...job, title: event.target.value })}
+          value={searchJob.title}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => setSearchJob({ ...searchJob, title: event.target.value })}
         />
         <Select
           className={classes.select}
           name="Salary"
           variant="filled"
           fullWidth
-          value={job.salary}
+          value={searchJob.salary}
           onChange={() => {}}
         >
         </ Select>
@@ -110,8 +134,8 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           variant="filled"
           margin="dense"
           fullWidth
-          value={job.jobType}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => setJob({ ...job, jobType: event.target.value })}
+          value={searchJob.jobType}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => setSearchJob({ ...searchJob, jobType: event.target.value })}
         />
         <TextField
           className={classes.textField}
@@ -119,8 +143,8 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           variant="filled"
           margin="dense"
           fullWidth
-          value={job.jobLocation}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => setJob({ ...job, jobLocation: event.target.value })}
+          value={searchJob.jobLocation}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => setSearchJob({ ...searchJob, jobLocation: event.target.value })}
         />
         <TextField
           className={classes.textField}
@@ -128,8 +152,8 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           variant="filled"
           margin="dense"
           fullWidth
-          value={job.jobReference}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => setJob({ ...job, jobReference: event.target.value })}
+          value={searchJob.jobReference}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => setSearchJob({ ...searchJob, jobReference: event.target.value })}
         />
       </DialogContent>
       <DialogActions>

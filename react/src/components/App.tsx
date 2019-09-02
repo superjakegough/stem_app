@@ -15,6 +15,11 @@ import "./App.css";
 
 const history = createBrowserHistory();
 
+// Scroll to top on route change
+history.listen(_ => {
+  window.scrollTo(0, 0);
+});
+
 export default function App() {
   return (
     <Router history={history}>

@@ -1,4 +1,4 @@
-export default interface Job {
+export interface Job {
   jobId: string;
   title: string;
   salary: string;
@@ -10,3 +10,18 @@ export default interface Job {
   jobFilled: string;
   createdAt: string;
 }
+
+export const BlankJob = () => {
+  return {
+    jobId: "",
+    title: "",
+    salary: "",
+    benefits: "",
+    jobType: "",
+    jobLocation: "",
+    jobReference: "",
+    description: "",
+    jobFilled: "false",
+    createdAt: ""
+  };
+};

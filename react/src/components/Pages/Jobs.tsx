@@ -99,6 +99,7 @@ const Jobs: FunctionComponent = props => {
         page={page}
         onChangePage={handleChangePage}
         onChangeRowsPerPage={handleChangeRowsPerPage}
+        labelRowsPerPage={""}
       />
     ) : (
       <Paper elevation={0} className={classes.paper}>

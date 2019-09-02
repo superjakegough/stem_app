@@ -136,6 +136,15 @@ const AdminBlogTable: FunctionComponent = props => {
     </Grid>
   ) : (
     <div className="mb-48">
+      <Grid container justify="center">
+        <Button
+          className={classes.button}
+          color="primary"
+          onClick={handleOpenCreate}
+        >
+          Create
+        </Button>
+      </Grid>
       {blogs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map((blog: Blog, index: number) => (
@@ -160,6 +169,7 @@ const AdminBlogTable: FunctionComponent = props => {
         page={page}
         onChangePage={handleChangePage}
         onChangeRowsPerPage={handleChangeRowsPerPage}
+        labelRowsPerPage={""}
       />
     </div>
   );

@@ -137,6 +137,15 @@ const AdminJobTable: FunctionComponent = props => {
     </Grid>
   ) : (
     <div className="mb-48">
+      <Grid container justify="center">
+        <Button
+          className={classes.button}
+          color="primary"
+          onClick={handleOpenCreate}
+        >
+          Create
+        </Button>
+      </Grid>
       {jobs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map((job: Job, index: number) => (
@@ -174,6 +183,7 @@ const AdminJobTable: FunctionComponent = props => {
         page={page}
         onChangePage={handleChangePage}
         onChangeRowsPerPage={handleChangeRowsPerPage}
+        labelRowsPerPage={""}
       />
     </div>
   );

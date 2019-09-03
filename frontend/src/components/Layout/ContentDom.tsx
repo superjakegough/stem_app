@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { sanitize } from "dompurify";
 
 interface ContentDomProps {
   content: string;
@@ -6,10 +7,12 @@ interface ContentDomProps {
 }
 
 const ContentDom: FunctionComponent<ContentDomProps> = props => {
+  const sanitisedHTML: string = sanitize(props.content);
+
   return (
     <div
       className={props.className}
-      dangerouslySetInnerHTML={{ __html: props.content }}
+      dangerouslySetInnerHTML={{ __html: sanitisedHTML }}
     ></div>
   );
 };

@@ -10,6 +10,7 @@ import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import Paper from "@material-ui/core/Paper";
+import ContentDom from "../Layout/ContentDom";
 import { Blog } from "../../models/blog";
 import { GetAllBlogs } from "../../services/blog_service";
 import { ConvertDate } from "../../helpers/DateHelper";
@@ -115,10 +116,7 @@ const Blogs: FunctionComponent = props => {
               <Paper elevation={0} className={classes.paper}>
                 <h6 className="primary-text text-center">{blog.title}</h6>
                 <p>{blog.description}</p>
-                <div
-                  className="blog-short-content blog-image"
-                  dangerouslySetInnerHTML={{ __html: blog.content }}
-                ></div>
+                <ContentDom className="blog-short-content blog-image" content={blog.content} />
                 <p>...</p>
                 <p>Published: {ConvertDate(blog.createdAt)}</p>
                 <Grid container justify="center">

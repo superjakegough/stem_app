@@ -5,6 +5,7 @@ body {
 a {
   color: #22b771;
   text-decoration: unset;
+  word-break: break-word;
 }
 
 p {

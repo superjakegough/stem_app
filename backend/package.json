@@ -4,10 +4,10 @@
   "main": "",
   "scripts": {},
   "dependencies": {
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "aws-sdk": "^2.505.0",
+    "aws-sdk": "^2.521.0",
     "serverless-bundle": "^1.2.3",
     "serverless-offline": "^5.10.1"
   }

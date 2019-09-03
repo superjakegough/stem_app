@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
+import ContentDom from "../Layout/ContentDom";
 import { Job, BlankJob } from "../../models/job";
 import { GetJob } from "../../services/job_service";
 import { ConvertDate } from "../../helpers/DateHelper";
@@ -55,7 +56,7 @@ const Jobs: FunctionComponent<RouteComponentProps> = props => {
       <p>{job.jobLocation}</p>
       <h6>Reference</h6>
       <p>{job.jobReference}</p>
-      <div dangerouslySetInnerHTML={{ __html: job.description }}></div>
+      <ContentDom content={job.description}/>
       <p>Published: {ConvertDate(job.createdAt)}</p>
     </Paper>
   );

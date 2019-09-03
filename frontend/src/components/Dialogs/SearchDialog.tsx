@@ -73,7 +73,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
   useEffect(() => {
     setJobs(props.jobs);
     populateSets();
-  }, [props.jobs.length]);
+  }, [props.jobs]);
 
   function handleSearch() {
     const searchTerm: string = generateSearchTerm(searchJob);

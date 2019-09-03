@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
+import ContentDom from "../Layout/ContentDom";
 import { Blog, BlankBlog } from "../../models/blog";
 import { GetBlog } from "../../services/blog_service";
 import { ConvertDate } from "../../helpers/DateHelper";
@@ -48,10 +49,8 @@ const Blogs: FunctionComponent<RouteComponentProps> = props => {
     <Paper key={blog.blogId} elevation={0} className={classes.paper}>
       <h6 className="primary-text text-center">{blog.title}</h6>
       <p>{blog.description}</p>
-      <div
-        className="blog-image"
-        dangerouslySetInnerHTML={{ __html: blog.content }}
-      ></div>
+      <div></div>
+      <ContentDom className="blog-image" content={blog.content} />
       <p>Published: {ConvertDate(blog.createdAt)}</p>
     </Paper>
   );

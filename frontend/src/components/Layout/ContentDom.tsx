@@ -6,7 +6,12 @@ interface ContentDomProps {
 }
 
 const ContentDom: FunctionComponent<ContentDomProps> = props => {
-  return <div className={props.className} dangerouslySetInnerHTML={{ __html: props.content }}></div>;
+  return (
+    <div
+      className={props.className}
+      dangerouslySetInnerHTML={{ __html: props.content }}
+    ></div>
+  );
 };
 
 export default ContentDom;

@@ -1,13 +1,13 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
-import { Link, withRouter, RouteComponentProps } from "react-router-dom";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import ContentDom from "../Layout/ContentDom";
-import { Job, BlankJob } from "../../models/job";
-import { GetJob } from "../../services/job_service";
+import LinkButton from "../Layout/LinkButton";
+import { Blog, BlankBlog } from "../../models/blog";
+import { GetBlog } from "../../services/blog_service";
 import { ConvertDate } from "../../helpers/DateHelper";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -22,21 +22,21 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Jobs: FunctionComponent<RouteComponentProps> = props => {
+const ViewBlog: FunctionComponent<RouteComponentProps> = props => {
   const classes = useStyles({});
-  const [job, setJob] = useState<Job>(BlankJob());
+  const [blog, setBlog] = useState<Blog>(BlankBlog());
   const [loading, setLoading] = useState<boolean>(false);
   const params: any = props.match.params;
 
   useEffect(() => {
-    fetchJob();
-  }, [job.jobId]);
+    fetchBlog();
+  }, [blog.blogId]);
 
-  async function fetchJob() {
+  async function fetchBlog() {
     setLoading(true);
-    const result = await GetJob(params.id);
+    const result = await GetBlog(params.id);
     if (result) {
-      setJob(result);
+      setBlog(result);
     }
     setLoading(false);
   }
@@ -46,18 +46,12 @@ const Jobs: FunctionComponent<RouteComponentProps> = props => {
       <CircularProgress color="primary" />
     </Grid>
   ) : (
-    <Paper key={job.jobId} elevation={0} className={classes.paper}>
-      <h6 className="primary-text text-center">{job.title}</h6>
-      <h6>Salary - Benefits</h6>
-      <p>{`${job.salary} - ${job.benefits}`}</p>
-      <h6>Type</h6>
-      <p>{job.jobType}</p>
-      <h6>Location</h6>
-      <p>{job.jobLocation}</p>
-      <h6>Reference</h6>
-      <p>{job.jobReference}</p>
-      <ContentDom content={job.description}/>
-      <p>Published: {ConvertDate(job.createdAt)}</p>
+    <Paper key={blog.blogId} elevation={0} className={classes.paper}>
+      <h6 className="primary-text text-center">{blog.title}</h6>
+      <p>{blog.description}</p>
+      <div></div>
+      <ContentDom className="blog-image" content={blog.content} />
+      <p>Published: {ConvertDate(blog.createdAt)}</p>
     </Paper>
   );
 
@@ -68,18 +62,16 @@ const Jobs: FunctionComponent<RouteComponentProps> = props => {
           {content}
         </Grid>
         <Grid container justify="center" className="mb-24">
-          <Button
+          <LinkButton
             className={classes.button}
-            color="primary"
-            component={Link}
-            to="/jobs"
+            to="/blogs"
           >
-            Jobs
-          </Button>
+            Blogs
+          </LinkButton>
         </Grid>
       </Grid>
     </div>
   );
 };
 
-export default withRouter(Jobs);
+export default withRouter(ViewBlog);

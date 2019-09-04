@@ -7,6 +7,7 @@ import StepLabel from "@material-ui/core/StepLabel";
 import StepContent from "@material-ui/core/StepContent";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
+import LinkButton from "../Layout/LinkButton";
 import servicesimage from "../../assets/services.jpg";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -294,6 +295,11 @@ const Services: FunctionComponent = props => {
                 info@stemrecruit.co.uk.
               </a>
             </p>
+            <Grid container justify="center" className="mb-24">
+              <LinkButton to="/">
+                Home
+              </LinkButton>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

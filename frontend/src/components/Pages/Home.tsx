@@ -1,12 +1,10 @@
 import React, { FunctionComponent } from "react";
-import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
 import Avatar from "@material-ui/core/Avatar";
 import List from "@material-ui/core/List";
@@ -17,6 +15,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import EmailIcon from "@material-ui/icons/Email";
 import PhoneIcon from "@material-ui/icons/Phone";
+import LinkButton from "../Layout/LinkButton";
 import homeimage from "../../assets/home.jpg";
 import stemlogo from "../../assets/stem_green.png";
 import avatar from "../../assets/jack.jpg";
@@ -140,14 +139,12 @@ const Home: FunctionComponent = props => {
                     </p>
                   </Grid>
                   <Grid item>
-                    <Button
+                    <LinkButton
                       className={classes.button}
-                      color="primary"
-                      component={Link}
                       to="/services"
                     >
                       Services
-                    </Button>
+                    </LinkButton>
                   </Grid>
                 </Grid>
               </ExpansionPanelDetails>
@@ -180,14 +177,12 @@ const Home: FunctionComponent = props => {
                     </p>
                   </Grid>
                   <Grid item>
-                    <Button
+                    <LinkButton
                       className={classes.button}
-                      color="primary"
-                      component={Link}
                       to="/jobs"
                     >
                       Jobs
-                    </Button>
+                    </LinkButton>
                   </Grid>
                 </Grid>
               </ExpansionPanelDetails>
@@ -259,14 +254,12 @@ const Home: FunctionComponent = props => {
             </Grid>
           </Grid>
           <Grid container justify="center" className="mb-48">
-            <Button
+            <LinkButton
               className={classes.button}
-              color="primary"
-              component={Link}
               to="/privacy"
             >
               Privacy Notice
-            </Button>
+            </LinkButton>
           </Grid>
         </Grid>
       </Grid>
@@ -274,4 +267,4 @@ const Home: FunctionComponent = props => {
   );
 };
 
-export default withRouter(Home);
+export default Home;

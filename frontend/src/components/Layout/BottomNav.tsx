@@ -1,5 +1,5 @@
-import React, { FunctionComponent, useState, ChangeEvent } from "react";
-import { Link, withRouter } from "react-router-dom";
+import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
@@ -17,9 +17,13 @@ const useStyles = makeStyles({
   }
 });
 
-const BottomNav: FunctionComponent = props => {
+const BottomNav: FunctionComponent<RouteComponentProps> = props => {
   const classes = useStyles({});
-  const [value, setValue] = useState("/");
+  const [value, setValue] = useState<string>("/");
+
+  useEffect(() => {
+    setValue(props.location.pathname);
+  }, [props.location]);
 
   function handleChange(event: ChangeEvent<{}>, newValue: string) {
     setValue(newValue);

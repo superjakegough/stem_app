@@ -1,15 +1,15 @@
 import React, { FunctionComponent, useState, MouseEvent } from "react";
-import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import LinkButton from "../Layout/LinkButton";
+import HideOnScroll from "../Layout/HideOnScroll";
 import logo from "../../assets/stem_green.png";
 import facebooklogo from "../../assets/facebook.svg";
 import instagramlogo from "../../assets/instagram.svg";
@@ -36,6 +36,11 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   })
 );
+
+interface TopAppBarProps {
+  window?: () => Window;
+  children: React.ReactElement;
+}
 
 const TopAppBar: FunctionComponent = props => {
   const classes = useStyles({});
@@ -92,6 +97,7 @@ const TopAppBar: FunctionComponent = props => {
                 keepMounted
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
+                elevation={0}
               >
                 <MenuItem onClick={() => handleSocialClick(facebook)}>
                   <img
@@ -143,38 +149,30 @@ const TopAppBar: FunctionComponent = props => {
           </Grid>
           <Grid item xs>
             <Grid container justify="center" wrap="nowrap">
-              <Button
+              <LinkButton
                 className={classes.button}
-                color="primary"
-                component={Link}
                 to="/"
               >
                 Home
-              </Button>
-              <Button
+              </LinkButton>
+              <LinkButton
                 className={classes.button}
-                color="primary"
-                component={Link}
                 to="/services"
               >
                 Services
-              </Button>
-              <Button
+              </LinkButton>
+              <LinkButton
                 className={classes.button}
-                color="primary"
-                component={Link}
                 to="/jobs"
               >
                 Jobs
-              </Button>
-              <Button
+              </LinkButton>
+              <LinkButton
                 className={classes.button}
-                color="primary"
-                component={Link}
                 to="/blogs"
               >
                 Blogs
-              </Button>
+              </LinkButton>
             </Grid>
           </Grid>
           <Grid item xs>
@@ -210,7 +208,7 @@ const TopAppBar: FunctionComponent = props => {
     </AppBar>
   );
 
-  return <div>{topAppBar}</div>;
+  return <HideOnScroll>{topAppBar}</HideOnScroll>;
 };
 
-export default withRouter(TopAppBar);
+export default TopAppBar;

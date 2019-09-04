@@ -1,18 +1,17 @@
-import React, { FunctionComponent, useState, useEffect, FormEvent, ChangeEvent } from "react";
-import { Link, withRouter } from "react-router-dom";
+import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import blogsimage from "../../assets/blogs.jpg";
-import Button from "@material-ui/core/Button";
+import jobsimage from "../../assets/jobs.jpg";
 import TablePagination from "@material-ui/core/TablePagination";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import Paper from "@material-ui/core/Paper";
-import ContentDom from "../Layout/ContentDom";
-import { Blog } from "../../models/blog";
-import { GetAllBlogs } from "../../services/blog_service";
+import LinkButton from "../Layout/LinkButton";
+import SearchDialog from "../Dialogs/SearchDialog";
+import { Job } from "../../models/job";
+import { GetAllJobs } from "../../services/job_service";
 import { ConvertDate } from "../../helpers/DateHelper";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -31,9 +30,6 @@ const useStyles = makeStyles((theme: Theme) =>
         backgroundColor: "white",
         borderRadius: 4
       },
-      "& .MuiFilledInput-underline:before": {
-        borderBottom: 0
-      },
       "& .MuiFilledInput-underline:after": {
         marginRight: 2,
         marginLeft: 2,
@@ -43,25 +39,26 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Blogs: FunctionComponent = props => {
+const StemJobs: FunctionComponent = props => {
   const classes = useStyles({});
-  const [blogs, setBlogs] = useState<Blog[]>([]);
-  const [filteredBlogs, setFilteredBlogs] = useState<Blog[]>([]);
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = useState<number>(3);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [openSearch, setOpenSearch] = useState<boolean>(false);
 
   useEffect(() => {
-    fetchBlogs();
-  }, [blogs.length]);
+    fetchJobs();
+  }, [jobs.length]);
 
-  async function fetchBlogs() {
+  async function fetchJobs() {
     setLoading(true);
-    const result = await GetAllBlogs();
+    const result = await GetAllJobs();
     if (result) {
-      setBlogs(result);
-      setFilteredBlogs(result);
+      setJobs(result);
+      setFilteredJobs(result);
     }
     setLoading(false);
   }
@@ -74,22 +71,26 @@ const Blogs: FunctionComponent = props => {
     setRowsPerPage(+event.target.value);
   }
 
-  function handleSubmitSearch(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const regex = new RegExp(`^.*${searchTerm}.*$`, "i");
-    if (!searchTerm) {
-      setFilteredBlogs(blogs);
-    } else {
-      setFilteredBlogs(blogs.filter(blog => regex.test(blog.title)));
-    }
+  function handleOpenSearch() {
+    setOpenSearch(true);
+  }
+
+  function handleCloseSearch() {
+    setOpenSearch(false);
+  }
+
+  function handleSubmitSearch(filteredJobs: Job[], searchTerm: string) {
+    setFilteredJobs(filteredJobs);
+    setSearchTerm(searchTerm);
+    setOpenSearch(false);
   }
 
   const pagination =
-    filteredBlogs.length > 0 ? (
+    filteredJobs.length > 0 ? (
       <TablePagination
         rowsPerPageOptions={[3, 5, 10]}
         component="div"
-        count={filteredBlogs.length}
+        count={filteredJobs.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onChangePage={handleChangePage}
@@ -98,7 +99,7 @@ const Blogs: FunctionComponent = props => {
       />
     ) : (
       <Paper elevation={0} className={classes.paper}>
-        <p className="text-center">No blogs found</p>
+        <p className="text-center">No jobs found</p>
       </Paper>
     );
 
@@ -108,26 +109,29 @@ const Blogs: FunctionComponent = props => {
     </Grid>
   ) : (
     <>
-      {filteredBlogs
+      {filteredJobs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-        .map((blog: Blog) => {
+        .map((job: Job) => {
           return (
-            <div key={blog.blogId}>
+            <div key={job.jobId}>
               <Paper elevation={0} className={classes.paper}>
-                <h6 className="primary-text text-center">{blog.title}</h6>
-                <p>{blog.description}</p>
-                <ContentDom className="blog-short-content blog-image" content={blog.content} />
-                <p>...</p>
-                <p>Published: {ConvertDate(blog.createdAt)}</p>
+                <h6 className="primary-text text-center">{job.title}</h6>
+                <h6>Salary - Benefits</h6>
+                <p>{`${job.salary} - ${job.benefits}`}</p>
+                <h6>Type</h6>
+                <p>{job.jobType}</p>
+                <h6>Location</h6>
+                <p>{job.jobLocation}</p>
+                <h6>Reference</h6>
+                <p>{job.jobReference}</p>
+                <p>Published: {ConvertDate(job.createdAt)}</p>
                 <Grid container justify="center">
-                  <Button
+                  <LinkButton
                     className={classes.button}
-                    color="primary"
-                    component={Link}
-                    to={{ pathname: `/blog/${blog.blogId}` }}
+                    to={{ pathname: `/job/${job.jobId}` }}
                   >
                     View
-                  </Button>
+                  </LinkButton>
                 </Grid>
               </Paper>
             </div>
@@ -141,28 +145,29 @@ const Blogs: FunctionComponent = props => {
     <div>
       <Grid container direction="column" justify="center">
         <Grid item xs={12}>
-          <img src={blogsimage} className="header-image" alt="" />
-          <div className="header-text">Blogs</div>
+          <img src={jobsimage} className="header-image" alt="" />
+          <div className="header-text">Jobs</div>
         </Grid>
         <Grid container justify="center" className="content-container">
           <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <h2 className="content-title mb-24">News &amp; Advice Blogs</h2>
+            <h2 className="content-title mb-24">Current Opportunities</h2>
             <p>
-              Keep up to date with the latest industry news, as well as regular
-              activites offering recruitment and careers advice.
+              Interested in any of the below opportunities? To apply, please
+              send your CV to{" "}
+              <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk</a>{" "}
+              with the job reference number, and we will respond within 2
+              working days.
             </p>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <form onSubmit={handleSubmitSearch}>
+            <div onClick={handleOpenSearch}>
               <TextField
                 className={classes.textField}
                 variant="filled"
                 margin="dense"
                 fullWidth
                 hiddenLabel
-                onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                  setSearchTerm(event.target.value)
-                }
+                value={searchTerm}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -171,13 +176,19 @@ const Blogs: FunctionComponent = props => {
                   )
                 }}
               />
-            </form>
+            </div>
             {content}
           </Grid>
         </Grid>
       </Grid>
+      <SearchDialog
+        open={openSearch}
+        jobs={jobs}
+        handleClose={handleCloseSearch}
+        handleSearch={handleSubmitSearch}
+      />
     </div>
   );
 };
 
-export default withRouter(Blogs);
+export default StemJobs;

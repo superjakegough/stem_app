@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
-import { Link, withRouter } from "react-router-dom";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import LinkButton from "../Layout/LinkButton";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,7 +32,7 @@ const Privacy: FunctionComponent = props => {
         direction="column"
         justify="center"
         alignItems="center"
-        className="mt-48 mb-48"
+        className="mt-24 content-container"
       >
         <Grid item sm={10} xs={12}>
           <h2 className="content-title text-center mb-24">Privacy Notice</h2>
@@ -342,9 +342,9 @@ const Privacy: FunctionComponent = props => {
         </Grid>
         <Grid item>
           <Grid container justify="center" className="mb-24">
-            <Button color="primary" component={Link} to="/">
+            <LinkButton to="/">
               Home
-            </Button>
+            </LinkButton>
           </Grid>
         </Grid>
       </Grid>
@@ -352,4 +352,4 @@ const Privacy: FunctionComponent = props => {
   );
 };
 
-export default withRouter(Privacy);
+export default Privacy;

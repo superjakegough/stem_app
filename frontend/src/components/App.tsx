@@ -4,10 +4,10 @@ import { createBrowserHistory } from "history";
 import Navigation from "./Layout/Navigation";
 import Home from "./Pages/Home";
 import Services from "./Pages/Services";
-import Jobs from "./Pages/Jobs";
-import Job from "./Pages/Job";
-import Blogs from "./Pages/Blogs";
-import Blog from "./Pages/Blog";
+import StemJobs from "./Pages/StemJobs";
+import ViewJob from "./Pages/ViewJob";
+import StemBlogs from "./Pages/StemBlogs";
+import ViewBlog from "./Pages/ViewBlog";
 import Privacy from "./Pages/Privacy";
 import AdminJobs from "./Admin/AdminJobs";
 import AdminBlogs from "./Admin/AdminBlogs";
@@ -27,10 +27,10 @@ export default function App() {
         <Switch>
           <Route path="/" exact component={Home}></Route>
           <Route path="/services" exact component={Services}></Route>
-          <Route path="/jobs" exact component={Jobs}></Route>
-          <Route path="/job/:id" exact component={Job}></Route>
-          <Route path="/blogs" exact component={Blogs}></Route>
-          <Route path="/blog/:id" exact component={Blog}></Route>
+          <Route path="/jobs" exact component={StemJobs}></Route>
+          <Route path="/job/:id" exact component={ViewJob}></Route>
+          <Route path="/blogs" exact component={StemBlogs}></Route>
+          <Route path="/blog/:id" exact component={ViewBlog}></Route>
           <Route path="/privacy" exact component={Privacy}></Route>
           <Route path="/adminjobs" exact component={AdminJobs}></Route>
           <Route path="/adminblogs" exact component={AdminBlogs}></Route>

@@ -9,7 +9,6 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import LinkButton from "../Layout/LinkButton";
-import HideOnScroll from "../Layout/HideOnScroll";
 import logo from "../../assets/stem_green.png";
 import facebooklogo from "../../assets/facebook.svg";
 import instagramlogo from "../../assets/instagram.svg";
@@ -208,7 +207,7 @@ const TopAppBar: FunctionComponent = props => {
     </AppBar>
   );
 
-  return <HideOnScroll>{topAppBar}</HideOnScroll>;
+  return <div>{topAppBar}</div>;
 };
 
 export default TopAppBar;

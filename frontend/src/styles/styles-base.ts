@@ -2,10 +2,9 @@ import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 
 export const useStylesBase = makeStyles((theme: Theme) =>
   createStyles({
-    main: {
+    base: {
       fontFamily: "Roboto, Helvetica, Arial, sans-serif",
       display: "flex",
-      flexGrow: 1,
       "& a": {
         color: theme.palette.primary.main,
         textDecoration: "unset",
@@ -36,7 +35,7 @@ export const useStylesBase = makeStyles((theme: Theme) =>
       },
       "& .MuiFilledInput-underline:before ": {
         borderBottom: "none !important"
-      }
+      },
     },
     primaryText: {
       color: theme.palette.primary.main
@@ -46,7 +45,7 @@ export const useStylesBase = makeStyles((theme: Theme) =>
         boxShadow: "none"
       }
     },
-    dialogTextField: {
+    whiteTextField: {
       backgroundColor: "white !important"
     },
     adminPaper: {

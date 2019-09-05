@@ -41,6 +41,9 @@ const useStyles = makeStyles((theme: Theme) =>
     expansionSummary: {
       fontWeight: 500,
       margin: 0
+    },
+    fillHeight: {
+      height: "100%"
     }
   })
 );
@@ -197,7 +200,7 @@ const Home: FunctionComponent = props => {
               container
               justify="center"
               alignItems="center"
-              className={classesBase.fullHeight}
+              className={classes.fillHeight}
             >
               <p>
                 I am a personable and technical recruiter with a simple and
@@ -216,7 +219,7 @@ const Home: FunctionComponent = props => {
               container
               justify="center"
               alignItems="center"
-              className={classesBase.fullHeight}
+              className={classes.fillHeight}
             >
               <List>
                 <ListItem>

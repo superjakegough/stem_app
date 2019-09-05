@@ -138,7 +138,7 @@ const StemJobs: FunctionComponent = props => {
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
             <div onClick={handleOpenSearch}>
               <TextField
-                className={classesBase.textField}
+                className={clsx(classesBase.textField, classesBase.whiteTextField)}
                 variant="filled"
                 margin="dense"
                 fullWidth

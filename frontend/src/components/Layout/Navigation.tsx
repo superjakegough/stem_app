@@ -6,8 +6,8 @@ import BottomNav from "./BottomNav";
 import { useStylesBase } from "../../styles/styles-base";
 
 const useStyles = makeStyles({
-  root: {
-    display: "flex"
+  content: {
+    flexGrow: 1
   }
 });
 
@@ -20,9 +20,11 @@ const Navigation: FunctionComponent = props => {
   const bottomNav = smAndDown ? <BottomNav /> : undefined;
 
   return (
-    <div className={classes.root}>
+    <div className={classesBase.base}>
       <TopAppBar />
-      <main className={classesBase.main}>{props.children}</main>
+      <main className={classes.content}>
+        {props.children}
+      </main>
       {bottomNav}
     </div>
   );

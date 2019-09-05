@@ -1,23 +1,5 @@
-
-.primary-text {
-  color: #22b771;
-}
-
-.dialog-text-field {
-  background-color: white !important;
-}
-
 .content-container {
   padding: 56px;
-}
-
-.content-image {
-  border-radius: 2px;
-}
-
-.body-header {
-  font-size: 14px;
-  font-weight: 500;
 }
 
 .title {
@@ -25,34 +7,6 @@
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.2rem;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.mt-24 {
-  margin-top: 24px;
-}
-
-.mt-48 {
-  margin-top: 48px;
-}
-
-.mb-24 {
-  margin-bottom: 24px;
-}
-
-.mb-48 {
-  margin-bottom: 48px;
-}
-
-.mb-16 {
-  margin-bottom: 16px;
-}
-
-.ml-16 {
-  margin-left: 16px;
 }
 
 .content-title {
@@ -67,16 +21,6 @@
   font-weight: 500;
   line-height: 22px;
   letter-spacing: normal;
-}
-
-.long-content {
-  max-height: 120px;
-  overflow-y: hidden;
-  text-overflow: ellipsis;
-}
-
-.header-grid {
-  position: relative;
 }
 
 .header-image {
@@ -97,38 +41,8 @@
   letter-spacing: -0.32px;
 }
 
-.full-height {
-  height: 100vh;
-}
-
 .home-logo {
   max-height: 220px;
-}
-
-.rec-logo {
-  display: flex;
-  height: 100px;
-}
-
-.blog-short-content {
-  max-height: 600px;
-  overflow-y: hidden;
-  text-overflow: ellipsis;
-}
-
-.blog-image img {
-  display: flex;
-  margin: auto;
-  max-width: 100%;
-}
-
-.ProseMirror {
-  max-height: 442px;
-  overflow-y: scroll;
-}
-
-.scroll {
-  overflow-y: scroll;
 }
 
 @media (max-width: 960px) {

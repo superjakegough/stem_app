@@ -2,6 +2,8 @@ import React, { FunctionComponent } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import LinkButton from "../Layout/LinkButton";
+import { useStylesBase } from "../../styles/styles-base";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -22,7 +24,8 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Privacy: FunctionComponent = props => {
-  const classes = useStyles({});
+  const classes = useStyles();
+  const classesBase = useStylesBase();
 
   return (
     <div>
@@ -31,10 +34,10 @@ const Privacy: FunctionComponent = props => {
         direction="column"
         justify="center"
         alignItems="center"
-        className="mt-24 content-container"
+        className={clsx(classesBase.contentContainer, classesBase.mt3)}
       >
         <Grid item sm={10} xs={12}>
-          <h4 className="content-title text-center mb-24">Privacy Notice</h4>
+          <h4 className={clsx(classesBase.contentTitle, classesBase.textCenter, classesBase.mb3)}>Privacy Notice</h4>
           <p>
             Stem Skills &amp; Recruitment Ltd (Company number 11987221) (“we”,
             “us” or “our) is a recruitment business which provides work-finding
@@ -340,7 +343,7 @@ const Privacy: FunctionComponent = props => {
           </p>
         </Grid>
         <Grid item>
-          <Grid container justify="center" className="mb-24">
+          <Grid container justify="center" className={classesBase.mb3}>
             <LinkButton to="/">
               Home
             </LinkButton>

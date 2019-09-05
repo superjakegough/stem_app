@@ -29,14 +29,6 @@ export const useStylesBase = makeStyles((theme: Theme) =>
         marginTop: 8,
         marginBottom: 8
       },
-      "& h4": {
-        fontSize: "2.125rem",
-        fontWeight: 500,
-        lineHeight: 1.17,
-        letterSpacing: "0.00735em",
-        marginTop: 8,
-        marginBottom: 8
-      },
       "& .MuiExpansionPanel-root:before": {
         backgroundColor: "unset !important"
       },
@@ -133,6 +125,20 @@ export const useStylesBase = makeStyles((theme: Theme) =>
       [theme.breakpoints.down("sm")]: {
         maxHeight: 120
       }
-    }
+    },
+    contentTitle: {
+      fontSize: "2.125rem",
+      fontWeight: 500,
+      lineHeight: 1.17,
+      letterSpacing: "0.00735em",
+      marginTop: 8,
+      marginBottom: 8,
+      [theme.breakpoints.down("md")]: {
+        fontSize: "1.5rem",
+        lineHeight: 1.33,
+        letterSpacing: 0,
+        textAlign: "center"
+      }
+    },
   })
 );

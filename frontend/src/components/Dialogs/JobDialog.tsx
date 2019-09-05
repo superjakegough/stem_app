@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import RichEditor from "../Layout/RichEditor";
 import { Job } from "../../models/job";
-import { useStylesBase } from "../../styles/styles-base";
+import useStylesBase from "../../styles/styles-base";
 
 interface JobDialogProps {
   open: boolean;

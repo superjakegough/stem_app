@@ -14,7 +14,7 @@ import facebooklogo from "../../assets/facebook.svg";
 import instagramlogo from "../../assets/instagram.svg";
 import linkedinlogo from "../../assets/linkedin.svg";
 import twitterlogo from "../../assets/twitter.svg";
-import { useStylesBase } from "../../styles/styles-base";
+import useStylesBase from "../../styles/styles-base";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

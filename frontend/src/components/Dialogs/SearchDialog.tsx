@@ -11,7 +11,7 @@ import Select from "@material-ui/core/Select";
 import { Job, BlankJob } from "../../models/job";
 import { checkJob, generateSearchTerm } from "../../helpers/SearchHelper";
 import FormControl from "@material-ui/core/FormControl";
-import { useStylesBase } from "../../styles/styles-base";
+import useStylesBase from "../../styles/styles-base";
 
 interface JobDialogProps {
   open: boolean;

@@ -12,7 +12,7 @@ import LinkButton from "../Layout/LinkButton";
 import { Blog } from "../../models/blog";
 import { GetAllBlogs } from "../../services/blog_service";
 import { ConvertDate } from "../../helpers/DateHelper";
-import { useStylesBase } from "../../styles/styles-base";
+import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
 const StemBlogs: FunctionComponent = props => {

@@ -22,7 +22,7 @@ import JobDialog from "../Dialogs/JobDialog";
 import DeleteDialog from "../Dialogs/DeleteDialog";
 import { Job, BlankJob } from "../../models/job";
 import { GetAllJobs, CreateJob, UpdateJob, DeleteJob } from "../../services/job_service";
-import { useStylesBase } from "../../styles/styles-base";
+import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
 const AdminJobTable: FunctionComponent = props => {

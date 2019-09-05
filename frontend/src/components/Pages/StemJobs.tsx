@@ -12,7 +12,7 @@ import SearchDialog from "../Dialogs/SearchDialog";
 import { Job } from "../../models/job";
 import { GetAllJobs } from "../../services/job_service";
 import { ConvertDate } from "../../helpers/DateHelper";
-import { useStylesBase } from "../../styles/styles-base";
+import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
 const StemJobs: FunctionComponent = props => {

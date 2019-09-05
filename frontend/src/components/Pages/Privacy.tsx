@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import LinkButton from "../Layout/LinkButton";
-import { useStylesBase } from "../../styles/styles-base";
+import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>

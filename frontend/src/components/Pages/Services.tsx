@@ -9,13 +9,11 @@ import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import LinkButton from "../Layout/LinkButton";
 import servicesimage from "../../assets/services.jpg";
+import { useStylesBase } from "../../styles/styles-base";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    button: {
-      marginTop: theme.spacing(1),
-      marginRight: theme.spacing(1)
-    },
     actionsContainer: {
       marginBottom: theme.spacing(2)
     },
@@ -31,7 +29,8 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Services: FunctionComponent = props => {
-  const classes = useStyles({});
+  const classes = useStyles();
+  const classesBase = useStylesBase();
   const [activeStep, setActiveStep] = useState(0);
   const steps = getSteps();
 
@@ -66,7 +65,7 @@ const Services: FunctionComponent = props => {
               Via a telephone or face-to-face meeting, we listen to your
               recruitment needs and:
             </p>
-            <ul className="mb-24">
+            <ul className={classesBase.mb3}>
               <li>
                 {" "}
                 Discuss the job description and understand the job
@@ -109,7 +108,7 @@ const Services: FunctionComponent = props => {
               We search through our large network of candidates to find you the
               right candidate. We use a variety of sourcing tools including:
             </p>
-            <ul className="mb-24">
+            <ul className={classesBase.mb3}>
               <li>
                 {" "}
                 Internal database of science, technology, engineering and
@@ -143,7 +142,7 @@ const Services: FunctionComponent = props => {
               telephone or face-to-face interview by Stem and will be evaluated
               on the following:
             </p>
-            <ul className="mb-24">
+            <ul className={classesBase.mb3}>
               <li>
                 {" "}
                 Current salary, benefits package and expectations vs. what your
@@ -166,7 +165,7 @@ const Services: FunctionComponent = props => {
               Following the first stage Stem interview, candidates will be sent
               a job application email including:
             </p>
-            <ul className="mb-24">
+            <ul className={classesBase.mb3}>
               <li> The job description.</li>
               <li> Job advert.</li>
               <li> Your company website.</li>
@@ -198,12 +197,12 @@ const Services: FunctionComponent = props => {
     <div>
       <Grid container direction="column" justify="center">
         <Grid item xs={12}>
-          <img src={servicesimage} className="header-image" alt="" />
-          <div className="header-text">Services</div>
+          <img src={servicesimage} className={classesBase.headerImage} alt="" />
+          <div className={classesBase.headerText}>Services</div>
         </Grid>
-        <Grid container justify="center" className="content-container">
-          <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <h4 className="content-title mb-24">Client Services</h4>
+        <Grid container justify="center" className={classesBase.contentContainer}>
+          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
+            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>Client Services</h4>
             <p>
               Stem is a specialist permanent recruitment consultancy providing
               sustainable recruitment solutions for the science, technology,
@@ -212,7 +211,7 @@ const Services: FunctionComponent = props => {
               detail, and solutions that make a genuine difference, short-term
               and long-term.
             </p>
-            <h4 className="content-title mb-24">Our Recruitment Process</h4>
+            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>Our Recruitment Process</h4>
             <p>
               We provide a thorough 5-stage recruitment and vetting process
               which ensures that we not only find the right fit for our clients,
@@ -234,14 +233,14 @@ const Services: FunctionComponent = props => {
                         <Button
                           disabled={activeStep === 0}
                           onClick={handleBack}
-                          className={classes.button}
+                          className={classesBase.button}
                         >
                           Back
                         </Button>
                         <Button
                           color="primary"
                           onClick={handleNext}
-                          className={classes.button}
+                          className={classesBase.button}
                         >
                           {activeStep === steps.length - 1 ? "Finish" : "Next"}
                         </Button>
@@ -257,20 +256,20 @@ const Services: FunctionComponent = props => {
                 <Button
                   color="primary"
                   onClick={handleReset}
-                  className={classes.button}
+                  className={classesBase.button}
                 >
                   Reset
                 </Button>
               </Paper>
             )}
           </Grid>
-          <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <h4 className="content-title mt-24 mb-24">Industries</h4>
+          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
+            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3, classesBase.mt3)}>Industries</h4>
             <p>
               We have expertise and experience in recruiting for the following
               industries:
             </p>
-            <ul className="mb-24">
+            <ul className={classesBase.mb3}>
               <li> Automotive</li>
               <li> Aerospace</li>
               <li> Pharmaceutical</li>
@@ -295,7 +294,7 @@ const Services: FunctionComponent = props => {
                 info@stemrecruit.co.uk.
               </a>
             </p>
-            <Grid container justify="center" className="mb-24">
+            <Grid container justify="center" className={classesBase.mb3}>
               <LinkButton to="/">
                 Home
               </LinkButton>

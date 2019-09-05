@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
@@ -9,21 +8,10 @@ import LinkButton from "../Layout/LinkButton";
 import { Job, BlankJob } from "../../models/job";
 import { GetJob } from "../../services/job_service";
 import { ConvertDate } from "../../helpers/DateHelper";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    button: {
-      margin: theme.spacing(1)
-    },
-    paper: {
-      marginTop: theme.spacing(3),
-      padding: theme.spacing(3)
-    }
-  })
-);
+import { useStylesBase } from "../../styles/styles-base";
 
 const ViewJob: FunctionComponent<RouteComponentProps> = props => {
-  const classes = useStyles({});
+  const classesBase = useStylesBase();
   const [job, setJob] = useState<Job>(BlankJob());
   const [loading, setLoading] = useState<boolean>(false);
   const params: any = props.match.params;
@@ -46,7 +34,7 @@ const ViewJob: FunctionComponent<RouteComponentProps> = props => {
       <CircularProgress color="primary" />
     </Grid>
   ) : (
-    <Paper key={job.jobId} elevation={0} className={classes.paper}>
+    <Paper key={job.jobId} elevation={0} className={classesBase.viewPaper}>
       <h6 className="primary-text text-center">{job.title}</h6>
       <h6>Salary - Benefits</h6>
       <p>{`${job.salary} - ${job.benefits}`}</p>
@@ -69,7 +57,7 @@ const ViewJob: FunctionComponent<RouteComponentProps> = props => {
         </Grid>
         <Grid container justify="center" className="mb-24">
           <LinkButton
-            className={classes.button}
+            className={classesBase.button}
             to="/jobs"
           >
             Jobs

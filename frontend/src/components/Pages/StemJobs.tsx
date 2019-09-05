@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import jobsimage from "../../assets/jobs.jpg";
 import TablePagination from "@material-ui/core/TablePagination";
@@ -13,34 +12,10 @@ import SearchDialog from "../Dialogs/SearchDialog";
 import { Job } from "../../models/job";
 import { GetAllJobs } from "../../services/job_service";
 import { ConvertDate } from "../../helpers/DateHelper";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    button: {
-      margin: theme.spacing(1)
-    },
-    paper: {
-      padding: theme.spacing(3),
-      marginBottom: theme.spacing(4)
-    },
-    textField: {
-      flexBasis: 200,
-      marginBottom: theme.spacing(4),
-      "& .MuiFilledInput-root": {
-        backgroundColor: "white",
-        borderRadius: 4
-      },
-      "& .MuiFilledInput-underline:after": {
-        marginRight: 2,
-        marginLeft: 2,
-        borderRadius: 4
-      }
-    }
-  })
-);
+import { useStylesBase } from "../../styles/styles-base";
 
 const StemJobs: FunctionComponent = props => {
-  const classes = useStyles({});
+  const classesBase = useStylesBase();
   const [jobs, setJobs] = useState<Job[]>([]);
   const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -98,7 +73,7 @@ const StemJobs: FunctionComponent = props => {
         labelRowsPerPage={""}
       />
     ) : (
-      <Paper elevation={0} className={classes.paper}>
+      <Paper elevation={0} className={classesBase.stemPaper}>
         <p className="text-center">No jobs found</p>
       </Paper>
     );
@@ -114,7 +89,7 @@ const StemJobs: FunctionComponent = props => {
         .map((job: Job) => {
           return (
             <div key={job.jobId}>
-              <Paper elevation={0} className={classes.paper}>
+              <Paper elevation={0} className={classesBase.stemPaper}>
                 <h6 className="primary-text text-center">{job.title}</h6>
                 <h6>Salary - Benefits</h6>
                 <p>{`${job.salary} - ${job.benefits}`}</p>
@@ -127,7 +102,7 @@ const StemJobs: FunctionComponent = props => {
                 <p>Published: {ConvertDate(job.createdAt)}</p>
                 <Grid container justify="center">
                   <LinkButton
-                    className={classes.button}
+                    className={classesBase.button}
                     to={{ pathname: `/job/${job.jobId}` }}
                   >
                     View
@@ -162,7 +137,7 @@ const StemJobs: FunctionComponent = props => {
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <div onClick={handleOpenSearch}>
               <TextField
-                className={classes.textField}
+                className={classesBase.textField}
                 variant="filled"
                 margin="dense"
                 fullWidth

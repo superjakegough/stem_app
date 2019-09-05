@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useState, useEffect, FormEvent, ChangeEvent } from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import blogsimage from "../../assets/blogs.jpg";
 import TablePagination from "@material-ui/core/TablePagination";
@@ -13,37 +12,10 @@ import LinkButton from "../Layout/LinkButton";
 import { Blog } from "../../models/blog";
 import { GetAllBlogs } from "../../services/blog_service";
 import { ConvertDate } from "../../helpers/DateHelper";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    button: {
-      margin: theme.spacing(1)
-    },
-    paper: {
-      padding: theme.spacing(3),
-      marginBottom: theme.spacing(4)
-    },
-    textField: {
-      flexBasis: 200,
-      marginBottom: theme.spacing(4),
-      "& .MuiFilledInput-root": {
-        backgroundColor: "white",
-        borderRadius: 4
-      },
-      "& .MuiFilledInput-underline:before": {
-        borderBottom: 0
-      },
-      "& .MuiFilledInput-underline:after": {
-        marginRight: 2,
-        marginLeft: 2,
-        borderRadius: 4
-      }
-    }
-  })
-);
+import { useStylesBase } from "../../styles/styles-base";
 
 const StemBlogs: FunctionComponent = props => {
-  const classes = useStyles({});
+  const classesBase = useStylesBase();
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [filteredBlogs, setFilteredBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -96,7 +68,7 @@ const StemBlogs: FunctionComponent = props => {
         labelRowsPerPage={""}
       />
     ) : (
-      <Paper elevation={0} className={classes.paper}>
+      <Paper elevation={0} className={classesBase.stemPaper}>
         <p className="text-center">No blogs found</p>
       </Paper>
     );
@@ -112,7 +84,7 @@ const StemBlogs: FunctionComponent = props => {
         .map((blog: Blog) => {
           return (
             <div key={blog.blogId}>
-              <Paper elevation={0} className={classes.paper}>
+              <Paper elevation={0} className={classesBase.stemPaper}>
                 <h6 className="primary-text text-center">{blog.title}</h6>
                 <p>{blog.description}</p>
                 <ContentDom className="blog-short-content blog-image" content={blog.content} />
@@ -120,7 +92,7 @@ const StemBlogs: FunctionComponent = props => {
                 <p>Published: {ConvertDate(blog.createdAt)}</p>
                 <Grid container justify="center">
                   <LinkButton
-                    className={classes.button}
+                    className={classesBase.button}
                     to={{ pathname: `/blog/${blog.blogId}` }}
                   >
                     View
@@ -152,7 +124,7 @@ const StemBlogs: FunctionComponent = props => {
           <Grid item md={8} sm={10} xs={12} className="mb-24">
             <form onSubmit={handleSubmitSearch}>
               <TextField
-                className={classes.textField}
+                className={classesBase.textField}
                 variant="filled"
                 margin="dense"
                 fullWidth

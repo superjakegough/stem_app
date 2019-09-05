@@ -54,6 +54,14 @@ export const useStylesBase = makeStyles((theme: Theme) =>
       marginTop: theme.spacing(3),
       marginBottom: theme.spacing(3)
     },
+    stemPaper: {
+      padding: theme.spacing(3),
+      marginBottom: theme.spacing(4)
+    },
+    viewPaper: {
+      marginTop: theme.spacing(3),
+      padding: theme.spacing(3)
+    },
     input: {
       marginBottom: theme.spacing(3),
       borderRadius: 4,

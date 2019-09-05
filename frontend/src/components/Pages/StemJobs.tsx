@@ -13,6 +13,7 @@ import { Job } from "../../models/job";
 import { GetAllJobs } from "../../services/job_service";
 import { ConvertDate } from "../../helpers/DateHelper";
 import { useStylesBase } from "../../styles/styles-base";
+import clsx from "clsx";
 
 const StemJobs: FunctionComponent = props => {
   const classesBase = useStylesBase();
@@ -74,12 +75,12 @@ const StemJobs: FunctionComponent = props => {
       />
     ) : (
       <Paper elevation={0} className={classesBase.stemPaper}>
-        <p className="text-center">No jobs found</p>
+        <p className={classesBase.textCenter}>No jobs found</p>
       </Paper>
     );
 
   const content = loading ? (
-    <Grid container justify="center" className="mt-24 mb-24">
+    <Grid container justify="center" className={clsx(classesBase.mt3, classesBase.mb3)}>
       <CircularProgress color="primary" />
     </Grid>
   ) : (
@@ -90,7 +91,7 @@ const StemJobs: FunctionComponent = props => {
           return (
             <div key={job.jobId}>
               <Paper elevation={0} className={classesBase.stemPaper}>
-                <h6 className="primary-text text-center">{job.title}</h6>
+                <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{job.title}</h6>
                 <h6>Salary - Benefits</h6>
                 <p>{`${job.salary} - ${job.benefits}`}</p>
                 <h6>Type</h6>
@@ -120,12 +121,12 @@ const StemJobs: FunctionComponent = props => {
     <div>
       <Grid container direction="column" justify="center">
         <Grid item xs={12}>
-          <img src={jobsimage} className="header-image" alt="" />
-          <div className="header-text">Jobs</div>
+          <img src={jobsimage} className={classesBase.headerImage} alt="" />
+          <div className={classesBase.headerText}>Jobs</div>
         </Grid>
-        <Grid container justify="center" className="content-container">
-          <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <h4 className="content-title mb-24">Current Opportunities</h4>
+        <Grid container justify="center" className={classesBase.contentContainer}>
+          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
+            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>Current Opportunities</h4>
             <p>
               Interested in any of the below opportunities? To apply, please
               send your CV to{" "}
@@ -134,7 +135,7 @@ const StemJobs: FunctionComponent = props => {
               working days.
             </p>
           </Grid>
-          <Grid item md={8} sm={10} xs={12} className="mb-24">
+          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
             <div onClick={handleOpenSearch}>
               <TextField
                 className={classesBase.textField}

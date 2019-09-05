@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import { Theme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -25,18 +25,7 @@ import { GetAllJobs, CreateJob, UpdateJob, DeleteJob } from "../../services/job_
 import { useStylesBase } from "../../styles/styles-base";
 import clsx from "clsx";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    paper: {
-      width: "100%",
-      marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(3)
-    }
-  })
-);
-
 const AdminJobTable: FunctionComponent = props => {
-  const classes = useStyles();
   const classesBase = useStylesBase();
   const [job, setJob] = useState<Job>(BlankJob());
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -135,7 +124,7 @@ const AdminJobTable: FunctionComponent = props => {
       {jobs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map((job: Job, index: number) => (
-          <Paper key={job.jobId} className={classes.paper}>
+          <Paper key={job.jobId} className={classesBase.adminPaper}>
             <Toolbar>
               <p className={classesBase.boldText}>{job.title}</p>
               <Spacer />
@@ -177,7 +166,7 @@ const AdminJobTable: FunctionComponent = props => {
   const content = smAndDown ? (
     smContent
   ) : (
-    <Paper className={classes.paper}>
+    <Paper className={classesBase.adminPaper}>
       <Toolbar>
         <h6>Jobs</h6>
         <Spacer />

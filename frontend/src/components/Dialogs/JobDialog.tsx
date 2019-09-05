@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -8,27 +7,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import RichEditor from "../Layout/RichEditor";
 import { Job } from "../../models/job";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    dialog: {
-      "& .MuiPaper-elevation24": {
-        boxShadow: "none"
-      }
-    },
-    textField: {
-      marginBottom: theme.spacing(4),
-      "& .MuiFilledInput-root": {
-        borderRadius: 4
-      },
-      "& .MuiFilledInput-underline:after": {
-        marginRight: 2,
-        marginLeft: 2,
-        borderRadius: 4
-      }
-    }
-  })
-);
+import { useStylesBase } from "../../styles/styles-base";
 
 interface JobDialogProps {
   open: boolean;
@@ -39,7 +18,7 @@ interface JobDialogProps {
 }
 
 const JobDialog: FunctionComponent<JobDialogProps> = props => {
-  const classes = useStyles({});
+  const classesBase = useStylesBase();
   const [job, setJob] = useState<Job>(props.job);
 
   useEffect(() => {
@@ -80,7 +59,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
     <Dialog
       open={props.open}
       onClose={props.handleClose}
-      className={classes.dialog}
+      className={classesBase.dialog}
       disableBackdropClick={true}
       fullWidth={true}
       maxWidth={"lg"}
@@ -88,7 +67,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
         <TextField
-          className={classes.textField}
+          className={classesBase.textField}
           label="Title"
           variant="filled"
           margin="dense"
@@ -99,7 +78,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           }
         />
         <TextField
-          className={classes.textField}
+          className={classesBase.textField}
           label="Salary"
           variant="filled"
           margin="dense"
@@ -110,7 +89,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           }
         />
         <TextField
-          className={classes.textField}
+          className={classesBase.textField}
           label="Benefits"
           variant="filled"
           margin="dense"
@@ -121,7 +100,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           }
         />
         <TextField
-          className={classes.textField}
+          className={classesBase.textField}
           label="Type"
           variant="filled"
           margin="dense"
@@ -132,7 +111,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           }
         />
         <TextField
-          className={classes.textField}
+          className={classesBase.textField}
           label="Location"
           variant="filled"
           margin="dense"
@@ -143,7 +122,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           }
         />
         <TextField
-          className={classes.textField}
+          className={classesBase.textField}
           label="Reference"
           variant="filled"
           margin="dense"

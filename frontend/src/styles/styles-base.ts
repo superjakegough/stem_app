@@ -41,11 +41,32 @@ export const useStylesBase = makeStyles((theme: Theme) =>
     primaryText: {
       color: theme.palette.primary.main
     },
+    dialog: {
+      "& .MuiPaper-elevation24": {
+        boxShadow: "none"
+      }
+    },
     dialogTextField: {
       backgroundColor: "white !important"
     },
+    adminPaper: {
+      width: "100%",
+      marginTop: theme.spacing(3),
+      marginBottom: theme.spacing(3)
+    },
     textCenter: {
       textAlign: "center"
+    },
+    textField: {
+      marginBottom: theme.spacing(4),
+      "& .MuiFilledInput-root": {
+        borderRadius: 4
+      },
+      "& .MuiFilledInput-underline:after": {
+        marginRight: 2,
+        marginLeft: 2,
+        borderRadius: 4
+      }
     },
     mt3: {
       marginTop: theme.spacing(3)

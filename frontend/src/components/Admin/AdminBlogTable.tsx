@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import { Theme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -24,18 +24,7 @@ import { GetAllBlogs, CreateBlog, UpdateBlog, DeleteBlog } from "../../services/
 import { useStylesBase } from "../../styles/styles-base";
 import clsx from "clsx";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    paper: {
-      width: "100%",
-      marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(3)
-    },
-  })
-);
-
 const AdminBlogTable: FunctionComponent = props => {
-  const classes = useStyles();
   const classesBase = useStylesBase();
   const [blog, setBlog] = useState<Blog>(BlankBlog());
   const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -134,7 +123,7 @@ const AdminBlogTable: FunctionComponent = props => {
       {blogs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map((blog: Blog, index: number) => (
-          <Paper key={blog.blogId} className={classes.paper}>
+          <Paper key={blog.blogId} className={classesBase.adminPaper}>
             <Toolbar>
               <p className={classesBase.boldText}>{blog.title}</p>
               <Spacer />
@@ -163,7 +152,7 @@ const AdminBlogTable: FunctionComponent = props => {
   const content = smAndDown ? (
     smContent
   ) : (
-    <Paper className={classes.paper}>
+    <Paper className={classesBase.adminPaper}>
       <Toolbar>
         <h6>Blogs</h6>
         <Spacer />

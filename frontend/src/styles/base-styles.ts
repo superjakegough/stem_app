@@ -84,6 +84,13 @@ export const useStylesBase = makeStyles((theme: Theme) =>
         margin: "auto",
         maxWidth: "100%"
       }
+    },
+    contentContainer: {
+      padding: theme.spacing(7),
+      [theme.breakpoints.down("md")]: {
+        paddingLeft: theme.spacing(4),
+        paddingRight: theme.spacing(4)
+      }
     }
   })
 );

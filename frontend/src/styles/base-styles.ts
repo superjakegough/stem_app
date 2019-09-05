@@ -29,6 +29,14 @@ export const useStylesBase = makeStyles((theme: Theme) =>
         marginTop: 8,
         marginBottom: 8
       },
+      "& h4": {
+        fontSize: "2.125rem",
+        fontWeight: 500,
+        lineHeight: 1.17,
+        letterSpacing: "0.00735em",
+        marginTop: 8,
+        marginBottom: 8
+      },
       "& .MuiExpansionPanel-root:before": {
         backgroundColor: "unset !important"
       },
@@ -90,6 +98,40 @@ export const useStylesBase = makeStyles((theme: Theme) =>
       [theme.breakpoints.down("md")]: {
         paddingLeft: theme.spacing(4),
         paddingRight: theme.spacing(4)
+      }
+    },
+    headerImage: {
+      height: "100vh",
+      width: "100%",
+      objectFit: "cover",
+      [theme.breakpoints.down("md")]: {
+        height: `calc(100vh - ${theme.spacing(7)})`
+      }
+    },
+    headerText: {
+      position: "absolute",
+      bottom: 0,
+      right: 0,
+      padding: theme.spacing(4),
+      color: "#FCFCFC",
+      fontSize: "3.5rem",
+      fontWeight: 500,
+      lineHeight: "3.5rem",
+      letterSpacing: "0.00938em",
+      [theme.breakpoints.down("md")]: {
+        padding: theme.spacing(2),
+        fontSize: "1.75rem",
+        lineHeight: "2.5rem",
+        marginBottom: theme.spacing(7)
+      }
+    },
+    homeLogo: {
+      maxHeight: 220,
+      [theme.breakpoints.down("md")]: {
+        maxHeight: 180
+      },
+      [theme.breakpoints.down("sm")]: {
+        maxHeight: 120
       }
     }
   })

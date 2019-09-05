@@ -143,7 +143,7 @@ const StemBlogs: FunctionComponent = props => {
         </Grid>
         <Grid container justify="center" className="content-container">
           <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <h2 className="content-title mb-24">News &amp; Advice Blogs</h2>
+            <h4 className="content-title mb-24">News &amp; Advice Blogs</h4>
             <p>
               Keep up to date with the latest industry news, as well as regular
               activites offering recruitment and careers advice.

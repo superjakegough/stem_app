@@ -72,7 +72,7 @@ const Home: FunctionComponent = props => {
         </Grid>
         <Grid container justify="center" className="content-container">
           <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <h2 className="content-title">Who We Are</h2>
+            <h4 className="content-title">Who We Are</h4>
           </Grid>
           {smAndDown && (
             <Grid item sm={10} xs={12} className="mb-24 text-center">
@@ -109,7 +109,7 @@ const Home: FunctionComponent = props => {
             </Grid>
           )}
           <Grid item md={8} sm={10} xs={12} className="mt-24 mb-24">
-            <h2 className="content-title mt-24 mb-24">What We Do</h2>
+            <h4 className="content-title mt-24 mb-24">What We Do</h4>
             <ExpansionPanel
               elevation={0}
               defaultExpanded={true}

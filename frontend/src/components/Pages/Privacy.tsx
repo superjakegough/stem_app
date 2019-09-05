@@ -35,7 +35,7 @@ const Privacy: FunctionComponent = props => {
         className="mt-24 content-container"
       >
         <Grid item sm={10} xs={12}>
-          <h2 className="content-title text-center mb-24">Privacy Notice</h2>
+          <h4 className="content-title text-center mb-24">Privacy Notice</h4>
           <p>
             Stem Skills &amp; Recruitment Ltd (Company number 11987221) (“we”,
             “us” or “our) is a recruitment business which provides work-finding

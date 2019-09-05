@@ -150,7 +150,7 @@ const StemJobs: FunctionComponent = props => {
         </Grid>
         <Grid container justify="center" className="content-container">
           <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <h2 className="content-title mb-24">Current Opportunities</h2>
+            <h4 className="content-title mb-24">Current Opportunities</h4>
             <p>
               Interested in any of the below opportunities? To apply, please
               send your CV to{" "}

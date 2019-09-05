@@ -203,7 +203,7 @@ const Services: FunctionComponent = props => {
         </Grid>
         <Grid container justify="center" className="content-container">
           <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <h2 className="content-title mb-24">Client Services</h2>
+            <h4 className="content-title mb-24">Client Services</h4>
             <p>
               Stem is a specialist permanent recruitment consultancy providing
               sustainable recruitment solutions for the science, technology,
@@ -212,7 +212,7 @@ const Services: FunctionComponent = props => {
               detail, and solutions that make a genuine difference, short-term
               and long-term.
             </p>
-            <h2 className="content-title mb-24">Our Recruitment Process</h2>
+            <h4 className="content-title mb-24">Our Recruitment Process</h4>
             <p>
               We provide a thorough 5-stage recruitment and vetting process
               which ensures that we not only find the right fit for our clients,
@@ -265,7 +265,7 @@ const Services: FunctionComponent = props => {
             )}
           </Grid>
           <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <h2 className="content-title mt-24 mb-24">Industries</h2>
+            <h4 className="content-title mt-24 mb-24">Industries</h4>
             <p>
               We have expertise and experience in recruiting for the following
               industries:

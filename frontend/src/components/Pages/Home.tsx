@@ -21,6 +21,7 @@ import stemlogo from "../../assets/stem_green.png";
 import avatar from "../../assets/jack.jpg";
 import rec from "../../assets/rec.jpg";
 import { useStylesBase } from "../../styles/styles-base";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -40,13 +41,6 @@ const useStyles = makeStyles((theme: Theme) =>
     expansionSummary: {
       fontWeight: 500,
       margin: 0
-    },
-    fillHeight: {
-      height: "100%"
-    },
-    recLogo: {
-      height: 100,
-      margin: "auto"
     }
   })
 );
@@ -57,7 +51,7 @@ const Home: FunctionComponent = props => {
   const smAndDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
-  const stemImg = <img className="home-logo" src={stemlogo} alt="" />;
+  const stemImg = <img className={classesBase.homeLogo} src={stemlogo} alt="" />;
 
   return (
     <div className={classesBase.main}>
@@ -203,7 +197,7 @@ const Home: FunctionComponent = props => {
               container
               justify="center"
               alignItems="center"
-              className={classes.fillHeight}
+              className={classesBase.fullHeight}
             >
               <p>
                 I am a personable and technical recruiter with a simple and
@@ -222,7 +216,7 @@ const Home: FunctionComponent = props => {
               container
               justify="center"
               alignItems="center"
-              className={classes.fillHeight}
+              className={classesBase.fullHeight}
             >
               <List>
                 <ListItem>
@@ -250,7 +244,7 @@ const Home: FunctionComponent = props => {
                   <ListItemText primary="Telephone" secondary="029 2120 2879" />
                 </ListItem>
                 <ListItem>
-                  <img src={rec} className={classes.recLogo} alt="" />
+                  <img src={rec} className={classesBase.recLogo} alt="" />
                 </ListItem>
               </List>
             </Grid>

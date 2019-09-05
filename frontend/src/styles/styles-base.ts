@@ -115,7 +115,8 @@ export const useStylesBase = makeStyles((theme: Theme) =>
     },
     recLogo: {
       display: "flex",
-      height: 100
+      height: 100,
+      margin: "auto"
     },
     blogShortContent: {
       maxHeight: 600,

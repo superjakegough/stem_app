@@ -54,6 +54,19 @@ export const useStylesBase = makeStyles((theme: Theme) =>
       marginTop: theme.spacing(3),
       marginBottom: theme.spacing(3)
     },
+    input: {
+      marginBottom: theme.spacing(3),
+      borderRadius: 4,
+      "& .MuiFilledInput-root": {
+        borderRadius: 4,
+        backgroundColor: "#E8E8E8",
+      },
+      "& .MuiFilledInput-underline:after": {
+        marginRight: 2,
+        marginLeft: 2,
+        borderRadius: 4
+      }
+    },
     textCenter: {
       textAlign: "center"
     },

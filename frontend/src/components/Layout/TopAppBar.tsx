@@ -14,15 +14,13 @@ import facebooklogo from "../../assets/facebook.svg";
 import instagramlogo from "../../assets/instagram.svg";
 import linkedinlogo from "../../assets/linkedin.svg";
 import twitterlogo from "../../assets/twitter.svg";
+import { useStylesBase } from "../../styles/styles-base";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
       backgroundColor: "rgba(255, 255, 255, 0.8)",
       boxShadow: "none"
-    },
-    button: {
-      margin: theme.spacing(1)
     },
     logo: {
       marginRight: theme.spacing(3)
@@ -42,7 +40,8 @@ interface TopAppBarProps {
 }
 
 const TopAppBar: FunctionComponent = props => {
-  const classes = useStyles({});
+  const classes = useStyles();
+  const classesBase = useStylesBase();
   const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(
     undefined
   );
@@ -149,25 +148,25 @@ const TopAppBar: FunctionComponent = props => {
           <Grid item xs>
             <Grid container justify="center" wrap="nowrap">
               <LinkButton
-                className={classes.button}
+                className={classesBase.button}
                 to="/"
               >
                 Home
               </LinkButton>
               <LinkButton
-                className={classes.button}
+                className={classesBase.button}
                 to="/services"
               >
                 Services
               </LinkButton>
               <LinkButton
-                className={classes.button}
+                className={classesBase.button}
                 to="/jobs"
               >
                 Jobs
               </LinkButton>
               <LinkButton
-                className={classes.button}
+                className={classesBase.button}
                 to="/blogs"
               >
                 Blogs

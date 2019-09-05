@@ -46,7 +46,12 @@ export const useStylesBase = makeStyles((theme: Theme) =>
       }
     },
     whiteTextField: {
-      backgroundColor: "white !important"
+      "& .MuiFilledInput-root": {
+        backgroundColor: "white"
+      },
+      "& .MuiFilledInput-root:hover": {
+        backgroundColor: "rgba(0, 0, 0, 0.09)"
+      }
     },
     adminPaper: {
       width: "100%",
@@ -66,7 +71,7 @@ export const useStylesBase = makeStyles((theme: Theme) =>
       borderRadius: 4,
       "& .MuiFilledInput-root": {
         borderRadius: 4,
-        backgroundColor: "#E8E8E8",
+        backgroundColor: "rgba(0, 0, 0, 0.09)",
       },
       "& .MuiFilledInput-underline:after": {
         marginRight: 2,

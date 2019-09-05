@@ -4,6 +4,8 @@ export const useStylesBase = makeStyles((theme: Theme) =>
   createStyles({
     main: {
       fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+      display: "flex",
+      flexGrow: 1,
       "& a": {
         color: theme.palette.primary.main,
         textDecoration: "unset",

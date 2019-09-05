@@ -21,6 +21,8 @@ import BlogDialog from "../Dialogs/BlogDialog";
 import DeleteDialog from "../Dialogs/DeleteDialog";
 import { Blog, BlankBlog } from "../../models/blog";
 import { GetAllBlogs, CreateBlog, UpdateBlog, DeleteBlog } from "../../services/blog_service";
+import { useStylesBase } from "../../styles/styles-base";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -50,7 +52,8 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const AdminBlogTable: FunctionComponent = props => {
-  const classes = useStyles({});
+  const classes = useStyles();
+  const classesBase = useStylesBase();
   const [blog, setBlog] = useState<Blog>(BlankBlog());
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -131,11 +134,11 @@ const AdminBlogTable: FunctionComponent = props => {
   }
 
   const smContent = loading ? (
-    <Grid container justify="center" className="mt-24 mb-24">
+    <Grid container justify="center" className={clsx(classesBase.mt3, classesBase.mb3)}>
       <CircularProgress color="primary" />
     </Grid>
   ) : (
-    <div className="mb-48">
+    <div className={classesBase.mb6}>
       <Grid container justify="center">
         <Button
           className={classes.button}
@@ -243,7 +246,7 @@ const AdminBlogTable: FunctionComponent = props => {
         container
         justify="center"
         alignItems="center"
-        className="content-container full-height"
+        className={clsx(classesBase.mt3, classesBase.mb3)}
       >
         <Grid item md={10} sm={10} xs={12}>
           {content}

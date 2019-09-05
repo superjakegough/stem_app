@@ -4,6 +4,8 @@ import Auth from "@aws-amplify/auth";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import { useStylesBase } from "../../styles/styles-base";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,7 +28,8 @@ interface AdminAuthProps {
 }
 
 const AdminAuth: FunctionComponent<AdminAuthProps> = props => {
-  const classes = useStyles({});
+  const classes = useStyles();
+  const classesBase = useStylesBase();
   const [loading, setLoading] = useState<boolean>(false);
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -60,7 +63,7 @@ const AdminAuth: FunctionComponent<AdminAuthProps> = props => {
         direction="column"
         justify="center"
         alignItems="center"
-        className="content-container full-height"
+        className={clsx(classesBase.contentContainer, classesBase.fullHeight)}
       >
         <Grid item sm={6} xs={10}>
           <TextField

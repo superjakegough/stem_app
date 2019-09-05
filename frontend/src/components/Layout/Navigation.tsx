@@ -1,22 +1,19 @@
 import React, { FunctionComponent } from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import { Theme, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TopAppBar from "./TopAppBar";
 import BottomNav from "./BottomNav";
+import { useStylesBase } from "../../styles/styles-base";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: "flex"
-    },
-    content: {
-      flexGrow: 1
-    }
-  })
-);
+const useStyles = makeStyles({
+  root: {
+    display: "flex"
+  }
+});
 
 const Navigation: FunctionComponent = props => {
-  const classes = useStyles({});
+  const classes = useStyles();
+  const classesBase = useStylesBase();
   const smAndDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
@@ -25,7 +22,7 @@ const Navigation: FunctionComponent = props => {
   return (
     <div className={classes.root}>
       <TopAppBar />
-      <main className={classes.content}>{props.children}</main>
+      <main className={classesBase.main}>{props.children}</main>
       {bottomNav}
     </div>
   );

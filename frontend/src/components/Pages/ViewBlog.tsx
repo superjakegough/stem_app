@@ -8,7 +8,7 @@ import LinkButton from "../Layout/LinkButton";
 import { Blog, BlankBlog } from "../../models/blog";
 import { GetBlog } from "../../services/blog_service";
 import { ConvertDate } from "../../helpers/DateHelper";
-import { useStylesBase } from "../../styles/styles-base";
+import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
 const ViewBlog: FunctionComponent<RouteComponentProps> = props => {

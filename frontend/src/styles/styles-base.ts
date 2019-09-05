@@ -1,6 +1,6 @@
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 
-export const useStylesBase = makeStyles((theme: Theme) =>
+const useStylesBase = makeStyles((theme: Theme) =>
   createStyles({
     base: {
       fontFamily: "Roboto, Helvetica, Arial, sans-serif",
@@ -37,15 +37,15 @@ export const useStylesBase = makeStyles((theme: Theme) =>
     },
     dialog: {
       "& .MuiPaper-elevation24": {
-        boxShadow: "none"
+        boxShadow: "none !important"
       }
     },
     whiteTextField: {
       "& .MuiFilledInput-root": {
-        backgroundColor: "white"
+        backgroundColor: "white !important"
       },
       "& .MuiFilledInput-root:hover": {
-        backgroundColor: "rgba(34, 183, 113, 0.09)"
+        backgroundColor: "rgba(34, 183, 113, 0.09) !important"
       }
     },
     adminPaper: {
@@ -62,36 +62,35 @@ export const useStylesBase = makeStyles((theme: Theme) =>
       padding: theme.spacing(3)
     },
     select: {
-      marginBottom: theme.spacing(3),
-      borderRadius: 4,
+      marginBottom: `${theme.spacing(3)}px !important`,
       "& .MuiFilledInput-root": {
-        borderRadius: 4,
-        backgroundColor: "rgba(0, 0, 0, 0.09)",
+        borderRadius: "4px !important",
+        backgroundColor: "rgba(0, 0, 0, 0.09) !important",
       },
       "& .MuiFilledInput-underline:before ": {
-        borderBottom: "none"
+        borderBottom: "none !important"
       },
       "& .MuiFilledInput-underline:after": {
-        marginRight: 2,
-        marginLeft: 2,
-        borderRadius: 4
+        marginRight: "2px !important",
+        marginLeft: "2px !important",
+        borderRadius: "4px !important"
       }
     },
     textCenter: {
       textAlign: "center"
     },
     textField: {
-      marginBottom: theme.spacing(4),
+      marginBottom: `${theme.spacing(4)}px !important`,
       "& .MuiFilledInput-root": {
-        borderRadius: 4,
+        borderRadius: "4px !important",
       },
       "& .MuiFilledInput-underline:before ": {
-        borderBottom: "none"
+        borderBottom: "none !important"
       },
       "& .MuiFilledInput-underline:after": {
-        marginRight: 2,
-        marginLeft: 2,
-        borderRadius: 4
+        marginRight: "2px !important",
+        marginLeft: "2px !important",
+        borderRadius: "4px !important"
       }
     },
     mt3: {
@@ -111,9 +110,6 @@ export const useStylesBase = makeStyles((theme: Theme) =>
     },
     ml2: {
       marginLeft: theme.spacing(2)
-    },
-    headerGrid: {
-      position: "relative"
     },
     fullHeight: {
       height: "100vh"
@@ -206,3 +202,5 @@ export const useStylesBase = makeStyles((theme: Theme) =>
     },
   })
 );
+
+export default useStylesBase;

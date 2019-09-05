@@ -8,7 +8,7 @@ import LinkButton from "../Layout/LinkButton";
 import { Job, BlankJob } from "../../models/job";
 import { GetJob } from "../../services/job_service";
 import { ConvertDate } from "../../helpers/DateHelper";
-import { useStylesBase } from "../../styles/styles-base";
+import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
 const ViewJob: FunctionComponent<RouteComponentProps> = props => {

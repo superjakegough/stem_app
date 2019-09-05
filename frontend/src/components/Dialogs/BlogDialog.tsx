@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import RichEditor from "../Layout/RichEditor";
 import { Blog } from "../../models/blog";
-import { useStylesBase } from "../../styles/styles-base";
+import useStylesBase from "../../styles/styles-base";
 
 interface BlogDialogProps {
   open: boolean;

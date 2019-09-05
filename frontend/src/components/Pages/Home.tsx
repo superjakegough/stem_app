@@ -20,7 +20,7 @@ import homeimage from "../../assets/home.jpg";
 import stemlogo from "../../assets/stem_green.png";
 import avatar from "../../assets/jack.jpg";
 import rec from "../../assets/rec.jpg";
-import { useStylesBase } from "../../styles/styles-base";
+import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -59,13 +59,13 @@ const Home: FunctionComponent = props => {
   return (
     <div>
       <Grid container direction="column" justify="center">
-        <Grid item xs className={classesBase.headerGrid}>
+        <Grid item xs>
           <img src={homeimage} className={classesBase.headerImage} alt="" />
-          <h1 className={classesBase.headerText}>
+          <div className={classesBase.headerText}>
             Growing your business
             <br />
             Growing your career
-          </h1>
+          </div>
         </Grid>
         <Grid container justify="center" className={classesBase.contentContainer}>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>

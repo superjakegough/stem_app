@@ -21,7 +21,7 @@ import BlogDialog from "../Dialogs/BlogDialog";
 import DeleteDialog from "../Dialogs/DeleteDialog";
 import { Blog, BlankBlog } from "../../models/blog";
 import { GetAllBlogs, CreateBlog, UpdateBlog, DeleteBlog } from "../../services/blog_service";
-import { useStylesBase } from "../../styles/styles-base";
+import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
 const AdminBlogTable: FunctionComponent = props => {

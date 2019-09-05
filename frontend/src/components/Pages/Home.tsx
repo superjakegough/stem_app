@@ -20,6 +20,7 @@ import homeimage from "../../assets/home.jpg";
 import stemlogo from "../../assets/stem_green.png";
 import avatar from "../../assets/jack.jpg";
 import rec from "../../assets/rec.jpg";
+import { useStylesBase } from "../../styles/base-styles";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -52,13 +53,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Home: FunctionComponent = props => {
   const classes = useStyles({});
+  const classesBase = useStylesBase({});
   const smAndDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
   const stemImg = <img className="home-logo" src={stemlogo} alt="" />;
 
   return (
-    <div>
+    <div className={classesBase.main}>
       <Grid container direction="column" justify="center">
         <Grid item xs className="header-grid">
           <img src={homeimage} className="header-image" alt="" />

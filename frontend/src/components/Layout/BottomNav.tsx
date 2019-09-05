@@ -18,7 +18,7 @@ const useStyles = makeStyles({
 });
 
 const BottomNav: FunctionComponent<RouteComponentProps> = props => {
-  const classes = useStyles({});
+  const classes = useStyles();
   const [value, setValue] = useState<string>("/");
 
   useEffect(() => {

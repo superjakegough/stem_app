@@ -220,7 +220,7 @@ const AdminBlogTable: FunctionComponent = props => {
         container
         justify="center"
         alignItems="center"
-        className={clsx(classesBase.mt3, classesBase.mb3)}
+        className={clsx(classesBase.contentContainer, classesBase.fullHeight)}
       >
         <Grid item md={10} sm={10} xs={12}>
           {content}

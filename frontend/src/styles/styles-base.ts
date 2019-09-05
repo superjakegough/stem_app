@@ -12,13 +12,11 @@ export const useStylesBase = makeStyles((theme: Theme) =>
       },
       "& p": {
         fontSize: "1rem",
-        fontWeight: 400,
         lineHeight: 1.5,
         letterSpacing: "0.00938em"
       },
       "& li": {
         fontSize: "1rem",
-        fontWeight: 400,
         lineHeight: 1.5,
         letterSpacing: "0.00938em"
       },
@@ -32,10 +30,7 @@ export const useStylesBase = makeStyles((theme: Theme) =>
       },
       "& .MuiExpansionPanel-root:before": {
         backgroundColor: "unset !important"
-      },
-      "& .MuiFilledInput-underline:before ": {
-        borderBottom: "none !important"
-      },
+      }
     },
     primaryText: {
       color: theme.palette.primary.main
@@ -50,7 +45,7 @@ export const useStylesBase = makeStyles((theme: Theme) =>
         backgroundColor: "white"
       },
       "& .MuiFilledInput-root:hover": {
-        backgroundColor: "rgba(0, 0, 0, 0.09)"
+        backgroundColor: "rgba(34, 183, 113, 0.09)"
       }
     },
     adminPaper: {
@@ -66,12 +61,15 @@ export const useStylesBase = makeStyles((theme: Theme) =>
       marginTop: theme.spacing(3),
       padding: theme.spacing(3)
     },
-    input: {
+    select: {
       marginBottom: theme.spacing(3),
       borderRadius: 4,
       "& .MuiFilledInput-root": {
         borderRadius: 4,
         backgroundColor: "rgba(0, 0, 0, 0.09)",
+      },
+      "& .MuiFilledInput-underline:before ": {
+        borderBottom: "none"
       },
       "& .MuiFilledInput-underline:after": {
         marginRight: 2,
@@ -85,7 +83,10 @@ export const useStylesBase = makeStyles((theme: Theme) =>
     textField: {
       marginBottom: theme.spacing(4),
       "& .MuiFilledInput-root": {
-        borderRadius: 4
+        borderRadius: 4,
+      },
+      "& .MuiFilledInput-underline:before ": {
+        borderBottom: "none"
       },
       "& .MuiFilledInput-underline:after": {
         marginRight: 2,

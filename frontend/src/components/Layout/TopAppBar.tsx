@@ -95,7 +95,6 @@ const TopAppBar: FunctionComponent = props => {
                 keepMounted
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
-                elevation={0}
               >
                 <MenuItem onClick={() => handleSocialClick(facebook)}>
                   <img

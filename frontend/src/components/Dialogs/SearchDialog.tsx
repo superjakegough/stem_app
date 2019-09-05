@@ -86,7 +86,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
             setSearchJob({ ...searchJob, title: event.target.value })
           }
         />
-        <FormControl variant="filled" fullWidth>
+        <FormControl variant="filled" fullWidth className={classesBase.select}>
           <InputLabel htmlFor="search-job-salary">Salary</InputLabel>
           <Select
             value={searchJob.salary}
@@ -96,7 +96,6 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
             input={
               <FilledInput
                 id="search-job-salary"
-                className={classesBase.input}
                 margin="dense"
                 fullWidth
               />
@@ -108,7 +107,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
             ))}
           </Select>
         </FormControl>
-        <FormControl variant="filled" fullWidth>
+        <FormControl variant="filled" fullWidth className={classesBase.select}>
           <InputLabel htmlFor="search-job-types">Type</InputLabel>
           <Select
             value={searchJob.jobType}
@@ -118,7 +117,6 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
             input={
               <FilledInput
                 id="search-job-types"
-                className={classesBase.input}
                 margin="dense"
                 fullWidth
               />
@@ -130,7 +128,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
             ))}
           </Select>
         </FormControl>
-        <FormControl variant="filled" fullWidth>
+        <FormControl variant="filled" fullWidth className={classesBase.select}>
           <InputLabel htmlFor="search-job-locations">Location</InputLabel>
           <Select
             value={searchJob.jobLocation}
@@ -140,7 +138,6 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
             input={
               <FilledInput
                 id="search-job-locations"
-                className={classesBase.input}
                 margin="dense"
                 fullWidth
               />

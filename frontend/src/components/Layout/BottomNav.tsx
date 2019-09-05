@@ -13,12 +13,15 @@ const useStyles = makeStyles({
     position: "fixed",
     bottom: 0,
     width: "100%",
-    backgroundColor: "rgba(255, 255, 255, 0.5)"
+    backgroundColor: "rgba(255, 255, 255, 0.5)",
+    "& a": {
+      color: "rgba(34, 183, 113, 0.18)"
+    }
   }
 });
 
 const BottomNav: FunctionComponent<RouteComponentProps> = props => {
-  const classes = useStyles({});
+  const classes = useStyles();
   const [value, setValue] = useState<string>("/");
 
   useEffect(() => {

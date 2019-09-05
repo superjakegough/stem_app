@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
@@ -9,21 +8,11 @@ import LinkButton from "../Layout/LinkButton";
 import { Job, BlankJob } from "../../models/job";
 import { GetJob } from "../../services/job_service";
 import { ConvertDate } from "../../helpers/DateHelper";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    button: {
-      margin: theme.spacing(1)
-    },
-    paper: {
-      marginTop: theme.spacing(3),
-      padding: theme.spacing(3)
-    }
-  })
-);
+import { useStylesBase } from "../../styles/styles-base";
+import clsx from "clsx";
 
 const ViewJob: FunctionComponent<RouteComponentProps> = props => {
-  const classes = useStyles({});
+  const classesBase = useStylesBase();
   const [job, setJob] = useState<Job>(BlankJob());
   const [loading, setLoading] = useState<boolean>(false);
   const params: any = props.match.params;
@@ -42,12 +31,12 @@ const ViewJob: FunctionComponent<RouteComponentProps> = props => {
   }
 
   const content = loading ? (
-    <Grid container justify="center" className="mt-24 mb-24">
+    <Grid container justify="center" className={clsx(classesBase.mt3, classesBase.mb3)}>
       <CircularProgress color="primary" />
     </Grid>
   ) : (
-    <Paper key={job.jobId} elevation={0} className={classes.paper}>
-      <h6 className="primary-text text-center">{job.title}</h6>
+    <Paper key={job.jobId} elevation={0} className={classesBase.viewPaper}>
+      <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{job.title}</h6>
       <h6>Salary - Benefits</h6>
       <p>{`${job.salary} - ${job.benefits}`}</p>
       <h6>Type</h6>
@@ -63,13 +52,13 @@ const ViewJob: FunctionComponent<RouteComponentProps> = props => {
 
   return (
     <div>
-      <Grid container justify="center" className="content-container">
-        <Grid item md={8} sm={10} xs={12} className="mb-24">
+      <Grid container justify="center" className={classesBase.contentContainer}>
+        <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
           {content}
         </Grid>
-        <Grid container justify="center" className="mb-24">
+        <Grid container justify="center" className={classesBase.mb3}>
           <LinkButton
-            className={classes.button}
+            className={classesBase.button}
             to="/jobs"
           >
             Jobs

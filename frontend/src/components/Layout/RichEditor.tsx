@@ -31,7 +31,7 @@ interface RichEditorProps {
 }
 
 const RichEditor: FunctionComponent<RichEditorProps> = props => {
-  const classes = useStyles({});
+  const classes = useStyles();
   const [value, setValue] = useState<EditorValue>(
     RichTextEditor.createValueFromString(props.content, "html")
   );

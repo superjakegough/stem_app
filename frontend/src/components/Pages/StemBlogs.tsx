@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useState, useEffect, FormEvent, ChangeEvent } from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import blogsimage from "../../assets/blogs.jpg";
 import TablePagination from "@material-ui/core/TablePagination";
@@ -13,37 +12,11 @@ import LinkButton from "../Layout/LinkButton";
 import { Blog } from "../../models/blog";
 import { GetAllBlogs } from "../../services/blog_service";
 import { ConvertDate } from "../../helpers/DateHelper";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    button: {
-      margin: theme.spacing(1)
-    },
-    paper: {
-      padding: theme.spacing(3),
-      marginBottom: theme.spacing(4)
-    },
-    textField: {
-      flexBasis: 200,
-      marginBottom: theme.spacing(4),
-      "& .MuiFilledInput-root": {
-        backgroundColor: "white",
-        borderRadius: 4
-      },
-      "& .MuiFilledInput-underline:before": {
-        borderBottom: 0
-      },
-      "& .MuiFilledInput-underline:after": {
-        marginRight: 2,
-        marginLeft: 2,
-        borderRadius: 4
-      }
-    }
-  })
-);
+import { useStylesBase } from "../../styles/styles-base";
+import clsx from "clsx";
 
 const StemBlogs: FunctionComponent = props => {
-  const classes = useStyles({});
+  const classesBase = useStylesBase();
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [filteredBlogs, setFilteredBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -96,13 +69,13 @@ const StemBlogs: FunctionComponent = props => {
         labelRowsPerPage={""}
       />
     ) : (
-      <Paper elevation={0} className={classes.paper}>
-        <p className="text-center">No blogs found</p>
+      <Paper elevation={0} className={classesBase.stemPaper}>
+        <p className={classesBase.textCenter}>No blogs found</p>
       </Paper>
     );
 
   const content = loading ? (
-    <Grid container justify="center" className="mt-24 mb-24">
+    <Grid container justify="center" className={clsx(classesBase.mt3, classesBase.mb3)}>
       <CircularProgress color="primary" />
     </Grid>
   ) : (
@@ -112,15 +85,15 @@ const StemBlogs: FunctionComponent = props => {
         .map((blog: Blog) => {
           return (
             <div key={blog.blogId}>
-              <Paper elevation={0} className={classes.paper}>
-                <h6 className="primary-text text-center">{blog.title}</h6>
+              <Paper elevation={0} className={classesBase.stemPaper}>
+                <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{blog.title}</h6>
                 <p>{blog.description}</p>
-                <ContentDom className="blog-short-content blog-image" content={blog.content} />
+                <ContentDom className={clsx(classesBase.blogShortContent, classesBase.blogImage)} content={blog.content} />
                 <p>...</p>
                 <p>Published: {ConvertDate(blog.createdAt)}</p>
                 <Grid container justify="center">
                   <LinkButton
-                    className={classes.button}
+                    className={classesBase.button}
                     to={{ pathname: `/blog/${blog.blogId}` }}
                   >
                     View
@@ -138,21 +111,21 @@ const StemBlogs: FunctionComponent = props => {
     <div>
       <Grid container direction="column" justify="center">
         <Grid item xs={12}>
-          <img src={blogsimage} className="header-image" alt="" />
-          <div className="header-text">Blogs</div>
+          <img src={blogsimage} className={classesBase.headerImage} alt="" />
+          <div className={classesBase.headerText}>Blogs</div>
         </Grid>
-        <Grid container justify="center" className="content-container">
-          <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <h2 className="content-title mb-24">News &amp; Advice Blogs</h2>
+        <Grid container justify="center" className={classesBase.contentContainer}>
+          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
+            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>News &amp; Advice Blogs</h4>
             <p>
               Keep up to date with the latest industry news, as well as regular
               activites offering recruitment and careers advice.
             </p>
           </Grid>
-          <Grid item md={8} sm={10} xs={12} className="mb-24">
+          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
             <form onSubmit={handleSubmitSearch}>
               <TextField
-                className={classes.textField}
+                className={clsx(classesBase.textField, classesBase.whiteTextField)}
                 variant="filled"
                 margin="dense"
                 fullWidth

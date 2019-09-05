@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -12,40 +11,7 @@ import Select from "@material-ui/core/Select";
 import { Job, BlankJob } from "../../models/job";
 import { checkJob, generateSearchTerm } from "../../helpers/SearchHelper";
 import FormControl from "@material-ui/core/FormControl";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    dialog: {
-      "& .MuiPaper-elevation24": {
-        boxShadow: "none"
-      }
-    },
-    textField: {
-      marginBottom: theme.spacing(4),
-      "& .MuiFilledInput-root": {
-        borderRadius: 4
-      },
-      "& .MuiFilledInput-underline:after": {
-        marginRight: 2,
-        marginLeft: 2,
-        borderRadius: 4
-      }
-    },
-    input: {
-      marginBottom: theme.spacing(3),
-      borderRadius: 4,
-      "& .MuiFilledInput-root": {
-        borderRadius: 4,
-        backgroundColor: "#E8E8E8",
-      },
-      "& .MuiFilledInput-underline:after": {
-        marginRight: 2,
-        marginLeft: 2,
-        borderRadius: 4
-      }
-    }
-  })
-);
+import { useStylesBase } from "../../styles/styles-base";
 
 interface JobDialogProps {
   open: boolean;
@@ -55,7 +21,7 @@ interface JobDialogProps {
 }
 
 const JobDialog: FunctionComponent<JobDialogProps> = props => {
-  const classes = useStyles({});
+  const classesBase = useStylesBase();
   const [jobs, setJobs] = useState<Job[]>([]);
   const [jobTypes, setJobTypes] = useState<string[]>([]);
   const [jobLocations, setJobLocations] = useState<string[]>([]);
@@ -106,11 +72,11 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
     <Dialog
       open={props.open}
       onClose={props.handleClose}
-      className={classes.dialog}
+      className={classesBase.dialog}
     >
       <DialogContent>
         <TextField
-          className={classes.textField}
+          className={classesBase.textField}
           label="Title"
           variant="filled"
           margin="dense"
@@ -120,7 +86,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
             setSearchJob({ ...searchJob, title: event.target.value })
           }
         />
-        <FormControl variant="filled" fullWidth>
+        <FormControl variant="filled" fullWidth className={classesBase.select}>
           <InputLabel htmlFor="search-job-salary">Salary</InputLabel>
           <Select
             value={searchJob.salary}
@@ -130,7 +96,6 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
             input={
               <FilledInput
                 id="search-job-salary"
-                className={classes.input}
                 margin="dense"
                 fullWidth
               />
@@ -142,7 +107,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
             ))}
           </Select>
         </FormControl>
-        <FormControl variant="filled" fullWidth>
+        <FormControl variant="filled" fullWidth className={classesBase.select}>
           <InputLabel htmlFor="search-job-types">Type</InputLabel>
           <Select
             value={searchJob.jobType}
@@ -152,7 +117,6 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
             input={
               <FilledInput
                 id="search-job-types"
-                className={classes.input}
                 margin="dense"
                 fullWidth
               />
@@ -164,7 +128,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
             ))}
           </Select>
         </FormControl>
-        <FormControl variant="filled" fullWidth>
+        <FormControl variant="filled" fullWidth className={classesBase.select}>
           <InputLabel htmlFor="search-job-locations">Location</InputLabel>
           <Select
             value={searchJob.jobLocation}
@@ -174,7 +138,6 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
             input={
               <FilledInput
                 id="search-job-locations"
-                className={classes.input}
                 margin="dense"
                 fullWidth
               />
@@ -187,7 +150,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           </Select>
         </FormControl>
         <TextField
-          className={classes.textField}
+          className={classesBase.textField}
           label="Reference"
           variant="filled"
           margin="dense"

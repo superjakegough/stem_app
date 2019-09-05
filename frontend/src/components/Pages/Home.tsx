@@ -20,6 +20,8 @@ import homeimage from "../../assets/home.jpg";
 import stemlogo from "../../assets/stem_green.png";
 import avatar from "../../assets/jack.jpg";
 import rec from "../../assets/rec.jpg";
+import { useStylesBase } from "../../styles/styles-base";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -42,38 +44,35 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     fillHeight: {
       height: "100%"
-    },
-    recLogo: {
-      height: 100,
-      margin: "auto"
     }
   })
 );
 
 const Home: FunctionComponent = props => {
   const classes = useStyles({});
+  const classesBase = useStylesBase({});
   const smAndDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
-  const stemImg = <img className="home-logo" src={stemlogo} alt="" />;
+  const stemImg = <img className={classesBase.homeLogo} src={stemlogo} alt="" />;
 
   return (
     <div>
       <Grid container direction="column" justify="center">
-        <Grid item xs className="header-grid">
-          <img src={homeimage} className="header-image" alt="" />
-          <h1 className="header-text">
+        <Grid item xs className={classesBase.headerGrid}>
+          <img src={homeimage} className={classesBase.headerImage} alt="" />
+          <h1 className={classesBase.headerText}>
             Growing your business
             <br />
             Growing your career
           </h1>
         </Grid>
-        <Grid container justify="center" className="content-container">
-          <Grid item md={8} sm={10} xs={12} className="mb-24">
-            <h2 className="content-title">Who We Are</h2>
+        <Grid container justify="center" className={classesBase.contentContainer}>
+          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
+            <h4 className={classesBase.contentTitle}>Who We Are</h4>
           </Grid>
           {smAndDown && (
-            <Grid item sm={10} xs={12} className="mb-24 text-center">
+            <Grid item sm={10} xs={12} className={clsx(classesBase.mb3, classesBase.textCenter)}>
               {stemImg}
             </Grid>
           )}
@@ -102,16 +101,16 @@ const Home: FunctionComponent = props => {
             </p>
           </Grid>
           {!smAndDown && (
-            <Grid item md={2} className="ml-16">
+            <Grid item md={2} className={classesBase.ml2}>
               {stemImg}
             </Grid>
           )}
-          <Grid item md={8} sm={10} xs={12} className="mt-24 mb-24">
-            <h2 className="content-title mt-24 mb-24">What We Do</h2>
+          <Grid item md={8} sm={10} xs={12} className={clsx(classesBase.mt3, classesBase.mb3)}>
+            <h4 className={clsx(classesBase.mt3, classesBase.mb3, classesBase.contentTitle)}>What We Do</h4>
             <ExpansionPanel
               elevation={0}
               defaultExpanded={true}
-              className="mb-24"
+              className={classesBase.mb3}
             >
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                 <p className={classes.expansionSummary}>Clients</p>
@@ -149,7 +148,7 @@ const Home: FunctionComponent = props => {
                 </Grid>
               </ExpansionPanelDetails>
             </ExpansionPanel>
-            <ExpansionPanel elevation={0} className="mb-24">
+            <ExpansionPanel elevation={0} className={classesBase.mb3}>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                 <p className={classes.expansionSummary}>Candidates</p>
               </ExpansionPanelSummary>
@@ -191,7 +190,7 @@ const Home: FunctionComponent = props => {
           <Grid item sm={10} xs={12}>
             <Divider className={classes.divider} />
           </Grid>
-          <Grid item md={4} sm={10} xs={12} className="mt-24 mb-24 text-center">
+          <Grid item md={4} sm={10} xs={12} className={clsx(classesBase.mt3, classesBase.mb3, classesBase.textCenter)}>
             <Avatar src={avatar} alt="" className={classes.avatar} />
             <h6>JACK TAYLOR</h6>
             <h6>Founder &amp; Recruitment Consultant</h6>
@@ -215,7 +214,7 @@ const Home: FunctionComponent = props => {
               </p>
             </Grid>
           </Grid>
-          <Grid item md={4} sm={10} xs={12} className="mb-24">
+          <Grid item md={4} sm={10} xs={12} className={classesBase.mb3}>
             <Grid
               container
               justify="center"
@@ -248,12 +247,12 @@ const Home: FunctionComponent = props => {
                   <ListItemText primary="Telephone" secondary="029 2120 2879" />
                 </ListItem>
                 <ListItem>
-                  <img src={rec} className={classes.recLogo} alt="" />
+                  <img src={rec} className={classesBase.recLogo} alt="" />
                 </ListItem>
               </List>
             </Grid>
           </Grid>
-          <Grid container justify="center" className="mb-48">
+          <Grid container justify="center" className={classesBase.mb6}>
             <LinkButton
               className={classes.button}
               to="/privacy"

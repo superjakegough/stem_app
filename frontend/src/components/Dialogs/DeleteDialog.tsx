@@ -1,19 +1,9 @@
 import React, { FunctionComponent } from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import Button from "@material-ui/core/Button";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    dialog: {
-      "& .MuiPaper-elevation24": {
-        boxShadow: "none"
-      }
-    }
-  })
-);
+import { useStylesBase } from "../../styles/styles-base";
 
 interface DeleteProps {
   open: boolean;
@@ -22,7 +12,7 @@ interface DeleteProps {
 }
 
 const DeleteDialog: FunctionComponent<DeleteProps> = props => {
-  const classes = useStyles({});
+  const classesBase = useStylesBase();
 
   function handleSubmit() {
     props.handleDelete();
@@ -32,7 +22,7 @@ const DeleteDialog: FunctionComponent<DeleteProps> = props => {
     <Dialog
       open={props.open}
       onClose={props.handleClose}
-      className={classes.dialog}
+      className={classesBase.dialog}
     >
       <DialogContent>
         <p>Are you sure you wish to delete this item?</p>

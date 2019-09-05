@@ -11,7 +11,6 @@ import ViewBlog from "./Pages/ViewBlog";
 import Privacy from "./Pages/Privacy";
 import AdminJobs from "./Admin/AdminJobs";
 import AdminBlogs from "./Admin/AdminBlogs";
-import "./App.css";
 
 const history = createBrowserHistory();
 

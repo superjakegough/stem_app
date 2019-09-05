@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -8,27 +7,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import RichEditor from "../Layout/RichEditor";
 import { Blog } from "../../models/blog";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    dialog: {
-      "& .MuiPaper-elevation24": {
-        boxShadow: "none"
-      }
-    },
-    textField: {
-      marginBottom: theme.spacing(4),
-      "& .MuiFilledInput-root": {
-        borderRadius: 4
-      },
-      "& .MuiFilledInput-underline:after": {
-        marginRight: 2,
-        marginLeft: 2,
-        borderRadius: 4
-      }
-    }
-  })
-);
+import { useStylesBase } from "../../styles/styles-base";
 
 interface BlogDialogProps {
   open: boolean;
@@ -39,7 +18,7 @@ interface BlogDialogProps {
 }
 
 const BlogDialog: FunctionComponent<BlogDialogProps> = props => {
-  const classes = useStyles({});
+  const classesBase = useStylesBase();
   const [blog, setBlog] = useState<Blog>(props.blog);
 
   useEffect(() => {
@@ -72,7 +51,7 @@ const BlogDialog: FunctionComponent<BlogDialogProps> = props => {
     <Dialog
       open={props.open}
       onClose={props.handleClose}
-      className={classes.dialog}
+      className={classesBase.dialog}
       disableBackdropClick={true}
       fullWidth={true}
       maxWidth={"lg"}
@@ -80,7 +59,7 @@ const BlogDialog: FunctionComponent<BlogDialogProps> = props => {
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
         <TextField
-          className={classes.textField}
+          className={classesBase.textField}
           label="Title"
           variant="filled"
           margin="dense"
@@ -91,7 +70,7 @@ const BlogDialog: FunctionComponent<BlogDialogProps> = props => {
           }
         />
         <TextField
-          className={classes.textField}
+          className={classesBase.textField}
           label="Description"
           variant="filled"
           margin="dense"

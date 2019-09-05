@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import { Theme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -22,36 +22,11 @@ import JobDialog from "../Dialogs/JobDialog";
 import DeleteDialog from "../Dialogs/DeleteDialog";
 import { Job, BlankJob } from "../../models/job";
 import { GetAllJobs, CreateJob, UpdateJob, DeleteJob } from "../../services/job_service";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    boldText: {
-      fontWeight: 500
-    },
-    button: {
-      margin: theme.spacing(1)
-    },
-    divider: {
-      marginLeft: theme.spacing(2),
-      marginRight: theme.spacing(2)
-    },
-    grid: {
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2)
-    },
-    icon: {
-      color: "#9e9e9e"
-    },
-    paper: {
-      width: "100%",
-      marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(3)
-    }
-  })
-);
+import { useStylesBase } from "../../styles/styles-base";
+import clsx from "clsx";
 
 const AdminJobTable: FunctionComponent = props => {
-  const classes = useStyles({});
+  const classesBase = useStylesBase();
   const [job, setJob] = useState<Job>(BlankJob());
   const [jobs, setJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -132,14 +107,14 @@ const AdminJobTable: FunctionComponent = props => {
   }
 
   const smContent = loading ? (
-    <Grid container justify="center" className="mt-24 mb-24">
+    <Grid container justify="center" className={clsx(classesBase.mt3, classesBase.mb3)}>
       <CircularProgress color="primary" />
     </Grid>
   ) : (
-    <div className="mb-48">
+    <div className={classesBase.mb6}>
       <Grid container justify="center">
         <Button
-          className={classes.button}
+          className={classesBase.button}
           color="primary"
           onClick={handleOpenCreate}
         >
@@ -149,28 +124,28 @@ const AdminJobTable: FunctionComponent = props => {
       {jobs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map((job: Job, index: number) => (
-          <Paper key={job.jobId} className={classes.paper}>
+          <Paper key={job.jobId} className={classesBase.adminPaper}>
             <Toolbar>
-              <p className={classes.boldText}>{job.title}</p>
+              <p className={classesBase.boldText}>{job.title}</p>
               <Spacer />
-              <IconButton size="small" onClick={() => handleOpenUpdate(index)}>
-                <EditIcon className={classes.icon} />
+              <IconButton size="small" color="primary" onClick={() => handleOpenUpdate(index)}>
+                <EditIcon />
               </IconButton>
-              <IconButton size="small" onClick={() => handleOpenDelete(index)}>
-                <DeleteIcon className={classes.icon} />
+              <IconButton size="small" color="primary" onClick={() => handleOpenDelete(index)}>
+                <DeleteIcon />
               </IconButton>
             </Toolbar>
-            <Divider className={classes.divider} />
-            <Grid container justify="space-between" className={classes.grid}>
-              <p className={classes.boldText}>Type:</p>
+            <Divider className={classesBase.divider} />
+            <Grid container justify="space-between" className={classesBase.grid}>
+              <p className={classesBase.boldText}>Type:</p>
               <p>{job.jobType}</p>
             </Grid>
-            <Grid container justify="space-between" className={classes.grid}>
-              <p className={classes.boldText}>Location:</p>
+            <Grid container justify="space-between" className={classesBase.grid}>
+              <p className={classesBase.boldText}>Location:</p>
               <p>{job.jobLocation}</p>
             </Grid>
-            <Grid container justify="space-between" className={classes.grid}>
-              <p className={classes.boldText}>Reference:</p>
+            <Grid container justify="space-between" className={classesBase.grid}>
+              <p className={classesBase.boldText}>Reference:</p>
               <p>{job.jobReference}</p>
             </Grid>
           </Paper>
@@ -191,12 +166,12 @@ const AdminJobTable: FunctionComponent = props => {
   const content = smAndDown ? (
     smContent
   ) : (
-    <Paper className={classes.paper}>
+    <Paper className={classesBase.adminPaper}>
       <Toolbar>
         <h6>Jobs</h6>
         <Spacer />
         <Button
-          className={classes.button}
+          className={classesBase.button}
           color="primary"
           onClick={handleOpenCreate}
         >
@@ -228,15 +203,17 @@ const AdminJobTable: FunctionComponent = props => {
                 <TableCell align="right">
                   <IconButton
                     size="small"
+                    color="primary"
                     onClick={() => handleOpenUpdate(index)}
                   >
-                    <EditIcon className={classes.icon} />
+                    <EditIcon />
                   </IconButton>
                   <IconButton
                     size="small"
+                    color="primary"
                     onClick={() => handleOpenDelete(index)}
                   >
-                    <DeleteIcon className={classes.icon} />
+                    <DeleteIcon />
                   </IconButton>
                 </TableCell>
               </TableRow>
@@ -261,7 +238,7 @@ const AdminJobTable: FunctionComponent = props => {
         container
         justify="center"
         alignItems="center"
-        className="content-container full-height"
+        className={clsx(classesBase.contentContainer, classesBase.fullHeight)}
       >
         <Grid item md={10} sm={10} xs={12}>
           {content}

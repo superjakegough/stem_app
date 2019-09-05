@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import { Theme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -21,36 +21,11 @@ import BlogDialog from "../Dialogs/BlogDialog";
 import DeleteDialog from "../Dialogs/DeleteDialog";
 import { Blog, BlankBlog } from "../../models/blog";
 import { GetAllBlogs, CreateBlog, UpdateBlog, DeleteBlog } from "../../services/blog_service";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    boldText: {
-      fontWeight: 500
-    },
-    button: {
-      margin: theme.spacing(1)
-    },
-    divider: {
-      marginLeft: theme.spacing(2),
-      marginRight: theme.spacing(2)
-    },
-    grid: {
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2)
-    },
-    icon: {
-      color: "#9e9e9e"
-    },
-    paper: {
-      width: "100%",
-      marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(3)
-    },
-  })
-);
+import { useStylesBase } from "../../styles/styles-base";
+import clsx from "clsx";
 
 const AdminBlogTable: FunctionComponent = props => {
-  const classes = useStyles({});
+  const classesBase = useStylesBase();
   const [blog, setBlog] = useState<Blog>(BlankBlog());
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -131,14 +106,14 @@ const AdminBlogTable: FunctionComponent = props => {
   }
 
   const smContent = loading ? (
-    <Grid container justify="center" className="mt-24 mb-24">
+    <Grid container justify="center" className={clsx(classesBase.mt3, classesBase.mb3)}>
       <CircularProgress color="primary" />
     </Grid>
   ) : (
-    <div className="mb-48">
+    <div className={classesBase.mb6}>
       <Grid container justify="center">
         <Button
-          className={classes.button}
+          className={classesBase.button}
           color="primary"
           onClick={handleOpenCreate}
         >
@@ -148,15 +123,15 @@ const AdminBlogTable: FunctionComponent = props => {
       {blogs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map((blog: Blog, index: number) => (
-          <Paper key={blog.blogId} className={classes.paper}>
+          <Paper key={blog.blogId} className={classesBase.adminPaper}>
             <Toolbar>
-              <p className={classes.boldText}>{blog.title}</p>
+              <p className={classesBase.boldText}>{blog.title}</p>
               <Spacer />
-              <IconButton size="small" onClick={() => handleOpenUpdate(index)}>
-                <EditIcon className={classes.icon} />
+              <IconButton size="small" color="primary" onClick={() => handleOpenUpdate(index)}>
+                <EditIcon />
               </IconButton>
-              <IconButton size="small" onClick={() => handleOpenDelete(index)}>
-                <DeleteIcon className={classes.icon} />
+              <IconButton size="small" color="primary" onClick={() => handleOpenDelete(index)}>
+                <DeleteIcon />
               </IconButton>
             </Toolbar>
           </Paper>
@@ -177,12 +152,12 @@ const AdminBlogTable: FunctionComponent = props => {
   const content = smAndDown ? (
     smContent
   ) : (
-    <Paper className={classes.paper}>
+    <Paper className={classesBase.adminPaper}>
       <Toolbar>
         <h6>Blogs</h6>
         <Spacer />
         <Button
-          className={classes.button}
+          className={classesBase.button}
           color="primary"
           onClick={handleOpenCreate}
         >
@@ -210,15 +185,17 @@ const AdminBlogTable: FunctionComponent = props => {
                 <TableCell align="right">
                   <IconButton
                     size="small"
+                    color="primary"
                     onClick={() => handleOpenUpdate(index)}
                   >
-                    <EditIcon className={classes.icon} />
+                    <EditIcon />
                   </IconButton>
                   <IconButton
                     size="small"
+                    color="primary"
                     onClick={() => handleOpenDelete(index)}
                   >
-                    <DeleteIcon className={classes.icon} />
+                    <DeleteIcon />
                   </IconButton>
                 </TableCell>
               </TableRow>
@@ -243,7 +220,7 @@ const AdminBlogTable: FunctionComponent = props => {
         container
         justify="center"
         alignItems="center"
-        className="content-container full-height"
+        className={clsx(classesBase.contentContainer, classesBase.fullHeight)}
       >
         <Grid item md={10} sm={10} xs={12}>
           {content}

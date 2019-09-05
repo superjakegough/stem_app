@@ -27,23 +27,6 @@ import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    boldText: {
-      fontWeight: 500
-    },
-    button: {
-      margin: theme.spacing(1)
-    },
-    divider: {
-      marginLeft: theme.spacing(2),
-      marginRight: theme.spacing(2)
-    },
-    grid: {
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2)
-    },
-    icon: {
-      color: "#9e9e9e"
-    },
     paper: {
       width: "100%",
       marginTop: theme.spacing(3),
@@ -142,7 +125,7 @@ const AdminJobTable: FunctionComponent = props => {
     <div className={classesBase.mb6}>
       <Grid container justify="center">
         <Button
-          className={classes.button}
+          className={classesBase.button}
           color="primary"
           onClick={handleOpenCreate}
         >
@@ -154,26 +137,26 @@ const AdminJobTable: FunctionComponent = props => {
         .map((job: Job, index: number) => (
           <Paper key={job.jobId} className={classes.paper}>
             <Toolbar>
-              <p className={classes.boldText}>{job.title}</p>
+              <p className={classesBase.boldText}>{job.title}</p>
               <Spacer />
-              <IconButton size="small" onClick={() => handleOpenUpdate(index)}>
-                <EditIcon className={classes.icon} />
+              <IconButton size="small" color="primary" onClick={() => handleOpenUpdate(index)}>
+                <EditIcon />
               </IconButton>
-              <IconButton size="small" onClick={() => handleOpenDelete(index)}>
-                <DeleteIcon className={classes.icon} />
+              <IconButton size="small" color="primary" onClick={() => handleOpenDelete(index)}>
+                <DeleteIcon />
               </IconButton>
             </Toolbar>
-            <Divider className={classes.divider} />
-            <Grid container justify="space-between" className={classes.grid}>
-              <p className={classes.boldText}>Type:</p>
+            <Divider className={classesBase.divider} />
+            <Grid container justify="space-between" className={classesBase.grid}>
+              <p className={classesBase.boldText}>Type:</p>
               <p>{job.jobType}</p>
             </Grid>
-            <Grid container justify="space-between" className={classes.grid}>
-              <p className={classes.boldText}>Location:</p>
+            <Grid container justify="space-between" className={classesBase.grid}>
+              <p className={classesBase.boldText}>Location:</p>
               <p>{job.jobLocation}</p>
             </Grid>
-            <Grid container justify="space-between" className={classes.grid}>
-              <p className={classes.boldText}>Reference:</p>
+            <Grid container justify="space-between" className={classesBase.grid}>
+              <p className={classesBase.boldText}>Reference:</p>
               <p>{job.jobReference}</p>
             </Grid>
           </Paper>
@@ -199,7 +182,7 @@ const AdminJobTable: FunctionComponent = props => {
         <h6>Jobs</h6>
         <Spacer />
         <Button
-          className={classes.button}
+          className={classesBase.button}
           color="primary"
           onClick={handleOpenCreate}
         >
@@ -231,15 +214,17 @@ const AdminJobTable: FunctionComponent = props => {
                 <TableCell align="right">
                   <IconButton
                     size="small"
+                    color="primary"
                     onClick={() => handleOpenUpdate(index)}
                   >
-                    <EditIcon className={classes.icon} />
+                    <EditIcon />
                   </IconButton>
                   <IconButton
                     size="small"
+                    color="primary"
                     onClick={() => handleOpenDelete(index)}
                   >
-                    <DeleteIcon className={classes.icon} />
+                    <DeleteIcon />
                   </IconButton>
                 </TableCell>
               </TableRow>

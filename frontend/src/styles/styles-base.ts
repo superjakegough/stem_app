@@ -87,6 +87,20 @@ export const useStylesBase = makeStyles((theme: Theme) =>
         maxWidth: "100%"
       }
     },
+    boldText: {
+      fontWeight: 500
+    },
+    button: {
+      margin: theme.spacing(1)
+    },
+    divider: {
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2)
+    },
+    grid: {
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2)
+    },
     contentContainer: {
       padding: theme.spacing(7),
       [theme.breakpoints.down("md")]: {

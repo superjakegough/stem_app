@@ -26,23 +26,6 @@ import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    boldText: {
-      fontWeight: 500
-    },
-    button: {
-      margin: theme.spacing(1)
-    },
-    divider: {
-      marginLeft: theme.spacing(2),
-      marginRight: theme.spacing(2)
-    },
-    grid: {
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2)
-    },
-    icon: {
-      color: "#9e9e9e"
-    },
     paper: {
       width: "100%",
       marginTop: theme.spacing(3),
@@ -141,7 +124,7 @@ const AdminBlogTable: FunctionComponent = props => {
     <div className={classesBase.mb6}>
       <Grid container justify="center">
         <Button
-          className={classes.button}
+          className={classesBase.button}
           color="primary"
           onClick={handleOpenCreate}
         >
@@ -153,13 +136,13 @@ const AdminBlogTable: FunctionComponent = props => {
         .map((blog: Blog, index: number) => (
           <Paper key={blog.blogId} className={classes.paper}>
             <Toolbar>
-              <p className={classes.boldText}>{blog.title}</p>
+              <p className={classesBase.boldText}>{blog.title}</p>
               <Spacer />
-              <IconButton size="small" onClick={() => handleOpenUpdate(index)}>
-                <EditIcon className={classes.icon} />
+              <IconButton size="small" color="primary" onClick={() => handleOpenUpdate(index)}>
+                <EditIcon />
               </IconButton>
-              <IconButton size="small" onClick={() => handleOpenDelete(index)}>
-                <DeleteIcon className={classes.icon} />
+              <IconButton size="small" color="primary" onClick={() => handleOpenDelete(index)}>
+                <DeleteIcon />
               </IconButton>
             </Toolbar>
           </Paper>
@@ -185,7 +168,7 @@ const AdminBlogTable: FunctionComponent = props => {
         <h6>Blogs</h6>
         <Spacer />
         <Button
-          className={classes.button}
+          className={classesBase.button}
           color="primary"
           onClick={handleOpenCreate}
         >
@@ -213,15 +196,17 @@ const AdminBlogTable: FunctionComponent = props => {
                 <TableCell align="right">
                   <IconButton
                     size="small"
+                    color="primary"
                     onClick={() => handleOpenUpdate(index)}
                   >
-                    <EditIcon className={classes.icon} />
+                    <EditIcon />
                   </IconButton>
                   <IconButton
                     size="small"
+                    color="primary"
                     onClick={() => handleOpenDelete(index)}
                   >
-                    <DeleteIcon className={classes.icon} />
+                    <DeleteIcon />
                   </IconButton>
                 </TableCell>
               </TableRow>

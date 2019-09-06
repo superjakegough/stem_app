@@ -54,7 +54,9 @@ const Home: FunctionComponent = props => {
   const smAndDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
-  const stemImg = <img className={classesBase.homeLogo} src={stemlogo} alt="" />;
+  const stemImg = (
+    <img className={classesBase.homeLogo} src={stemlogo} alt="" />
+  );
 
   return (
     <div>
@@ -67,12 +69,21 @@ const Home: FunctionComponent = props => {
             Growing your career
           </div>
         </Grid>
-        <Grid container justify="center" className={classesBase.contentContainer}>
+        <Grid
+          container
+          justify="center"
+          className={classesBase.contentContainer}
+        >
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
             <h4 className={classesBase.contentTitle}>Who We Are</h4>
           </Grid>
           {smAndDown && (
-            <Grid item sm={10} xs={12} className={clsx(classesBase.mb3, classesBase.textCenter)}>
+            <Grid
+              item
+              sm={10}
+              xs={12}
+              className={clsx(classesBase.mb3, classesBase.textCenter)}
+            >
               {stemImg}
             </Grid>
           )}
@@ -105,8 +116,22 @@ const Home: FunctionComponent = props => {
               {stemImg}
             </Grid>
           )}
-          <Grid item md={8} sm={10} xs={12} className={clsx(classesBase.mt3, classesBase.mb3)}>
-            <h4 className={clsx(classesBase.mt3, classesBase.mb3, classesBase.contentTitle)}>What We Do</h4>
+          <Grid
+            item
+            md={8}
+            sm={10}
+            xs={12}
+            className={clsx(classesBase.mt3, classesBase.mb3)}
+          >
+            <h4
+              className={clsx(
+                classesBase.mt3,
+                classesBase.mb3,
+                classesBase.contentTitle
+              )}
+            >
+              What We Do
+            </h4>
             <ExpansionPanel
               elevation={0}
               defaultExpanded={true}
@@ -138,10 +163,7 @@ const Home: FunctionComponent = props => {
                     </p>
                   </Grid>
                   <Grid item>
-                    <LinkButton
-                      className={classes.button}
-                      to="/services"
-                    >
+                    <LinkButton className={classes.button} to="/services">
                       Services
                     </LinkButton>
                   </Grid>
@@ -176,10 +198,7 @@ const Home: FunctionComponent = props => {
                     </p>
                   </Grid>
                   <Grid item>
-                    <LinkButton
-                      className={classes.button}
-                      to="/jobs"
-                    >
+                    <LinkButton className={classes.button} to="/jobs">
                       Jobs
                     </LinkButton>
                   </Grid>
@@ -190,7 +209,17 @@ const Home: FunctionComponent = props => {
           <Grid item sm={10} xs={12}>
             <Divider className={classes.divider} />
           </Grid>
-          <Grid item md={4} sm={10} xs={12} className={clsx(classesBase.mt3, classesBase.mb3, classesBase.textCenter)}>
+          <Grid
+            item
+            md={4}
+            sm={10}
+            xs={12}
+            className={clsx(
+              classesBase.mt3,
+              classesBase.mb3,
+              classesBase.textCenter
+            )}
+          >
             <Avatar src={avatar} alt="" className={classes.avatar} />
             <h6>JACK TAYLOR</h6>
             <h6>Founder &amp; Recruitment Consultant</h6>
@@ -253,10 +282,7 @@ const Home: FunctionComponent = props => {
             </Grid>
           </Grid>
           <Grid container justify="center" className={classesBase.mb6}>
-            <LinkButton
-              className={classes.button}
-              to="/privacy"
-            >
+            <LinkButton className={classes.button} to="/privacy">
               Privacy Notice
             </LinkButton>
           </Grid>

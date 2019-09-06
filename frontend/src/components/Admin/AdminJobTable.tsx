@@ -1,4 +1,9 @@
-import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
+import React, {
+  FunctionComponent,
+  useState,
+  useEffect,
+  ChangeEvent
+} from "react";
 import { Theme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
@@ -21,7 +26,12 @@ import Spacer from "../Layout/Spacer";
 import JobDialog from "../Dialogs/JobDialog";
 import DeleteDialog from "../Dialogs/DeleteDialog";
 import { Job, BlankJob } from "../../models/job";
-import { GetAllJobs, CreateJob, UpdateJob, DeleteJob } from "../../services/job_service";
+import {
+  GetAllJobs,
+  CreateJob,
+  UpdateJob,
+  DeleteJob
+} from "../../services/job_service";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
@@ -107,7 +117,11 @@ const AdminJobTable: FunctionComponent = props => {
   }
 
   const smContent = loading ? (
-    <Grid container justify="center" className={clsx(classesBase.mt3, classesBase.mb3)}>
+    <Grid
+      container
+      justify="center"
+      className={clsx(classesBase.mt3, classesBase.mb3)}
+    >
       <CircularProgress color="primary" />
     </Grid>
   ) : (
@@ -128,23 +142,43 @@ const AdminJobTable: FunctionComponent = props => {
             <Toolbar>
               <p className={classesBase.boldText}>{job.title}</p>
               <Spacer />
-              <IconButton size="small" color="primary" onClick={() => handleOpenUpdate(index)}>
+              <IconButton
+                size="small"
+                color="primary"
+                onClick={() => handleOpenUpdate(index)}
+              >
                 <EditIcon />
               </IconButton>
-              <IconButton size="small" color="primary" onClick={() => handleOpenDelete(index)}>
+              <IconButton
+                size="small"
+                color="primary"
+                onClick={() => handleOpenDelete(index)}
+              >
                 <DeleteIcon />
               </IconButton>
             </Toolbar>
             <Divider className={classesBase.divider} />
-            <Grid container justify="space-between" className={classesBase.grid}>
+            <Grid
+              container
+              justify="space-between"
+              className={classesBase.grid}
+            >
               <p className={classesBase.boldText}>Type:</p>
               <p>{job.jobType}</p>
             </Grid>
-            <Grid container justify="space-between" className={classesBase.grid}>
+            <Grid
+              container
+              justify="space-between"
+              className={classesBase.grid}
+            >
               <p className={classesBase.boldText}>Location:</p>
               <p>{job.jobLocation}</p>
             </Grid>
-            <Grid container justify="space-between" className={classesBase.grid}>
+            <Grid
+              container
+              justify="space-between"
+              className={classesBase.grid}
+            >
               <p className={classesBase.boldText}>Reference:</p>
               <p>{job.jobReference}</p>
             </Grid>
@@ -178,7 +212,7 @@ const AdminJobTable: FunctionComponent = props => {
           Create
         </Button>
       </Toolbar>
-      {loading && (<LinearProgress />)}
+      {loading && <LinearProgress />}
       <Table>
         <TableHead>
           <TableRow>

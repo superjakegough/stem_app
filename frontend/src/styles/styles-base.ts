@@ -65,7 +65,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
       marginBottom: `${theme.spacing(3)}px !important`,
       "& .MuiFilledInput-root": {
         borderRadius: "4px !important",
-        backgroundColor: "rgba(0, 0, 0, 0.09) !important",
+        backgroundColor: "rgba(0, 0, 0, 0.09) !important"
       },
       "& .MuiFilledInput-underline:before ": {
         borderBottom: "none !important"
@@ -82,7 +82,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
     textField: {
       marginBottom: `${theme.spacing(4)}px !important`,
       "& .MuiFilledInput-root": {
-        borderRadius: "4px !important",
+        borderRadius: "4px !important"
       },
       "& .MuiFilledInput-underline:before ": {
         borderBottom: "none !important"
@@ -199,7 +199,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
         letterSpacing: 0,
         textAlign: "center"
       }
-    },
+    }
   })
 );
 

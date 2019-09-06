@@ -42,9 +42,7 @@ interface TopAppBarProps {
 const TopAppBar: FunctionComponent = props => {
   const classes = useStyles();
   const classesBase = useStylesBase();
-  const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(
-    undefined
-  );
+  const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(undefined);
   const facebook: string =
     "https://facebook.com/Stem-Skills-Recruitment-Ltd-107387030612608";
   const twitter: string = "https://twitter.com/StemRecruitLtd";
@@ -146,28 +144,16 @@ const TopAppBar: FunctionComponent = props => {
           </Grid>
           <Grid item xs>
             <Grid container justify="center" wrap="nowrap">
-              <LinkButton
-                className={classesBase.button}
-                to="/"
-              >
+              <LinkButton className={classesBase.button} to="/">
                 Home
               </LinkButton>
-              <LinkButton
-                className={classesBase.button}
-                to="/services"
-              >
+              <LinkButton className={classesBase.button} to="/services">
                 Services
               </LinkButton>
-              <LinkButton
-                className={classesBase.button}
-                to="/jobs"
-              >
+              <LinkButton className={classesBase.button} to="/jobs">
                 Jobs
               </LinkButton>
-              <LinkButton
-                className={classesBase.button}
-                to="/blogs"
-              >
+              <LinkButton className={classesBase.button} to="/blogs">
                 Blogs
               </LinkButton>
             </Grid>

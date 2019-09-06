@@ -1,4 +1,9 @@
-import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
+import React, {
+  FunctionComponent,
+  useState,
+  useEffect,
+  ChangeEvent
+} from "react";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -33,7 +38,7 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
     "£35,000+",
     "£40,000+",
     "£45,000+",
-    "£50,000+",
+    "£50,000+"
   ];
 
   useEffect(() => {
@@ -90,20 +95,23 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           <InputLabel htmlFor="search-job-salary">Salary</InputLabel>
           <Select
             value={searchJob.salary}
-            onChange={(event: ChangeEvent<{ name?: string; value: unknown }>) => {
-              setSearchJob({...searchJob, salary: event.target.value as string });
+            onChange={(
+              event: ChangeEvent<{ name?: string; value: unknown }>
+            ) => {
+              setSearchJob({
+                ...searchJob,
+                salary: event.target.value as string
+              });
             }}
             input={
-              <FilledInput
-                id="search-job-salary"
-                margin="dense"
-                fullWidth
-              />
+              <FilledInput id="search-job-salary" margin="dense" fullWidth />
             }
           >
             <MenuItem value={""}>None</MenuItem>
             {salaries.map((salary: string) => (
-              <MenuItem key={salary} value={salary}>{salary}</MenuItem>
+              <MenuItem key={salary} value={salary}>
+                {salary}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>
@@ -111,20 +119,23 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           <InputLabel htmlFor="search-job-types">Type</InputLabel>
           <Select
             value={searchJob.jobType}
-            onChange={(event: ChangeEvent<{ name?: string; value: unknown }>) => {
-              setSearchJob({...searchJob, jobType: event.target.value as string });
+            onChange={(
+              event: ChangeEvent<{ name?: string; value: unknown }>
+            ) => {
+              setSearchJob({
+                ...searchJob,
+                jobType: event.target.value as string
+              });
             }}
             input={
-              <FilledInput
-                id="search-job-types"
-                margin="dense"
-                fullWidth
-              />
+              <FilledInput id="search-job-types" margin="dense" fullWidth />
             }
           >
             <MenuItem value={""}>None</MenuItem>
             {jobTypes.map((jobType: string) => (
-              <MenuItem key={jobType} value={jobType}>{jobType}</MenuItem>
+              <MenuItem key={jobType} value={jobType}>
+                {jobType}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>
@@ -132,20 +143,23 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
           <InputLabel htmlFor="search-job-locations">Location</InputLabel>
           <Select
             value={searchJob.jobLocation}
-            onChange={(event: ChangeEvent<{ name?: string; value: unknown }>) => {
-              setSearchJob({...searchJob, jobLocation: event.target.value as string });
+            onChange={(
+              event: ChangeEvent<{ name?: string; value: unknown }>
+            ) => {
+              setSearchJob({
+                ...searchJob,
+                jobLocation: event.target.value as string
+              });
             }}
             input={
-              <FilledInput
-                id="search-job-locations"
-                margin="dense"
-                fullWidth
-              />
+              <FilledInput id="search-job-locations" margin="dense" fullWidth />
             }
           >
             <MenuItem value={""}>None</MenuItem>
             {jobLocations.map((jobLocation: string) => (
-              <MenuItem key={jobLocation} value={jobLocation}>{jobLocation}</MenuItem>
+              <MenuItem key={jobLocation} value={jobLocation}>
+                {jobLocation}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>

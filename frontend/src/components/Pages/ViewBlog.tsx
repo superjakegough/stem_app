@@ -31,12 +31,18 @@ const ViewBlog: FunctionComponent<RouteComponentProps> = props => {
   }
 
   const content = loading ? (
-    <Grid container justify="center" className={clsx(classesBase.mt3, classesBase.mb3)}>
+    <Grid
+      container
+      justify="center"
+      className={clsx(classesBase.mt3, classesBase.mb3)}
+    >
       <CircularProgress color="primary" />
     </Grid>
   ) : (
     <Paper key={blog.blogId} elevation={0} className={classesBase.viewPaper}>
-      <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{blog.title}</h6>
+      <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>
+        {blog.title}
+      </h6>
       <p>{blog.description}</p>
       <div></div>
       <ContentDom className={classesBase.blogImage} content={blog.content} />
@@ -51,10 +57,7 @@ const ViewBlog: FunctionComponent<RouteComponentProps> = props => {
           {content}
         </Grid>
         <Grid container justify="center" className={classesBase.mb3}>
-          <LinkButton
-            className={classesBase.button}
-            to="/blogs"
-          >
+          <LinkButton className={classesBase.button} to="/blogs">
             Blogs
           </LinkButton>
         </Grid>

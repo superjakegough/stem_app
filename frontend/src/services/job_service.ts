@@ -5,7 +5,11 @@ const apiName: string = "jobs";
 const apiPath: string = "/jobs";
 
 export const GetAllJobs = async (): Promise<Job[]> => {
-  return API.get(apiName, apiPath, {});
+  const jobs: Job[] = await API.get(apiName, apiPath, {});
+  jobs.sort((a: Job, b: Job) => {
+    return parseInt(b.createdAt) - parseInt(a.createdAt);
+  });
+  return jobs;
 };
 
 export const GetJob = async (id: string): Promise<Job> => {

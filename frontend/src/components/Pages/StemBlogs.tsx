@@ -106,10 +106,7 @@ const StemBlogs: FunctionComponent = props => {
                 </h6>
                 <p>{blog.description}</p>
                 <ContentDom
-                  className={clsx(
-                    classesBase.blogShortContent,
-                    classesBase.blogImage
-                  )}
+                  className={classesBase.shortContentDom}
                   content={blog.content}
                 />
                 <p>...</p>

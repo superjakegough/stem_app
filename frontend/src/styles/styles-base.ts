@@ -128,6 +128,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
       "& img": {
         display: "flex",
         margin: "auto",
+        height: "100%",
         maxWidth: "100%"
       }
     },

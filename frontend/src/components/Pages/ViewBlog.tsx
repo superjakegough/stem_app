@@ -45,7 +45,7 @@ const ViewBlog: FunctionComponent<RouteComponentProps> = props => {
       </h6>
       <p>{blog.description}</p>
       <div></div>
-      <ContentDom className={classesBase.blogImage} content={blog.content} />
+      <ContentDom content={blog.content} />
       <p>Published: {ConvertDate(blog.createdAt)}</p>
     </Paper>
   );

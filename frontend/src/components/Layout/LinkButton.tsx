@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactElement } from "react";
+import React, { FunctionComponent } from "react";
 import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 

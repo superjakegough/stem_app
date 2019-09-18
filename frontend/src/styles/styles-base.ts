@@ -7,8 +7,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
       display: "flex",
       "& a": {
         color: theme.palette.primary.main,
-        textDecoration: "unset",
-        wordBreak: "break-word"
+        textDecoration: "unset"
       },
       "& p": {
         fontSize: "1rem",
@@ -119,17 +118,17 @@ const useStylesBase = makeStyles((theme: Theme) =>
       height: 100,
       margin: "auto"
     },
-    blogShortContent: {
+    shortContentDom: {
       maxHeight: 600,
       overflowY: "hidden",
       textOverflow: "ellipsis"
     },
-    blogImage: {
+    contentDom: {
+      wordBreak: "break-word",
       "& img": {
         display: "flex",
         margin: "auto",
         height: "100%",
-        width: "100%",
         maxWidth: "100%"
       }
     },

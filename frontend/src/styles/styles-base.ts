@@ -129,6 +129,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
         display: "flex",
         margin: "auto",
         height: "100%",
+        width: "100%",
         maxWidth: "100%"
       }
     },

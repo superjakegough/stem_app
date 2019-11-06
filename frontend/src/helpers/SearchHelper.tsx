@@ -8,7 +8,9 @@ export const checkJob = (job: Job, searchJob: Job) => {
     }
   }
   if (job.salary) {
-    const searchJobSalary: number = parseInt(searchJob.salary.replace(/[£,+]/g, ""));
+    const searchJobSalary: number = parseInt(
+      searchJob.salary.replace(/[£,+]/g, "")
+    );
     const thisJobSalaray: number = parseInt(job.salary.replace(/[£,+]/g, ""));
     if (searchJobSalary < thisJobSalaray) {
       return false;

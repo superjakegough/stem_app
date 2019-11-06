@@ -22,9 +22,7 @@ const Navigation: FunctionComponent = props => {
   return (
     <div className={classesBase.base}>
       <TopAppBar />
-      <main className={classes.content}>
-        {props.children}
-      </main>
+      <main className={classes.content}>{props.children}</main>
       {bottomNav}
     </div>
   );

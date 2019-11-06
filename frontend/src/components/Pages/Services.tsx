@@ -200,9 +200,15 @@ const Services: FunctionComponent = props => {
           <img src={servicesimage} className={classesBase.headerImage} alt="" />
           <div className={classesBase.headerText}>Services</div>
         </Grid>
-        <Grid container justify="center" className={classesBase.contentContainer}>
+        <Grid
+          container
+          justify="center"
+          className={classesBase.contentContainer}
+        >
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
-            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>Client Services</h4>
+            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>
+              Client Services
+            </h4>
             <p>
               Stem is a specialist permanent recruitment consultancy providing
               sustainable recruitment solutions for the science, technology,
@@ -211,7 +217,9 @@ const Services: FunctionComponent = props => {
               detail, and solutions that make a genuine difference, short-term
               and long-term.
             </p>
-            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>Our Recruitment Process</h4>
+            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>
+              Our Recruitment Process
+            </h4>
             <p>
               We provide a thorough 5-stage recruitment and vetting process
               which ensures that we not only find the right fit for our clients,
@@ -264,7 +272,15 @@ const Services: FunctionComponent = props => {
             )}
           </Grid>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
-            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3, classesBase.mt3)}>Industries</h4>
+            <h4
+              className={clsx(
+                classesBase.contentTitle,
+                classesBase.mb3,
+                classesBase.mt3
+              )}
+            >
+              Industries
+            </h4>
             <p>
               We have expertise and experience in recruiting for the following
               industries:
@@ -295,9 +311,7 @@ const Services: FunctionComponent = props => {
               </a>
             </p>
             <Grid container justify="center" className={classesBase.mb3}>
-              <LinkButton to="/">
-                Home
-              </LinkButton>
+              <LinkButton to="/">Home</LinkButton>
             </Grid>
           </Grid>
         </Grid>

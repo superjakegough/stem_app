@@ -37,7 +37,15 @@ const Privacy: FunctionComponent = props => {
         className={clsx(classesBase.contentContainer, classesBase.mt3)}
       >
         <Grid item sm={10} xs={12}>
-          <h4 className={clsx(classesBase.contentTitle, classesBase.textCenter, classesBase.mb3)}>Privacy Notice</h4>
+          <h4
+            className={clsx(
+              classesBase.contentTitle,
+              classesBase.textCenter,
+              classesBase.mb3
+            )}
+          >
+            Privacy Notice
+          </h4>
           <p>
             Stem Skills &amp; Recruitment Ltd (Company number 11987221) (“we”,
             “us” or “our) is a recruitment business which provides work-finding
@@ -344,9 +352,7 @@ const Privacy: FunctionComponent = props => {
         </Grid>
         <Grid item>
           <Grid container justify="center" className={classesBase.mb3}>
-            <LinkButton to="/">
-              Home
-            </LinkButton>
+            <LinkButton to="/">Home</LinkButton>
           </Grid>
         </Grid>
       </Grid>

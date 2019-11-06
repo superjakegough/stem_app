@@ -1,4 +1,9 @@
-import React, { FunctionComponent, useState, useEffect, ChangeEvent } from "react";
+import React, {
+  FunctionComponent,
+  useState,
+  useEffect,
+  ChangeEvent
+} from "react";
 import { Theme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
@@ -20,7 +25,12 @@ import Spacer from "../Layout/Spacer";
 import BlogDialog from "../Dialogs/BlogDialog";
 import DeleteDialog from "../Dialogs/DeleteDialog";
 import { Blog, BlankBlog } from "../../models/blog";
-import { GetAllBlogs, CreateBlog, UpdateBlog, DeleteBlog } from "../../services/blog_service";
+import {
+  GetAllBlogs,
+  CreateBlog,
+  UpdateBlog,
+  DeleteBlog
+} from "../../services/blog_service";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
@@ -106,7 +116,11 @@ const AdminBlogTable: FunctionComponent = props => {
   }
 
   const smContent = loading ? (
-    <Grid container justify="center" className={clsx(classesBase.mt3, classesBase.mb3)}>
+    <Grid
+      container
+      justify="center"
+      className={clsx(classesBase.mt3, classesBase.mb3)}
+    >
       <CircularProgress color="primary" />
     </Grid>
   ) : (
@@ -127,10 +141,18 @@ const AdminBlogTable: FunctionComponent = props => {
             <Toolbar>
               <p className={classesBase.boldText}>{blog.title}</p>
               <Spacer />
-              <IconButton size="small" color="primary" onClick={() => handleOpenUpdate(index)}>
+              <IconButton
+                size="small"
+                color="primary"
+                onClick={() => handleOpenUpdate(index)}
+              >
                 <EditIcon />
               </IconButton>
-              <IconButton size="small" color="primary" onClick={() => handleOpenDelete(index)}>
+              <IconButton
+                size="small"
+                color="primary"
+                onClick={() => handleOpenDelete(index)}
+              >
                 <DeleteIcon />
               </IconButton>
             </Toolbar>
@@ -164,7 +186,7 @@ const AdminBlogTable: FunctionComponent = props => {
           Create
         </Button>
       </Toolbar>
-      {loading && (<LinearProgress />)}
+      {loading && <LinearProgress />}
       <Table>
         <TableHead>
           <TableRow>

@@ -7,8 +7,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
       display: "flex",
       "& a": {
         color: theme.palette.primary.main,
-        textDecoration: "unset",
-        wordBreak: "break-word"
+        textDecoration: "unset"
       },
       "& p": {
         fontSize: "1rem",
@@ -65,7 +64,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
       marginBottom: `${theme.spacing(3)}px !important`,
       "& .MuiFilledInput-root": {
         borderRadius: "4px !important",
-        backgroundColor: "rgba(0, 0, 0, 0.09) !important",
+        backgroundColor: "rgba(0, 0, 0, 0.09) !important"
       },
       "& .MuiFilledInput-underline:before ": {
         borderBottom: "none !important"
@@ -82,7 +81,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
     textField: {
       marginBottom: `${theme.spacing(4)}px !important`,
       "& .MuiFilledInput-root": {
-        borderRadius: "4px !important",
+        borderRadius: "4px !important"
       },
       "& .MuiFilledInput-underline:before ": {
         borderBottom: "none !important"
@@ -119,15 +118,18 @@ const useStylesBase = makeStyles((theme: Theme) =>
       height: 100,
       margin: "auto"
     },
-    blogShortContent: {
+    shortContentDom: {
       maxHeight: 600,
       overflowY: "hidden",
       textOverflow: "ellipsis"
     },
-    blogImage: {
+    contentDom: {
+      wordBreak: "break-word",
       "& img": {
         display: "flex",
         margin: "auto",
+        height: "unset",
+        width: "unset",
         maxWidth: "100%"
       }
     },
@@ -199,7 +201,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
         letterSpacing: 0,
         textAlign: "center"
       }
-    },
+    }
   })
 );
 

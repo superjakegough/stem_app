@@ -31,12 +31,18 @@ const ViewJob: FunctionComponent<RouteComponentProps> = props => {
   }
 
   const content = loading ? (
-    <Grid container justify="center" className={clsx(classesBase.mt3, classesBase.mb3)}>
+    <Grid
+      container
+      justify="center"
+      className={clsx(classesBase.mt3, classesBase.mb3)}
+    >
       <CircularProgress color="primary" />
     </Grid>
   ) : (
     <Paper key={job.jobId} elevation={0} className={classesBase.viewPaper}>
-      <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{job.title}</h6>
+      <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>
+        {job.title}
+      </h6>
       <h6>Salary - Benefits</h6>
       <p>{`${job.salary} - ${job.benefits}`}</p>
       <h6>Type</h6>
@@ -45,7 +51,7 @@ const ViewJob: FunctionComponent<RouteComponentProps> = props => {
       <p>{job.jobLocation}</p>
       <h6>Reference</h6>
       <p>{job.jobReference}</p>
-      <ContentDom content={job.description}/>
+      <ContentDom content={job.description} />
       <p>Published: {ConvertDate(job.createdAt)}</p>
     </Paper>
   );
@@ -57,10 +63,7 @@ const ViewJob: FunctionComponent<RouteComponentProps> = props => {
           {content}
         </Grid>
         <Grid container justify="center" className={classesBase.mb3}>
-          <LinkButton
-            className={classesBase.button}
-            to="/jobs"
-          >
+          <LinkButton className={classesBase.button} to="/jobs">
             Jobs
           </LinkButton>
         </Grid>

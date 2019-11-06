@@ -83,7 +83,7 @@ const Services: FunctionComponent = props => {
               </li>
               <li>
                 {" "}
-                Understand your business culture and establish behavioral
+                Understand your business culture and establish behavioural
                 competencies that will be needed to fit in with the role and
                 company culture.
               </li>
@@ -151,7 +151,7 @@ const Services: FunctionComponent = props => {
               <li> Location/commute to your business and hours of work.</li>
               <li>
                 {" "}
-                Relevant skills, qualifications and behavioral competencies.
+                Relevant skills, qualifications and behavioural competencies.
               </li>
               <li> Career plans and aspirations.</li>
               <li> Availability.</li>

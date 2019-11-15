@@ -34,7 +34,7 @@ export default function App() {
               render={() => {
                 return (
                   <HelmetWrapper
-                    title={`${title} - Home`}
+                    title={`${title}`}
                     description={`What we do at ${title}`}
                   >
                     <Home />

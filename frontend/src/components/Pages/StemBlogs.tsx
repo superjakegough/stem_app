@@ -144,7 +144,7 @@ export default function StemBlogs() {
             </h4>
             <p>
               Keep up to date with the latest industry news, as well as regular
-              activites offering recruitment and careers advice.
+              activites offering recruitment and careers advice provided by Stem Skills &amp; Recruitment.
             </p>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>

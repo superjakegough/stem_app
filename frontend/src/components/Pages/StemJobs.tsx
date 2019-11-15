@@ -149,7 +149,7 @@ export default function StemJobs() {
               Current Opportunities
             </h4>
             <p>
-              Interested in any of the below opportunities? To apply, please
+              Interested in any of the below opportunities provided by Stem Skills &amp; Recruitment? To apply, please
               send your CV to{" "}
               <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk</a>{" "}
               with the job reference number, and we will respond within 2

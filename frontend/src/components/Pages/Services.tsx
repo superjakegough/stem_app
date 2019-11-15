@@ -120,7 +120,7 @@ export default function Services() {
                 CVs UK-wide.
               </li>
               <li> Social media – LinkedIn, Twitter and Facebook.</li>
-              <li> Stem Website – advertising on Stem’s website job page.</li>
+              <li> Stem Skills &amp; Recruitment Website – advertising on Stem’s website job page.</li>
               <li>
                 {" "}
                 Networking and events – we network at industry events meeting
@@ -139,7 +139,7 @@ export default function Services() {
           <>
             <p>
               Candidates selected from sourcing will be screened further via a
-              telephone or face-to-face interview by Stem and will be evaluated
+              telephone or face-to-face interview by Stem Skills &amp; Recruitment and will be evaluated
               on the following:
             </p>
             <ul className={classesBase.mb3}>
@@ -162,7 +162,7 @@ export default function Services() {
         return (
           <>
             <p>
-              Following the first stage Stem interview, candidates will be sent
+              Following the first stage Stem Skills &amp; Recruitment interview, candidates will be sent
               a job application email including:
             </p>
             <ul className={classesBase.mb3}>
@@ -181,7 +181,7 @@ export default function Services() {
       case 4:
         return (
           <p>
-            Once the candidate has reviewed the job application email, Stem will
+            Once the candidate has reviewed the job application email, Stem Skills &amp; Recruitment will
             conduct a final interview with the candidate to further gauge their
             interest and suitability for the role before presenting you their
             details. Once we have sent you their CV, we will continue to provide
@@ -210,7 +210,7 @@ export default function Services() {
               Client Services
             </h4>
             <p>
-              Stem is a specialist permanent recruitment consultancy providing
+              Stem Skills &amp; Recruitment is a specialist permanent recruitment consultancy providing
               sustainable recruitment solutions for the science, technology,
               engineering and manufacturing industries in Wales. Our approach to
               recruitment is simple but that of care, integrity, attention to
@@ -303,7 +303,7 @@ export default function Services() {
               <li> Technology</li>
             </ul>
             <p>
-              If you would like to find out more about how Stem can help grow
+              If you would like to find out more about how Stem Skills &amp; Recruitment can help grow
               your business, or if you have a vacancy and need help, then call
               us on 029 2120 2879, or email{" "}
               <a href="mailto:info@stemrecruit.co.uk">

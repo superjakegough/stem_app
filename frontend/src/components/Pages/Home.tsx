@@ -149,7 +149,7 @@ export default function Home() {
                 >
                   <Grid item>
                     <p>
-                      Stem supports science, technology, engineering and
+                      Stem Skills &amp; Recruitment supports science, technology, engineering and
                       manufacturing businesses in Wales by providing permanent
                       recruitment services. We provide experience and expertise
                       in recruiting for a wide range of roles and are dedicated

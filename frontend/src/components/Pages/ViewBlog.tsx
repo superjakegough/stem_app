@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { withRouter, RouteComponentProps } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
@@ -9,26 +8,28 @@ import { Blog, BlankBlog } from "../../models/blog";
 import { GetBlog } from "../../services/blog_service";
 import { ConvertDate } from "../../helpers/DateHelper";
 import useStylesBase from "../../styles/styles-base";
+import { useParams } from "react-router";
 import clsx from "clsx";
 
 export default function ViewBlog() {
   const classesBase = useStylesBase();
   const [blog, setBlog] = useState<Blog>(BlankBlog());
   const [loading, setLoading] = useState<boolean>(false);
-  const params: any = props.match.params;
+  const { id } = useParams();
 
   useEffect(() => {
-    fetchBlog();
-  }, [blog.blogId]);
-
-  async function fetchBlog() {
-    setLoading(true);
-    const result = await GetBlog(params.id);
-    if (result) {
-      setBlog(result);
+    async function fetchBlog() {
+      if (id) {
+        setLoading(true);
+        const result = await GetBlog(id);
+        if (result) {
+          setBlog(result);
+        }
+        setLoading(false);
+      }
     }
-    setLoading(false);
-  }
+    fetchBlog();
+  }, [id]);
 
   const content = loading ? (
     <Grid

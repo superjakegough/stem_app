@@ -21,7 +21,7 @@ interface BlogDialogProps {
   blog: Blog;
 }
 
-export default function BlogDialog() {
+export default function BlogDialog(props: BlogDialogProps) {
   const classesBase = useStylesBase();
   const [blog, setBlog] = useState<Blog>(props.blog);
 

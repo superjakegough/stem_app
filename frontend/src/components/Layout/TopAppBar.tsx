@@ -34,12 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-interface TopAppBarProps {
-  window?: () => Window;
-  children: React.ReactNode;
-}
-
-export default function TopAppBar(props: TopAppBarProps) {
+export default function TopAppBar() {
   const classes = useStyles();
   const classesBase = useStylesBase();
   const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(undefined);

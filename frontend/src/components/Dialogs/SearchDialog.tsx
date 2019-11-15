@@ -42,6 +42,17 @@ export default function JobDialog(props: JobDialogProps) {
 
   useEffect(() => {
     setJobs(props.jobs);
+    function populateSets() {
+      const jobTypesSet: Set<string> = new Set<string>();
+      const jobLocationsSet: Set<string> = new Set<string>();
+
+      for (let i = 0; i < props.jobs.length; i++) {
+        jobTypesSet.add(props.jobs[i].jobType);
+        jobLocationsSet.add(props.jobs[i].jobLocation);
+      }
+      setJobTypes(Array.from(jobTypesSet));
+      setJobLocations(Array.from(jobLocationsSet));
+    }
     populateSets();
   }, [props.jobs]);
 
@@ -54,18 +65,6 @@ export default function JobDialog(props: JobDialogProps) {
       filteredJobs = jobs;
     }
     props.handleSearch(filteredJobs, searchTerm);
-  }
-
-  function populateSets() {
-    const jobTypesSet: Set<string> = new Set<string>();
-    const jobLocationsSet: Set<string> = new Set<string>();
-
-    for (let i = 0; i < props.jobs.length; i++) {
-      jobTypesSet.add(props.jobs[i].jobType);
-      jobLocationsSet.add(props.jobs[i].jobLocation);
-    }
-    setJobTypes(Array.from(jobTypesSet));
-    setJobLocations(Array.from(jobLocationsSet));
   }
 
   function handleReset() {

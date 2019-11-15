@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -11,7 +11,7 @@ interface DeleteProps {
   handleDelete: () => void;
 }
 
-const DeleteDialog: FunctionComponent<DeleteProps> = props => {
+export default function DeleteDialog(props: DeleteProps) {
   const classesBase = useStylesBase();
 
   function handleSubmit() {
@@ -37,6 +37,4 @@ const DeleteDialog: FunctionComponent<DeleteProps> = props => {
       </DialogActions>
     </Dialog>
   );
-};
-
-export default DeleteDialog;
+}

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import LinkButton from "../Layout/LinkButton";
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Privacy: FunctionComponent = props => {
+export default function Privacy() {
   const classes = useStyles();
   const classesBase = useStylesBase();
 
@@ -358,6 +358,4 @@ const Privacy: FunctionComponent = props => {
       </Grid>
     </div>
   );
-};
-
-export default Privacy;
+}

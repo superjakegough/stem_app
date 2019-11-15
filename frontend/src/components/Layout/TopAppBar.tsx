@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, MouseEvent } from "react";
+import React, { useState, MouseEvent } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import AppBar from "@material-ui/core/AppBar";
@@ -34,12 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-interface TopAppBarProps {
-  window?: () => Window;
-  children: React.ReactElement;
-}
-
-const TopAppBar: FunctionComponent = props => {
+export default function TopAppBar() {
   const classes = useStyles();
   const classesBase = useStylesBase();
   const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(undefined);
@@ -192,6 +187,4 @@ const TopAppBar: FunctionComponent = props => {
   );
 
   return <div>{topAppBar}</div>;
-};
-
-export default TopAppBar;
+}

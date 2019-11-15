@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent } from "react";
 import Auth from "@aws-amplify/auth";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -10,7 +10,7 @@ interface AdminAuthProps {
   handleSignedIn: () => void;
 }
 
-const AdminAuth: FunctionComponent<AdminAuthProps> = props => {
+export default function AdminAuth(props: AdminAuthProps) {
   const classesBase = useStylesBase();
   const [loading, setLoading] = useState<boolean>(false);
   const [username, setUsername] = useState<string>("");
@@ -82,6 +82,4 @@ const AdminAuth: FunctionComponent<AdminAuthProps> = props => {
       </Grid>
     </div>
   );
-};
-
-export default AdminAuth;
+}

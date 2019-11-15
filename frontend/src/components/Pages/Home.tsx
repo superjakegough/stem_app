@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Home: FunctionComponent = props => {
+export default function Home() {
   const classes = useStyles({});
   const classesBase = useStylesBase({});
   const smAndDown = useMediaQuery((theme: Theme) =>
@@ -290,6 +290,4 @@ const Home: FunctionComponent = props => {
       </Grid>
     </div>
   );
-};
-
-export default Home;
+}

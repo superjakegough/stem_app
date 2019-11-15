@@ -1,5 +1,4 @@
 import React, {
-  FunctionComponent,
   useState,
   useEffect,
   ChangeEvent
@@ -22,7 +21,7 @@ interface JobDialogProps {
   job: Job;
 }
 
-const JobDialog: FunctionComponent<JobDialogProps> = props => {
+export default function JobDialog(props: JobDialogProps) {
   const classesBase = useStylesBase();
   const [job, setJob] = useState<Job>(props.job);
 
@@ -156,6 +155,4 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
       </DialogActions>
     </Dialog>
   );
-};
-
-export default JobDialog;
+}

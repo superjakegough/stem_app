@@ -1,10 +1,9 @@
 import React, {
-  FunctionComponent,
   useState,
   useEffect,
   ChangeEvent
 } from "react";
-import { Link, withRouter, RouteComponentProps } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
@@ -12,6 +11,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import PagesIcon from "@material-ui/icons/Pages";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import EventNoteIcon from "@material-ui/icons/EventNote";
+import { useLocation } from "react-router";
 
 const useStyles = makeStyles({
   root: {
@@ -25,13 +25,14 @@ const useStyles = makeStyles({
   }
 });
 
-const BottomNav: FunctionComponent<RouteComponentProps> = props => {
+export default function BottomNav() {
   const classes = useStyles();
   const [value, setValue] = useState<string>("/");
+  const location = useLocation();
 
   useEffect(() => {
-    setValue(props.location.pathname);
-  }, [props.location]);
+    setValue(location.pathname);
+  }, [location]);
 
   function handleChange(event: ChangeEvent<{}>, newValue: string) {
     setValue(newValue);
@@ -73,6 +74,4 @@ const BottomNav: FunctionComponent<RouteComponentProps> = props => {
       />
     </BottomNavigation>
   );
-};
-
-export default withRouter(BottomNav);
+}

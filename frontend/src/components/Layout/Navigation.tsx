@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { Theme, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TopAppBar from "./TopAppBar";
@@ -11,7 +11,11 @@ const useStyles = makeStyles({
   }
 });
 
-const Navigation: FunctionComponent = props => {
+interface NavigationProps {
+  children: React.ReactNode;
+}
+
+export default function Navigation(props: NavigationProps) {
   const classes = useStyles();
   const classesBase = useStylesBase();
   const smAndDown = useMediaQuery((theme: Theme) =>
@@ -26,6 +30,4 @@ const Navigation: FunctionComponent = props => {
       {bottomNav}
     </div>
   );
-};
-
-export default Navigation;
+}

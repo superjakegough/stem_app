@@ -1,5 +1,4 @@
 import React, {
-  FunctionComponent,
   useState,
   useEffect,
   ChangeEvent
@@ -25,7 +24,7 @@ interface JobDialogProps {
   jobs: Job[];
 }
 
-const JobDialog: FunctionComponent<JobDialogProps> = props => {
+export default function JobDialog(props: JobDialogProps) {
   const classesBase = useStylesBase();
   const [jobs, setJobs] = useState<Job[]>([]);
   const [jobTypes, setJobTypes] = useState<string[]>([]);
@@ -43,6 +42,17 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
 
   useEffect(() => {
     setJobs(props.jobs);
+    function populateSets() {
+      const jobTypesSet: Set<string> = new Set<string>();
+      const jobLocationsSet: Set<string> = new Set<string>();
+
+      for (let i = 0; i < props.jobs.length; i++) {
+        jobTypesSet.add(props.jobs[i].jobType);
+        jobLocationsSet.add(props.jobs[i].jobLocation);
+      }
+      setJobTypes(Array.from(jobTypesSet));
+      setJobLocations(Array.from(jobLocationsSet));
+    }
     populateSets();
   }, [props.jobs]);
 
@@ -55,18 +65,6 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
       filteredJobs = jobs;
     }
     props.handleSearch(filteredJobs, searchTerm);
-  }
-
-  function populateSets() {
-    const jobTypesSet: Set<string> = new Set<string>();
-    const jobLocationsSet: Set<string> = new Set<string>();
-
-    for (let i = 0; i < props.jobs.length; i++) {
-      jobTypesSet.add(props.jobs[i].jobType);
-      jobLocationsSet.add(props.jobs[i].jobLocation);
-    }
-    setJobTypes(Array.from(jobTypesSet));
-    setJobLocations(Array.from(jobLocationsSet));
   }
 
   function handleReset() {
@@ -188,6 +186,4 @@ const JobDialog: FunctionComponent<JobDialogProps> = props => {
       </DialogActions>
     </Dialog>
   );
-};
-
-export default JobDialog;
+}

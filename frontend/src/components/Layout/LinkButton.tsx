@@ -1,14 +1,14 @@
-import React, { FunctionComponent } from "react";
-import { Link, withRouter, RouteComponentProps } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
-interface LinkButtonProps extends RouteComponentProps {
+interface LinkButtonProps {
   to: any;
   className?: string;
   children: string;
 }
 
-const LinkButton: FunctionComponent<LinkButtonProps> = props => {
+export default function LinkButton(props: LinkButtonProps) {
   return (
     <Button
       className={props.className}
@@ -19,6 +19,4 @@ const LinkButton: FunctionComponent<LinkButtonProps> = props => {
       {props.children}
     </Button>
   );
-};
-
-export default withRouter(LinkButton);
+}

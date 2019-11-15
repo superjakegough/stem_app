@@ -1,5 +1,4 @@
 import React, {
-  FunctionComponent,
   useState,
   useEffect,
   ChangeEvent
@@ -20,7 +19,7 @@ import { ConvertDate } from "../../helpers/DateHelper";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
-const StemJobs: FunctionComponent = props => {
+export default function StemJobs() {
   const classesBase = useStylesBase();
   const [jobs, setJobs] = useState<Job[]>([]);
   const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
@@ -190,6 +189,4 @@ const StemJobs: FunctionComponent = props => {
       />
     </div>
   );
-};
-
-export default StemJobs;
+}

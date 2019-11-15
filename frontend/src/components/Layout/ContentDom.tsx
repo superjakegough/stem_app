@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { sanitize } from "dompurify";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
@@ -8,7 +8,7 @@ interface ContentDomProps {
   className?: string;
 }
 
-const ContentDom: FunctionComponent<ContentDomProps> = props => {
+export default function ContentDom(props: ContentDomProps) {
   const classesBase = useStylesBase();
   const sanitisedHTML: string = sanitize(props.content);
 
@@ -18,6 +18,4 @@ const ContentDom: FunctionComponent<ContentDomProps> = props => {
       dangerouslySetInnerHTML={{ __html: sanitisedHTML }}
     ></div>
   );
-};
-
-export default ContentDom;
+}

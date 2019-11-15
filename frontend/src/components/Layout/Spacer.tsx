@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
@@ -7,10 +7,8 @@ const useStyles = makeStyles({
   }
 });
 
-const Spacer: FunctionComponent = () => {
+export default function Spacer() {
   const classes = useStyles();
 
   return <div className={classes.spacer}></div>;
-};
-
-export default Spacer;
+}

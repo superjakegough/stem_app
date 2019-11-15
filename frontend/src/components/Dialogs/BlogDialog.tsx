@@ -1,5 +1,4 @@
 import React, {
-  FunctionComponent,
   useState,
   useEffect,
   ChangeEvent
@@ -22,7 +21,7 @@ interface BlogDialogProps {
   blog: Blog;
 }
 
-const BlogDialog: FunctionComponent<BlogDialogProps> = props => {
+export default function BlogDialog(props: BlogDialogProps) {
   const classesBase = useStylesBase();
   const [blog, setBlog] = useState<Blog>(props.blog);
 
@@ -104,6 +103,4 @@ const BlogDialog: FunctionComponent<BlogDialogProps> = props => {
       </DialogActions>
     </Dialog>
   );
-};
-
-export default BlogDialog;
+}

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, {  useState } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Stepper from "@material-ui/core/Stepper";
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Services: FunctionComponent = props => {
+export default function Services() {
   const classes = useStyles();
   const classesBase = useStylesBase();
   const [activeStep, setActiveStep] = useState(0);
@@ -318,6 +318,4 @@ const Services: FunctionComponent = props => {
       </Grid>
     </div>
   );
-};
-
-export default Services;
+}

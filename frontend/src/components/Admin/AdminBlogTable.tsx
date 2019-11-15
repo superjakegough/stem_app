@@ -1,5 +1,4 @@
 import React, {
-  FunctionComponent,
   useState,
   useEffect,
   ChangeEvent
@@ -34,7 +33,7 @@ import {
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
-const AdminBlogTable: FunctionComponent = props => {
+export default function AdminBlogTable() {
   const classesBase = useStylesBase();
   const [blog, setBlog] = useState<Blog>(BlankBlog());
   const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -262,6 +261,4 @@ const AdminBlogTable: FunctionComponent = props => {
       </Grid>
     </div>
   );
-};
-
-export default AdminBlogTable;
+}

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -11,7 +11,7 @@ import { ConvertDate } from "../../helpers/DateHelper";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
-const ViewBlog: FunctionComponent<RouteComponentProps> = props => {
+export default function ViewBlog() {
   const classesBase = useStylesBase();
   const [blog, setBlog] = useState<Blog>(BlankBlog());
   const [loading, setLoading] = useState<boolean>(false);
@@ -64,6 +64,4 @@ const ViewBlog: FunctionComponent<RouteComponentProps> = props => {
       </Grid>
     </div>
   );
-};
-
-export default withRouter(ViewBlog);
+}

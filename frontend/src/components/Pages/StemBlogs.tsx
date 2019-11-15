@@ -1,5 +1,4 @@
 import React, {
-  FunctionComponent,
   useState,
   useEffect,
   FormEvent,
@@ -21,7 +20,7 @@ import { ConvertDate } from "../../helpers/DateHelper";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
-const StemBlogs: FunctionComponent = props => {
+export default function StemBlogs() {
   const classesBase = useStylesBase();
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [filteredBlogs, setFilteredBlogs] = useState<Blog[]>([]);
@@ -177,6 +176,4 @@ const StemBlogs: FunctionComponent = props => {
       </Grid>
     </div>
   );
-};
-
-export default StemBlogs;
+}

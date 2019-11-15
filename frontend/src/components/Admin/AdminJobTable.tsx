@@ -1,5 +1,4 @@
 import React, {
-  FunctionComponent,
   useState,
   useEffect,
   ChangeEvent
@@ -35,7 +34,7 @@ import {
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
-const AdminJobTable: FunctionComponent = props => {
+export default function AdminJobTable() {
   const classesBase = useStylesBase();
   const [job, setJob] = useState<Job>(BlankJob());
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -292,6 +291,4 @@ const AdminJobTable: FunctionComponent = props => {
       </Grid>
     </div>
   );
-};
-
-export default AdminJobTable;
+}

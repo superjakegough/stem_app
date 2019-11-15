@@ -1,8 +1,8 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { useState } from "react";
 import AdminBlogTable from "./AdminBlogTable";
 import AdminAuth from "./AdminAuth";
 
-const AdminBlog: FunctionComponent = props => {
+export default function AdminBlog() {
   const [signedIn, setSignedIn] = useState<boolean>(false);
 
   function handleSignedIn() {
@@ -16,6 +16,4 @@ const AdminBlog: FunctionComponent = props => {
   );
 
   return <div>{content}</div>;
-};
-
-export default AdminBlog;
+}

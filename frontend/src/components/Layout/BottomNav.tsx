@@ -1,5 +1,4 @@
 import React, {
-  FunctionComponent,
   useState,
   useEffect,
   ChangeEvent
@@ -25,7 +24,7 @@ const useStyles = makeStyles({
   }
 });
 
-const BottomNav: FunctionComponent<RouteComponentProps> = props => {
+export default function BottomNav() {
   const classes = useStyles();
   const [value, setValue] = useState<string>("/");
 
@@ -73,6 +72,4 @@ const BottomNav: FunctionComponent<RouteComponentProps> = props => {
       />
     </BottomNavigation>
   );
-};
-
-export default withRouter(BottomNav);
+}

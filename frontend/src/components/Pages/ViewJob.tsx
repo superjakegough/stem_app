@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -11,7 +11,7 @@ import { ConvertDate } from "../../helpers/DateHelper";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
-const ViewJob: FunctionComponent<RouteComponentProps> = props => {
+export default function ViewJob() {
   const classesBase = useStylesBase();
   const [job, setJob] = useState<Job>(BlankJob());
   const [loading, setLoading] = useState<boolean>(false);
@@ -70,6 +70,4 @@ const ViewJob: FunctionComponent<RouteComponentProps> = props => {
       </Grid>
     </div>
   );
-};
-
-export default withRouter(ViewJob);
+}

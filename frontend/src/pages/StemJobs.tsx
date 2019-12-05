@@ -4,7 +4,6 @@ import React, {
   ChangeEvent
 } from "react";
 import Grid from "@material-ui/core/Grid";
-import jobsimage from "../assets/jobs.jpg";
 import TablePagination from "@material-ui/core/TablePagination";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from "@material-ui/core/TextField";
@@ -18,6 +17,8 @@ import { GetAllJobs } from "../services/job_service";
 import { ConvertDate } from "../helpers/DateHelper";
 import useStylesBase from "../styles/styles-base";
 import clsx from "clsx";
+
+const jobsimage: string = "/assets/jobs.jpg";
 
 export default function StemJobs() {
   const classesBase = useStylesBase();

@@ -5,7 +5,6 @@ import React, {
   ChangeEvent
 } from "react";
 import Grid from "@material-ui/core/Grid";
-import blogsimage from "../assets/blogs.jpg";
 import TablePagination from "@material-ui/core/TablePagination";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from "@material-ui/core/TextField";
@@ -19,6 +18,8 @@ import { GetAllBlogs } from "../services/blog_service";
 import { ConvertDate } from "../helpers/DateHelper";
 import useStylesBase from "../styles/styles-base";
 import clsx from "clsx";
+
+const blogsimage: string = "/assets/blogs.jpg";
 
 export default function StemBlogs() {
   const classesBase = useStylesBase();

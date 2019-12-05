@@ -9,12 +9,13 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import LinkButton from "./LinkButton";
-import logo from "../../assets/stem_green.png";
-import facebooklogo from "../../assets/facebook.svg";
-import instagramlogo from "../../assets/instagram.svg";
-import linkedinlogo from "../../assets/linkedin.svg";
-import twitterlogo from "../../assets/twitter.svg";
 import useStylesBase from "../../styles/styles-base";
+
+const logo: string = "/assets/stem_green.png";
+const facebooklogo: string = "/assets/facebook.svg";
+const instagramlogo: string = "/assets/instagram.svg";
+const linkedinlogo: string = "/assets/linkedin.svg";
+const twitterlogo: string = "/assets/twitter.svg";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

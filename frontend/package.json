@@ -33,9 +33,10 @@
     "typescript": "^3.7.2"
   },
   "scripts": {
-    "start": "npm run build && npm run export",
+    "dev": "next",
     "build": "next build",
-    "export": "next export"
+    "start": "next start",
+    "export": "npm run build && next export"
   },
   "browserslist": {
     "production": [

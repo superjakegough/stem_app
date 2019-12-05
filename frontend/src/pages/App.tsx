@@ -1,17 +1,17 @@
 import React from "react";
 import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import HelmetWrapper from "./Layout/HelmetWrapper";
-import Navigation from "./Layout/Navigation";
-import Home from "./Pages/Home";
-import Services from "./Pages/Services";
-import StemJobs from "./Pages/StemJobs";
-import ViewJob from "./Pages/ViewJob";
-import StemBlogs from "./Pages/StemBlogs";
-import ViewBlog from "./Pages/ViewBlog";
-import Privacy from "./Pages/Privacy";
-import AdminJobs from "./Admin/AdminJobs";
-import AdminBlogs from "./Admin/AdminBlogs";
+import HelmetWrapper from "../components/Layout/HelmetWrapper";
+import Navigation from "../components/Layout/Navigation";
+import Home from "./Home";
+import Services from "./Services";
+import StemJobs from "./StemJobs";
+import ViewJob from "./ViewJob";
+import StemBlogs from "./StemBlogs";
+import ViewBlog from "./ViewBlog";
+import Privacy from "./Privacy";
+import AdminJobs from "../components/Admin/AdminJobs";
+import AdminBlogs from "../components/Admin/AdminBlogs";
 
 const history = createBrowserHistory();
 

@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Button from "@material-ui/core/Button";
 
 interface LinkButtonProps {
-  to: any;
+  to: string;
   className?: string;
   children: string;
 }
@@ -13,10 +13,8 @@ export default function LinkButton(props: LinkButtonProps) {
     <Button
       className={props.className}
       color="primary"
-      component={Link}
-      to={props.to}
     >
-      {props.children}
+      <Link href={props.to}>{props.children}</Link>
     </Button>
   );
 }

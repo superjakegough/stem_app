@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
-import ContentDom from "../Layout/ContentDom";
-import LinkButton from "../Layout/LinkButton";
-import { Blog, BlankBlog } from "../../models/blog";
-import { GetBlog } from "../../services/blog_service";
-import { ConvertDate } from "../../helpers/DateHelper";
-import useStylesBase from "../../styles/styles-base";
+import ContentDom from "../components/Layout/ContentDom";
+import LinkButton from "../components/Layout/LinkButton";
+import { Blog, BlankBlog } from "../models/blog";
+import { GetBlog } from "../services/blog_service";
+import { ConvertDate } from "../helpers/DateHelper";
+import useStylesBase from "../styles/styles-base";
 import { useParams } from "react-router";
 import clsx from "clsx";
 

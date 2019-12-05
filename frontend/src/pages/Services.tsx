@@ -7,9 +7,9 @@ import StepLabel from "@material-ui/core/StepLabel";
 import StepContent from "@material-ui/core/StepContent";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
-import LinkButton from "../Layout/LinkButton";
-import servicesimage from "../../assets/services.jpg";
-import useStylesBase from "../../styles/styles-base";
+import LinkButton from "../components/Layout/LinkButton";
+import servicesimage from "../assets/services.jpg";
+import useStylesBase from "../styles/styles-base";
 import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>

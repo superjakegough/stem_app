@@ -1,44 +1,44 @@
 import React, {
   useState,
   useEffect,
-  FormEvent,
   ChangeEvent
 } from "react";
 import Grid from "@material-ui/core/Grid";
-import blogsimage from "../../assets/blogs.jpg";
+import jobsimage from "../assets/jobs.jpg";
 import TablePagination from "@material-ui/core/TablePagination";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import Paper from "@material-ui/core/Paper";
-import ContentDom from "../Layout/ContentDom";
-import LinkButton from "../Layout/LinkButton";
-import { Blog } from "../../models/blog";
-import { GetAllBlogs } from "../../services/blog_service";
-import { ConvertDate } from "../../helpers/DateHelper";
-import useStylesBase from "../../styles/styles-base";
+import LinkButton from "../components/Layout/LinkButton";
+import SearchDialog from "../components/Dialogs/SearchDialog";
+import { Job } from "../models/job";
+import { GetAllJobs } from "../services/job_service";
+import { ConvertDate } from "../helpers/DateHelper";
+import useStylesBase from "../styles/styles-base";
 import clsx from "clsx";
 
-export default function StemBlogs() {
+export default function StemJobs() {
   const classesBase = useStylesBase();
-  const [blogs, setBlogs] = useState<Blog[]>([]);
-  const [filteredBlogs, setFilteredBlogs] = useState<Blog[]>([]);
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = useState<number>(3);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [openSearch, setOpenSearch] = useState<boolean>(false);
 
   useEffect(() => {
-    fetchBlogs();
-  }, [blogs.length]);
+    fetchJobs();
+  }, [jobs.length]);
 
-  async function fetchBlogs() {
+  async function fetchJobs() {
     setLoading(true);
-    const result: Blog[] = await GetAllBlogs();
+    const result: Job[] = await GetAllJobs();
     if (result) {
-      setBlogs(result);
-      setFilteredBlogs(result);
+      setJobs(result);
+      setFilteredJobs(result);
     }
     setLoading(false);
   }
@@ -51,22 +51,26 @@ export default function StemBlogs() {
     setRowsPerPage(+event.target.value);
   }
 
-  function handleSubmitSearch(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const regex = new RegExp(`^.*${searchTerm}.*$`, "i");
-    if (!searchTerm) {
-      setFilteredBlogs(blogs);
-    } else {
-      setFilteredBlogs(blogs.filter(blog => regex.test(blog.title)));
-    }
+  function handleOpenSearch() {
+    setOpenSearch(true);
+  }
+
+  function handleCloseSearch() {
+    setOpenSearch(false);
+  }
+
+  function handleSubmitSearch(filteredJobs: Job[], searchTerm: string) {
+    setFilteredJobs(filteredJobs);
+    setSearchTerm(searchTerm);
+    setOpenSearch(false);
   }
 
   const pagination =
-    filteredBlogs.length > 0 ? (
+    filteredJobs.length > 0 ? (
       <TablePagination
         rowsPerPageOptions={[3, 5, 10]}
         component="div"
-        count={filteredBlogs.length}
+        count={filteredJobs.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onChangePage={handleChangePage}
@@ -75,7 +79,7 @@ export default function StemBlogs() {
       />
     ) : (
       <Paper elevation={0} className={classesBase.stemPaper}>
-        <p className={classesBase.textCenter}>No blogs found</p>
+        <p className={classesBase.textCenter}>No jobs found</p>
       </Paper>
     );
 
@@ -89,11 +93,11 @@ export default function StemBlogs() {
     </Grid>
   ) : (
     <>
-      {filteredBlogs
+      {filteredJobs
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-        .map((blog: Blog) => {
+        .map((job: Job) => {
           return (
-            <div key={blog.blogId}>
+            <div key={job.jobId}>
               <Paper elevation={0} className={classesBase.stemPaper}>
                 <h6
                   className={clsx(
@@ -101,19 +105,21 @@ export default function StemBlogs() {
                     classesBase.textCenter
                   )}
                 >
-                  {blog.title}
+                  {job.title}
                 </h6>
-                <p>{blog.description}</p>
-                <ContentDom
-                  className={classesBase.shortContentDom}
-                  content={blog.content}
-                />
-                <p>...</p>
-                <p>Published: {ConvertDate(blog.createdAt)}</p>
+                <h6>Salary - Benefits</h6>
+                <p>{`${job.salary} - ${job.benefits}`}</p>
+                <h6>Type</h6>
+                <p>{job.jobType}</p>
+                <h6>Location</h6>
+                <p>{job.jobLocation}</p>
+                <h6>Reference</h6>
+                <p>{job.jobReference}</p>
+                <p>Published: {ConvertDate(job.createdAt)}</p>
                 <Grid container justify="center">
                   <LinkButton
                     className={classesBase.button}
-                    to={{ pathname: `/blog/${blog.blogId}` }}
+                    to={{ pathname: `/job/${job.jobId}` }}
                   >
                     View
                   </LinkButton>
@@ -130,8 +136,8 @@ export default function StemBlogs() {
     <div>
       <Grid container direction="column" justify="center">
         <Grid item xs={12}>
-          <img src={blogsimage} className={classesBase.headerImage} alt="" />
-          <div className={classesBase.headerText}>Blogs</div>
+          <img src={jobsimage} className={classesBase.headerImage} alt="" />
+          <div className={classesBase.headerText}>Jobs</div>
         </Grid>
         <Grid
           container
@@ -140,15 +146,18 @@ export default function StemBlogs() {
         >
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
             <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>
-              News &amp; Advice Blogs
+              Current Opportunities
             </h4>
             <p>
-              Keep up to date with the latest industry news, as well as regular
-              activites offering recruitment and careers advice provided by Stem Skills &amp; Recruitment.
+              Interested in any of the below opportunities provided by Stem Skills &amp; Recruitment? To apply, please
+              send your CV to{" "}
+              <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk</a>{" "}
+              with the job reference number, and we will respond within 2
+              working days.
             </p>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
-            <form onSubmit={handleSubmitSearch}>
+            <div onClick={handleOpenSearch}>
               <TextField
                 className={clsx(
                   classesBase.textField,
@@ -158,9 +167,7 @@ export default function StemBlogs() {
                 margin="dense"
                 fullWidth
                 hiddenLabel
-                onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                  setSearchTerm(event.target.value)
-                }
+                value={searchTerm}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -169,11 +176,17 @@ export default function StemBlogs() {
                   )
                 }}
               />
-            </form>
+            </div>
             {content}
           </Grid>
         </Grid>
       </Grid>
+      <SearchDialog
+        open={openSearch}
+        jobs={jobs}
+        handleClose={handleCloseSearch}
+        handleSearch={handleSubmitSearch}
+      />
     </div>
   );
 }

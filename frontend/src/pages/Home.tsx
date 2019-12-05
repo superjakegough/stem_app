@@ -15,12 +15,12 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import EmailIcon from "@material-ui/icons/Email";
 import PhoneIcon from "@material-ui/icons/Phone";
-import LinkButton from "../Layout/LinkButton";
-import homeimage from "../../assets/home.jpg";
-import stemlogo from "../../assets/stem_green.png";
-import avatar from "../../assets/jack.jpg";
-import rec from "../../assets/rec.jpg";
-import useStylesBase from "../../styles/styles-base";
+import LinkButton from "../components/Layout/LinkButton";
+import homeimage from "../assets/home.jpg";
+import stemlogo from "../assets/stem_green.png";
+import avatar from "../assets/jack.jpg";
+import rec from "../assets/rec.jpg";
+import useStylesBase from "../styles/styles-base";
 import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>

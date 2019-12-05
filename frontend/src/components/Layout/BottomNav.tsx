@@ -3,7 +3,7 @@ import React, {
   useEffect,
   ChangeEvent
 } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
@@ -49,28 +49,28 @@ export default function BottomNav() {
         value="/"
         icon={<HomeIcon />}
         component={Link}
-        to="/"
+        href="/"
       />
       <BottomNavigationAction
         label="Services"
         value="/services"
         icon={<PagesIcon />}
         component={Link}
-        to="/services"
+        href="/services"
       />
       <BottomNavigationAction
         label="Jobs"
         value="/jobs"
         icon={<AssignmentIcon />}
         component={Link}
-        to="/jobs"
+        href="/jobs"
       />
       <BottomNavigationAction
         label="Blogs"
         value="/blogs"
         icon={<EventNoteIcon />}
         component={Link}
-        to="/blogs"
+        href="/blogs"
       />
     </BottomNavigation>
   );

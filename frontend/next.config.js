@@ -7,4 +7,16 @@ module.exports = {
     REACT_APP_APP_CLIENT: process.env.REACT_APP_APP_CLIENT,
     REACT_APP_IDENTITY_POOL: process.env.REACT_APP_IDENTITY_POOL,
   },
+  webpack: (config, { dev }) => {
+    config.module.rules.push(
+      {
+        test: /\.css$/,
+        loaders: [
+          'style-loader',
+          'css-loader?modules'
+        ]
+      }
+    )
+    return config
+  }
 }

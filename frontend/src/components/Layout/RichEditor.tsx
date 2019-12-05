@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
-import RichTextEditor, { EditorValue } from "react-rte";
+// @ts-ignore
+import RichTextEditor from "react-rte/lib/RichTextEditor";
+import { EditorValue } from "react-rte";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

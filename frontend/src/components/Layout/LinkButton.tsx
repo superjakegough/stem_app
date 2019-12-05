@@ -3,7 +3,7 @@ import Link from "next/link";
 import Button from "@material-ui/core/Button";
 
 interface LinkButtonProps {
-  to: string;
+  to: any;
   className?: string;
   children: string;
 }

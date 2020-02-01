@@ -3,8 +3,11 @@ import React, {
   useEffect,
   ChangeEvent
 } from "react";
+import { Theme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import jobsimage from "../../assets/jobs.jpg";
+import jobsPt from "../../assets/jobsPt.jpg";
 import TablePagination from "@material-ui/core/TablePagination";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from "@material-ui/core/TextField";
@@ -28,6 +31,10 @@ export default function StemJobs() {
   const [rowsPerPage, setRowsPerPage] = useState<number>(3);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [openSearch, setOpenSearch] = useState<boolean>(false);
+  const smAndDown = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
+  const jobsImage = smAndDown ? jobsPt : jobsimage;
 
   useEffect(() => {
     fetchJobs();
@@ -136,8 +143,7 @@ export default function StemJobs() {
     <div>
       <Grid container direction="column" justify="center">
         <Grid item xs={12}>
-          <img src={jobsimage} className={classesBase.headerImage} alt="" />
-          <div className={classesBase.headerText}>Jobs</div>
+          <img src={jobsImage} className={classesBase.headerImage} alt="" />
         </Grid>
         <Grid
           container

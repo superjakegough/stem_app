@@ -1,5 +1,6 @@
 import React, {  useState } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
@@ -9,6 +10,7 @@ import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import LinkButton from "../Layout/LinkButton";
 import servicesimage from "../../assets/services.jpg";
+import servicesPt from "../../assets/servicesPt.jpg";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
@@ -33,6 +35,10 @@ export default function Services() {
   const classesBase = useStylesBase();
   const [activeStep, setActiveStep] = useState(0);
   const steps = getSteps();
+  const smAndDown = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
+  const servicesImage = smAndDown ? servicesPt : servicesimage;
 
   function handleNext() {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
@@ -197,8 +203,7 @@ export default function Services() {
     <div>
       <Grid container direction="column" justify="center">
         <Grid item xs={12}>
-          <img src={servicesimage} className={classesBase.headerImage} alt="" />
-          <div className={classesBase.headerText}>Services</div>
+          <img src={servicesImage} className={classesBase.headerImage} alt="" />
         </Grid>
         <Grid
           container

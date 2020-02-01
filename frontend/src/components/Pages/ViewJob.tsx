@@ -60,10 +60,10 @@ export default function ViewJob() {
   return (
     <div>
       <Grid container justify="center" className={classesBase.contentContainer}>
-        <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
+        <Grid item md={8} sm={10} xs={12}>
           {content}
         </Grid>
-        <Grid container justify="center" className={classesBase.mb3}>
+        <Grid container item justify="center">
           <LinkButton className={classesBase.button} to="/jobs">
             Jobs
           </LinkButton>

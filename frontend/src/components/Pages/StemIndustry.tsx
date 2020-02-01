@@ -12,7 +12,6 @@ import servicesimage from "../../assets/services.jpg";
 import servicesPt from "../../assets/servicesPt.jpg";
 import useStylesBase from "../../styles/styles-base";
 import { Industry } from "../../models/industry";
-import clsx from "clsx";
 
 interface StemIndustryProps {
   industry: Industry;
@@ -38,15 +37,13 @@ export default function StemIndustry(props: StemIndustryProps) {
           justify="center"
           className={classesBase.contentContainer}
         >
-          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
-            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>
+          <Grid item md={8} sm={10} xs={12}>
+            <h4 className={classesBase.contentTitle}>
               {industry.title}
             </h4>
             <p>{industry.info}</p>
-          </Grid>
-          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
             {industry.categories.map(category => (
-              <ExpansionPanel elevation={0} className={classesBase.mb3}>
+              <ExpansionPanel key={category.title} elevation={0} className={classesBase.mb3}>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                   <p className={classesBase.expansionSummary}>
                     {category.title}
@@ -58,7 +55,7 @@ export default function StemIndustry(props: StemIndustryProps) {
                       <ul>
                         {category.subcategories &&
                           category.subcategories.map(subcategory => (
-                            <li> {subcategory.title}</li>
+                            <li key={subcategory.title}> {subcategory.title}</li>
                           ))}
                       </ul>
                     </Grid>
@@ -74,7 +71,7 @@ export default function StemIndustry(props: StemIndustryProps) {
                 info@stemrecruit.co.uk.
               </a>
             </p>
-            <Grid container justify="center" className={classesBase.mb3}>
+            <Grid container item justify="center">
               <LinkButton to="/services">Services</LinkButton>
             </Grid>
           </Grid>

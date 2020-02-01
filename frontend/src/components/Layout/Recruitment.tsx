@@ -7,8 +7,6 @@ import StepContent from "@material-ui/core/StepContent";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import useStylesBase from "../../styles/styles-base";
-import clsx from "clsx";
-
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -19,6 +17,8 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(3)
     },
     stepper: {
+      marginTop: theme.spacing(3),
+      marginBottom: theme.spacing(3),
       "& .MuiStepIcon-text": {
         fill: "white"
       }
@@ -198,7 +198,7 @@ export default function Recruitment() {
 
   return (
     <>
-      <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>
+      <h4 className={classesBase.contentTitle}>
         Our Recruitment Process
       </h4>
       <p>

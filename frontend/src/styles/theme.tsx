@@ -9,8 +9,12 @@ const theme = createMuiTheme({
       main: "#1ADD43"
     },
     background: {
-      default: "#FAFAFA"
+      default: "#FAFAFA",
+      paper: "#FFFFFF"
     }
+  },
+  typography: {
+    fontFamily: "Public Sans, sans-serif"
   }
 });
 

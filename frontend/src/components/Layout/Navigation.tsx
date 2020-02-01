@@ -1,15 +1,21 @@
 import React from "react";
-import { Theme, makeStyles } from "@material-ui/core/styles";
+import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TopAppBar from "./TopAppBar";
 import BottomNav from "./BottomNav";
 import useStylesBase from "../../styles/styles-base";
 
-const useStyles = makeStyles({
-  content: {
-    flexGrow: 1
-  }
-});
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    content: {
+      flexGrow: 1,
+      paddingTop: 64,
+      [theme.breakpoints.down("md")]: {
+        paddingTop: 54
+      }
+    }
+  })
+);
 
 interface NavigationProps {
   children: React.ReactNode;

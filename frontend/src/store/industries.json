@@ -1397,16 +1397,277 @@
      "info":"Stem Skills & Recruitment is a specialist life science recruitment agency with a proven track record of providing professionals for a variety of scientific businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term. As life science recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, in various life science settings including pharmacology, biotechnology, biochemistry, microbiology and toxicology. We provide expertise in recruiting for the following life science jobs:",
      "categories":[ 
         { 
-           "title":"",
+           "title":"Laboratory & Quality Control Recruitment",
            "subcategories":[ 
               { 
-                 "title":""
+                 "title":"Laboratory Technicians"
               },
               { 
-                 "title":""
+                 "title":"Quality Analysts"
               },
               { 
-                 "title":""
+                 "title":"Chemists"
+              },
+              { 
+                 "title":"Microbiologists"
+              },
+              { 
+                 "title":"Toxicologists"
+              },
+              { 
+                 "title":"Biomedical Scientists"
+              },
+              { 
+                 "title":"R&D Technicians"
+              },
+              { 
+                 "title":"R&D Engineers"
+              },
+              { 
+                 "title":"NPD Analysts"
+              },
+              { 
+                 "title":"Laboratory Supervisors / Managers"
+              },
+              { 
+                 "title":"QC Supervisors / Managers"
+              },
+              { 
+                 "title":"Laboratory Engineers"
+              },
+              { 
+                 "title":"Laboratory Administrators"
+              },
+              { 
+                 "title":"Science Graduates"
+              }
+           ]
+        },
+        { 
+           "title":"Quality Assurance & Regulatory Affairs Recruitment",
+           "subcategories":[ 
+              { 
+                 "title":"Quality Engineers / Technicians"
+              },
+              { 
+                 "title":"Quality Auditors / Officers"
+              },
+              { 
+                 "title":"Quality Managers / Directors"
+              },
+              { 
+                 "title":"Quality Administrators"
+              },
+              { 
+                 "title":"Regulatory Affairs Officer"
+              },
+              { 
+                 "title":"Regulatory Affairs Managers"
+              },
+              { 
+                 "title":"Validation Technicians"
+              },
+              { 
+                 "title":"Validation Engineers"
+              },
+              { 
+                 "title":"Science Graduates"
+              }
+           ]
+        },
+        { 
+           "title":"Health, Safety & Environmental Recruitment",
+           "subcategories":[ 
+              { 
+                 "title":"H&S Manager / Directors"
+              },
+              { 
+                 "title":"HSE Officers"
+              },
+              { 
+                 "title":"HSE Administrators"
+              },
+              { 
+                 "title":"QHSE Managers"
+              },
+              { 
+                 "title":"Science Graduates"
+              }
+           ]
+        },
+        { 
+           "title":"Project Management, Sales, Marketing & Customer Service Recruitment",
+           "subcategories":[ 
+              { 
+                 "title":"Project Managers"
+              },
+              { 
+                 "title":"Project Administrators"
+              },
+              { 
+                 "title":"Internal Sales / Proposals"
+              },
+              { 
+                 "title":"Sales Managers / Directors"
+              },
+              { 
+                 "title":"Sales Administrators"
+              },
+              { 
+                 "title":"Customer Service Representatives"
+              },
+              { 
+                 "title":"Customer Service Administrators"
+              },
+              { 
+                 "title":"Customer Service Managers"
+              },
+              { 
+                 "title":"Marketing Assistants"
+              },
+              { 
+                 "title":"Marketing Managers"
+              },
+              { 
+                 "title":"Science Graduates"
+              },
+              { 
+                 "title":"Business Graduates"
+              }
+           ]
+        },
+        { 
+           "title":"Materials, Planning & Supply Chain Recruitment",
+           "subcategories":[ 
+              { 
+                 "title":"Purchasing Officers"
+              },
+              { 
+                 "title":"Buyers"
+              },
+              { 
+                 "title":"Purchasing Administrators"
+              },
+              { 
+                 "title":"Purchasing Managers / Directors"
+              },
+              { 
+                 "title":"Logistics Supervisors / Managers / Directors"
+              },
+              { 
+                 "title":"Logistics Administrators"
+              },
+              { 
+                 "title":"Materials Schedulers / Planners"
+              },
+              { 
+                 "title":"Materials Managers"
+              },
+              { 
+                 "title":"Production Planners / Schedulers"
+              },
+              { 
+                 "title":"Production / Planning Administrators"
+              },
+              { 
+                 "title":"Planning Managers"
+              },
+              { 
+                 "title":"Supply Chain Graduates"
+              },
+              { 
+                 "title":"Supply Chain Administrators"
+              },
+              { 
+                 "title":"Supply Chain Coordinators"
+              },
+              { 
+                 "title":"Supply Chain Managers / Directors"
+              },
+              { 
+                 "title":"Warehouse Technicians"
+              },
+              { 
+                 "title":"Warehouse Supervisors / Managers"
+              }
+           ]
+        },
+        { 
+           "title":"Executive & Management Recruitment",
+           "subcategories":[ 
+              { 
+                 "title":"Laboratory Managers"
+              },
+              { 
+                 "title":"R&D Managers"
+              },
+              { 
+                 "title":"Quality Managers / Directors"
+              },
+              { 
+                 "title":"Regulatory Affairs Manager"
+              },
+              { 
+                 "title":"Technical Managers / Directors"
+              },
+              { 
+                 "title":"Engineering Managers / Directors"
+              },
+              { 
+                 "title":"NPD Managers"
+              },
+              { 
+                 "title":"Project / Programme Managers"
+              },
+              { 
+                 "title":"Purchasing Managers / Directors"
+              },
+              { 
+                 "title":"Logistics Managers / Directors"
+              },
+              { 
+                 "title":"Supply Chain Managers / Directors"
+              },
+              { 
+                 "title":"Production Managers / Directors"
+              },
+              { 
+                 "title":"Operations Managers / Directors"
+              },
+              { 
+                 "title":"IT Managers / Directors"
+              }
+           ]
+        },
+        { 
+           "title":"Graduate Recruitmen",
+           "subcategories":[ 
+              { 
+                 "title":"Biomedical Science Graduates"
+              },
+              { 
+                 "title":"Chemistry Graduates"
+              },
+              { 
+                 "title":"Forensic & Analytical Science Graduates"
+              },
+              { 
+                 "title":"Pharmacology / Pharmaceutical Science Graduates"
+              },
+              { 
+                 "title":"Materials Science Graduates"
+              },
+              { 
+                 "title":"Engineering Graduates"
+              },
+              { 
+                 "title":"Business Graduates"
+              },
+              { 
+                 "title":"Supply Chain Graduates"
+              },
+              { 
+                 "title":"Technology Graduates"
               }
            ]
         }

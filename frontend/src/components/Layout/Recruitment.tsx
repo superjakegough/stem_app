@@ -202,7 +202,7 @@ export default function Recruitment() {
         Our Recruitment Process
       </h4>
       <p>
-        We provide a thorough 5-stage recruitment and vetting process which
+        At Stem Skills &amp; Recruitment, we provide a thorough 5-stage recruitment and vetting process which
         ensures that we not only find the right fit for our clients, but also
         the right fit for the candidate, ensuring all parties are satisfied.
       </p>

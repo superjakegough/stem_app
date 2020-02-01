@@ -2,6 +2,10 @@ import React from "react";
 import { Theme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import LinkButton from "../Layout/LinkButton";
 import Recruitment from "../Layout/Recruitment";
 import servicesimage from "../../assets/services.jpg";
@@ -43,7 +47,6 @@ export default function Services() {
               solutions that make a genuine difference, short-term and
               long-term.
             </p>
-            <Recruitment />
           </Grid>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
             <h4
@@ -63,11 +66,31 @@ export default function Services() {
               chemical, materials, electronics and compound semiconductors. We
               provide expertise in recruiting for the following STEM jobs:
             </p>
-            <ul className={classesBase.mb3}>
-              {industries.map(industry => (
-                <li><LinkButton to={industry.path}>{industry.title}</LinkButton></li>
-              ))}
-            </ul>
+            {industries.map(industry => (
+              <ExpansionPanel
+                elevation={0}
+                className={classesBase.mb3}
+              >
+                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                  <LinkButton to={industry.path}>{industry.title}</LinkButton>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                  <Grid
+                    container
+                    direction="column"
+                  >
+                    <Grid item>
+                      <ul>
+                        {industry.categories.map(category => (
+                          <li> {category.title}</li>
+                        ))}
+                      </ul>
+                    </Grid>
+                  </Grid>
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
+            ))}
+            <Recruitment />
             <p>
               If you would like to find out more about how Stem Skills &amp;
               Recruitment can help grow your business, or if you have a vacancy

@@ -39,10 +39,6 @@ const useStyles = makeStyles((theme: Theme) =>
     divider: {
       margin: theme.spacing(4)
     },
-    expansionSummary: {
-      fontWeight: 500,
-      margin: 0
-    },
     fillHeight: {
       height: "100%"
     }
@@ -135,7 +131,7 @@ export default function Home() {
               className={classesBase.mb3}
             >
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <p className={classes.expansionSummary}>Clients</p>
+                <p className={classesBase.expansionSummary}>Clients</p>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                 <Grid
@@ -169,7 +165,7 @@ export default function Home() {
             </ExpansionPanel>
             <ExpansionPanel elevation={0} className={classesBase.mb3}>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <p className={classes.expansionSummary}>Candidates</p>
+                <p className={classesBase.expansionSummary}>Candidates</p>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                 <Grid

@@ -3,11 +3,11 @@ import { Theme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import LinkButton from "../Layout/LinkButton";
+import Recruitment from "../Layout/Recruitment";
 import servicesimage from "../../assets/services.jpg";
 import servicesPt from "../../assets/servicesPt.jpg";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
-import Recruitment from "../Layout/Recruitment";
 
 export default function Services() {
   const classesBase = useStylesBase();

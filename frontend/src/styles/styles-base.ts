@@ -200,6 +200,10 @@ const useStylesBase = makeStyles((theme: Theme) =>
         letterSpacing: 0,
         textAlign: "center"
       }
+    },
+    expansionSummary: {
+      fontWeight: 500,
+      margin: 0
     }
   })
 );

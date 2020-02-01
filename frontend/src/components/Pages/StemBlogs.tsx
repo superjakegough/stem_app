@@ -19,7 +19,7 @@ import ContentDom from "../Layout/ContentDom";
 import LinkButton from "../Layout/LinkButton";
 import { Blog } from "../../models/blog";
 import { GetAllBlogs } from "../../services/blog_service";
-import { ConvertDate } from "../../helpers/DateHelper";
+import { convertDate } from "../../helpers/date-helper";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
@@ -116,7 +116,7 @@ export default function StemBlogs() {
                   content={blog.content}
                 />
                 <p>...</p>
-                <p>Published: {ConvertDate(blog.createdAt)}</p>
+                <p>Published: {convertDate(blog.createdAt)}</p>
                 <Grid container justify="center">
                   <LinkButton
                     className={classesBase.button}

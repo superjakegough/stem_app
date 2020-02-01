@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Engineering Recruitment",
+    "path": "engineeringrecruitment",
+    "info": "Stem Skills & Recruitment is a specialist engineering recruitment agency with a proven track record of providing engineering professionals for a variety of businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference: short-term and long-term. As engineering recruitment specialists, we recruit for a wide range of permanent roles, from graduate recruitment to senior & executive recruitment. These are within various engineering settings including manufacturing, automotive, aerospace, graduates, food, FMCG, oil & gas, chemical, materials, electronics and compound semiconductors. We provide expertise in recruiting for the following engineering jobs:",
+    "categories": [
+      {
+        "title": "Mechanical Engineering Recruitment",
+        "subcategories": [
+          {
+            "title": "Mechanical Engineers / Technician"
+          },
+          {
+            "title": "Mechanical Maintenance Engineers / Technicians"
+          },
+          {
+            "title": "Mechanical Fitters"
+          }
+        ]
+      }
+    ]
+  }
+]

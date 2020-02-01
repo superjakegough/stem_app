@@ -1,11 +1,11 @@
 export interface Industry {
   title: string;
-  route: string;
+  path: string;
   info: string;
   categories: Category[];
 }
 
 interface Category {
   title: string;
-  subcategories: Category[];
+  subcategories?: Category[];
 }

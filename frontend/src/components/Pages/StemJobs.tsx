@@ -18,7 +18,7 @@ import LinkButton from "../Layout/LinkButton";
 import SearchDialog from "../Dialogs/SearchDialog";
 import { Job } from "../../models/job";
 import { GetAllJobs } from "../../services/job_service";
-import { ConvertDate } from "../../helpers/DateHelper";
+import { convertDate } from "../../helpers/date-helper";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
@@ -122,7 +122,7 @@ export default function StemJobs() {
                 <p>{job.jobLocation}</p>
                 <h6>Reference</h6>
                 <p>{job.jobReference}</p>
-                <p>Published: {ConvertDate(job.createdAt)}</p>
+                <p>Published: {convertDate(job.createdAt)}</p>
                 <Grid container justify="center">
                   <LinkButton
                     className={classesBase.button}

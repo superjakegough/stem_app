@@ -6,7 +6,7 @@ import ContentDom from "../Layout/ContentDom";
 import LinkButton from "../Layout/LinkButton";
 import { Job, BlankJob } from "../../models/job";
 import { GetJob } from "../../services/job_service";
-import { ConvertDate } from "../../helpers/DateHelper";
+import { convertDate } from "../../helpers/date-helper";
 import useStylesBase from "../../styles/styles-base";
 import { useParams } from "react-router";
 import clsx from "clsx";
@@ -53,7 +53,7 @@ export default function ViewJob() {
       <h6>Reference</h6>
       <p>{job.jobReference}</p>
       <ContentDom content={job.description} />
-      <p>Published: {ConvertDate(job.createdAt)}</p>
+      <p>Published: {convertDate(job.createdAt)}</p>
     </Paper>
   );
 

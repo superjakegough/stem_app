@@ -13,7 +13,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import { Job, BlankJob } from "../../models/job";
-import { checkJob, generateSearchTerm } from "../../helpers/SearchHelper";
+import { checkJob, generateSearchTerm } from "../../helpers/search-helper";
 import FormControl from "@material-ui/core/FormControl";
 import useStylesBase from "../../styles/styles-base";
 

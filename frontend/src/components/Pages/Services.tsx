@@ -6,11 +6,14 @@ import LinkButton from "../Layout/LinkButton";
 import Recruitment from "../Layout/Recruitment";
 import servicesimage from "../../assets/services.jpg";
 import servicesPt from "../../assets/servicesPt.jpg";
+import { Industry } from "../../models/industry";
 import useStylesBase from "../../styles/styles-base";
+import { getIndustries } from "../../helpers/industry-helper";
 import clsx from "clsx";
 
 export default function Services() {
   const classesBase = useStylesBase();
+  const industries: Industry[] = getIndustries();
   const smAndDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );

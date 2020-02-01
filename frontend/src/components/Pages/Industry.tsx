@@ -63,8 +63,8 @@ export default function Industry(props: IndustryProps) {
                   >
                     <Grid item>
                       <ul>
-                        {category.subcategories.map(subcategory => (
-                          <li>{subcategory.title}</li>
+                        {category.subcategories && category.subcategories.map(subcategory => (
+                          <li> {subcategory.title}</li>
                         ))}
                       </ul>
                     </Grid>

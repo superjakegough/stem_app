@@ -12,6 +12,9 @@ const theme = createMuiTheme({
       default: "#FAFAFA",
       paper: "#FFFFFF"
     }
+  },
+  typography: {
+    fontFamily: "Public Sans, sans-serif"
   }
 });
 

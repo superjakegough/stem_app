@@ -15,6 +15,7 @@ import AdminBlogs from "./Admin/AdminBlogs";
 import StemIndustry from "./Pages/StemIndustry";
 import { Industry } from "../models/industry";
 import { getIndustries } from "../helpers/industry-helper";
+import "./App.css";
 
 const history = createBrowserHistory();
 

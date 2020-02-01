@@ -19,5 +19,236 @@
         ]
       }
     ]
+  },
+  {
+    "title": "Manufacturing Recruitment",
+    "path": "/manufacturingrecruitment",
+    "info": "",
+    "categories": [
+      {
+        "title": "",
+        "subcategories": [
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Automotive Recruitment",
+    "path": "/automotiverecruitment",
+    "info": "",
+    "categories": [
+      {
+        "title": "",
+        "subcategories": [
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Aerospace Recruitment",
+    "path": "/aerospacerecruitment",
+    "info": "",
+    "categories": [
+      {
+        "title": "",
+        "subcategories": [
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Life Science Recruitment",
+    "path": "/lifesciencerecruit",
+    "info": "",
+    "categories": [
+      {
+        "title": "",
+        "subcategories": [
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Pharmaceutical Recruitment",
+    "path": "/pharmaceuticalrecruitment",
+    "info": "",
+    "categories": [
+      {
+        "title": "",
+        "subcategories": [
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Electronic Manufacturing Recruitment",
+    "path": "/electronicsrecruitment",
+    "info": "",
+    "categories": [
+      {
+        "title": "",
+        "subcategories": [
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Chemical & Materials Manufacturing Recruitment",
+    "path": "/chemicalmanufacturingrecruitment",
+    "info": "",
+    "categories": [
+      {
+        "title": "",
+        "subcategories": [
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "FMCG Recruitment",
+    "path": "/fmcgrecruitment",
+    "info": "",
+    "categories": [
+      {
+        "title": "",
+        "subcategories": [
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Medical Device Recruitment",
+    "path": "/medicaldevicerecruitment",
+    "info": "",
+    "categories": [
+      {
+        "title": "",
+        "subcategories": [
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Graduate Recruitment Agency",
+    "path": "/graduaterecruitmentagency",
+    "info": "",
+    "categories": [
+      {
+        "title": "",
+        "subcategories": [
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "STEM Skills Recruitment Agency",
+    "path": "/STEMskillsrecruitmentagency",
+    "info": "",
+    "categories": [
+      {
+        "title": "",
+        "subcategories": [
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          },
+          {
+            "title": ""
+          }
+        ]
+      }
+    ]
   }
 ]

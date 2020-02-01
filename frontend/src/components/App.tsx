@@ -126,6 +126,7 @@ export default function App() {
             />
             {industries.map(industry => (
               <Route
+                key={industry.path}
                 path={industry.path}
                 render={() => {
                   return (

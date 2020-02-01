@@ -19,7 +19,7 @@ import useStylesBase from "../../styles/styles-base";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
-      backgroundColor: "rgba(255, 255, 255, 0.8)",
+      background: theme.palette.background.paper,
       boxShadow: "none"
     },
     logo: {

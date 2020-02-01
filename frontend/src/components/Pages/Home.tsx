@@ -18,7 +18,6 @@ import PhoneIcon from "@material-ui/icons/Phone";
 import LinkButton from "../Layout/LinkButton";
 import homeimage from "../../assets/home.jpg";
 import homePt from "../../assets/homePt.jpg";
-import stemlogo from "../../assets/stem_green.png";
 import avatar from "../../assets/jack.jpg";
 import rec from "../../assets/rec.jpg";
 import useStylesBase from "../../styles/styles-base";
@@ -52,9 +51,6 @@ export default function Home() {
     theme.breakpoints.down("sm")
   );
   const homeImage = smAndDown ? homePt : homeimage;
-  const stemImg = (
-    <img className={classesBase.homeLogo} src={stemlogo} alt="" />
-  );
 
   return (
     <div>
@@ -67,20 +63,8 @@ export default function Home() {
           justify="center"
           className={classesBase.contentContainer}
         >
-          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
+          <Grid item md={8} sm={10} xs={12}>
             <h4 className={classesBase.contentTitle}>Who We Are</h4>
-          </Grid>
-          {smAndDown && (
-            <Grid
-              item
-              sm={10}
-              xs={12}
-              className={clsx(classesBase.mb3, classesBase.textCenter)}
-            >
-              {stemImg}
-            </Grid>
-          )}
-          <Grid item md={6} sm={10} xs={12}>
             <p>
               Stem Skills &amp; Recruitment is a specialist recruitment
               consultancy, which also aims to support the growth of industries
@@ -104,27 +88,18 @@ export default function Home() {
               and knowledge, and work with you to find you the right match.
             </p>
           </Grid>
-          {!smAndDown && (
-            <Grid item md={2} className={classesBase.ml2}>
-              {stemImg}
-            </Grid>
-          )}
           <Grid
             item
             md={8}
             sm={10}
             xs={12}
-            className={clsx(classesBase.mt3, classesBase.mb3)}
           >
             <h4
-              className={clsx(
-                classesBase.mt3,
-                classesBase.mb3,
-                classesBase.contentTitle
-              )}
+              className={classesBase.contentTitle}
             >
               What We Do
             </h4>
+            <div className={classesBase.mt3}>
             <ExpansionPanel
               elevation={0}
               defaultExpanded={true}
@@ -198,6 +173,7 @@ export default function Home() {
                 </Grid>
               </ExpansionPanelDetails>
             </ExpansionPanel>
+            </div>
           </Grid>
           <Grid item sm={10} xs={12}>
             <Divider className={classes.divider} />
@@ -236,7 +212,7 @@ export default function Home() {
               </p>
             </Grid>
           </Grid>
-          <Grid item md={4} sm={10} xs={12} className={classesBase.mb3}>
+          <Grid item md={4} sm={10} xs={12}>
             <Grid
               container
               justify="center"
@@ -274,7 +250,7 @@ export default function Home() {
               </List>
             </Grid>
           </Grid>
-          <Grid container justify="center" className={classesBase.mb6}>
+          <Grid container item justify="center">
             <LinkButton className={classes.button} to="/privacy">
               Privacy Notice
             </LinkButton>

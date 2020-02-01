@@ -92,7 +92,9 @@ export default function StemBlogs() {
       justify="center"
       className={clsx(classesBase.mt3, classesBase.mb3)}
     >
-      <CircularProgress color="primary" />
+      <Grid item>
+        <CircularProgress color="primary" />
+      </Grid>
     </Grid>
   ) : (
     <>
@@ -144,8 +146,8 @@ export default function StemBlogs() {
           justify="center"
           className={classesBase.contentContainer}
         >
-          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
-            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>
+          <Grid item md={8} sm={10} xs={12}>
+            <h4 className={classesBase.contentTitle}>
               News &amp; Advice Blogs
             </h4>
             <p>
@@ -153,7 +155,7 @@ export default function StemBlogs() {
               activites offering recruitment and careers advice provided by Stem Skills &amp; Recruitment.
             </p>
           </Grid>
-          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
+          <Grid item md={8} sm={10} xs={12}>
             <form onSubmit={handleSubmitSearch}>
               <TextField
                 className={clsx(

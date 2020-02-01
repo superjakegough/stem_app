@@ -34,8 +34,8 @@ export default function Services() {
           justify="center"
           className={classesBase.contentContainer}
         >
-          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
-            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>
+          <Grid item md={8} sm={10} xs={12}>
+            <h4 className={classesBase.contentTitle}>
               Client Services
             </h4>
             <p>
@@ -48,13 +48,9 @@ export default function Services() {
               long-term.
             </p>
           </Grid>
-          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
+          <Grid item md={8} sm={10} xs={12}>
             <h4
-              className={clsx(
-                classesBase.contentTitle,
-                classesBase.mb3,
-                classesBase.mt3
-              )}
+              className={classesBase.contentTitle}
             >
               Industries
             </h4>
@@ -66,8 +62,10 @@ export default function Services() {
               chemical, materials, electronics and compound semiconductors. We
               provide expertise in recruiting for the following STEM jobs:
             </p>
+            <div className={clsx(classesBase.mt3, classesBase.mb3)}>
             {industries.map(industry => (
               <ExpansionPanel
+                key={industry.path}
                 elevation={0}
                 className={classesBase.mb3}
               >
@@ -82,7 +80,7 @@ export default function Services() {
                     <Grid item>
                       <ul>
                         {industry.categories.map(category => (
-                          <li> {category.title}</li>
+                          <li key={category.title}> {category.title}</li>
                         ))}
                       </ul>
                     </Grid>
@@ -90,6 +88,7 @@ export default function Services() {
                 </ExpansionPanelDetails>
               </ExpansionPanel>
             ))}
+            </div>
             <Recruitment />
             <p>
               If you would like to find out more about how Stem Skills &amp;
@@ -99,7 +98,7 @@ export default function Services() {
                 info@stemrecruit.co.uk.
               </a>
             </p>
-            <Grid container justify="center" className={classesBase.mb3}>
+            <Grid container item justify="center">
               <LinkButton to="/">Home</LinkButton>
             </Grid>
           </Grid>

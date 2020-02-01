@@ -150,8 +150,8 @@ export default function StemJobs() {
           justify="center"
           className={classesBase.contentContainer}
         >
-          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
-            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>
+          <Grid item md={8} sm={10} xs={12}>
+            <h4 className={classesBase.contentTitle}>
               Current Opportunities
             </h4>
             <p>
@@ -162,7 +162,7 @@ export default function StemJobs() {
               working days.
             </p>
           </Grid>
-          <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
+          <Grid item md={8} sm={10} xs={12}>
             <div onClick={handleOpenSearch}>
               <TextField
                 className={clsx(

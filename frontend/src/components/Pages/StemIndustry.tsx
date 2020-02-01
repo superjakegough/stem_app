@@ -14,11 +14,11 @@ import useStylesBase from "../../styles/styles-base";
 import { Industry } from "../../models/industry";
 import clsx from "clsx";
 
-interface IndustryProps {
+interface StemIndustryProps {
   industry: Industry;
 }
 
-export default function Industry(props: IndustryProps) {
+export default function StemIndustry(props: StemIndustryProps) {
   const classesBase = useStylesBase();
   const { industry } = props;
 
@@ -48,7 +48,6 @@ export default function Industry(props: IndustryProps) {
             {industry.categories.map(category => (
               <ExpansionPanel
                 elevation={0}
-                defaultExpanded={true}
                 className={classesBase.mb3}
               >
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -58,8 +57,6 @@ export default function Industry(props: IndustryProps) {
                   <Grid
                     container
                     direction="column"
-                    justify="center"
-                    alignItems="center"
                   >
                     <Grid item>
                       <ul>
@@ -82,7 +79,7 @@ export default function Industry(props: IndustryProps) {
               </a>
             </p>
             <Grid container justify="center" className={classesBase.mb3}>
-              <LinkButton to="/">Home</LinkButton>
+              <LinkButton to="/services">Services</LinkButton>
             </Grid>
           </Grid>
         </Grid>

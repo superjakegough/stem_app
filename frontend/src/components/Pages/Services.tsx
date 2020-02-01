@@ -6,8 +6,8 @@ import LinkButton from "../Layout/LinkButton";
 import Recruitment from "../Layout/Recruitment";
 import servicesimage from "../../assets/services.jpg";
 import servicesPt from "../../assets/servicesPt.jpg";
-import { Industry } from "../../models/industry";
 import useStylesBase from "../../styles/styles-base";
+import { Industry } from "../../models/industry";
 import { getIndustries } from "../../helpers/industry-helper";
 import clsx from "clsx";
 
@@ -35,12 +35,13 @@ export default function Services() {
               Client Services
             </h4>
             <p>
-              Stem Skills &amp; Recruitment is a specialist permanent recruitment consultancy providing
-              sustainable recruitment solutions for the science, technology,
-              engineering and manufacturing industries in Wales. Our approach to
-              recruitment is simple but that of care, integrity, attention to
-              detail, and solutions that make a genuine difference, short-term
-              and long-term.
+              Stem Skills &amp; Recruitment is a specialist permanent
+              recruitment consultancy providing sustainable recruitment
+              solutions for the science, technology, engineering and
+              manufacturing industries in Wales. Our approach to recruitment is
+              simple but that of care, integrity, attention to detail, and
+              solutions that make a genuine difference, short-term and
+              long-term.
             </p>
             <Recruitment />
           </Grid>
@@ -55,30 +56,22 @@ export default function Services() {
               Industries
             </h4>
             <p>
-              We have expertise and experience in recruiting for the following
-              industries:
+              As STEM skills recruitment specialists, we recruit for a wide
+              range of permanent roles from STEM graduate recruitment to senior
+              &amp; executive recruitment, in various industries including
+              manufacturing, automotive, aerospace, food, FMCG, oil &amp; gas,
+              chemical, materials, electronics and compound semiconductors. We
+              provide expertise in recruiting for the following STEM jobs:
             </p>
             <ul className={classesBase.mb3}>
-              <li> Automotive</li>
-              <li> Aerospace</li>
-              <li> Pharmaceutical</li>
-              <li> Life Science</li>
-              <li> Medical Device</li>
-              <li> Electronic</li>
-              <li> Semiconductor</li>
-              <li> FMCG</li>
-              <li> Food Manufacturing</li>
-              <li> Oil &amp; Gas</li>
-              <li> Chemicals Manufacturing</li>
-              <li> Materials Manufacturing</li>
-              <li> Heavy Industry</li>
-              <li> Digital</li>
-              <li> Technology</li>
+              {industries.map(industry => (
+                <li><LinkButton to={industry.path}>{industry.title}</LinkButton></li>
+              ))}
             </ul>
             <p>
-              If you would like to find out more about how Stem Skills &amp; Recruitment can help grow
-              your business, or if you have a vacancy and need help, then call
-              us on 029 2120 2879, or email{" "}
+              If you would like to find out more about how Stem Skills &amp;
+              Recruitment can help grow your business, or if you have a vacancy
+              and need help, then call us on 029 2120 2879, or email{" "}
               <a href="mailto:info@stemrecruit.co.uk">
                 info@stemrecruit.co.uk.
               </a>

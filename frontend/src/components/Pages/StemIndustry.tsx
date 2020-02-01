@@ -46,23 +46,20 @@ export default function StemIndustry(props: StemIndustryProps) {
           </Grid>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
             {industry.categories.map(category => (
-              <ExpansionPanel
-                elevation={0}
-                className={classesBase.mb3}
-              >
+              <ExpansionPanel elevation={0} className={classesBase.mb3}>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                  <p className={classesBase.expansionSummary}>{category.title}</p>
+                  <p className={classesBase.expansionSummary}>
+                    {category.title}
+                  </p>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                  <Grid
-                    container
-                    direction="column"
-                  >
+                  <Grid container direction="column">
                     <Grid item>
                       <ul>
-                        {category.subcategories && category.subcategories.map(subcategory => (
-                          <li> {subcategory.title}</li>
-                        ))}
+                        {category.subcategories &&
+                          category.subcategories.map(subcategory => (
+                            <li> {subcategory.title}</li>
+                          ))}
                       </ul>
                     </Grid>
                   </Grid>
@@ -71,9 +68,8 @@ export default function StemIndustry(props: StemIndustryProps) {
             ))}
             <Recruitment />
             <p>
-              If you would like to find out more about how Stem Skills &amp;
-              Recruitment can help grow your business, or if you have a vacancy
-              and need help, then call us on 029 2120 2879, or email{" "}
+              If you are looking to hire and need help from a {industry.title}{" "}
+              agency, then call us on 029 2120 2879, or email{" "}
               <a href="mailto:info@stemrecruit.co.uk">
                 info@stemrecruit.co.uk.
               </a>

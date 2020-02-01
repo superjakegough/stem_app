@@ -6,7 +6,7 @@ import ContentDom from "../Layout/ContentDom";
 import LinkButton from "../Layout/LinkButton";
 import { Blog, BlankBlog } from "../../models/blog";
 import { GetBlog } from "../../services/blog_service";
-import { ConvertDate } from "../../helpers/DateHelper";
+import { convertDate } from "../../helpers/date-helper";
 import useStylesBase from "../../styles/styles-base";
 import { useParams } from "react-router";
 import clsx from "clsx";
@@ -47,7 +47,7 @@ export default function ViewBlog() {
       <p>{blog.description}</p>
       <div></div>
       <ContentDom content={blog.content} />
-      <p>Published: {ConvertDate(blog.createdAt)}</p>
+      <p>Published: {convertDate(blog.createdAt)}</p>
     </Paper>
   );
 

@@ -4,8 +4,11 @@ import React, {
   FormEvent,
   ChangeEvent
 } from "react";
+import { Theme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import blogsimage from "../../assets/blogs.jpg";
+import blogsPt from "../../assets/blogsPt.jpg";
 import TablePagination from "@material-ui/core/TablePagination";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from "@material-ui/core/TextField";
@@ -16,7 +19,7 @@ import ContentDom from "../Layout/ContentDom";
 import LinkButton from "../Layout/LinkButton";
 import { Blog } from "../../models/blog";
 import { GetAllBlogs } from "../../services/blog_service";
-import { ConvertDate } from "../../helpers/DateHelper";
+import { convertDate } from "../../helpers/date-helper";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
@@ -28,6 +31,10 @@ export default function StemBlogs() {
   const [page, setPage] = useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = useState<number>(3);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const smAndDown = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
+  const blogsImage = smAndDown ? blogsPt : blogsimage;
 
   useEffect(() => {
     fetchBlogs();
@@ -109,7 +116,7 @@ export default function StemBlogs() {
                   content={blog.content}
                 />
                 <p>...</p>
-                <p>Published: {ConvertDate(blog.createdAt)}</p>
+                <p>Published: {convertDate(blog.createdAt)}</p>
                 <Grid container justify="center">
                   <LinkButton
                     className={classesBase.button}
@@ -130,8 +137,7 @@ export default function StemBlogs() {
     <div>
       <Grid container direction="column" justify="center">
         <Grid item xs={12}>
-          <img src={blogsimage} className={classesBase.headerImage} alt="" />
-          <div className={classesBase.headerText}>Blogs</div>
+          <img src={blogsImage} className={classesBase.headerImage} alt="" />
         </Grid>
         <Grid
           container

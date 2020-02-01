@@ -12,12 +12,16 @@ import servicesimage from "../../assets/services.jpg";
 import servicesPt from "../../assets/servicesPt.jpg";
 import useStylesBase from "../../styles/styles-base";
 import { Industry } from "../../models/industry";
-import { getIndustries } from "../../helpers/industry-helper";
 import clsx from "clsx";
 
-export default function Services() {
+interface StemIndustryProps {
+  industry: Industry;
+}
+
+export default function StemIndustry(props: StemIndustryProps) {
   const classesBase = useStylesBase();
-  const industries: Industry[] = getIndustries();
+  const { industry } = props;
+
   const smAndDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
@@ -36,54 +40,26 @@ export default function Services() {
         >
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
             <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>
-              Client Services
+              {industry.title}
             </h4>
-            <p>
-              Stem Skills &amp; Recruitment is a specialist permanent
-              recruitment consultancy providing sustainable recruitment
-              solutions for the science, technology, engineering and
-              manufacturing industries in Wales. Our approach to recruitment is
-              simple but that of care, integrity, attention to detail, and
-              solutions that make a genuine difference, short-term and
-              long-term.
-            </p>
+            <p>{industry.info}</p>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
-            <h4
-              className={clsx(
-                classesBase.contentTitle,
-                classesBase.mb3,
-                classesBase.mt3
-              )}
-            >
-              Industries
-            </h4>
-            <p>
-              As STEM skills recruitment specialists, we recruit for a wide
-              range of permanent roles from STEM graduate recruitment to senior
-              &amp; executive recruitment, in various industries including
-              manufacturing, automotive, aerospace, food, FMCG, oil &amp; gas,
-              chemical, materials, electronics and compound semiconductors. We
-              provide expertise in recruiting for the following STEM jobs:
-            </p>
-            {industries.map(industry => (
-              <ExpansionPanel
-                elevation={0}
-                className={classesBase.mb3}
-              >
+            {industry.categories.map(category => (
+              <ExpansionPanel elevation={0} className={classesBase.mb3}>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                  <LinkButton to={industry.path}>{industry.title}</LinkButton>
+                  <p className={classesBase.expansionSummary}>
+                    {category.title}
+                  </p>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                  <Grid
-                    container
-                    direction="column"
-                  >
+                  <Grid container direction="column">
                     <Grid item>
                       <ul>
-                        {industry.categories.map(category => (
-                          <li> {category.title}</li>
-                        ))}
+                        {category.subcategories &&
+                          category.subcategories.map(subcategory => (
+                            <li> {subcategory.title}</li>
+                          ))}
                       </ul>
                     </Grid>
                   </Grid>
@@ -92,15 +68,14 @@ export default function Services() {
             ))}
             <Recruitment />
             <p>
-              If you would like to find out more about how Stem Skills &amp;
-              Recruitment can help grow your business, or if you have a vacancy
-              and need help, then call us on 029 2120 2879, or email{" "}
+              If you are looking to hire and need help from a {industry.title}{" "}
+              agency, then call us on 029 2120 2879, or email{" "}
               <a href="mailto:info@stemrecruit.co.uk">
                 info@stemrecruit.co.uk.
               </a>
             </p>
             <Grid container justify="center" className={classesBase.mb3}>
-              <LinkButton to="/">Home</LinkButton>
+              <LinkButton to="/services">Services</LinkButton>
             </Grid>
           </Grid>
         </Grid>

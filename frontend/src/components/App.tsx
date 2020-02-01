@@ -12,6 +12,9 @@ import ViewBlog from "./Pages/ViewBlog";
 import Privacy from "./Pages/Privacy";
 import AdminJobs from "./Admin/AdminJobs";
 import AdminBlogs from "./Admin/AdminBlogs";
+import StemIndustry from "./Pages/StemIndustry";
+import { Industry } from "../models/industry";
+import { getIndustries } from "../helpers/industry-helper";
 
 const history = createBrowserHistory();
 
@@ -22,6 +25,7 @@ history.listen(_ => {
 
 export default function App() {
   const title: string = "Stem Skills & Recruitment";
+  const industries: Industry[] = getIndustries();
 
   return (
     <HelmetWrapper title={title} description={`${title}`}>
@@ -44,7 +48,6 @@ export default function App() {
             />
             <Route
               path="/services"
-              exact
               render={() => {
                 return (
                   <HelmetWrapper
@@ -58,7 +61,6 @@ export default function App() {
             />
             <Route
               path="/jobs"
-              exact
               render={() => {
                 return (
                   <HelmetWrapper
@@ -72,7 +74,6 @@ export default function App() {
             />
             <Route
               path="/job/:id"
-              exact
               render={() => {
                 return (
                   <HelmetWrapper
@@ -86,7 +87,6 @@ export default function App() {
             />
             <Route
               path="/blogs"
-              exact
               render={() => {
                 return (
                   <HelmetWrapper
@@ -100,7 +100,6 @@ export default function App() {
             />
             <Route
               path="/blog/:id"
-              exact
               render={() => {
                 return (
                   <HelmetWrapper
@@ -112,6 +111,34 @@ export default function App() {
                 );
               }}
             />
+            <Route
+              path="/blog/:id"
+              render={() => {
+                return (
+                  <HelmetWrapper
+                    title={`${title} - View Blog`}
+                    description={`${title} - View Blog`}
+                  >
+                    <ViewBlog />
+                  </HelmetWrapper>
+                );
+              }}
+            />
+            {industries.map(industry => (
+              <Route
+                path={industry.path}
+                render={() => {
+                  return (
+                    <HelmetWrapper
+                      title={`${title} - ${industry.title}`}
+                      description={`${title} - ${industry.title}`}
+                    >
+                      <StemIndustry industry={industry} />
+                    </HelmetWrapper>
+                  );
+                }}
+              />
+            ))}
             <Route path="/privacy" exact component={Privacy}></Route>
             <Route path="/adminjobs" exact component={AdminJobs}></Route>
             <Route path="/adminblogs" exact component={AdminBlogs}></Route>

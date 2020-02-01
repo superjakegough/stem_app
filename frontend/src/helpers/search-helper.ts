@@ -1,6 +1,6 @@
 import { Job } from "../models/job";
 
-export const checkJob = (job: Job, searchJob: Job) => {
+export function checkJob(job: Job, searchJob: Job) {
   const regex = new RegExp(`^.*${job.title}.*$`, "i");
   if (job.title) {
     if (!regex.test(searchJob.title)) {
@@ -32,9 +32,9 @@ export const checkJob = (job: Job, searchJob: Job) => {
     }
   }
   return true;
-};
+}
 
-export const generateSearchTerm = (job: Job) => {
+export function generateSearchTerm(job: Job) {
   let searchTerm: string = "";
   if (job.title) {
     searchTerm += job.title + " ";
@@ -52,4 +52,4 @@ export const generateSearchTerm = (job: Job) => {
     searchTerm += job.jobLocation + " ";
   }
   return searchTerm;
-};
+}

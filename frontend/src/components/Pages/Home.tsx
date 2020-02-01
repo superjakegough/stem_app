@@ -17,6 +17,7 @@ import EmailIcon from "@material-ui/icons/Email";
 import PhoneIcon from "@material-ui/icons/Phone";
 import LinkButton from "../Layout/LinkButton";
 import homeimage from "../../assets/home.jpg";
+import homePt from "../../assets/homePt.jpg";
 import stemlogo from "../../assets/stem_green.png";
 import avatar from "../../assets/jack.jpg";
 import rec from "../../assets/rec.jpg";
@@ -38,10 +39,6 @@ const useStyles = makeStyles((theme: Theme) =>
     divider: {
       margin: theme.spacing(4)
     },
-    expansionSummary: {
-      fontWeight: 500,
-      margin: 0
-    },
     fillHeight: {
       height: "100%"
     }
@@ -54,6 +51,7 @@ export default function Home() {
   const smAndDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
+  const homeImage = smAndDown ? homePt : homeimage;
   const stemImg = (
     <img className={classesBase.homeLogo} src={stemlogo} alt="" />
   );
@@ -62,12 +60,7 @@ export default function Home() {
     <div>
       <Grid container direction="column" justify="center">
         <Grid item xs>
-          <img src={homeimage} className={classesBase.headerImage} alt="" />
-          <div className={classesBase.headerText}>
-            Growing your business
-            <br />
-            Growing your career
-          </div>
+          <img src={homeImage} className={classesBase.headerImage} alt="" />
         </Grid>
         <Grid
           container
@@ -138,7 +131,7 @@ export default function Home() {
               className={classesBase.mb3}
             >
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <p className={classes.expansionSummary}>Clients</p>
+                <p className={classesBase.expansionSummary}>Clients</p>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                 <Grid
@@ -172,7 +165,7 @@ export default function Home() {
             </ExpansionPanel>
             <ExpansionPanel elevation={0} className={classesBase.mb3}>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <p className={classes.expansionSummary}>Candidates</p>
+                <p className={classesBase.expansionSummary}>Candidates</p>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                 <Grid

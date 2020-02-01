@@ -7,15 +7,6 @@ import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    avatar: {
-      height: 200,
-      width: 200,
-      margin: "auto",
-      marginBottom: theme.spacing(4)
-    },
-    bodyText: {
-      marginBottom: theme.spacing(2)
-    },
     bodyHeader: {
       fontWeight: 500,
       marginBottom: theme.spacing(2)

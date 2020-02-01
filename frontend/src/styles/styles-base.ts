@@ -155,11 +155,10 @@ const useStylesBase = makeStyles((theme: Theme) =>
       }
     },
     headerImage: {
-      height: "100vh",
       width: "100%",
       objectFit: "cover",
       [theme.breakpoints.down("md")]: {
-        height: `calc(100vh - ${theme.spacing(7)})`
+        height: "100vh"
       }
     },
     headerText: {
@@ -201,6 +200,10 @@ const useStylesBase = makeStyles((theme: Theme) =>
         letterSpacing: 0,
         textAlign: "center"
       }
+    },
+    expansionSummary: {
+      fontWeight: 500,
+      margin: 0
     }
   })
 );

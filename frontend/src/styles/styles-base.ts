@@ -7,25 +7,38 @@ const useStylesBase = makeStyles((theme: Theme) =>
       display: "flex",
       "& a": {
         color: theme.palette.primary.main,
-        textDecoration: "unset"
+        textDecoration: "unset",
+        wordBreak: "break-word",
+        cursor: "pointer"
       },
       "& p": {
-        fontSize: "1rem",
-        lineHeight: 1.5,
-        letterSpacing: "0.00938em"
+        fontSize: 16,
+        lineHeight: 1.88,
+        letterSpacing: 0.2,
+        marginTop: theme.spacing(1),
+        marginBottom: theme.spacing(1),
+        whiteSpace: "pre-line"
       },
       "& li": {
-        fontSize: "1rem",
-        lineHeight: 1.5,
-        letterSpacing: "0.00938em"
+        fontSize: 16,
+        lineHeight: 1.88,
+        letterSpacing: 0.2
+      },
+      "& span": {
+        fontSize: 14,
+        lineHeight: 1.43,
+        letterSpacing: 0.44
       },
       "& h6": {
-        fontSize: "1.25rem",
-        fontWeight: 500,
-        lineHeight: 1.6,
-        letterSpacing: "0.0075em",
-        marginTop: 8,
-        marginBottom: 8
+        fontSize: 24,
+        fontWeight: "bold",
+        lineHeight: 1.5,
+        letterSpacing: 0.24,
+        marginTop: theme.spacing(1),
+        marginBottom: theme.spacing(1)
+      },
+      "& .MuiButton-root": {
+        fontWeight: 700
       },
       "& .MuiExpansionPanel-root:before": {
         backgroundColor: "unset !important"
@@ -134,7 +147,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
       }
     },
     boldText: {
-      fontWeight: 500
+      fontWeight: 700
     },
     button: {
       margin: theme.spacing(1)
@@ -168,7 +181,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
       padding: theme.spacing(4),
       color: "#FCFCFC",
       fontSize: "3.5rem",
-      fontWeight: 500,
+      fontWeight: 700,
       lineHeight: "3.5rem",
       letterSpacing: "0.00938em",
       [theme.breakpoints.down("md")]: {
@@ -189,7 +202,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
     },
     contentTitle: {
       fontSize: "2.125rem",
-      fontWeight: 500,
+      fontWeight: 700,
       lineHeight: 1.17,
       letterSpacing: "0.00735em",
       marginTop: 8,
@@ -202,8 +215,8 @@ const useStylesBase = makeStyles((theme: Theme) =>
       }
     },
     expansionSummary: {
-      fontWeight: 500,
-      margin: 0
+      fontWeight: 700,
+      margin: "0px !important"
     }
   })
 );

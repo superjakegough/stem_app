@@ -28,7 +28,7 @@ export default function StemIndustry(props: StemIndustryProps) {
 
   return (
     <div>
-      <Grid container direction="column" justify="center">
+      <Grid container direction="column" justify="center" wrap="nowrap">
         <Grid item xs={12}>
           <img src={servicesImage} className={classesBase.headerImage} alt="" />
         </Grid>
@@ -65,7 +65,7 @@ export default function StemIndustry(props: StemIndustryProps) {
             ))}
             <Recruitment />
             <p>
-              If you are looking to hire and need help from a {industry.title}{" "}
+              If you are looking to hire and need help from our {industry.title}{" "}
               agency, then call us on 029 2120 2879, or email{" "}
               <a href="mailto:info@stemrecruit.co.uk">
                 info@stemrecruit.co.uk.

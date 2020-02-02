@@ -65,7 +65,7 @@ export default function StemIndustry(props: StemIndustryProps) {
             ))}
             <Recruitment />
             <p>
-              If you are looking to hire and need help from a {industry.title}{" "}
+              If you are looking to hire and need help from our {industry.title}{" "}
               agency, then call us on 029 2120 2879, or email{" "}
               <a href="mailto:info@stemrecruit.co.uk">
                 info@stemrecruit.co.uk.

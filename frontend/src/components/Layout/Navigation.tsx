@@ -8,7 +8,7 @@ import useStylesBase from "../../styles/styles-base";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     content: {
-      flexGrow: 1
+      flexGrow: 1,
       paddingTop: 64,
       [theme.breakpoints.down("md")]: {
         paddingTop: 54

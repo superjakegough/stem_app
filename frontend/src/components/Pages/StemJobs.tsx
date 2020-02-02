@@ -141,7 +141,7 @@ export default function StemJobs() {
 
   return (
     <div>
-      <Grid container direction="column" justify="center">
+      <Grid container direction="column" justify="center" wrap="nowrap">
         <Grid item xs={12}>
           <img src={jobsImage} className={classesBase.headerImage} alt="" />
         </Grid>

@@ -1,8 +1,8 @@
 [
   {
     "title": "Engineering Recruitment",
-    "path": "/engineeringrecruitment",
-    "info": "Stem Skills & Recruitment is a specialist engineering recruitment agency with a proven track record of providing engineering professionals for a variety of businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference: short-term and long-term. As engineering recruitment specialists, we recruit for a wide range of permanent roles, from graduate recruitment to senior & executive recruitment. These are within various engineering settings including manufacturing, automotive, aerospace, graduates, food, FMCG, oil & gas, chemical, materials, electronics and compound semiconductors. We provide expertise in recruiting for the following engineering jobs:",
+    "path": "/engineeringrecruitmentagency",
+    "info": "Stem Skills & Recruitment is a specialist engineering recruitment agency with a proven track record of providing engineering professionals for a variety of businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference: short-term and long-term.\n\n As engineering recruitment specialists, we recruit for a wide range of permanent roles, from graduate recruitment to senior & executive recruitment. These are within various engineering settings including manufacturing, automotive, aerospace, graduates, food, FMCG, oil & gas, chemical, materials, electronics and compound semiconductors. We provide expertise in recruiting for the following engineering jobs:",
     "categories": [
       {
         "title": "Mechanical Engineering Recruitment",
@@ -187,11 +187,11 @@
   },
   {
     "title": "Manufacturing Recruitment",
-    "path": "/manufacturingrecruitment",
-    "info": "Stem Skills & Recruitment is a specialist manufacturing recruitment agency with a proven track record of providing manufacturing professionals for a variety of businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term. As manufacturing recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, in various manufacturing industries including automotive, aerospace, graduates, food, FMCG, oil & gas, chemical, materials, electronics and compound semiconductors. We provide expertise in recruiting for the following manufacturing jobs:",
+    "path": "/manufacturingrecruitmentagency",
+    "info": "Stem Skills & Recruitment is a specialist manufacturing recruitment agency with a proven track record of providing manufacturing professionals for a variety of businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.\n\n As manufacturing recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, in various manufacturing industries including automotive, aerospace, graduates, food, FMCG, oil & gas, chemical, materials, electronics and compound semiconductors. We provide expertise in recruiting for the following manufacturing jobs:",
     "categories": [
       {
-        "title": "Engineering Recruitment – Design and Research & Developmen",
+        "title": "Engineering Recruitment – Design and Research & Development",
         "subcategories": [
           {
             "title": "Mechanical Design Engineers / Technicians"
@@ -591,8 +591,8 @@
   },
   {
     "title": "Automotive Recruitment",
-    "path": "/automotiverecruitment",
-    "info": "Stem Skills & Recruitment is a specialist automotive recruitment agency with a proven track record of providing professionals for a variety of automotive businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term. As automotive recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment and can provide expertise in recruiting throughout the automotive supply chain, including OEMs, and Tier 1, 2 and 3 suppliers. We provide expertise in recruiting for the following automotive jobs:",
+    "path": "/automotiverecruitmentagency",
+    "info": "Stem Skills & Recruitment is a specialist automotive recruitment agency with a proven track record of providing professionals for a variety of automotive businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.\n\n As automotive recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment and can provide expertise in recruiting throughout the automotive supply chain, including OEMs, and Tier 1, 2 and 3 suppliers. We provide expertise in recruiting for the following automotive jobs:",
     "categories": [
       {
         "title": "Engineering Recruitment – Design and Research & Development",
@@ -986,11 +986,11 @@
   },
   {
     "title": "Aerospace Recruitment",
-    "path": "/aerospacerecruitment",
-    "info": "Stem Skills & Recruitment is a specialist aerospace recruitment agency with a proven track record of providing professionals for a variety of aerospace businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term. As aerospace recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, in a wide range of aerospace settings including aerospace manufacturers, aircraft maintenance & repair, and aerospace OEMs and suppliers. We provide expertise in recruiting for the following aerospace jobs:",
+    "path": "/aerospacerecruitmentagency",
+    "info": "Stem Skills & Recruitment is a specialist aerospace recruitment agency with a proven track record of providing professionals for a variety of aerospace businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.\n\n As aerospace recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, in a wide range of aerospace settings including aerospace manufacturers, aircraft maintenance & repair, and aerospace OEMs and suppliers. We provide expertise in recruiting for the following aerospace jobs:",
     "categories": [
       {
-        "title": "Engineering Recruitment – Design and Research & Developmen",
+        "title": "Engineering Recruitment – Design and Research & Development",
         "subcategories": [
           {
             "title": "Mechanical Design Engineers / Technicians"
@@ -1393,8 +1393,8 @@
   },
   {
     "title": "Life Science Recruitment",
-    "path": "/lifesciencerecruit",
-    "info": "Stem Skills & Recruitment is a specialist life science recruitment agency with a proven track record of providing professionals for a variety of scientific businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term. As life science recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, in various life science settings including pharmacology, biotechnology, biochemistry, microbiology and toxicology. We provide expertise in recruiting for the following life science jobs:",
+    "path": "/lifesciencerecruitagency",
+    "info": "Stem Skills & Recruitment is a specialist life science recruitment agency with a proven track record of providing professionals for a variety of scientific businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.\n\n As life science recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, in various life science settings including pharmacology, biotechnology, biochemistry, microbiology and toxicology. We provide expertise in recruiting for the following life science jobs:",
     "categories": [
       {
         "title": "Laboratory & Quality Control Recruitment",
@@ -1675,8 +1675,8 @@
   },
   {
     "title": "Pharmaceutical Recruitment",
-    "path": "/pharmaceuticalrecruitment",
-    "info": "Stem Skills & Recruitment is a specialist pharmaceutical recruitment agency with a proven track record of providing pharmaceutical professionals for a variety of businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term. As pharmaceutical recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, in various pharmaceutical settings including R&D, Clinical Research Organisations, pharmaceutical manufacturing, pharmaceutical packaging and supply chain, and pharmaceutical sales. We provide expertise in recruiting for the following pharmaceutical jobs:",
+    "path": "/pharmaceuticalrecruitmentagency",
+    "info": "Stem Skills & Recruitment is a specialist pharmaceutical recruitment agency with a proven track record of providing pharmaceutical professionals for a variety of businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.\n\n As pharmaceutical recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, in various pharmaceutical settings including R&D, Clinical Research Organisations, pharmaceutical manufacturing, pharmaceutical packaging and supply chain, and pharmaceutical sales. We provide expertise in recruiting for the following pharmaceutical jobs:",
     "categories": [
       {
         "title": "Laboratory & Quality Control Recruitment",
@@ -1782,41 +1782,399 @@
   },
   {
     "title": "Electronic Manufacturing Recruitment",
-    "path": "/electronicsrecruitment",
-    "info": "Stem Skills & Recruitment is a specialist electronic manufacturing recruitment agency with a proven track record of providing professionals for a variety of electronic manufacturing businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term. As electronic manufacturing recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, in various electronics businesses including SMEs, contract manufacturers and global blue-chip organisations. We provide expertise in recruiting for the following electronic manufacturing jobs:",
+    "path": "/electronicsrecruitmentagency",
+    "info": "Stem Skills & Recruitment is a specialist electronic manufacturing recruitment agency with a proven track record of providing professionals for a variety of electronic manufacturing businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.\n\n As electronic manufacturing recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, in various electronics businesses including SMEs, contract manufacturers and global blue-chip organisations. We provide expertise in recruiting for the following electronic manufacturing jobs:",
     "categories": [
       {
-        "title": "",
-        "subcategories": []
+        "title": "Engineering Recruitment - Design and Research & Development",
+        "subcategories": [{"title":"Electronic Design Engineers / Technicians"},
+          {"title":"Software Engineers / Developers"},
+          {"title":"Mechanical Design Engineers / Technicians"},
+          {"title":"CAD Engineers / Technicians"},
+          {"title":"NPD Engineers / Technicians"},
+          {"title":"NPD / Design Team Leaders"},
+          {"title":"NPD / Design Managers"},
+          {"title":"Engineering Managers / Directors"},
+          {"title":"Project Engineers / Managers"},
+          {"title":"R&D Engineers / Technicians"},
+          {"title":"Test Engineers / Technicians"},
+          {"title":"Technology & Engineering Graduates"}]
+      },
+      {
+        "title": "Manufacturing Recruitment - Process Engineering",
+        "subcategories": [{"title":"Manufacturing / Process Engineers"},
+          {"title":"Production / Process Technicians"},
+          {"title":"Project Engineers"},
+          {"title":"Project / Programme Managers"},
+          {"title":"NPI Engineers"},
+          {"title":"Process Managers"},
+          {"title":"Technology & Engineering Graduates"}]
+      },
+      {
+        "title": "Quality, Health, Safety & Environmental Recruitment",
+        "subcategories": [{"title":"Quality Engineers / Technicians"},
+          {"title":"Quality Auditors / Officers"},
+          {"title":"Quality Managers / Directors"},
+          {"title":"Laboratory Technicians"},
+          {"title":"Quality Administrators"},
+          {"title":"H&S Manager / Directors"},
+          {"title":"HSE Officers"},
+          {"title":"HSE Administrators"},
+          {"title":"QHSE Managers"},
+          {"title":"Technology & Engineering Graduates"}]
+      },
+      {
+        "title": "Lean, CI & Six Sigma Recruitment",
+        "subcategories": [{"title":"Six Sigma Green Belt / Black Belt"},
+          {"title":"CI / Lean Engineers"},
+          {"title":"CI / Lean Coaches"},
+          {"title":"CI / Lean Manager"},
+          {"title":"Technology & Engineering Graduates"}]
+      },
+      {
+        "title": "Maintenance Recruitment",
+        "subcategories": [{"title":"Mechanical Maintenance Technicians / Engineers"},
+          {"title":"Electrical Maintenance Technicians / Engineers"},
+          {"title":"Maintenance Supervisors / Managers"},
+          {"title":"Facilities Technicians / Engineers"},
+          {"title":"Facilities Managers"},
+          {"title":"Planning Engineers"},
+          {"title":"Instrumentation & Controls Engineers"},
+          {"title":"Technology & Engineering Graduates"}]
+      },
+      {
+        "title": "Materials, Planning & Supply Chain Recruitment",
+        "subcategories": [{"title":"Purchasing Officers"},
+          {"title":"Buyers"},
+          {"title":"Senior Buyers"},
+          {"title":"Purchasing Administrators"},
+          {"title":"Purchasing Managers / Directors"},
+          {"title":"Logistics Supervisors / Managers / Directors"},
+          {"title":"Logistics Administrators"},
+          {"title":"Materials Schedulers / Planners"},
+          {"title":"Materials Managers"},
+          {"title":"Production Planners / Schedulers"},
+          {"title":"Production / Planning Administrators"},
+          {"title":"Planning Managers"},
+          {"title":"Supply Chain Graduates"},
+          {"title":"Supply Chain Administrators"},
+          {"title":"Supply Chain Coordinators"},
+          {"title":"Supply Chain Managers / Directors"},
+          {"title":"Warehouse Technicians"},
+          {"title":"Warehouse Supervisors / Manager"}]
+      },
+      {
+        "title": "Production & Operations Recruitment",
+        "subcategories": [{"title":"Production Operators & Technicians"},
+          {"title":"Electronic Technicians"},
+          {"title":"PCB Technicians"},
+          {"title":"SMT Technicians"},
+          {"title":"Soldering Technicians"},
+          {"title":"Production Team Leaders / Supervisors"},
+          {"title":"Production Managers / Directors"},
+          {"title":"Operations Supervisors"},
+          {"title":"Operations Managers / Directors"}]
+      },
+      {
+        "title": "Sales, Marketing & Customer Service Recruitment",
+        "subcategories": [{"title":"Sales Engineers / Technical Sales"},
+          {"title":"Internal Sales"},
+          {"title":"Sales Managers / Directors"},
+          {"title":"Sales Administrators"},
+          {"title":"Customer Service Representatives"},
+          {"title":"Customer Service Administrators"},
+          {"title":"Customer Service Managers"},
+          {"title":"Marketing Assistants"},
+          {"title":"Marketing Managers"}]
+      },
+      {
+        "title": "Executive & Management Recruitment",
+        "subcategories": [{"title":"Engineering Managers / Directors"},
+          {"title":"Maintenance Managers / Directors"},
+          {"title":"NPD / Design Managers"},
+          {"title":"Project / Programme Managers"},
+          {"title":"Purchasing Managers / Directors"},
+          {"title":"Logistics Managers / Directors"},
+          {"title":"Supply Chain Managers / Directors"},
+          {"title":"Production Managers / Directors"},
+          {"title":"Operations Managers / Directors"},
+          {"title":"Quality Managers / Directors"},
+          {"title":"Technical Managers / Directors"},
+          {"title":"IT Managers / Directors"}]
+      },
+      {
+        "title": "Graduate Recruitment",
+        "subcategories": [{"title":"Electrical Engineering Graduates"},
+          {"title":"Electronic Engineering Graduates"},
+          {"title":"Software Development / Computer Science Graduates"},
+          {"title":"Technology Graduates"},
+          {"title":"Mechanical Engineering Graduates"},
+          {"title":"Business Graduates"},
+          {"title":"Supply Chain Graduates"}]
       }
     ]
   },
   {
     "title": "Chemical & Materials Manufacturing Recruitment",
-    "path": "/chemicalmanufacturingrecruitment",
-    "info": "Stem Skills & Recruitment is a specialist chemical & materials manufacturing recruitment agency with a proven track record of providing professionals for a variety of chemical & materials manufacturing businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term. As chemical & materials manufacturing recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, in various industries including automotive technology, aerospace technology, advanced materials suppliers, and chemical engineering. We provide expertise in recruiting for the following advanced chemical & materials manufacturing jobs:",
+    "path": "/chemicalmanufacturingrecruitmentagency",
+    "info": "Stem Skills & Recruitment is a specialist chemical & materials manufacturing recruitment agency with a proven track record of providing professionals for a variety of chemical & materials manufacturing businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.\n\n As chemical & materials manufacturing recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, in various industries including automotive technology, aerospace technology, advanced materials suppliers, and chemical engineering. We provide expertise in recruiting for the following advanced chemical & materials manufacturing jobs:",
     "categories": [
       {
-        "title": "",
-        "subcategories": []
+        "title": "Engineering & Science Recruitment",
+        "subcategories": [{"title":"Chemical Engineers"},
+          {"title":"Materials Engineers / Metallurgists"},
+          {"title":"Materials Scientists"},
+          {"title":"Mechanical Engineers"},
+          {"title":"Electrical Engineers"},
+          {"title":"Electronic Engineers"},
+          {"title":"Software Engineers / Developers"},
+          {"title":"Manufacturing / Process Engineers"},
+          {"title":"Production / Process Technicians"},
+          {"title":"Project Engineers"},
+          {"title":"Project / Programme Managers"},
+          {"title":"Process Managers"},
+          {"title":"Engineering & Materials Graduates"},
+          {"title":"Chemical Engineering Graduates"},
+          {"title":"Science Graduates"},
+          {"title":"Laboratory Technicians / Analysts"},
+          {"title":"Chemists"},
+          {"title":"Laboratory Supervisors / Managers"}]
+      },
+      {
+        "title": "Quality, Health, Safety & Environmental Recruitment",
+        "subcategories": [{"title":"Quality Engineers / Technicians"},
+          {"title":"Metrology Engineers"},
+          {"title":"Quality Auditors / Officers"},
+          {"title":"Quality Managers / Directors"},
+          {"title":"Quality Administrators"},
+          {"title":"H&S Manager / Directors"},
+          {"title":"HSE Officers"},
+          {"title":"HSE Administrators"},
+          {"title":"QHSE Managers"},
+          {"title":"Engineering & Materials Graduates"},
+          {"title":"Chemical Engineering Graduates"},
+          {"title":"Science Graduates"}]
+      },
+      {
+        "title": "Lean, CI & Six Sigma Recruitment",
+        "subcategories": [{"title":"Six Sigma Green Belt / Black Belt"},
+          {"title":"CI / Lean Engineers"},
+          {"title":"CI / Lean Coaches"},
+          {"title":"CI / Lean Manager"},
+          {"title":"Engineering & Materials Graduates"},
+          {"title":"Chemical Engineering Graduates"}]
+      },
+      {
+        "title": "Maintenance Recruitment",
+        "subcategories": [{"title":"Mechanical Maintenance Technicians / Engineers"},
+          {"title":"Electrical Maintenance Technicians / Engineers"},
+          {"title":"Maintenance Supervisors / Managers"},
+          {"title":"Facilities Technicians / Engineers"},
+          {"title":"Planning Engineers"},
+          {"title":"Instrumentation & Controls Engineers"}]
+      },
+      {
+        "title": "Materials, Planning & Supply Chain Recruitment",
+        "subcategories": [{"title":"Purchasing Officers"},
+          {"title":"Buyers"},
+          {"title":"Senior Buyers"},
+          {"title":"Engineering Buyers"},
+          {"title":"Purchasing Administrators"},
+          {"title":"Purchasing Managers / Directors"},
+          {"title":"Logistics Officers"},
+          {"title":"Logistics Supervisors / Managers / Directors"},
+          {"title":"Logistics Administrators"},
+          {"title":"Materials Schedulers / Planners"},
+          {"title":"Materials Managers"},
+          {"title":"Production Planners / Schedulers"},
+          {"title":"Production / Planning Administrators"},
+          {"title":"Planning Managers"},
+          {"title":"Supply Chain Graduates"},
+          {"title":"Supply Chain Administrators"},
+          {"title":"Supply Chain Coordinators"},
+          {"title":"Supply Chain Managers / Directors"},
+          {"title":"Warehouse Technicians"},
+          {"title":"Warehouse Supervisors / Managers"}]
+      },
+      {
+        "title": "Production & Operations Recruitment",
+        "subcategories": [{"title":"Production Operators & Technicians"},
+          {"title":"Production Team Leaders / Supervisors"},
+          {"title":"Production Managers / Directors"},
+          {"title":"Operations Supervisors"},
+          {"title":"Operations Managers / Directors"}]
+      },
+      {
+        "title": "Sales, Marketing & Customer Service Recruitment",
+        "subcategories": [{"title":"Sales Engineers / Technical Sales"},
+          {"title":"Internal Sales"},
+          {"title":"Sales Managers / Directors"},
+          {"title":"Sales Administrators"},
+          {"title":"Customer Service Representatives"},
+          {"title":"Customer Service Administrators"},
+          {"title":"Customer Service Managers"},
+          {"title":"Marketing Assistants"},
+          {"title":"Marketing Managers"}]
+      },
+      {
+        "title": "Executive & Management Recruitment",
+        "subcategories": [{"title":"Engineering Managers / Directors"},
+          {"title":"Maintenance Managers / Directors"},
+          {"title":"NPD / R&D Managers"},
+          {"title":"Project / Programme Managers"},
+          {"title":"Purchasing Managers / Directors"},
+          {"title":"Logistics Managers / Directors"},
+          {"title":"Materials Managers"},
+          {"title":"Planning Managers"},
+          {"title":"Supply Chain Managers / Directors"},
+          {"title":"Production Managers / Directors"},
+          {"title":"MRO Managers"},
+          {"title":"Operations Managers / Directors"},
+          {"title":"Quality Managers / Directors"},
+          {"title":"Technical Managers / Directors"},
+          {"title":"IT Managers / Directors"}]
+      },
+      {
+        "title": "Graduate Recruitment",
+        "subcategories": [{"title":"Materials Engineering / Metallurgist Graduates"},
+          {"title":"Chemical Engineering Graduates"},
+          {"title":"Mechanical Engineering Graduates"},
+          {"title":"Electrical Engineering Graduates"},
+          {"title":"Electronic Engineering Graduates"},
+          {"title":"Science / Chemistry Graduates"},
+          {"title":"Technology Graduates"},
+          {"title":"Business Graduates"},
+          {"title":"Supply Chain Graduates"}]
+      },
+      {
+        "title": "Other Engineering Recruitment",
+        "subcategories": [{"title":"Toolroom Supervisors / Managers"},
+          {"title":"Toolmakers"},
+          {"title":"CNC Machinists"},
+          {"title":"Welders"},
+          {"title":"Fabricators"},
+          {"title":"Spray Technicians"},
+          {"title":"CMM Inspectors / Programmers"}]
       }
     ]
   },
   {
     "title": "FMCG Recruitment",
-    "path": "/fmcgrecruitment",
-    "info": "Stem Skills & Recruitment is a specialist FMCG recruitment agency with a proven track record of providing professionals for a variety of FMCG businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term. As FMCG recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment to a variety of FMCG businesses in the region. We provide expertise in recruiting for the following FMCG jobs:",
+    "path": "/fmcgrecruitmentagency",
+    "info": "Stem Skills & Recruitment is a specialist FMCG recruitment agency with a proven track record of providing professionals for a variety of FMCG businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.\n\n As FMCG recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment to a variety of FMCG businesses in the region. We provide expertise in recruiting for the following FMCG jobs:",
     "categories": [
       {
-        "title": "",
-        "subcategories": []
+        "title": "Manufacturing Recruitment - Process Engineering",
+        "subcategories": [{"title":"Manufacturing / Process Engineers"},
+          {"title":"Production / Process Technicians"},
+          {"title":"Project Engineers"},
+          {"title":"Project / Programme Managers"},
+          {"title":"Engineering Graduates"}]
+      },
+      {
+        "title": "Quality, Health, Safety & Environmental Recruitment",
+        "subcategories": [{"title":"Quality Engineers / Technicians"},
+          {"title":"Laboratory Technicians"},
+          {"title":"Quality Auditors / Officers"},
+          {"title":"Quality Managers / Directors"},
+          {"title":"Laboratory Technicians"},
+          {"title":"Quality Administrators"},
+          {"title":"H&S Manager / Directors"},
+          {"title":"HSE Officers"},
+          {"title":"HSE Administrators"},
+          {"title":"QHSE Managers"},
+          {"title":"Engineering Graduates"}]
+      },
+      {
+        "title": "Lean, CI & Six Sigma Recruitment",
+        "subcategories": [{"title":"Six Sigma Green Belt / Black Belt"},
+          {"title":"CI / Lean Engineers"},
+          {"title":"CI / Lean Coaches"},
+          {"title":"CI / Lean Manager"},
+          {"title":"Engineering Graduates"}]
+      },
+      {
+        "title": "Maintenance Recruitment",
+        "subcategories": [{"title":"Mechanical Maintenance Technicians / Engineers"},
+          {"title":"Electrical Maintenance Technicians / Engineers"},
+          {"title":"Maintenance Supervisors / Managers"},
+          {"title":"Facilities Technicians / Engineers"},
+          {"title":"Facilities Managers"},
+          {"title":"Planning Engineers"}]
+      },
+      {
+        "title": "Materials, Planning & Supply Chain Recruitment",
+        "subcategories": [{"title":"Purchasing Officers"},
+          {"title":"Buyers"},
+          {"title":"Senior Buyers"},
+          {"title":"Purchasing Administrators"},
+          {"title":"Purchasing Managers / Directors"},
+          {"title":"Logistics Supervisors / Managers / Directors"},
+          {"title":"Logistics Administrators"},
+          {"title":"Materials Schedulers / Planners"},
+          {"title":"Materials Managers"},
+          {"title":"Production Planners / Schedulers"},
+          {"title":"Production / Planning Administrators"},
+          {"title":"Planning Managers"},
+          {"title":"Supply Chain Graduates"},
+          {"title":"Supply Chain Administrators"},
+          {"title":"Supply Chain Coordinators"},
+          {"title":"Supply Chain Managers / Directors"},
+          {"title":"Warehouse Technicians"},
+          {"title":"Warehouse Supervisors / Managers"}]
+      },
+      {
+        "title": "Production & Operations Recruitment",
+        "subcategories": [{"title":"Production Operators & Technicians"},
+          {"title":"Production Team Leaders / Supervisors"},
+          {"title":"Production Managers / Directors"},
+          {"title":"Operations Supervisors"},
+          {"title":"Operations Managers / Directors"}]
+      },
+      {
+        "title": "Sales, Marketing & Customer Service Recruitment",
+        "subcategories": [{"title":"Internal Sales"},
+          {"title":"Sales Managers / Directors"},
+          {"title":"Sales Administrators"},
+          {"title":"Account Managers"},
+          {"title":"Customer Service Representatives"},
+          {"title":"Customer Service Administrators"},
+          {"title":"Customer Service Managers"},
+          {"title":"Marketing Assistants"},
+          {"title":"Marketing Managers"}]
+      },
+      {
+        "title": "Executive & Management Recruitment",
+        "subcategories": [{"title":"Engineering Managers / Directors"},
+          {"title":"Maintenance Managers / Directors"},
+          {"title":"NPD Managers"},
+          {"title":"Project / Programme Managers"},
+          {"title":"Purchasing Managers / Directors"},
+          {"title":"Logistics Managers / Directors"},
+          {"title":"Planning Managers"},
+          {"title":"Supply Chain Managers / Directors"},
+          {"title":"Production Managers / Directors"},
+          {"title":"Operations Managers / Directors"},
+          {"title":"Quality Managers / Directors"},
+          {"title":"Technical Managers / Directors"},
+          {"title":"IT Managers / Directors"}]
+      },
+      {
+        "title": "Graduate Recruitment",
+        "subcategories": [{"title":"Mechanical Engineering Graduates"},
+          {"title":"Electrical Engineering Graduates"},
+          {"title":"Electronic Engineering Graduates"},
+          {"title":"Science Graduates"},
+          {"title":"Technology Graduates"},
+          {"title":"Business Graduates"},
+          {"title":"Supply Chain Graduates"}]
       }
     ]
   },
   {
     "title": "Medical Device Recruitment",
-    "path": "/medicaldevicerecruitment",
-    "info": "Stem Skills & Recruitment is a specialist medical device recruitment agency with a proven track record of providing professionals for a variety of medical device manufacturing businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term. As medical device recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, to a variety of medical device businesses in the region. We provide expertise in recruiting for the following medical device jobs:",
+    "path": "/medicaldevicerecruitmentagency",
+    "info": "Stem Skills & Recruitment is a specialist medical device recruitment agency with a proven track record of providing professionals for a variety of medical device manufacturing businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.\n\n As medical device recruitment specialists, we recruit for a wide range of permanent roles from graduate recruitment to senior & executive recruitment, to a variety of medical device businesses in the region. We provide expertise in recruiting for the following medical device jobs:",
     "categories": [
       {
         "title": "",
@@ -1827,7 +2185,7 @@
   {
     "title": "Graduate Recruitment Agency",
     "path": "/graduaterecruitmentagency",
-    "info": "Stem Skills & Recruitment is a specialist graduate recruitment agency with a proven track record of providing graduates for a variety of businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term. As graduate recruitment specialists, we recruit for a wide range of graduate roles including Bachelor and Masters level to PhD, in a variety of industries in the region, including engineering, manufacturing, automotive, aerospace, food manufacturing, FMCG, oil & gas, advanced materials, electronics and compound semiconductors. We provide expertise in recruiting for the following graduate jobs:",
+    "info": "Stem Skills & Recruitment is a specialist graduate recruitment agency with a proven track record of providing graduates for a variety of businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.\n\n As graduate recruitment specialists, we recruit for a wide range of graduate roles including Bachelor and Masters level to PhD, in a variety of industries in the region, including engineering, manufacturing, automotive, aerospace, food manufacturing, FMCG, oil & gas, advanced materials, electronics and compound semiconductors. We provide expertise in recruiting for the following graduate jobs:",
     "categories": [
       {
         "title": "",
@@ -1838,7 +2196,7 @@
   {
     "title": "STEM Skills Recruitment Agency",
     "path": "/STEMskillsrecruitmentagency",
-    "info": "Stem Skills & Recruitment is a specialist STEM skills recruitment agency with a proven track record of providing STEM professionals for a variety of businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term. As STEM skills recruitment specialists, we recruit for a wide range of permanent roles from STEM graduate recruitment to senior & executive recruitment, in various industries including manufacturing, automotive, aerospace, food, FMCG, oil & gas, chemical, materials, electronics and compound semiconductors. We provide expertise in recruiting for the following STEM jobs:",
+    "info": "Stem Skills & Recruitment is a specialist STEM skills recruitment agency with a proven track record of providing STEM professionals for a variety of businesses in South Wales. Our approach to recruitment is simple but that of care, integrity, attention to detail, and solutions that make a genuine difference, short-term and long-term.\n\n As STEM skills recruitment specialists, we recruit for a wide range of permanent roles from STEM graduate recruitment to senior & executive recruitment, in various industries including manufacturing, automotive, aerospace, food, FMCG, oil & gas, chemical, materials, electronics and compound semiconductors. We provide expertise in recruiting for the following STEM jobs:",
     "categories": [
       {
         "title": "",

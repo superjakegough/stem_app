@@ -8,7 +8,7 @@ import clsx from "clsx";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     bodyHeader: {
-      fontWeight: 500,
+      fontWeight: 700,
       marginBottom: theme.spacing(2)
     }
   })

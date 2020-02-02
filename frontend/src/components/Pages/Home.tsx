@@ -54,7 +54,7 @@ export default function Home() {
 
   return (
     <div>
-      <Grid container direction="column" justify="center">
+      <Grid container direction="column" justify="center" wrap="nowrap">
         <Grid item xs>
           <img src={homeImage} className={classesBase.headerImage} alt="" />
         </Grid>

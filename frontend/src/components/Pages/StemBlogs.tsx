@@ -137,7 +137,7 @@ export default function StemBlogs() {
 
   return (
     <div>
-      <Grid container direction="column" justify="center">
+      <Grid container direction="column" justify="center" wrap="nowrap">
         <Grid item xs={12}>
           <img src={blogsImage} className={classesBase.headerImage} alt="" />
         </Grid>

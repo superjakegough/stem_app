@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
       background: theme.palette.background.paper,
-      boxShadow: "none"
+      boxShadow: "none",
+      color: "#4D4D4D"
     },
     logo: {
       marginRight: theme.spacing(3)

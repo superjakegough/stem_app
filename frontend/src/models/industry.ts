@@ -1,8 +1,8 @@
 export interface Industry {
   title: string;
+  subtitle: string;
   path: string;
   info: string;
-  image: string;
   categories: Category[];
 }
 

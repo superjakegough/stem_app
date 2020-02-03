@@ -1,11 +1,8 @@
 import React from "react";
-import { Theme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
+import Header from "../Layout/Header";
 import LinkButton from "../Layout/LinkButton";
 import Recruitment from "../Layout/Recruitment";
-import servicesimage from "../../assets/services.jpg";
-import servicesPt from "../../assets/servicesPt.jpg";
 import useStylesBase from "../../styles/styles-base";
 import { Industry } from "../../models/industry";
 import { getIndustries } from "../../helpers/industry-helper";
@@ -13,17 +10,11 @@ import { getIndustries } from "../../helpers/industry-helper";
 export default function Services() {
   const classesBase = useStylesBase();
   const industries: Industry[] = getIndustries();
-  const smAndDown = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("sm")
-  );
-  const servicesImage = smAndDown ? servicesPt : servicesimage;
 
   return (
     <div>
       <Grid container direction="column" justify="center" wrap="nowrap">
-        <Grid item xs={12}>
-          <img src={servicesImage} className={classesBase.headerImage} alt="" />
-        </Grid>
+        <Header title={"Services"} subtitle={"Helping Science, Technology, Engineering\nand Manufacturing businesses grow"}/>
         <Grid
           container
           justify="center"

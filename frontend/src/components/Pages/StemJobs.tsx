@@ -3,17 +3,14 @@ import React, {
   useEffect,
   ChangeEvent
 } from "react";
-import { Theme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
-import jobsimage from "../../assets/jobs.jpg";
-import jobsPt from "../../assets/jobsPt.jpg";
 import TablePagination from "@material-ui/core/TablePagination";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import Paper from "@material-ui/core/Paper";
+import Header from "../Layout/Header";
 import LinkButton from "../Layout/LinkButton";
 import SearchDialog from "../Dialogs/SearchDialog";
 import { Job } from "../../models/job";
@@ -31,10 +28,6 @@ export default function StemJobs() {
   const [rowsPerPage, setRowsPerPage] = useState<number>(3);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [openSearch, setOpenSearch] = useState<boolean>(false);
-  const smAndDown = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("sm")
-  );
-  const jobsImage = smAndDown ? jobsPt : jobsimage;
 
   useEffect(() => {
     fetchJobs();
@@ -142,9 +135,7 @@ export default function StemJobs() {
   return (
     <div>
       <Grid container direction="column" justify="center" wrap="nowrap">
-        <Grid item xs={12}>
-          <img src={jobsImage} className={classesBase.headerImage} alt="" />
-        </Grid>
+        <Header title={"Jobs"} subtitle={"Find your next role in the Science, Technology,\nEngineering and Manufacturing"}/>
         <Grid
           container
           justify="center"

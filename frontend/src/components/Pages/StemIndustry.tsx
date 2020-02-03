@@ -8,8 +8,6 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import LinkButton from "../Layout/LinkButton";
 import Recruitment from "../Layout/Recruitment";
-import servicesimage from "../../assets/services.jpg";
-import servicesPt from "../../assets/servicesPt.jpg";
 import useStylesBase from "../../styles/styles-base";
 import { Industry } from "../../models/industry";
 
@@ -24,13 +22,13 @@ export default function StemIndustry(props: StemIndustryProps) {
   const smAndDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
-  const servicesImage = smAndDown ? servicesPt : servicesimage;
+  const imageEnd = smAndDown ? "Pt.jpg" : ".jpg";
 
   return (
     <div>
       <Grid container direction="column" justify="center" wrap="nowrap">
         <Grid item xs={12}>
-          <img src={servicesImage} className={classesBase.headerImage} alt="" />
+          <img src={`./assets/industries/${industry.image}${imageEnd}`} className={classesBase.headerImage} alt="" />
         </Grid>
         <Grid
           container

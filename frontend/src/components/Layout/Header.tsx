@@ -84,16 +84,16 @@ export default function Header(props: HeaderProps) {
     <div>
       <Grid container justify="space-between" className={classes.container}>
         <Grid item xs={12}>
-          <Grid container>
+          <Grid container alignItems="center">
             <img className={classes.image} src={first} alt="" />
             <img className={classes.image} src={second} alt="" />
             <img className={classes.image} src={third} alt="" />
           </Grid>
-          <Grid container>
+          <Grid container alignItems="center">
             <img className={classes.image} src={fourth} alt="" />
             <img className={classes.image} src={fifth} alt="" />
           </Grid>
-          <Grid container>
+          <Grid container alignItems="center">
             <img className={classes.image} src={sixth} alt="" />
           </Grid>
         </Grid>
@@ -105,14 +105,14 @@ export default function Header(props: HeaderProps) {
           </Grid>
         </div>
         <Grid container item xs={12} alignItems="flex-end">
-          <Grid container justify="flex-end">
+          <Grid container alignItems="center" justify="flex-end">
             <img className={classes.image} src={seventh} alt="" />
           </Grid>
-          <Grid container justify="flex-end">
+          <Grid container alignItems="center" justify="flex-end">
             <img className={classes.image} src={eighth} alt="" />
             <img className={classes.image} src={ninth} alt="" />
           </Grid>
-          <Grid container justify="flex-end">
+          <Grid container alignItems="center" justify="flex-end">
             <img className={classes.image} src={tenth} alt="" />
             <img className={classes.image} src={eleventh} alt="" />
             <img className={classes.image} src={twelfth} alt="" />

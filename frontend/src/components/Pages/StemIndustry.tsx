@@ -28,7 +28,7 @@ export default function StemIndustry(props: StemIndustryProps) {
     <div>
       <Grid container direction="column" justify="center" wrap="nowrap">
         <Grid item xs={12}>
-          <img src={`./assets/industries/${industry.image}${imageEnd}`} className={classesBase.headerImage} alt="" />
+          {/* <img src={`./assets/industries/${industry.image}${imageEnd}`} className={classesBase.headerImage} alt="" /> */}
         </Grid>
         <Grid
           container

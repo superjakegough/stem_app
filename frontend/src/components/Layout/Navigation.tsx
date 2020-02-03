@@ -8,11 +8,7 @@ import useStylesBase from "../../styles/styles-base";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     content: {
-      flexGrow: 1,
-      paddingTop: 64,
-      [theme.breakpoints.down("md")]: {
-        paddingTop: 54
-      }
+      flexGrow: 1
     }
   })
 );
@@ -24,15 +20,16 @@ interface NavigationProps {
 export default function Navigation(props: NavigationProps) {
   const classes = useStyles();
   const classesBase = useStylesBase();
-  const smAndDown = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("sm")
-  );
+  const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
   const bottomNav = smAndDown ? <BottomNav /> : undefined;
 
   return (
     <div className={classesBase.base}>
       <TopAppBar />
-      <main className={classes.content}>{props.children}</main>
+      <main className={classes.content}>
+        <div className={classesBase.toolbar} />
+        {props.children}
+      </main>
       {bottomNav}
     </div>
   );

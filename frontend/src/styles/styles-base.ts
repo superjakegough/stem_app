@@ -1,4 +1,5 @@
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import { CSSProperties } from "@material-ui/core/styles/withStyles";
 
 const useStylesBase = makeStyles((theme: Theme) =>
   createStyles({
@@ -217,7 +218,8 @@ const useStylesBase = makeStyles((theme: Theme) =>
     expansionSummary: {
       fontWeight: 700,
       margin: "0px !important"
-    }
+    },
+    toolbar: theme.mixins.toolbar as CSSProperties
   })
 );
 

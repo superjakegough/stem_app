@@ -1,6 +1,5 @@
 import React from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
@@ -15,9 +14,8 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import EmailIcon from "@material-ui/icons/Email";
 import PhoneIcon from "@material-ui/icons/Phone";
+import Header from "../Layout/Header";
 import LinkButton from "../Layout/LinkButton";
-import homeimage from "../../assets/home.jpg";
-import homePt from "../../assets/homePt.jpg";
 import avatar from "../../assets/jack.jpg";
 import rec from "../../assets/rec.jpg";
 import useStylesBase from "../../styles/styles-base";
@@ -47,16 +45,12 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Home() {
   const classes = useStyles({});
   const classesBase = useStylesBase({});
-  const smAndDown = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("sm")
-  );
-  const homeImage = smAndDown ? homePt : homeimage;
 
   return (
     <div>
       <Grid container direction="column" justify="center" wrap="nowrap">
         <Grid item xs>
-          <img src={homeImage} className={classesBase.headerImage} alt="" />
+          <Header title="Growing your business," subtitle="growing your career" />
         </Grid>
         <Grid
           container

@@ -1,7 +1,6 @@
 import React from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import useStylesBase from "../../styles/styles-base";
 import stem from "../../assets/stem_green.png";
 import first from "../../assets/icons/first.jpg";
 import second from "../../assets/icons/second.jpg";
@@ -15,6 +14,7 @@ import ninth from "../../assets/icons/ninth.jpg";
 import tenth from "../../assets/icons/tenth.jpg";
 import eleventh from "../../assets/icons/eleventh.jpg";
 import twelfth from "../../assets/icons/twelfth.jpg";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -22,11 +22,20 @@ const useStyles = makeStyles((theme: Theme) =>
       height: "100vh",
       backgroundColor: "#F2F2F2"
     },
+    icon: {
+      height: 200
+    },
+    text: {
+      fontSize: 48,
+      fontWeight: "bold",
+      lineHeight: 1.2,
+      letterSpacing: 0.24
+    },
     title: {
-      color: "#4D4D4D"
+      color: theme.palette.primary.main
     },
     subtitle: {
-      subtitle: theme.palette.primary.main
+      subtitle: "#4D4D4D"
     }
   })
 );
@@ -34,20 +43,19 @@ const useStyles = makeStyles((theme: Theme) =>
 interface HeaderProps {
   title: string;
   subtitle: string;
+  home?: boolean;
 }
 
 export default function Header(props: HeaderProps) {
   const classes = useStyles();
-  const classesBase = useStylesBase();
-  const { title, subtitle } = props;
+  const { title, subtitle, home } = props;
 
   return (
     <>
-      <div className={classesBase.toolbar} />
-      <Grid container className={classes.container}>
-        <img src={stem} alt="stem-logo" />
-        <span className={classes.title}>{title}</span>
-        <span className={classes.subtitle}>{subtitle}</span>
+      <Grid container direction="column" justify="center" alignItems="center" className={classes.container}>
+        {home && <img className={classes.icon} src={stem} alt="stem-logo" />}
+        <div className={clsx(classes.text, classes.title)}>{title}</div>
+        <div className={clsx(classes.text, classes.subtitle)}>{subtitle}</div>
       </Grid>
     </>
   );

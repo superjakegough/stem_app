@@ -50,7 +50,7 @@ export default function Home() {
     <div>
       <Grid container direction="column" justify="center" wrap="nowrap">
         <Grid item xs>
-          <Header title="Growing your business," subtitle="growing your career" />
+          <Header title="Growing your business," subtitle="growing your career" home/>
         </Grid>
         <Grid
           container

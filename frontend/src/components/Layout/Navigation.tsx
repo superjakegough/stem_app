@@ -1,5 +1,6 @@
 import React from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import { CSSProperties } from "@material-ui/core/styles/withStyles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TopAppBar from "./TopAppBar";
 import BottomNav from "./BottomNav";
@@ -9,7 +10,8 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     content: {
       flexGrow: 1
-    }
+    },
+    toolbar: theme.mixins.toolbar as CSSProperties
   })
 );
 
@@ -27,7 +29,7 @@ export default function Navigation(props: NavigationProps) {
     <div className={classesBase.base}>
       <TopAppBar />
       <main className={classes.content}>
-        <div className={classesBase.toolbar} />
+        <div className={classes.toolbar} />
         {props.children}
       </main>
       {bottomNav}

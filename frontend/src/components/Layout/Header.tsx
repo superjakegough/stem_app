@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: "#F2F2F2",
       padding: theme.spacing(2),
       [theme.breakpoints.down("md")]: {
-        height: "calc(100vh - 54px)",
+        height: "calc(100vh - 108px)",
       }
     },
     logo: {
@@ -43,10 +43,13 @@ const useStyles = makeStyles((theme: Theme) =>
     image: {
       width: "10%",
       maxWidth: 97,
-      margin: theme.spacing(2)
+      margin: theme.spacing(2),
+      [theme.breakpoints.down("md")]: {
+        margin: theme.spacing(1),
+      }
     },
     text: {
-      fontSize: 48,
+      fontSize: 40,
       fontWeight: "bold",
       lineHeight: 1.2,
       letterSpacing: 0.24,
@@ -55,7 +58,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginLeft: theme.spacing(2),
       marginRight: theme.spacing(2),
       [theme.breakpoints.down("md")]: {
-        fontSize: 36
+        fontSize: 32
       },
       [theme.breakpoints.down("xs")]: {
         fontSize: 24
@@ -104,7 +107,7 @@ export default function Header(props: HeaderProps) {
             <div className={clsx(classes.text, classes.subtitle)}>{subtitle}</div>
           </Grid>
         </div>
-        <Grid container item xs={12} alignItems="flex-end">
+        <Grid container item xs={12} alignContent="flex-end">
           <Grid container alignItems="center" justify="flex-end">
             <img className={classes.image} src={seventh} alt="" />
           </Grid>

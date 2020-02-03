@@ -10,10 +10,10 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import LinkButton from "../Layout/LinkButton";
 import logo from "../../assets/stem_green.png";
-import facebooklogo from "../../assets/facebook.svg";
-import instagramlogo from "../../assets/instagram.svg";
-import linkedinlogo from "../../assets/linkedin.svg";
-import twitterlogo from "../../assets/twitter.svg";
+import facebooklogo from "../../assets/icons/facebook.svg";
+import instagramlogo from "../../assets/icons/instagram.svg";
+import linkedinlogo from "../../assets/icons/linkedin.svg";
+import twitterlogo from "../../assets/icons/twitter.svg";
 import useStylesBase from "../../styles/styles-base";
 
 const useStyles = makeStyles((theme: Theme) =>

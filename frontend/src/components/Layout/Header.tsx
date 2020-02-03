@@ -19,11 +19,11 @@ import clsx from "clsx";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
-      height: "calc(100vh - 64px)",
+      minHeight: "calc(100vh - 64px)",
       backgroundColor: "#F2F2F2",
       padding: theme.spacing(2),
       [theme.breakpoints.down("md")]: {
-        height: "calc(100vh - 54px)",
+        minHeight: "calc(100vh - 54px)",
       }
     },
     logo: {

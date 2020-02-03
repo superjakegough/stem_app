@@ -25,6 +25,10 @@ const useStyles = makeStyles((theme: Theme) =>
     icon: {
       height: 200
     },
+    image: {
+      height: 100,
+      margin: theme.spacing(2)
+    },
     text: {
       fontSize: 48,
       fontWeight: "bold",
@@ -52,10 +56,40 @@ export default function Header(props: HeaderProps) {
 
   return (
     <>
-      <Grid container direction="column" justify="center" alignItems="center" className={classes.container}>
-        {home && <img className={classes.icon} src={stem} alt="stem-logo" />}
-        <div className={clsx(classes.text, classes.title)}>{title}</div>
-        <div className={clsx(classes.text, classes.subtitle)}>{subtitle}</div>
+      <Grid container direction="column" justify="space-between" alignItems="center" className={classes.container}>
+        <Grid item xs={12}>
+          <div>
+            <img className={classes.image} src={first} alt="" />
+            <img className={classes.image} src={second} alt="" />
+            <img className={classes.image} src={third} alt="" />
+          </div>
+          <div>
+            <img className={classes.image} src={fourth} alt="" />
+            <img className={classes.image} src={fifth} alt="" />
+          </div>
+          <div>
+            <img className={classes.image} src={sixth} alt="" />
+          </div>
+        </Grid>
+        <Grid item xs={12}>
+          {home && <img className={classes.icon} src={stem} alt="stem-logo" />}
+          <div className={clsx(classes.text, classes.title)}>{title}</div>
+          <div className={clsx(classes.text, classes.subtitle)}>{subtitle}</div>
+        </Grid>
+        <Grid item xs={12}>
+          <div>
+            <img className={classes.image} src={seventh} alt="" />
+          </div>
+          <div>
+            <img className={classes.image} src={eighth} alt="" />
+            <img className={classes.image} src={ninth} alt="" />
+          </div>
+          <div>
+            <img className={classes.image} src={tenth} alt="" />
+            <img className={classes.image} src={eleventh} alt="" />
+            <img className={classes.image} src={twelfth} alt="" />
+          </div>
+        </Grid>
       </Grid>
     </>
   );

@@ -19,14 +19,21 @@ import clsx from "clsx";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
-      height: "100vh",
+      height: "calc(100vh - 64px)",
       backgroundColor: "#F2F2F2"
     },
     icon: {
-      height: 200
+      height: 100
+    },
+    textContainer: {
+      position: "absolute",
+      top: "50%",
+      left: 0,
+      right: 0,
+      margin: "auto"
     },
     image: {
-      height: 100,
+      width: "5vw",
       margin: theme.spacing(2)
     },
     text: {
@@ -55,42 +62,42 @@ export default function Header(props: HeaderProps) {
   const { title, subtitle, home } = props;
 
   return (
-    <>
-      <Grid container direction="column" justify="space-between" alignItems="center" className={classes.container}>
-        <Grid item xs={12}>
-          <div>
-            <img className={classes.image} src={first} alt="" />
-            <img className={classes.image} src={second} alt="" />
-            <img className={classes.image} src={third} alt="" />
-          </div>
-          <div>
-            <img className={classes.image} src={fourth} alt="" />
-            <img className={classes.image} src={fifth} alt="" />
-          </div>
-          <div>
-            <img className={classes.image} src={sixth} alt="" />
-          </div>
+    <Grid container justify="space-between" className={classes.container}>
+      <Grid item xs={12}>
+        <Grid container>
+          <img className={classes.image} src={first} alt="" />
+          <img className={classes.image} src={second} alt="" />
+          <img className={classes.image} src={third} alt="" />
         </Grid>
-        <Grid item xs={12}>
+        <Grid container>
+          <img className={classes.image} src={fourth} alt="" />
+          <img className={classes.image} src={fifth} alt="" />
+        </Grid>
+        <Grid container>
+          <img className={classes.image} src={sixth} alt="" />
+        </Grid>
+      </Grid>
+      <Grid item xs={12} className={classes.textContainer}>
+        <Grid container direction="column" alignItems="center">
           {home && <img className={classes.icon} src={stem} alt="stem-logo" />}
           <div className={clsx(classes.text, classes.title)}>{title}</div>
           <div className={clsx(classes.text, classes.subtitle)}>{subtitle}</div>
         </Grid>
-        <Grid item xs={12}>
-          <div>
-            <img className={classes.image} src={seventh} alt="" />
-          </div>
-          <div>
-            <img className={classes.image} src={eighth} alt="" />
-            <img className={classes.image} src={ninth} alt="" />
-          </div>
-          <div>
-            <img className={classes.image} src={tenth} alt="" />
-            <img className={classes.image} src={eleventh} alt="" />
-            <img className={classes.image} src={twelfth} alt="" />
-          </div>
+      </Grid>
+      <Grid item xs={12}>
+        <Grid container justify="flex-end">
+          <img className={classes.image} src={seventh} alt="" />
+        </Grid>
+        <Grid container justify="flex-end">
+          <img className={classes.image} src={eighth} alt="" />
+          <img className={classes.image} src={ninth} alt="" />
+        </Grid>
+        <Grid container justify="flex-end">
+          <img className={classes.image} src={tenth} alt="" />
+          <img className={classes.image} src={eleventh} alt="" />
+          <img className={classes.image} src={twelfth} alt="" />
         </Grid>
       </Grid>
-    </>
+    </Grid>
   );
 }

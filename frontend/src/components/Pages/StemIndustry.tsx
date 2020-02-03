@@ -40,27 +40,29 @@ export default function StemIndustry(props: StemIndustryProps) {
               {industry.title}
             </h4>
             <p>{industry.info}</p>
-            {industry.categories.map(category => (
-              <ExpansionPanel key={category.title} elevation={0} className={classesBase.mb3}>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                  <p className={classesBase.expansionSummary}>
-                    {category.title}
-                  </p>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                  <Grid container direction="column">
-                    <Grid item>
-                      <ul>
-                        {category.subcategories &&
-                          category.subcategories.map(subcategory => (
-                            <li key={subcategory.title}> {subcategory.title}</li>
-                          ))}
-                      </ul>
+            <div className={classesBase.mb3}>
+              {industry.categories.map(category => (
+                <ExpansionPanel key={category.title} elevation={0} className={classesBase.mb3}>
+                  <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                    <p className={classesBase.expansionSummary}>
+                      {category.title}
+                    </p>
+                  </ExpansionPanelSummary>
+                  <ExpansionPanelDetails>
+                    <Grid container direction="column">
+                      <Grid item>
+                        <ul>
+                          {category.subcategories &&
+                            category.subcategories.map(subcategory => (
+                              <li key={subcategory.title}> {subcategory.title}</li>
+                            ))}
+                        </ul>
+                      </Grid>
                     </Grid>
-                  </Grid>
-                </ExpansionPanelDetails>
-              </ExpansionPanel>
-            ))}
+                  </ExpansionPanelDetails>
+                </ExpansionPanel>
+              ))}
+            </div>
             <Recruitment />
             <p>
               If you are looking to hire and need help from our {industry.title}{" "}

@@ -17,7 +17,7 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: "Public Sans, sans-serif"
+    fontFamily: "Poppins, sans-serif"
   }
 });
 

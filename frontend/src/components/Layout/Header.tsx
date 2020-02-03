@@ -50,6 +50,9 @@ const useStyles = makeStyles((theme: Theme) =>
       fontWeight: "bold",
       lineHeight: 1.2,
       letterSpacing: 0.24,
+      whiteSpace: "pre-line",
+      textAlign: "center",
+      margin: theme.spacing(2),
       [theme.breakpoints.down("md")]: {
         fontSize: 36
       },
@@ -58,10 +61,10 @@ const useStyles = makeStyles((theme: Theme) =>
       }
     },
     title: {
-      color: theme.palette.primary.main
+      color: "#4D4D4D"
     },
     subtitle: {
-      subtitle: "#4D4D4D"
+      color: theme.palette.primary.main
     }
   })
 );

@@ -4,17 +4,14 @@ import React, {
   FormEvent,
   ChangeEvent
 } from "react";
-import { Theme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
-import blogsimage from "../../assets/blogs.jpg";
-import blogsPt from "../../assets/blogsPt.jpg";
 import TablePagination from "@material-ui/core/TablePagination";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import Paper from "@material-ui/core/Paper";
+import Header from "../Layout/Header";
 import ContentDom from "../Layout/ContentDom";
 import LinkButton from "../Layout/LinkButton";
 import { Blog } from "../../models/blog";
@@ -31,10 +28,6 @@ export default function StemBlogs() {
   const [page, setPage] = useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = useState<number>(3);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const smAndDown = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("sm")
-  );
-  const blogsImage = smAndDown ? blogsPt : blogsimage;
 
   useEffect(() => {
     fetchBlogs();
@@ -138,9 +131,7 @@ export default function StemBlogs() {
   return (
     <div>
       <Grid container direction="column" justify="center" wrap="nowrap">
-        <Grid item xs={12}>
-          <img src={blogsImage} className={classesBase.headerImage} alt="" />
-        </Grid>
+        <Header title={"Our blog - "} subtitle={"Find out what we've been up to lately"}/>
         <Grid
           container
           justify="center"

@@ -11,7 +11,10 @@ const theme = createMuiTheme({
     background: {
       default: "#FAFAFA",
       paper: "#FFFFFF"
-    }
+    },
+    text: {
+      primary: "#4D4D4D"
+    },
   },
   typography: {
     fontFamily: "Public Sans, sans-serif"

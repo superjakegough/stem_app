@@ -49,9 +49,7 @@ export default function Home() {
   return (
     <div>
       <Grid container direction="column" justify="center" wrap="nowrap">
-        <Grid item xs>
-          <Header title="Growing your business," subtitle="growing your career" home/>
-        </Grid>
+        <Header title="Growing your business," subtitle="growing your career" home/>
         <Grid
           container
           justify="center"

@@ -52,7 +52,8 @@ const useStyles = makeStyles((theme: Theme) =>
       letterSpacing: 0.24,
       whiteSpace: "pre-line",
       textAlign: "center",
-      margin: theme.spacing(2),
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2),
       [theme.breakpoints.down("md")]: {
         fontSize: 36
       },
@@ -98,7 +99,7 @@ export default function Header(props: HeaderProps) {
       <div className={classes.textContainer}>
         <Grid container direction="column" alignItems="center">
           {home && <img className={classes.logo} src={stem} alt="stem-logo" />}
-          <div className={clsx(classes.text, classes.title)}>{title}</div>
+          <div className={clsx(classes.text, classes.title)}>{title}{!home && " -"}</div>
           <div className={clsx(classes.text, classes.subtitle)}>{subtitle}</div>
         </Grid>
       </div>

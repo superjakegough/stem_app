@@ -14,7 +14,7 @@ export default function Services() {
   return (
     <div>
       <Grid container direction="column" justify="center" wrap="nowrap">
-        <Header title={"Services - "} subtitle={"Helping Science, Technology, Engineering\nand Manufacturing businesses grow"}/>
+        <Header title={"Services"} subtitle={"Helping Science, Technology, Engineering\nand Manufacturing businesses grow"}/>
         <Grid
           container
           justify="center"

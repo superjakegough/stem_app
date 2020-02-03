@@ -131,7 +131,7 @@ export default function StemBlogs() {
   return (
     <div>
       <Grid container direction="column" justify="center" wrap="nowrap">
-        <Header title={"Our blog - "} subtitle={"Find out what we've been up to lately"}/>
+        <Header title={"Our blog"} subtitle={"Find out what we've been up to lately"}/>
         <Grid
           container
           justify="center"

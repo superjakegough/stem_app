@@ -1,11 +1,10 @@
 import React from "react";
-import { Theme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Header from "../Layout/Header";
 import LinkButton from "../Layout/LinkButton";
 import Recruitment from "../Layout/Recruitment";
 import useStylesBase from "../../styles/styles-base";
@@ -19,17 +18,10 @@ export default function StemIndustry(props: StemIndustryProps) {
   const classesBase = useStylesBase();
   const { industry } = props;
 
-  const smAndDown = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("sm")
-  );
-  const imageEnd = smAndDown ? "Pt.jpg" : ".jpg";
-
   return (
     <div>
       <Grid container direction="column" justify="center" wrap="nowrap">
-        <Grid item xs={12}>
-          {/* <img src={`./assets/industries/${industry.image}${imageEnd}`} className={classesBase.headerImage} alt="" /> */}
-        </Grid>
+        <Header title={industry.title} subtitle={industry.subtitle} />
         <Grid
           container
           justify="center"

@@ -135,7 +135,7 @@ export default function StemJobs() {
   return (
     <div>
       <Grid container direction="column" justify="center" wrap="nowrap">
-        <Header title={"Jobs - "} subtitle={"Find your next role in the Science, Technology,\nEngineering and Manufacturing"}/>
+        <Header title={"Jobs"} subtitle={"Find your next role in the Science, Technology,\nEngineering and Manufacturing"}/>
         <Grid
           container
           justify="center"

@@ -20,27 +20,42 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
       height: "calc(100vh - 64px)",
-      backgroundColor: "#F2F2F2"
+      backgroundColor: "#F2F2F2",
+      padding: theme.spacing(2),
+      [theme.breakpoints.down("md")]: {
+        height: "calc(100vh - 54px)",
+      }
     },
-    icon: {
-      height: 100
+    logo: {
+      width: "10%",
+      maxWidth: 100
     },
     textContainer: {
       position: "absolute",
-      top: "50%",
+      top: "calc(50% - 64px)",
       left: 0,
       right: 0,
-      margin: "auto"
+      margin: "auto",
+      [theme.breakpoints.down("md")]: {
+        top: "calc(50% - 54px)",
+      }
     },
     image: {
-      width: "5vw",
+      width: "10%",
+      maxWidth: 97,
       margin: theme.spacing(2)
     },
     text: {
       fontSize: 48,
       fontWeight: "bold",
       lineHeight: 1.2,
-      letterSpacing: 0.24
+      letterSpacing: 0.24,
+      [theme.breakpoints.down("md")]: {
+        fontSize: 36
+      },
+      [theme.breakpoints.down("xs")]: {
+        fontSize: 24
+      }
     },
     title: {
       color: theme.palette.primary.main
@@ -77,14 +92,14 @@ export default function Header(props: HeaderProps) {
           <img className={classes.image} src={sixth} alt="" />
         </Grid>
       </Grid>
-      <Grid item xs={12} className={classes.textContainer}>
+      <div className={classes.textContainer}>
         <Grid container direction="column" alignItems="center">
-          {home && <img className={classes.icon} src={stem} alt="stem-logo" />}
+          {home && <img className={classes.logo} src={stem} alt="stem-logo" />}
           <div className={clsx(classes.text, classes.title)}>{title}</div>
           <div className={clsx(classes.text, classes.subtitle)}>{subtitle}</div>
         </Grid>
-      </Grid>
-      <Grid item xs={12}>
+      </div>
+      <Grid container item xs={12} alignItems="flex-end">
         <Grid container justify="flex-end">
           <img className={classes.image} src={seventh} alt="" />
         </Grid>

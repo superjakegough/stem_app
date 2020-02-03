@@ -3,7 +3,7 @@ import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 const useStylesBase = makeStyles((theme: Theme) =>
   createStyles({
     base: {
-      fontFamily: "Public Sans, sans-serif",
+      fontFamily: "Poppins, sans-serif",
       display: "flex",
       "& a": {
         color: theme.palette.primary.main,

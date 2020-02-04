@@ -21,7 +21,7 @@ export default function StemIndustry(props: StemIndustryProps) {
   return (
     <div>
       <Grid container direction="column" justify="center" wrap="nowrap">
-        <Header title={industry.title} subtitle={industry.subtitle} />
+        <Header title={industry.title} subtitle={industry.subtitle} industry />
         <Grid
           container
           justify="center"

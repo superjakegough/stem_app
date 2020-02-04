@@ -58,10 +58,10 @@ const useStyles = makeStyles((theme: Theme) =>
       marginLeft: theme.spacing(2),
       marginRight: theme.spacing(2),
       [theme.breakpoints.down("md")]: {
-        fontSize: 32
+        fontSize: 30
       },
       [theme.breakpoints.down("xs")]: {
-        fontSize: 24
+        fontSize: 20
       }
     },
     title: {
@@ -77,11 +77,12 @@ interface HeaderProps {
   title: string;
   subtitle: string;
   home?: boolean;
+  industry?: boolean;
 }
 
 export default function Header(props: HeaderProps) {
   const classes = useStyles();
-  const { title, subtitle, home } = props;
+  const { title, subtitle, home, industry } = props;
 
   return (
     <div>
@@ -103,8 +104,8 @@ export default function Header(props: HeaderProps) {
         <div className={classes.textContainer}>
           <Grid container direction="column" alignItems="center">
             {home && <img className={classes.logo} src={stem} alt="stem-logo" />}
-            <div className={clsx(classes.text, classes.title)}>{title}{!home && " -"}</div>
-            <div className={clsx(classes.text, classes.subtitle)}>{subtitle}</div>
+            <div className={clsx(classes.text, industry ? classes.subtitle : classes.title)}>{title}{!home && " -"}</div>
+            <div className={clsx(classes.text, industry ? classes.title : classes.subtitle)}>{subtitle}</div>
           </Grid>
         </div>
         <Grid container item xs={12} alignContent="flex-end">

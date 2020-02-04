@@ -190,7 +190,7 @@ export default function Home() {
               container
               justify="center"
               alignItems="center"
-              className={clsx(classes.fillHeight, classes.divider)}
+              className={clsx(classes.fillHeight, classesBase.ml2, classesBase.mr2)}
             >
               <p>
                 I am a personable and technical recruiter with a simple and

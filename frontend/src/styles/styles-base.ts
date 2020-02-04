@@ -123,6 +123,9 @@ const useStylesBase = makeStyles((theme: Theme) =>
     ml2: {
       marginLeft: theme.spacing(2)
     },
+    mr2: {
+      marginRight: theme.spacing(2)
+    },
     fullHeight: {
       height: "100vh"
     },
